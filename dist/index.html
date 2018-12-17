@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Eligibility API</title>
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  
+  </head>
+
+<body>
+
+<section>
+  <header class="c-header p-2">
+  <h1 class="c-header__descriptor text-color-blue-dark">
+    NYC Benefits Eligibility API
+  </h1>
+</header>
+
+<section class="usa-grid screen-desktop:layout--sidebar-small-gutter">
+  <aside>
+    <nav class="c-side-nav">
+  <ul>
+    <li>
+      <a class="active" href="/">Overview</a>
+    </li>
+    <li>
+      <a href="#terms-of-service">Terms of Service</a>
+    </li>
+    <li>
+      <a href="#request-an-account">Request and Account</a>
+    </li>
+    <li>
+      <a href="#request-account-form">Request Account Form</a>
+    </li>
+    <li>
+      <a href="#set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
+    </li>
+    <li>
+      <a href="#eligibility-guidelines">Eligibility Guidelines</a>
+    </li>
+    <li>
+      <a href="#making-a-request">Making a Request</a>
+    </li>
+    <li>
+      <a href="#endpoints">Endpoints</a>
+    </li>
+    <li>
+      <a href="#sample-code-and-sdks">Sample Data, Code, and SDKs</a>
+    </li>
+    <li>
+      <a href="#feedback-and-support">Feedback and Support</a>
+    </li>
+    <li>
+      <a href="swagger">Swagger Documentation</a>
+    </li>
+  </ul>
+</nav>  </aside>
+
+  <article>
+    <p>The NYC Benefits Eligibility Application Programing Interface (API) allows you to utilize the engine that governs ACCESS NYC’s Eligibility Screener. This web service allows developers to create modern web applications that evaluate household data (i.e. information about a household’s income, expenses, housing situation, etc.) against eligibility rules for 31 different City, State, and Federal benefits programs. It is built around policies of security, privacy, and reliable service following REST principles.</p>
+<p>When household data is sent to the Eligibility API, it will return a JSON response that contains program names and codes. The program codes can be used to cross-reference additional content from the Benefits and Program’s Open API. These are the same tools that ACCESS NYC and Growing Up NYC use to provide content and eligibility information for health and human services.   Now, eligibility rules collected and maintained by the Mayor’s Office for Economic Opportunity can be used with program content (including the most recent applications, eligibility requirements, and application dates) by the public. </p>
+<p><strong>Benefits of integration with the NYC Benefits Eligibility API:</strong></p>
+<ul>
+<li><p>Potential eligibility for 31 City, State, and Federal programs (including SNAP, Cash Assistance, WIC, HEAP, and more)</p>
+</li>
+<li><p>Eligibility criteria maintained by NYC Opportunity and participating governmental agencies</p>
+</li>
+</ul>
+<p><strong>How you can use the API:</strong></p>
+<ul>
+<li><p>Provide a holistic view of your clients’ potential eligibility and suggest appropriate benefits programs for their situation.</p>
+</li>
+<li><p>Inform and better targeting for your benefits outreach campaigns (ex: direct marketing mailers and emails, case worker outreach) </p>
+</li>
+<li><p>For City Agencies, NYC Opportunity can provide access to the API through data sharing CSVs instead of technical integration.  Contact us for more information.</p>
+</li>
+</ul>
+<p>More information about NYC Opportunity’s products can be found on nyc.gov/opportunity. This site provides documentation on how to use the API. For direct support, contact us following the guide on the Feedback and Support page.</p>
+    <h1 id="terms-of-service">Terms Of Service</h1>
+<h2 id="agreement-for-access-to-the-nyc-benefits-eligibility-api-eligibility-api-"><em>Agreement for access to the NYC Benefits Eligibility API (“Eligibility API”)</em></h2>
+<p>The Mayor’s Office for Economic Opportunity (NYC Opportunity) provides access to the rules engine that governs ACCESS NYC’s Eligibility Screener through an application programming interface (API), the NYC Benefits Eligibility API.</p>
+<p>This API returns results of potential, but not guaranteed eligibility at the household level for 31 different City, State, and Federal benefits programs based on household data that is provided. The results of programs that the API returns may be dependent on the quality, accuracy, and completeness of the information provided regarding a New York City family’s household composition. </p>
+<p>The guidelines governing eligibility criteria for the 31 benefits programs are maintained and updated on a regular basis by NYC Opportunity in partnership with the benefit program’s administering agency. NYC Opportunity makes the effort to produce an update every quarter, but does not guarantee this. We’ll communicate information about eligibility criteria changes by email to developer accounts. You can also sign up for updates here.These guidelines are interpreted and implemented in the eligibility engine which runs on the business rules management system Drools. </p>
+<p>Members of the public can obtain the human-readable eligibility guidelines in the form of The NYC Benefits Eligibility Master Rules Document. NYC Opportunity is making the API available to developers who agree to the provisions of this access agreement and comply with its requirements.</p>
+<p>Credentials will be issued to developers who agree to the terms and conditions of this agreement by submission of the registration form.  This will enable the developer to access the sandbox NYC Benefits Eligibility API. When the developer is ready, they can request access to the Production API key. </p>
+<h2 id="terms-of-this-agreement-">Terms of this Agreement.</h2>
+<p>You agree to the following:</p>
+<ol>
+<li><p>You will not state or imply in any manner that your application or use of this API is endorsed by the City of New York, NYC Opportunity, or any related governmental agency. This includes the use of logos, symbols, or other intellectual property.</p>
+</li>
+<li><p>You will not state or imply that eligibility for any program is guaranteed. To enroll in a benefit, an applicant must apply through the administering agency, who will determine final eligibility upon submission of an application for a program. You may however, state that you are utilizing an API from NYC Opportunity and, through your own server, are sending household composition data information to it, and receiving results of potential eligibility based on provided information. These results do not prohibit anyone from applying for any benefits or programs on behalf of a household.</p>
+</li>
+<li><p>The API and associated benefits programs and  eligibility guidelines are maintained with the intent of serving New York City residents.</p>
+</li>
+<li><p>You will not use the API or make it available in any manner that is inaccurate, misleading, false, or unlawful.</p>
+</li>
+<li><p>You will not modify or delete any of the data. You may, however, create an application that uses some but not all of the data (i.e. an application that focuses on potential eligibility for specific benefits programs).</p>
+</li>
+<li><p>You agree to submit household composition data in the prescribed format.</p>
+</li>
+<li><p>The household composition data shared with the API will not contain identifiable information such as First or Last Names, specific Birth Dates, or Street Addresses.</p>
+</li>
+<li><p>The household composition data shared with the API can be shared with City agencies to improve access to benefits and programs. To find out more about how the City might use the data you share with the NYC Benefits Eligibility API, visit the NYC.gov Terms of Use, and Privacy Policy.</p>
+</li>
+<li><p>You accept the data and the data returned from the API “as is” and without any NYC Opportunity representation that the data is(are) merchantable, suitable or fit for a particular purpose, compatible, available, reliable, non-infringing, secure, or virus free.</p>
+</li>
+<li><p>You agree to conduct application or API testing in the sandbox.</p>
+</li>
+<li><p>You will not intentionally subject the API to malicious process or code; will take safeguards to monitor your own applications for malicious/suspicious activity and immediately terminate processes that may be affecting the API.</p>
+</li>
+<li><p>You will not attempt to make calls to the API in a manner that exceeds a reasonable request volume or that circumvents our limits on API usage.</p>
+</li>
+<li><p>Your access to and receipt of the API is entirely at your own risk. You are solely responsible for the development and use of your application, including but not limited to determining and providing within and as part of the development of your application for its design, functionality, and security features.</p>
+</li>
+<li><p>It is your responsibility to comply with all applicable laws including any laws dealing with the ability of a person with a disability to access and use your application. Even if such laws do not apply, NYC Opportunity recommends and requests that insofar as applicable and relevant, you include such accessibility and use in the development of your application.</p>
+</li>
+<li><p>NYC Opportunity reserves the right at any time for any reason or no reason and without notice, to you to:</p>
+<ul>
+<li>Terminate the availability of the API in any of its forms (sandbox, production, etc.)</li>
+<li>Terminate your access to the API because you have violated this agreement.</li>
+<li>Change any or all of the provisions of this access agreement, including a change which would require you to change your application or result in you not being eligible to continue to access the API.</li>
+</ul>
+</li>
+</ol>
+<p>NYC Opportunity will endeavor to inform you in advance of any of the above actions but has no obligation to do so.</p>
+    <h1 id="request-an-account">Request an Account</h1>
+<p>The Eligibility API requires users to have an account in order to authenticate requests (using an authentication token) to receive successful responses for each endpoint. You can request an account on this page. Each account request is reviewed and it may take some time (please give us 1-2 business days) for your request to be fulfilled. Please keep in mind, by requesting an account, you agree to the terms of service for this API. </p>
+<p>After the account is created, two emails are sent to the address provided. One will contain your temporary developer credentials and the other will contain your temporary production credentials. You should use the developer credentials and domain when testing and developing with the API or in development, testing, or staging environments. The production domain should be used in public facing or production environments.</p>
+<p>Once you have credentials you will then use them with the Authentication Endpoint to set your developer and production passwords. Keep in mind; after 30 days the temporary password will expire, you will need to set your developer and production passwords, and you will only be able to set your password once. If, for any reason, you need to reset your password or update your account information please contact us through Support.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><p>Request an account on this page with your email address. </p>
+</li>
+<li><p>By requesting an account, you agree to the terms of service.
+Usernames cannot be changed.</p>
+</li>
+<li><p>Account requests are reviewed and it may 1-2 business days to be provisioned.</p>
+</li>
+<li><p>Your temporary password will expire after 30 days.</p>
+</li>
+<li><p>You will need to set your developer and production passwords.
+Keep your username and temporary password to set your password.</p>
+</li>
+<li><p>Setting your password can only be done once.</p>
+</li>
+<li><p>Contact us through Support if you need to update your account information.</p>
+</li>
+</ul>
+<h2 id="next">Next</h2>
+<p>Set Password and Token Based Authentication.</p>
+    <h1 id="request-account-form">Request Account Form</h1>
+<p>The NYC Benefits Eligibility API requires requires users to have an account which can be requested by completing the form below. Each request is reviewed and the usage of your account will be tracked to ensure agreement with our terms of service. See Request an Account for more details.  </p>
+    <h1 id="set-password-and-token-based-authentication">Set Password and Token Based Authentication</h1>
+<p>Once you have requested an account and received your username and temporary password, you will be able to set your password for making additional requests. This requires the use of the <code>authToken</code> endpoint which accepts a JSON payload with your username, temporary password, and new password. The new password field is not required on subsequent authToken requests but if populated your password will update. Below is a full example of a curl request of this method. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
+<pre><code>curl -X POST \
+  &#39;https://{{ domain }}/access-nyc-rest/authToken&#39; \
+  -H &#39;Content-Type: application/json&#39; \
+  -H &#39;cache-control: no-cache&#39; \
+  -d &#39;{
+    &quot;username&quot; : &quot;{{ username }}&quot;,
+    &quot;password&quot;: &quot;{{ temporary password }}&quot;,
+    &quot;newPassword&quot;: &quot;{{ new password }}&quot;
+  }&#39;</code></pre><h2 id="response">Response</h2>
+<p>A successful request will return a <code>token</code> in the response which means your password has been set. </p>
+<pre><code>{
+  &quot;type&quot;: &quot;SUCCESS&quot;,
+  &quot;token&quot;: &quot;{{ your new token will here }}&quot;
+}</code></pre><p>Be sure to keep track of your password as it can only be done once. If, for any reason, you need to reset your password or update your account information please contact us through Support.</p>
+<h2 id="tokens">Tokens</h2>
+<p>Once you have a token, you can use it along with your username to make requests to other endpoints. Tokens are set to expire every hour (or <code>3600</code> seconds) so you will need to keep track of the expiration to regenerate your token. Retrieving a new token can be done using the same <code>authToken</code> endpoint. All that’s needed is your username and password.</p>
+<pre><code>curl -X POST \
+  &#39;https://{{ domain }}/access-nyc-rest/authToken&#39; \
+  -H &#39;Content-Type: application/json&#39; \
+  -H &#39;cache-control: no-cache&#39; \
+  -d &#39;{
+    &quot;username&quot; : &quot;{{ username }}&quot;,
+    &quot;password&quot;: &quot;{{ temporary password }}&quot;
+  }&#39;</code></pre><h2 id="forgot-password">Forgot Password</h2>
+<p>If you forget your password, you can reset it with the /forgotPassword and /confirmPassword endpoints. </p>
+<pre><code>curl -X POST \
+  &#39;https://{{ domain }}/access-nyc-rest/authToken&#39; \
+  -H &#39;Content-Type: application/json&#39; \
+  -H &#39;cache-control: no-cache&#39; \
+  -d &#39;{
+    &quot;username&quot; : &quot;{{ username }}&quot;,
+    &quot;password&quot;: &quot;{{ temporary password }}&quot;
+  }&#39;</code></pre><h2 id="summary">Summary</h2>
+<p>Setting your new password can only be done once.</p>
+<ul>
+<li>Contact us through Support if you need to update your account information.</li>
+<li>The <code>authToken</code> endpoint is used to set your new password using your username and temporary password.</li>
+<li>The <code>authToken</code> endpoint responds with a token that expires after 1 hour (<code>3600</code> seconds).</li>
+<li>The <code>authToken</code> endpoint is also used to retrieve new tokens.</li>
+</ul>
+<h1 id="next">Next</h1>
+<p>Making a Request.</p>
+    <h1 id="eligibility-guidelines">Eligibility Guidelines</h1>
+<p>The guidelines governing eligibility criteria for the 31 benefits programs in the API are maintained and updated on a regular basis by NYC Opportunity in partnership with the benefit program’s administering agency. These guidelines are interpreted and implemented as logic in the eligibility engine which runs on the business rules management system Drools. </p>
+<p>It’s important for developers and end-users impacted by use of the API to understand that:</p>
+<ul>
+<li>The results of this API do not represent an eligibility determination and do not guarantee eligibility in any program.</li>
+<li>Likewise, the absence of a program result for a household should not be taken as an absolute indication of the household’s ineligibility for a program.</li>
+<li>To enroll in a benefit or program, a resident will need to submit an application through the administering agency, which will determine eligibility.</li>
+<li>The results of this API do not prohibit anyone from applying for any benefits or programs.</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>Benefits Eligibility Screening Rules Guide Version 1.3.0 (Month, Date, 2019) - This guide summarizes the eligibility criteria that is interpreted and implemented in the NYC Benefits Eligibility API.</li>
+<li>Benefits Screening Chart Version 1.0 (Month, Date, 2019) - This chart summarizes how individual request parameters map to the potential eligibility response for benefits programs.</li>
+</ul>
+    <h1 id="making-a-request">Making a Request</h1>
+<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your username and token is required for all requests. Your username is sent to you when your account is created. Getting a token is described in Set Password and Token Based Authentication. The request body and response are sent as JSON so the <code>Content-Type</code> header must be set to <code>application/json</code>. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
+<pre><code>curl -X POST \
+  &#39;https://{{ domain }}/access-nyc-rest/{{ endpoint }}&#39; \
+  -H &#39;Content-Type: application/json&#39; \
+  -H &#39;cache-control: no-cache&#39; \
+  -H &#39;username: {{ username }}&#39; \
+  -H &#39;Authorization: {{ token }}&#39; \
+  -d &#39;{{ request body }}&#39;</code></pre><h1 id="headers">Headers</h1>
+<p>Here is a full list of headers required for each request.</p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content-Type</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>username</td>
+<td>Your account username.</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>A valid token retrieved via the <code>authToken</code> endpoint.</td>
+</tr>
+</tbody></table>
+<h2 id="testing">Testing</h2>
+<p>Please note, there are two domains for sending requests, one for testing and one for production level applications. Please use the appropriate domain during testing and application development, as well as the production domain for production level applications.</p>
+<h2 id="request-body-household-composition-data-">Request Body (Household Composition Data)</h2>
+<p>The request for each endpoint should contain certain datum pertinent to the household of the client for which eligibility is being evaluated. We refer to this as Household Composition Data. The entire dataset is made up of two distinct types:  Household and Person(s). Each type has different attributes that must be filled out as completely as possible for the most accurate eligibility evaluation. There can only be one type of Household and there can be more than one Person associated with each household.</p>
+<p>Below is a list of all parameters and their description. For a description of how to structure the data for each endpoint, please refer to the endpoint documentation.</p>
+<h3 id="household">Household</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Data Attribute</th>
+<th>Type</th>
+<th>Possible Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Members</td>
+<td>Number of People in the household. Directly related to the number of Person types. Minimum is 1 and maximum value is 8.</td>
+<td>members</td>
+<td>Integer</td>
+<td>Integer greater than 0 <br> Example: 1</td>
+</tr>
+<tr>
+<td>Cash On Hand</td>
+<td>How much does your whole household has right now in; cash on hand, checking or saving accounts, stocks, bonds or mutual funds.</td>
+<td>cashOnHand</td>
+<td>Float</td>
+<td>Numeric value greater than or equal to 0. <br> Example: 2000.00</td>
+</tr>
+<tr>
+<td>Renting</td>
+<td>Renting the current living situation.</td>
+<td>livingRenting</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Housing Rental Type</td>
+<td>The type of rental, if renting.</td>
+<td>livingRentalType</td>
+<td>String</td>
+<td>Blank (“”) or one of the strings below below.</td>
+</tr>
+<tr>
+<td>.</td>
+<td>Non-Regulated or Market Rate apartment.</td>
+<td>.</td>
+<td>.</td>
+<td>MarketRate</td>
+</tr>
+<tr>
+<td></td>
+<td>Rent controlled or rent stabilized apartment.</td>
+<td></td>
+<td></td>
+<td>RentControlled</td>
+</tr>
+<tr>
+<td></td>
+<td>Family Home.</td>
+<td></td>
+<td></td>
+<td>FamilyHome</td>
+</tr>
+<tr>
+<td></td>
+<td>Condo.</td>
+<td></td>
+<td></td>
+<td>Condo</td>
+</tr>
+<tr>
+<td></td>
+<td>NYCHA Housing.</td>
+<td></td>
+<td></td>
+<td>NYCHA</td>
+</tr>
+<tr>
+<td></td>
+<td>Rent Regulated Hotel/Single Room.</td>
+<td></td>
+<td></td>
+<td>RentRegulatedHotel</td>
+</tr>
+<tr>
+<td></td>
+<td>Section 213 apartments.</td>
+<td></td>
+<td></td>
+<td>Section213</td>
+</tr>
+<tr>
+<td></td>
+<td>Limited Dividend development apartments.</td>
+<td></td>
+<td></td>
+<td>LimitedDividendDevelopment</td>
+</tr>
+<tr>
+<td></td>
+<td>Mitchell-Lama apartments.</td>
+<td></td>
+<td></td>
+<td>MitchellLama</td>
+</tr>
+<tr>
+<td></td>
+<td>Redevelopment Company apartments.</td>
+<td></td>
+<td></td>
+<td>RedevelopmentCompany</td>
+</tr>
+<tr>
+<td></td>
+<td>Housing Development Fund Company (HDFC) Cooperative.</td>
+<td></td>
+<td></td>
+<td>HDFC</td>
+</tr>
+<tr>
+<td>Owner of the Home or Apt.</td>
+<td>A household member owns the home or apartment.</td>
+<td>livingOwner</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Staying with a Friend</td>
+<td>Staying with a friend</td>
+<td>livingStayingWithFriend</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Hotel</td>
+<td>In a hotel.</td>
+<td>livingHotel</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Shelter or Homeless</td>
+<td>In a shelter or homeless.</td>
+<td>livingShelter</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Prefer not to Say</td>
+<td>Preference to not disclose housing.</td>
+<td>livingPreferNotToSay</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+</tbody></table>
+<h2 id="person">Person</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Data Attribute</th>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Age</td>
+<td>The age of the person.</td>
+<td>age</td>
+<td>Integer</td>
+<td>Integer greater than 0. <br>Example: 31</td>
+</tr>
+<tr>
+<td>Student</td>
+<td>Whether the person is a student or not.</td>
+<td>student</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Full-time Student</td>
+<td>Whether the person is a full-time student or not.</td>
+<td>studentFulltime</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Pregnant</td>
+<td>Whether the person is pregnant or not.</td>
+<td>pregnant</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Unemployed</td>
+<td>Whether the person is employed or not.</td>
+<td>unemployed</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Unemployed and Worked in the Last 18 Months</td>
+<td>Whether the person is unemployed and worked within the last 18 months.</td>
+<td>unemployedWorkedLast18Months</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Is Blind</td>
+<td>Whether the person is blind or not.</td>
+<td>blind</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Has any Disabilities</td>
+<td>Whether the person has disabilities or not.</td>
+<td>disabled</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Veteran</td>
+<td>Whether the person is a veteran or not.</td>
+<td>veteran</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Receives Medicaid Benefits</td>
+<td>Whether the person receives medicaid benefits or not.</td>
+<td>benefitsMedicaid</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Receives Disability-related Medicaid Benefits</td>
+<td>Whether the person receives disability-related medicaid benefits or not.</td>
+<td>benefitsMedicaidDisability</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Is the Head of the Household.</td>
+<td>Whether the person is the head of household or not. Note, only one person can be the head of household.</td>
+<td>headOfHousehold</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Relation to the Head of Household</td>
+<td>If person isn’t the head of household, what is their relation to the head of household (see below).</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>headOfHouseholdRelation</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>String</td>
+<td>Blank (“”) or one of the strings below below.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Child</td>
+<td></td>
+<td></td>
+<td>Child</td>
+</tr>
+<tr>
+<td></td>
+<td>Foster Child</td>
+<td></td>
+<td></td>
+<td>FosterChild</td>
+</tr>
+<tr>
+<td></td>
+<td>Step-child</td>
+<td></td>
+<td></td>
+<td>StepChild</td>
+</tr>
+<tr>
+<td></td>
+<td>Grandchild</td>
+<td></td>
+<td></td>
+<td>Grandchild</td>
+</tr>
+<tr>
+<td></td>
+<td>Spouse</td>
+<td></td>
+<td></td>
+<td>Spouse</td>
+</tr>
+<tr>
+<td></td>
+<td>Parent</td>
+<td></td>
+<td></td>
+<td>Parent</td>
+</tr>
+<tr>
+<td></td>
+<td>Foster Parent</td>
+<td></td>
+<td></td>
+<td>FosterParent</td>
+</tr>
+<tr>
+<td></td>
+<td>Step-parent</td>
+<td></td>
+<td></td>
+<td>StepParent</td>
+</tr>
+<tr>
+<td></td>
+<td>Grandparent</td>
+<td></td>
+<td></td>
+<td>Grandparent</td>
+</tr>
+<tr>
+<td></td>
+<td>Sister/Brother</td>
+<td></td>
+<td></td>
+<td>SisterBrother</td>
+</tr>
+<tr>
+<td></td>
+<td>Step-sister/Step-brother</td>
+<td></td>
+<td></td>
+<td>StepSisterStepBrother</td>
+</tr>
+<tr>
+<td></td>
+<td>Boyfriend/Girlfriend</td>
+<td></td>
+<td></td>
+<td>BoyfriendGirlfriend</td>
+</tr>
+<tr>
+<td></td>
+<td>Domestic Partner</td>
+<td></td>
+<td></td>
+<td>DomesticPartner</td>
+</tr>
+<tr>
+<td></td>
+<td>Unrelated</td>
+<td></td>
+<td></td>
+<td>Unrelated</td>
+</tr>
+<tr>
+<td></td>
+<td>Related in some other way</td>
+<td></td>
+<td></td>
+<td>Other</td>
+</tr>
+<tr>
+<td>Owner or on deed</td>
+<td>If the household owns the home, is the person the owner or on the deed.</td>
+<td>livingOwnerOnDeed</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Renting and on the Rental Lease.</td>
+<td>If the household rental is renting, whether the person on the lease or not.</td>
+<td>livingRentalOnLease</td>
+<td>Boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Income</td>
+<td>A collection of one or more income objects.</td>
+<td>incomes</td>
+<td>Array</td>
+<td><code>[{ “amount”: “200.00”, “type”: “Veteran”, “frequency”: “monthly”}, ...]</code></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Income amount.</strong> The dollar amount of the income.</td>
+<td>amount</td>
+<td>Float</td>
+<td>Value greater than or equal to 0.<br>Example: 200.00</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Income type.</strong> The type of the income (see below).</td>
+<td>type</td>
+<td>String</td>
+<td>One of the strings below.</td>
+</tr>
+<tr>
+<td></td>
+<td>Wages, salaries, tips.</td>
+<td></td>
+<td></td>
+<td>Wages</td>
+</tr>
+<tr>
+<td></td>
+<td>Self-employment income.</td>
+<td></td>
+<td></td>
+<td>SelfEmployment</td>
+</tr>
+<tr>
+<td></td>
+<td>Unemployment benefits.</td>
+<td></td>
+<td></td>
+<td>Unemployment</td>
+</tr>
+<tr>
+<td></td>
+<td>Cash Assistance grant.</td>
+<td></td>
+<td></td>
+<td>CashAssistance</td>
+</tr>
+<tr>
+<td></td>
+<td>Child support (received).</td>
+<td></td>
+<td></td>
+<td>ChildSupport</td>
+</tr>
+<tr>
+<td></td>
+<td>Disability-related Medicaid.</td>
+<td></td>
+<td></td>
+<td>DisabilityMedicaid</td>
+</tr>
+<tr>
+<td></td>
+<td>Supplemental Security Income (SSI).</td>
+<td></td>
+<td></td>
+<td>SSI</td>
+</tr>
+<tr>
+<td></td>
+<td>Social Security Dependent benefits.</td>
+<td></td>
+<td></td>
+<td>SSDependent</td>
+</tr>
+<tr>
+<td></td>
+<td>Social Security Disability benefits.</td>
+<td></td>
+<td></td>
+<td>SSDisability</td>
+</tr>
+<tr>
+<td></td>
+<td>Social Security Survivor’s benefits.</td>
+<td></td>
+<td></td>
+<td>SSSurvivor</td>
+</tr>
+<tr>
+<td></td>
+<td>Social Security Retirement benefits.</td>
+<td></td>
+<td></td>
+<td>SSRetirement</td>
+</tr>
+<tr>
+<td></td>
+<td>New York State Disability benefits.</td>
+<td></td>
+<td></td>
+<td>NYSDisability</td>
+</tr>
+<tr>
+<td></td>
+<td>Veteran’s Pension or benefits.</td>
+<td></td>
+<td></td>
+<td>Veteran</td>
+</tr>
+<tr>
+<td></td>
+<td>Government or Private Pension.</td>
+<td></td>
+<td></td>
+<td>Pension</td>
+</tr>
+<tr>
+<td></td>
+<td>Withdrawals from Deferred Compensation (IRA, Keogh, etc.).</td>
+<td></td>
+<td></td>
+<td>DeferredComp</td>
+</tr>
+<tr>
+<td></td>
+<td>Worker’s Compensation.</td>
+<td></td>
+<td></td>
+<td>WorkersComp</td>
+</tr>
+<tr>
+<td></td>
+<td>Alimony (received).</td>
+<td></td>
+<td></td>
+<td>Alimony</td>
+</tr>
+<tr>
+<td></td>
+<td>Boarder or lodger.</td>
+<td></td>
+<td></td>
+<td>Boarder</td>
+</tr>
+<tr>
+<td></td>
+<td>Gifts/contributions (received)</td>
+<td></td>
+<td></td>
+<td>Gifts</td>
+</tr>
+<tr>
+<td></td>
+<td>Rental income.</td>
+<td></td>
+<td></td>
+<td>Rental</td>
+</tr>
+<tr>
+<td></td>
+<td>Investment income (interest, dividends, and profit from selling stocks).</td>
+<td></td>
+<td></td>
+<td>Investment</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Income frequency.</strong> How often the income is received.</td>
+<td>frequency</td>
+<td>String</td>
+<td>One of the strings below.</td>
+</tr>
+<tr>
+<td></td>
+<td>Every week.</td>
+<td></td>
+<td></td>
+<td>weekly</td>
+</tr>
+<tr>
+<td></td>
+<td>Every 2 weeks.</td>
+<td></td>
+<td></td>
+<td>biweekly</td>
+</tr>
+<tr>
+<td></td>
+<td>Monthly</td>
+<td></td>
+<td></td>
+<td>monthly</td>
+</tr>
+<tr>
+<td></td>
+<td>Twice a month.</td>
+<td></td>
+<td></td>
+<td>semimonthly</td>
+</tr>
+<tr>
+<td></td>
+<td>Every year.</td>
+<td></td>
+<td></td>
+<td>yearly</td>
+</tr>
+<tr>
+<td>Expenses</td>
+<td>A collection of one or more expense objects.</td>
+<td>expenses</td>
+<td>Array</td>
+<td><code>[{ “amount”: ”50.00”, “type”: ”Medical”, “frequency”: ”weekly”}, ...]</code></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Expense amount.</strong> The dollar amount of the expense.</td>
+<td>amount</td>
+<td>Float</td>
+<td>Value greater than or equal to 0.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Expense type.</strong> The type of the expense (see below).</td>
+<td>type</td>
+<td>String</td>
+<td>One of the strings below.</td>
+</tr>
+<tr>
+<td></td>
+<td>Child care.</td>
+<td></td>
+<td></td>
+<td>ChildCare</td>
+</tr>
+<tr>
+<td></td>
+<td>Child Support (paid).</td>
+<td></td>
+<td></td>
+<td>ChildSupport</td>
+</tr>
+<tr>
+<td></td>
+<td>Dependent Care.</td>
+<td></td>
+<td></td>
+<td>DependentCare</td>
+</tr>
+<tr>
+<td></td>
+<td>Rent</td>
+<td></td>
+<td></td>
+<td>Rent</td>
+</tr>
+<tr>
+<td></td>
+<td>Medical expense</td>
+<td></td>
+<td></td>
+<td>Medical</td>
+</tr>
+<tr>
+<td></td>
+<td>Heating</td>
+<td></td>
+<td></td>
+<td>Heating</td>
+</tr>
+<tr>
+<td></td>
+<td>Cooling</td>
+<td></td>
+<td></td>
+<td>Cooling</td>
+</tr>
+<tr>
+<td></td>
+<td>Mortgage</td>
+<td></td>
+<td></td>
+<td>Mortgage</td>
+</tr>
+<tr>
+<td></td>
+<td>Utilities</td>
+<td></td>
+<td></td>
+<td>Utilities</td>
+</tr>
+<tr>
+<td></td>
+<td>Telephone</td>
+<td></td>
+<td></td>
+<td>Telephone</td>
+</tr>
+<tr>
+<td></td>
+<td>Third party insurance premiums.</td>
+<td></td>
+<td></td>
+<td>InsurancePremiums</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Expense frequency.</strong> How often the expense is paid (see below).</td>
+<td>frequency</td>
+<td>string</td>
+<td>One of the strings below.</td>
+</tr>
+<tr>
+<td></td>
+<td>Every week.</td>
+<td></td>
+<td></td>
+<td>weekly</td>
+</tr>
+<tr>
+<td></td>
+<td>Every 2 weeks.</td>
+<td></td>
+<td></td>
+<td>biweekly</td>
+</tr>
+<tr>
+<td></td>
+<td>Monthly</td>
+<td></td>
+<td></td>
+<td>monthly</td>
+</tr>
+<tr>
+<td></td>
+<td>Twice a month.</td>
+<td></td>
+<td></td>
+<td>semimonthly</td>
+</tr>
+<tr>
+<td></td>
+<td>Every year.</td>
+<td></td>
+<td></td>
+<td>yearly</td>
+</tr>
+</tbody></table>
+<h2 id="response-program-codes-">Response (Program Codes)</h2>
+<p>Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the Benefits and Programs API which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the endpoint documentation;
+|Program Code|Program Name|
+|--|--|
+|S2R010|Cash Assistance|
+|S2R001|Child and Dependent Care Tax Credit|
+|S2R004|Child Tax Credit|
+|...|...|
+See the full list on the Benefits and Programs API page.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Your username and a valid token is required for making a request.</li>
+<li>Set the <code>Content-Type</code> to <code>application/json</code>.</li>
+<li>The request body must be in JSON format.</li>
+<li>Use the testing domain for sample requests and development and the production domain for production level applications.
+T* he request body should include Household Composition Data that includes the household and person datatypes with as many of the available parameters filled out possible for the most accurate eligibility evaluation.</li>
+<li>The request response will contain a list of program names and codes</li>
+<li>Program codes can be mapped to additional content in the Benefits and Programs API.</li>
+</ul>
+<h2 id="next">Next</h2>
+<p>Endpoints.</p>
+    <h1 id="endpoints">Endpoints</h1>
+<p>Below is documentation in Swagger. You can also download our Postman Collections for testing.</p>
+<p>[embedded Swagger documentation]</p>
+<h2 id="next">Next</h2>
+<p>Sample Code and SDKs.</p>
+    <h1 id="sample-code-and-sdks">Sample Code and SDKs</h1>
+<p>Here is a list of existing repositories to help get started with the API.</p>
+<ul>
+<li>Eligibility API Composer SDK -  A Composer Package (PHP) for interacting with the Eligibility API with practical test scripts for integrating into an application.</li>
+<li>Eligibility API Sample Application - A single page form (JavaScript) that interacts with the <code>bulkSubmission</code> submission endpoint.</li>
+<li>Eligibility API Sample Data - Sample data for use with the <code>bulkSubmission</code> endpoint.</li>
+</ul>
+<p>Contact us through Support if you need additional help or have interest in sharing and listing SDKs or sample applications for this project.</p>
+<h2 id="next">Next</h2>
+<p>Feedback and Support.</p>
+    <h1 id="feedback-and-support">Feedback and Support</h1>
+<p>Please fill out the following form for additional support and feedback. Our team will contact you as soon as possible.</p>
+<p>[embedded Mailchimp form]</p>
+  </article>
+</section>
+
+</section>
+
+</body>
+</html>

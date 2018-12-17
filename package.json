@@ -1,0 +1,34 @@
+{
+  "name": "eligibilityapidocs",
+  "version": "0.0.1",
+  "description": "Documentation for the Eligbility API",
+  "author": "Mayor's Office for Economic Opportunity",
+  "license": "GPL-3.0",
+  "main": "npm run start",
+  "homepage": "https://github.com/CityOfNewYork/eligibilityapi-docs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CityOfNewYork/eligibilityapi-docs.git"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "serve": "node app/serve.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
+  },
+  "bugs": {
+    "url": "https://github.com/CityOfNewYork/eligibilityapi-docs/issues"
+  },
+  "dependencies": {
+    "access-nyc-patterns": "^0.1.0",
+    "browser-sync": "^2.26.3",
+    "express": "^4.16.4",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-twig": "^1.2.0",
+    "path": "^0.12.7",
+    "twig-markdown": "^0.2.1"
+  }
+}
