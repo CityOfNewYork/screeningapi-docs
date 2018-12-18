@@ -695,6 +695,130 @@
     position: static; } }
 
 /**
+ * Divider
+ */
+.divider {
+  border: none;
+  margin: 0;
+  border-bottom: 1px solid;
+  border-color: inherit;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  position: relative; }
+  .divider::after {
+    width: 130px;
+    height: 5px;
+    left: 0;
+    background: #FBB720;
+    bottom: -3px;
+    content: '';
+    display: block;
+    position: absolute; }
+
+.divider-light {
+  background: #D1D5D9;
+  border: 0;
+  display: block;
+  height: 1px;
+  margin: 36px 0;
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .divider-light {
+      margin: 60px 0; } }
+
+/**
+ * Code
+ */
+code, pre {
+  display: inline-block; }
+
+.code,
+.code-block,
+pre {
+  font-weight: normal;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  font-family: monospace;
+  background-color: #EEF3F7;
+  border: 1px solid #D1D5D9;
+  border-radius: 3px; }
+
+.code {
+  color: #4C2C92;
+  padding: 4px 8px;
+  display: inline-block;
+  overflow: initial;
+  line-height: inherit;
+  max-width: 100%;
+  text-overflow: ellipsis; }
+
+p code, li code {
+  color: #4C2C92;
+  font-size: 85%;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+  background-color: #EEF3F7;
+  border-radius: 3px;
+  padding: 0.2em 0.4em;
+  margin: 0;
+  display: inline; }
+
+pre {
+  color: #F1647C;
+  background-color: #EEF3F7;
+  display: block;
+  padding: 16px 16px;
+  border: 1px solid #D1D5D9;
+  border-radius: 3px;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-x: auto; }
+
+
+.code-block,
+pre {
+  color: #F1647C;
+  display: inline-block;
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-x: auto; }
+  .code-block pre, pre pre {
+    color: inherit;
+    background-color: transparent;
+    margin: 0;
+    padding: 16px 16px;
+    border: none; }
+
+/**
+ * Tables
+ */
+.table table {
+  font-size: 0.72rem;
+  margin-bottom: 24px;
+  max-width: 100%;
+  text-align: right; }
+  @media screen and (min-width: 768px) {
+    .table table {
+      font-size: 22px; } }
+  .table table thead {
+    border-bottom: 1px solid #172129;
+    color: #184E9E; }
+    .table table thead tr {
+      background-color: none; }
+  .table table tbody tr:nth-child(odd) {
+    background-color: #EEF3F7; }
+  .table table th {
+    vertical-align: top; }
+  .table table th,
+  .table table td {
+    padding: 12px; }
+    @media screen and (min-width: 768px) {
+      .table table th,
+      .table table td {
+        padding: 12px 48px; } }
+
+/**
  * Header
  */
 .c-header {
@@ -924,4 +1048,7 @@
 
 .font-sans {
   font-family: "Noto Sans", sans-serif; }
+
+pre {
+  font-size: 16px; }
 

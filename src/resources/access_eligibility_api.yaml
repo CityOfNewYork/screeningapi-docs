@@ -2,7 +2,8 @@ openapi: 3.0.0
 info:
   version: 1.0.0
   title: NYC Benefits Eligibility API Documentation
-  description: Eligibility Screening API Documentation
+  description: This is the documentation for the NYC Benefits Eligibility API. Below are the available endpoints to retrieve eligible program responses.
+  termsOfService: http://localhost:3000/#terms-of-service
 tags:
   - name: Cognito User Pool Authorization API
   - name: Eligibility Screening API

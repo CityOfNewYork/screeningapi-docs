@@ -1,8 +1,8 @@
 {% extends "partials/default.twig" %}
 
 {% block content %}
-<header class="c-header p-2">
-  <h1 class="c-header__descriptor text-color-blue-dark">
+<header class="p-2">
+  <h1 class="font-sans text-color-blue-dark">
     NYC Benefits Eligibility API
   </h1>
 </header>
@@ -12,18 +12,9 @@
     {% include "partials/nav.twig" %}
   </aside>
 
-  <article>
+  <div>
     {% markdown '../content/overview.md' %}{% endmarkdown %}
-    {% markdown '../content/terms-of-service.md' %}{% endmarkdown %}
-    {% markdown '../content/request-account.md' %}{% endmarkdown %}
-    {% markdown '../content/request-account-form.md' %}{% endmarkdown %}
-    {% markdown '../content/set-password-token.md' %}{% endmarkdown %}
-    {% markdown '../content/eligibility-guidelines.md' %}{% endmarkdown %}
-    {% markdown '../content/making-a-request.md' %}{% endmarkdown %}
-    {% markdown '../content/endpoints.md' %}{% endmarkdown %}
-    {% markdown '../content/sample-code-sdks.md' %}{% endmarkdown %}
-    {% markdown '../content/feedback-support.md' %}{% endmarkdown %}
-  </article>
+  </div>
 </section>
 
 {% endblock %}
