@@ -1,6 +1,6 @@
 # Set Password and Token Based Authentication
 
-Once you have requested an account and received your username and temporary password, you will be able to set your password for making additional requests. This requires the use of the `authToken` endpoint which accepts a JSON payload with your username, temporary password, and new password. The new password field is not required on subsequent authToken requests but if populated your password will update. Below is a full example of a curl request of this method. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
+Once you have [requested an account](/request-account-form) and received your username and temporary password, you will be able to set your password for making additional requests. This requires the use of the `authToken` endpoint which accepts a JSON payload with your username, temporary password, and new password. The new password field is not required on subsequent `authToken` requests but if populated your password will update. Below is a full example of a curl request of this method. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
 
 ```
 curl -X POST \
@@ -43,7 +43,7 @@ curl -X POST \
 
 ## Forgot Password
 
-If you forget your password, you can reset it with the /forgotPassword and /confirmPassword endpoints. 
+If you forget your password, you can reset it with the `/forgotPassword` and `/confirmPassword` endpoints. 
 
 ```
 curl -X POST \
@@ -60,10 +60,14 @@ curl -X POST \
 
 Setting your new password can only be done once.
 
-* Contact us through Support if you need to update your account information.
+* Contact us through [Support](/feedback-and-support) if you need to update your account information.
 * The `authToken` endpoint is used to set your new password using your username and temporary password.
 * The `authToken` endpoint responds with a token that expires after 1 hour (`3600` seconds).
 * The `authToken` endpoint is also used to retrieve new tokens.
 
+<br>
+<hr>
+
 # Next
-Making a Request.
+
+[Making a Request](/making-a-request).

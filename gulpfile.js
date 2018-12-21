@@ -35,12 +35,11 @@ gulp.task('styles', function () {
     .pipe(concat('style.css'))
     .pipe(gulp.dest(DIST + 'css'))
     .pipe(notify({message: 'Styles task complete'}))
-
 });
 
 // resources
 gulp.task('resources', function() {
-  return gulp.src('src/resources/*.yaml')
+  return gulp.src('src/resources/*')
     .pipe(gulp.dest(DIST + 'resources'))
     .pipe(notify({message: 'Resources task complete'}))
 });
@@ -66,10 +65,11 @@ gulp.task('default', function(){
     open: false
   });
 
+  gulp.watch(SOURCE+'resources/**/*', gulp.series('resources'));
+  gulp.watch(SOURCE+'scss/**/*', gulp.series('styles', 'views'));
+  gulp.watch(SOURCE+'content/**/*', gulp.series('styles', 'views'));
   gulp.watch(SOURCE+'js/**/*', gulp.series('scripts'));
   gulp.watch(SOURCE+'views/**/*', gulp.series('views'));
-  gulp.watch(SOURCE+'scss/**/*', gulp.series('styles'));
-  gulp.watch(SOURCE+'resources/**/*', gulp.series('resources'));
   
   gulp.watch(DIST + '/*').on('change', browserSync.reload);
 });

@@ -1,1 +1,7 @@
-{% markdown '../content/sample-code-sdks.md' %}{% endmarkdown %}
+{% extends "partials/default.twig" %}
+
+{% block content %}
+	<div>
+		{% markdown '../content/sample-code-and-sdks.md' %}{% endmarkdown %}
+	</div>
+{% endblock %}

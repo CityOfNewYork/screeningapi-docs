@@ -1,6 +1,6 @@
 # Making a Request
 
-There are two steps to making a request which includes (1) getting a token and (2) making the request. Your username and token is required for all requests. Your username is sent to you when your account is created. Getting a token is described in Set Password and Token Based Authentication. The request body and response are sent as JSON so the `Content-Type` header must be set to `application/json`. Below is an example of the format for requests. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
+There are two steps to making a request which includes (1) getting a token and (2) making the request. Your username and token is required for all requests. Your username is sent to you when your [account is created](/request-account-form). Getting a token is described in [Set Password and Token Based Authentication](/set-password-and-token-based-on-authentication). The request body and response are sent as JSON so the `Content-Type` header must be set to `application/json`. Below is an example of the format for requests. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
 
 ```
 curl -X POST \
@@ -30,7 +30,8 @@ Please note, there are two domains for sending requests, one for testing and one
 
 The request for each endpoint should contain certain datum pertinent to the household of the client for which eligibility is being evaluated. We refer to this as Household Composition Data. The entire dataset is made up of two distinct types:  Household and Person(s). Each type has different attributes that must be filled out as completely as possible for the most accurate eligibility evaluation. There can only be one type of Household and there can be more than one Person associated with each household.
 
-Below is a list of all parameters and their description. For a description of how to structure the data for each endpoint, please refer to the endpoint documentation.
+Below is a list of all parameters and their description. For a description of how to structure the data for each endpoint, please refer to the [endpoint documentation](/swagger).
+
 ### Household
 |Name|Description|Data Attribute|Type|Possible Value
 | ----- | ----- | ----- | ----- | ----- |
@@ -134,15 +135,15 @@ Expenses| A collection of one or more expense objects. | expenses| Array|`[{ “
 ||Utilities|||Utilities|
 ||Telephone|||Telephone|
 ||Third party insurance premiums.|||InsurancePremiums|
-||**Expense frequency.** How often the expense is paid (see below).|frequency|string|One of the strings below.
+||**Expense frequency.** How often the expense is paid (see below).|frequency|string|One of the strings below.|
 ||Every week.|||weekly|
 ||Every 2 weeks.|||biweekly|
 ||Monthly|||monthly|
 ||Twice a month.|||semimonthly|
-||Every year.|||yearly||
+||Every year.|||yearly|
 
 ## Response (Program Codes)
-Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the Benefits and Programs API which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the endpoint documentation;
+Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the [Benefits and Programs API](https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju) which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the [endpoint documentation](/swagger);
 |Program Code|Program Name|
 |--|--|
 |S2R010|Cash Assistance|
@@ -158,8 +159,11 @@ See the full list on the Benefits and Programs API page.
 * Use the testing domain for sample requests and development and the production domain for production level applications.
 T* he request body should include Household Composition Data that includes the household and person datatypes with as many of the available parameters filled out possible for the most accurate eligibility evaluation.
 * The request response will contain a list of program names and codes
-* Program codes can be mapped to additional content in the Benefits and Programs API.
+* Program codes can be mapped to additional content in the [Benefits and Programs API](https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju).
+
+<br>
+<hr>
 
 ## Next
 
-Endpoints.
+[Endpoints](/endpoints).

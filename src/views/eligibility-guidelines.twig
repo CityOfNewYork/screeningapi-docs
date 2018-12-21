@@ -1,1 +1,7 @@
-{% markdown '../content/eligibility-guidelines.md' %}{% endmarkdown %}
+{% extends "partials/default.twig" %}
+
+{% block content %}
+	<div>
+		{% markdown '../content/eligibility-guidelines.md' %}{% endmarkdown %}
+	</div>
+{% endblock %}

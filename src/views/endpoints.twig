@@ -1,1 +1,9 @@
-{% markdown '../content/endpoints.md' %}{% endmarkdown %}
+{% extends "partials/default.twig" %}
+
+{% block content %}
+	<div>
+		{% markdown '../content/endpoints.md' %}{% endmarkdown %}
+
+		{% include 'partials/swagger.twig' %}
+	</div>
+{% endblock %}

@@ -4,7 +4,8 @@
 @import 'access-nyc-patterns/src/elements/layouts/layouts';
 @import 'access-nyc-patterns/src/elements/divider/divider';
 @import 'access-nyc-patterns/src/elements/code/code';
-@import 'access-nyc-patterns/src/elements/tables/tables';
+@import 'access-nyc-patterns/src/elements/forms/forms';
+
 
 // Components
 @import 'access-nyc-patterns/src/components/header/header';
@@ -15,7 +16,5 @@
 
 // Utilities
 @import 'access-nyc-patterns/src/utilities/font';
-// @import 'access-nyc-patterns/dist/styles/_tailwind.scss';
-
 
 @import 'swagger.scss';

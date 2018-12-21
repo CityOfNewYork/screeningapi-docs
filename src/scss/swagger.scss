@@ -1,10 +1,18 @@
 // Swagger styling
-// .url {
-//   display: none;
-// }
-// .try-out {
-//   display: none;
-// }
-// .scheme-container {
-//   display: none;
-// }
+.swagger-ui {
+	.title {
+		display: none;
+	}
+	.info {
+		display: none;
+	}
+	.live-responses-table {
+		display: none;
+	}
+
+	.scheme-container{
+		display: none;
+	}
+	
+}
+

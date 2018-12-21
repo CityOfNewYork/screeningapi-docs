@@ -13,10 +13,22 @@
 </head>
 
 <body>
+	<header class="p-2">
+	  <h1 class="font-sans text-color-blue-dark">
+	    NYC Benefits Eligibility API
+	  </h1>
+	</header>
 
-<section>
-  {% block content %}{% endblock %}
-</section>
+	<section class="usa-grid screen-desktop:layout--sidebar-small-gutter">
+	  <aside>
+	    {% include "nav.twig" %}
+	  </aside>
+
+	  {% block content %}{% endblock %}
+	
+	</section>
+
+	<script src="js/source.js"></script>
 
 </body>
 </html>

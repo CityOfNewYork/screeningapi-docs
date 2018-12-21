@@ -1,11 +1,1 @@
 @import 'imports';
-
-// custom styling
-pre {
-	@extend .code-block;
-	font-size: 16px;
-}
-
-table {
-	@extend table;
-}

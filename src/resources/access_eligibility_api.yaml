@@ -1,24 +1,37 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: NYC Benefits Eligibility API Documentation
-  description: This is the documentation for the NYC Benefits Eligibility API. Below are the available endpoints to retrieve eligible program responses.
-  termsOfService: http://localhost:3000/#terms-of-service
+  title: Eligibility Screening API Documentation
+  description: Eligibility Screening API Documentation
+servers:
+  - url: '/{pathName}'
+    variables:
+      pathName:
+        default: access-nyc-rest
+  - url: /
 tags:
   - name: Cognito User Pool Authorization API
   - name: Eligibility Screening API
-servers:
-  - url: https://{endpoint-staging}
-  - url: https://{endpoint-prod}
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
 paths:
   /authToken:
     post:
       tags:
         - Cognito User Pool Authorization API
       description: >
-       The Cognito User Pool Authorization API will be used by the user pool client to get auth token from Cognito. The auth token must be provided in the request header of the eligibility and bulk submission APIs to make an authenticated request. When used for the Eligibility Screening and Bulk Submission APIs, the Cognito Auth API will use the format required to exchange authentication credentials for an access token.
+        The Cognito User Pool Authorization API will be used by the user pool
+        client to get auth token from Cognito. The auth token must be provided
+        in the request header of the eligibility and bulk submission APIs to
+        make an authenticated request. When used for the Eligibility Screening
+        and Bulk Submission APIs, the Cognito Auth API will use the format
+        required to exchange authentication credentials for an access token.
       requestBody:
-        description: Request body of the cognito user pool authorization API
+        description: Request body of the Cognito User Pool Authorization API
         required: true
         content:
           application/json:
@@ -28,17 +41,24 @@ paths:
                 - password
               properties:
                 username:
-                 type: string
-                 description: Username of the Cognito user pool
-                 example: testuser01
+                  type: string
+                  description: Username of the Cognito user pool
+                  example: testuser01
                 password:
-                 type: string
-                 description: Temporary password of the Cognito user pool received by the user that must be passed only while doing first time authentication
-                 example: temp@123
+                  type: string
+                  description: >-
+                    Temporary password of the Cognito user pool received by the
+                    user that must be passed only while doing first time
+                    authentication
+                  example: temp@123
                 newPassword:
-                 type: string
-                 description: New password of the Cognito user pool that must be set only while doing first time authentication. Second time onward, the newly set password must be provided in the password field.
-                 example: new@123 
+                  type: string
+                  description: >-
+                    New password of the Cognito user pool that must be set only
+                    while doing first time authentication. Second time onward,
+                    the newly set password must be provided in the password
+                    field.
+                  example: new@123
       responses:
         '200':
           description: Success Response
@@ -167,7 +187,401 @@ paths:
                             message:
                               type: string
                               example: >-
-                                The content type of the request data is not
+                                The content type of the request is not
+                                supported.
+                            moreInfo:
+                              type: string
+                              example: >-
+                                See API documentation at <APIDocumentationPath>
+                                for details on valid requests.
+                            code:
+                              type: string
+                              example: unsupportedContentType
+                            elementPath:
+                              type: string
+                              example: null
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: FAILURE
+                  errors:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            message:
+                              type: string
+                              example: The request failed due to an internal error.
+                            moreInfo:
+                              type: string
+                              example: >-
+                                See API documentation at <APIDocumentationPath>
+                                for details on valid requests.
+                            code:
+                              type: string
+                              example: internalServerError
+                            elementPath:
+                              type: string
+                              example: null
+  /forgotPassword:
+    post:
+      tags:
+        - Cognito User Pool Authorization API
+      description: >
+        The /forgetPassword endpoint, together with the /confirmPassword
+        endpoint, is used to reset a user's password. cURLing the
+        /forgotPassword endpoint triggers AWS Cognito to send the user an email
+        with a verification code. The user can then reset their password by
+        sending this verification code, along with a new password, to the
+        /confirmPassword endpoint
+      requestBody:
+        description: Request body of the Cognito User Pool Authorization API
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - username
+              properties:
+                username:
+                  type: string
+                  description: Username of the Cognito user pool
+                  example: testuser01
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: SUCCESS
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: FAILURE
+                  errors:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            message:
+                              type: string
+                              example: username is required.
+                            moreInfo:
+                              type: string
+                              example: >-
+                                See API documentation at <APIDocumentationPath>
+                                for details on valid requests.
+                            code:
+                              type: string
+                              example: any.required
+                            elementPath:
+                              type: string
+                              example: username
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: FAILURE
+                  errors:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            message:
+                              type: string
+                              example: >-
+                                The requested operation failed because a
+                                resource associated with the request could not
+                                be found.
+                            moreInfo:
+                              type: string
+                              example: >-
+                                See API documentation at <APIDocumentationPath>
+                                for details on valid requests.
+                            code:
+                              type: string
+                              example: notFound
+                            elementPath:
+                              type: string
+                              example: null
+        '405':
+          description: Method Not Allowed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: FAILURE
+                  errors:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            message:
+                              type: string
+                              example: >-
+                                The HTTP method associated with the request is
+                                not supported.
+                            moreInfo:
+                              type: string
+                              example: >-
+                                See API documentation at <APIDocumentationPath>
+                                for details on valid requests.
+                            code:
+                              type: string
+                              example: httpMethodNotAllowed
+                            elementPath:
+                              type: string
+                              example: null
+        '406':
+          description: Not Acceptable
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: FAILURE
+                  errors:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            message:
+                              type: string
+                              example: >-
+                                The content type of the request is not
+                                supported.
+                            moreInfo:
+                              type: string
+                              example: >-
+                                See API documentation at <APIDocumentationPath>
+                                for details on valid requests.
+                            code:
+                              type: string
+                              example: unsupportedContentType
+                            elementPath:
+                              type: string
+                              example: null
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: FAILURE
+                  errors:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            message:
+                              type: string
+                              example: The request failed due to an internal error.
+                            moreInfo:
+                              type: string
+                              example: >-
+                                See API documentation at <APIDocumentationPath>
+                                for details on valid requests.
+                            code:
+                              type: string
+                              example: internalServerError
+                            elementPath:
+                              type: string
+                              example: null
+  /confirmPassword:
+    post:
+      tags:
+        - Cognito User Pool Authorization API
+      description: >
+        The /confirmPassword endpoint, together with the /resetPassword
+        endpoint, is used to reset a user's password. cURLing the
+        /forgotPassword endpoint triggers AWS Cognito to send the user an email
+        with a verification code. The user can then reset their password by
+        sending this verification code, along with a new password, to the
+        /confirmPassword endpoint
+      requestBody:
+        description: Request body for confirming new password
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - username
+                - newPassword
+                - verificationCode
+              properties:
+                username:
+                  type: string
+                  description: Username of the Cognito user pool
+                  example: testuser01
+                newPassword:
+                  type: string
+                  description: New password for Cognito user
+                  example: NYC@Opportunity1
+                verificationCode:
+                  type: string
+                  description: Verification code sent to the Cognito user
+                  example: t53Gv%a
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: SUCCESS
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: FAILURE
+                  errors:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            message:
+                              type: string
+                              example: username is required.
+                            moreInfo:
+                              type: string
+                              example: >-
+                                See API documentation at <APIDocumentationPath>
+                                for details on valid requests.
+                            code:
+                              type: string
+                              example: any.required
+                            elementPath:
+                              type: string
+                              example: username
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: FAILURE
+                  errors:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            message:
+                              type: string
+                              example: >-
+                                The requested operation failed because a
+                                resource associated with the request could not
+                                be found.
+                            moreInfo:
+                              type: string
+                              example: >-
+                                See API documentation at <APIDocumentationPath>
+                                for details on valid requests.
+                            code:
+                              type: string
+                              example: notFound
+                            elementPath:
+                              type: string
+                              example: null
+        '405':
+          description: Method Not Allowed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: FAILURE
+                  errors:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            message:
+                              type: string
+                              example: >-
+                                The HTTP method associated with the request is
+                                not supported.
+                            moreInfo:
+                              type: string
+                              example: >-
+                                See API documentation at <APIDocumentationPath>
+                                for details on valid requests.
+                            code:
+                              type: string
+                              example: httpMethodNotAllowed
+                            elementPath:
+                              type: string
+                              example: null
+        '406':
+          description: Not Acceptable
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: FAILURE
+                  errors:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            message:
+                              type: string
+                              example: >-
+                                The content type of the request is not
                                 supported.
                             moreInfo:
                               type: string
@@ -217,34 +631,32 @@ paths:
       description: >
         The eligibility API will be used for public benefits eligibility
         screening and is based on the existing eligibility rules engine of
-        ACCESS NYC web portal. The API accepts dozens of pieces of information, such as a person’s marital status or income, and returns a list of potential eligible government programs for which the resident can apply for.
+        ACCESS NYC web portal. The API accepts dozens of pieces of information,
+        such as a person’s marital status or income, and returns a list of
+        potential eligible government programs for which the resident can apply
+        for.
       parameters:
         - name: interestedPrograms
           in: query
           required: false
           description: >
-            Comma-separated list of program codes a user is interested in. It
+            Pipe-separated list of program codes a user is interested in. It
             will be used for filtering the program codes returned by the
             eligibility API to show only the eligible program codes a user is
             interested in. Program codes should always be passed in upper case.
           schema:
             type: string
         - in: header
-          name: Authorization
-          schema:
-            type: string
-          description: >
-            User has to pass the auth token received from the AWS Cognito User Pool Authorization API
-          required: true
-        - in: header
           name: username
-          description: >
+          description: |
             Username of the Cognito user pool
           schema:
             type: string
           required: true
+      security:
+        - ApiKeyAuth: []
       requestBody:
-        description: Request body of the eligibility API
+        description: Request body of the Eligibility API
         required: true
         content:
           application/json:
@@ -271,36 +683,48 @@ paths:
                                     properties:
                                       caseId:
                                         type: string
-                                        description: Concatenation of alphanumeric fields, potentially separated by dashes, periods, or slashes, used by agencies to identify unique submissions
+                                        maxLength: 64
+                                        description: >-
+                                          Concatenation of alphanumeric fields,
+                                          potentially separated by dashes,
+                                          periods, or slashes, used by agencies to
+                                          identify unique submissions
                                         example: caseId01
-                                      zip:
-                                        type: string
-                                        description: Supports only valid NYC zip codes. Supported format - nnnnn, where n is a number
-                                        example: 10314
-                                      city:
-                                        type: string
-                                        description: For New York City, the supported value is NYC
-                                        example: NYC
                                       members:
                                         type: number
-                                        minimum: 0
+                                        minimum: 1
                                         maximum: 8
                                         description: Number of individuals in the household
                                         example: 1
                                       cashOnHand:
                                         type: string
-                                        description: Numeric monetary(USD) value that the household has on hand. Supports numeric and a decimal. Characteristic will be min 1 and max 7 in length, and mantissa will be min 1 and max 2
-                                        example: 5000
+                                        maxLength: 10
+                                        description: >-
+                                          Numeric monetary(USD) value that the
+                                          household has on hand. Supports numeric
+                                          and a decimal. Characteristic will be
+                                          min 1 and max 7 in length, and mantissa
+                                          will be min 1 and max 2
+                                        example: '5000.00'
                                       livingRentalType:
                                         type: string
-                                        description: Type of rental the user lives in. Supported types - NYCHA, MarketRate, RentControlled, RentRegulatedHotel, Section213, LimitedDividendDevelopment, MitchellLama, RedevelopmentCompany, HDFC, FamilyHome, Condo
+                                        maxLength: 64
+                                        description: >-
+                                          Type of rental the user lives in.
+                                          Supported types - NYCHA, MarketRate,
+                                          RentControlled, RentRegulatedHotel,
+                                          Section213, LimitedDividendDevelopment,
+                                          MitchellLama, RedevelopmentCompany,
+                                          HDFC, FamilyHome, Condo
                                         example: NYCHA
                                       livingRenting:
                                         type: boolean
                                         description: House or apartment on rent
                                       livingOwner:
                                         type: boolean
-                                        description: Household member owns the home or apartment
+                                        description: >-
+                                          Household member owns the home or
+                                          apartment
                                       livingStayingWithFriend:
                                         type: boolean
                                         description: Staying with a friend
@@ -323,16 +747,17 @@ paths:
                                 properties:
                                   accessnyc.request.Person:
                                     type: object
+                                    required:
+                                      - age
                                     properties:
                                       age:
                                         type: number
-                                        minimum: 1
+                                        minimum: 0
                                         maximum: 999
-                                        description: Age of the user or household members. Supports numeric
+                                        description: >-
+                                          Age of the user or household members.
+                                          Supports numeric
                                         example: 20
-                                      applicant:
-                                        type: boolean
-                                        description: Is the person the applicant?
                                       student:
                                         type: boolean
                                         description: Student
@@ -356,20 +781,35 @@ paths:
                                         description: Disabilities
                                       veteran:
                                         type: boolean
-                                        description: Served in U.S. Armed Forces, National Guard or Reserves
+                                        description: >-
+                                          Served in U.S. Armed Forces, National
+                                          Guard or Reserves
                                       benefitsMedicaid:
                                         type: boolean
                                         description: Medicaid
                                       benefitsMedicaidDisability:
                                         type: boolean
-                                        description: Disability related medicaid  
+                                        description: Disability related medicaid
                                       headOfHousehold:
                                         type: boolean
-                                        description: Head of the household
+                                        description: >-
+                                          Head of the household. There should be
+                                          one head of household in every
+                                          submission.
                                       headOfHouseholdRelation:
                                         type: string
-                                        description: Person’s relationship to the head of the household. Supported values - Child, FosterChild, StepChild, Grandchild, Spouse, Parent, FosterParent, StepParent, Grandparent, SisterBrother, StepSisterStepBrother, BoyfriendGirlfriend, DomesticPartner, Unrelated, Other
-                                        example: Child
+                                        maxLength: 32
+                                        description: >-
+                                          Person’s relationship to the head of the
+                                          household. It is mandatory if a person
+                                          is not head of household. Supported
+                                          values - Child, FosterChild, StepChild,
+                                          Grandchild, Spouse, Parent,
+                                          FosterParent, StepParent, Grandparent,
+                                          SisterBrother, StepSisterStepBrother,
+                                          BoyfriendGirlfriend, DomesticPartner,
+                                          Unrelated, Other
+                                        example: ''
                                       livingOwnerOnDeed:
                                         type: boolean
                                         description: Is the person the owner?
@@ -382,35 +822,76 @@ paths:
                                           type: object
                                           required:
                                             - amount
+                                            - frequency
+                                            - type
                                           properties:
                                             amount:
                                               type: string
-                                              description: Amount the user receives for the type of income. Supports only numeric and a decimal. Characteristic will be min 0 and max 6 in length. Mantissa will be min 1 and max 2
-                                              example: 2000
+                                              maxLength: 9
+                                              description: >-
+                                                Amount the user receives for the type of
+                                                income. Supports only numeric and a
+                                                decimal. Characteristic will be min 0
+                                                and max 6 in length. Mantissa will be
+                                                min 1 and max 2
+                                              example: '2000.00'
                                             frequency:
                                               type: string
-                                              description: How often does the user receives the income? Supported values - weekly, biweekly, monthly, semimonthly, yearly
+                                              maxLength: 16
+                                              description: >-
+                                                How often does the user receives the
+                                                income? Supported values - weekly,
+                                                biweekly, monthly, semimonthly, yearly
                                               example: monthly
                                             type:
                                               type: string
+                                              maxLength: 32
                                               example: Wages
-                                              description: Income source. Supported values - Wages, SelfEmployment, Unemployment, CashAssistance, ChildSupport, DisabilityMedicaid, SSI, SSDependent, SSDisability, SSSurvivor, SSRetirement, NYSDisability, Veteran, Pension, DeferredComp, WorkersComp, Alimony, boarder, Gifts, Rental, Investment
+                                              description: >-
+                                                Income source. Supported values - Wages,
+                                                SelfEmployment, Unemployment,
+                                                CashAssistance, ChildSupport,
+                                                DisabilityMedicaid, SSI, SSDependent,
+                                                SSDisability, SSSurvivor, SSRetirement,
+                                                NYSDisability, Veteran, Pension,
+                                                DeferredComp, WorkersComp, Alimony,
+                                                Boarder, Gifts, Rental, Investment
                                       expenses:
                                         type: array
                                         items:
                                           type: object
+                                          required:
+                                            - amount
+                                            - frequency
+                                            - type
                                           properties:
                                             amount:
                                               type: string
-                                              description: Amount the user receives for the type of income. Supports only numeric and a decimal. Characteristic will be min 0 and max 6 in length. Mantissa will be min 1 and max 2
-                                              example: 300
+                                              maxLength: 9
+                                              description: >-
+                                                Amount the user receives for the type of
+                                                income. Supports only numeric and a
+                                                decimal. Characteristic will be min 0
+                                                and max 6 in length. Mantissa will be
+                                                min 1 and max 2
+                                              example: '300.00'
                                             frequency:
                                               type: string
-                                              description: How often does the user have the expense? Supported values - weekly, biweekly, monthly, semimonthly, yearly
+                                              maxLength: 16
+                                              description: >-
+                                                How often does the user have the
+                                                expense? Supported values - weekly,
+                                                biweekly, monthly, semimonthly, yearly
                                               example: monthly
                                             type:
                                               type: string
-                                              description: Type of expense. Supported values - ChildCare, ChildSupport, DependentCare, Rent, Medical, Heating, Cooling, Mortgage, Utilities, Telephone, InsurancePremiums
+                                              maxLength: 32
+                                              description: >-
+                                                Type of expense. Supported values -
+                                                ChildCare, ChildSupport, DependentCare,
+                                                Rent, Medical, Heating, Cooling,
+                                                Mortgage, Utilities, Telephone,
+                                                InsurancePremiums
                                               example: Rent
       responses:
         '200':
@@ -550,7 +1031,7 @@ paths:
                             message:
                               type: string
                               example: >-
-                                The content type of the request data is not
+                                The content type of the request is not
                                 supported.
                             moreInfo:
                               type: string
@@ -612,8 +1093,8 @@ paths:
                             message:
                               type: string
                               example: >-
-                                The request has been timed out. Please try
-                                again.
+                                Connection to the rules engine has timed out.
+                                Please try again.
                             moreInfo:
                               type: string
                               example: >-
@@ -625,45 +1106,55 @@ paths:
                             elementPath:
                               type: string
                               example: null
+    options:
+      tags:
+        - Eligibility Screening API
+      description: >
+        The OPTIONS method will primarily return the HTTP methods that the
+        server supports for the specified URL along with a readable schema and
+        an example of the request payload.
+      responses:
+        '200':
+          description: Success Response
   /bulkSubmission/import:
     post:
       tags:
-        - Eligibility API
-      description: The bulk submission API will be provisioned to accept a structured CSV input allowing users to query for bulk requests and respond back with the collated eligibility results in a structured CSV format.
+        - Eligibility Screening API
+      description: >-
+        The bulk submission API will be provisioned to accept a structured CSV
+        input allowing users to query for bulk requests and respond back with
+        the collated eligibility results in a structured CSV format.
+      security:
+        - ApiKeyAuth: []
       parameters:
         - name: interestedPrograms
           in: query
           required: false
           description: >
-            Comma-separated list of program codes a user is interested in. It
+            Pipe-separated list of program codes a user is interested in. It
             will be used for filtering the program codes returned by the
             eligibility API to show only the eligible program codes a user is
             interested in. Program codes should always be passed in upper case.
           schema:
             type: string
         - in: header
-          name: Authorization
-          schema:
-            type: string
-          description: >
-            User has to pass the auth token received from the AWS Cognito User Pool Authorization API
-          required: true
-        - in: header
           name: username
-          description: >
+          description: |
             Username of the Cognito user pool
           schema:
             type: string
           required: true
       requestBody:
-        description: Request body of the bulk submission API
+        description: Request body of the Bulk Submission API
         required: true
         content:
           multipart/form-data:
             schema:
               type: object
+              required:
+                - file
               properties:
-                filename:
+                file:
                   type: string
                   format: binary
       responses:
@@ -696,7 +1187,7 @@ paths:
                               example: NoInputFile
                             elementPath:
                               type: string
-                              example: 
+                              example: null
         '404':
           description: Not Found
           content:
@@ -792,37 +1283,3 @@ paths:
                             elementPath:
                               type: string
                               example: null
-        '504':
-          description: Gateway Timeout
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: FAILURE
-                  errors:
-                    type: array
-                    items:
-                      oneOf:
-                        - type: object
-                          properties:
-                            message:
-                              type: string
-                              example: >-
-                                The request has been timed out. Please try
-                                again.
-                            moreInfo:
-                              type: string
-                              example: >-
-                                See API documentation at <APIDocumentationPath>
-                                for details on valid requests.
-                            code:
-                              type: string
-                              example: gatewayTimeout
-                            elementPath:
-                              type: string
-                              example: null
-            
-      
