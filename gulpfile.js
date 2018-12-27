@@ -1,4 +1,4 @@
-// Tasks
+// TASKS
 // gulp build
 // gulp
 
@@ -8,23 +8,36 @@ var browserSync = require('browser-sync').create(),
   concat = require('gulp-concat'),
   twig = require('gulp-twig'),
   twigMarkdown = require('twig-markdown'),
-  sass = require('gulp-sass');
+  sass = require('gulp-sass'),
+  stylelint = require('gulp-stylelint');
 
 // var DIST = 'dist/',
 var DIST = 'dist/68d422386f1c9b95dab97295f2644aa1687647a4/',
   SOURCE = 'src/';
 
-// Scripts
+// SCRIPTS
 gulp.task('scripts', function() {
   return gulp.src('src/js/*.js')
     .pipe(concat('source.js'))
     .pipe(gulp.dest(DIST + 'js'))
     .pipe(notify({message: 'Scripts task complete'}))
-
 });
 
-// styles
-gulp.task('styles', function () {
+// STYLES - LINTING
+gulp.task('lint-css', function(){
+  return gulp.src([
+    SOURCE + 'scss/**/*.scss'
+  ])
+  .pipe(stylelint({
+    reporters: [
+      {formatter: 'string', console: true}
+    ],
+    syntax: "scss"
+  }));
+});
+
+// STYLES
+gulp.task('styles', gulp.series('lint-css'), function () {
   return gulp.src('src/scss/*.scss')
     .pipe(sass({
       includePaths: [
@@ -37,21 +50,21 @@ gulp.task('styles', function () {
     .pipe(notify({message: 'Styles task complete'}))
 });
 
-// resources
+// RESOURCES
 gulp.task('resources', function() {
   return gulp.src('src/resources/*')
     .pipe(gulp.dest(DIST + 'resources'))
     .pipe(notify({message: 'Resources task complete'}))
 });
 
-// views
-gulp.task('views', gulp.series(gulp.parallel('resources', 'styles'), function () {
+// VIEWS
+gulp.task('views', function () {
   return gulp.src('src/views/*.twig')
     .pipe(twig({data: {}, extend: twigMarkdown}))
     .pipe(gulp.dest(DIST))
     .pipe(notify({message: 'Views task complete'}))
 
-}));
+});
 
 // DEFAULT
 gulp.task('default', function(){
@@ -69,7 +82,7 @@ gulp.task('default', function(){
   gulp.watch(SOURCE+'scss/**/*', gulp.series('styles', 'views'));
   gulp.watch(SOURCE+'content/**/*', gulp.series('styles', 'views'));
   gulp.watch(SOURCE+'js/**/*', gulp.series('scripts'));
-  gulp.watch(SOURCE+'views/**/*', gulp.series('views'));
+  gulp.watch(SOURCE+'views/**/*', gulp.series('resources', 'styles','views'));
   
   gulp.watch(DIST + '/*').on('change', browserSync.reload);
 });

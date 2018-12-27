@@ -1,4 +1,4 @@
-// Publish to gh-page branch
+// Publish to gh-pages branch
 
 const ghpages = require('gh-pages');
 const Path = require('path');

@@ -1091,6 +1091,9 @@ input[type='number'] {
 .swagger-ui .scheme-container {
   display: none; }
 
+.swagger-ui .response-col_links {
+  display: none; }
+
 .swagger-ui .title {
   display: none; }
 
@@ -1101,4 +1104,7 @@ input[type='number'] {
   display: none; }
 
 .swagger-ui .scheme-container {
+  display: none; }
+
+.swagger-ui .response-col_links {
   display: none; }
