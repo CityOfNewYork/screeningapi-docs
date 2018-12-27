@@ -3,9 +3,7 @@
 {% set page_title = ' - Endpoints' %}
 
 {% block content %}
-	<div>
-		{% markdown '../content/endpoints.md' %}{% endmarkdown %}
+	{% markdown '../content/endpoints.md' %}{% endmarkdown %}
 
-		{% include 'partials/swagger.twig' %}
-	</div>
+	{% include 'partials/swagger.twig' %}
 {% endblock %}

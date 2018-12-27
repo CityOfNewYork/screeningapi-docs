@@ -15,7 +15,7 @@
 <body>
 	<header class="p-2">
 	  <h1 class="font-sans text-color-blue-dark">
-	    NYC Benefits Eligibility API
+	    NYC Benefits Eligibility API <a class="version" href="https://github.com/CityOfNewYork/eligibilityapi">1.0.0</a>
 	  </h1>
 	</header>
 
@@ -24,7 +24,9 @@
 	    {% include "nav.twig" %}
 	  </aside>
 
-	  {% block content %}{% endblock %}
+    <div class="font-sans">
+    {% block content %}{% endblock %}
+    </div>
 	
 	</section>
 

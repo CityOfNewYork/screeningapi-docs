@@ -8,9 +8,6 @@ Here is a list of existing repositories to help get started with the API.
 
 Contact us through [Support](mailto:eligibilityapi@nycopportunity.nyc.gov) if you need additional help or have interest in sharing and listing SDKs or sample applications for this project.
 
-<br>
-<hr>
-
 ## Next
 
-[Feedback and Support](/feedback-and-support).
+[Feedback and Support](/feedback-and-support)

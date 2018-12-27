@@ -1,1 +1,57 @@
 @import 'imports';
+
+// additional styling
+sup {
+  @extend .text-color-grey-mid;
+}
+
+table {
+  font-size: .72rem;
+  margin-bottom: 24px;
+  text-align: right;
+
+  thead {
+    @extend .text-eighth-avenue;
+  }
+
+  tbody tr:nth-child(odd) {
+    @extend .bg-color-blue-light;
+  }
+
+  th {
+    vertical-align: top;
+    padding: 12px;
+  }
+
+  td {
+    padding: 12px 8px;
+  }
+}
+
+h1 {
+  @extend .text-eighth-avenue;
+}
+
+h2 {
+  @extend .text-sixth-avenue;
+
+  font-size: 18px;
+}
+
+h3 {
+  @extend .text-shuttles;
+
+  font-size: 16px;
+}
+
+.version {
+  @extend .bg-crosstown;
+  @extend .text-color-white;
+  @extend .border-crosstown;
+
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  border-radius: .5rem;
+  padding: 3px;
+}

@@ -65,9 +65,6 @@ Setting your new password can only be done once.
 * The `authToken` endpoint responds with a token that expires after 1 hour (`3600` seconds).
 * The `authToken` endpoint is also used to retrieve new tokens.
 
-<br>
-<hr>
+## Next
 
-# Next
-
-[Making a Request](/making-a-request).
+[Making a Request](/making-a-request)

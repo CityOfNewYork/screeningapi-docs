@@ -12,3 +12,6 @@ It’s important for developers and end-users impacted by use of the API to unde
 ## Documentation
 * [Benefits Eligibility Screening Rules Guide Version 1.3.0 (Month, Date, 2019)]() - This guide summarizes the eligibility criteria that is interpreted and implemented in the NYC Benefits Eligibility API.
 * [Benefits Screening Chart Version 1.0 (Month, Date, 2019)]() - This chart summarizes how individual request parameters map to the potential eligibility response for benefits programs.
+
+## Next
+[Making a Request](/making-a-request)
