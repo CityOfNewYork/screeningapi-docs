@@ -14,7 +14,7 @@
 <body>
 	<header class="p-2">
 	  <h1 class="font-sans text-color-blue-dark">
-	    NYC Benefits Eligibility API
+	    NYC Benefits Eligibility API <a class="version" href="https://github.com/CityOfNewYork/eligibilityapi">1.0.0</a>
 	  </h1>
 	</header>
 
@@ -53,10 +53,12 @@
       <a href="feedback-and-support">Feedback and Support</a>
     </li>
   </ul>
-</nav>	  </aside>
+</nav>
+	  </aside>
 
-	  	
-	<div class="o-content">
+    <div class="font-sans">
+    	
+	
 	<h1 id="making-a-request">Making a Request</h1>
 <p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your username and token is required for all requests. Your username is sent to you when your <a href="/request-account-form">account is created</a>. Getting a token is described in <a href="/set-password-and-token-based-on-authentication">Set Password and Token Based Authentication</a>. The request body and response are sent as JSON so the <code>Content-Type</code> header must be set to <code>application/json</code>. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
 <pre><code>curl -X POST \
@@ -99,7 +101,6 @@
 <th>Name</th>
 <th>Description</th>
 <th>Data Attribute</th>
-<th>Type</th>
 <th>Possible Value</th>
 </tr>
 </thead>
@@ -108,20 +109,17 @@
 <td>Number of People in the household. Directly related to the number of Person types. Minimum is 1 and maximum value is 8.</td>
 <td>members</td>
 <td>Integer</td>
-<td>Integer greater than 0 <br> Example: 1</td>
 </tr>
 <tr>
 <td>Cash On Hand</td>
 <td>How much does your whole household has right now in; cash on hand, checking or saving accounts, stocks, bonds or mutual funds.</td>
 <td>cashOnHand</td>
-<td>Float</td>
 <td>Numeric value greater than or equal to 0. <br> Example: 2000.00</td>
 </tr>
 <tr>
 <td>Renting</td>
 <td>Renting the current living situation.</td>
 <td>livingRenting</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
@@ -129,19 +127,16 @@
 <td>The type of rental, if renting.</td>
 <td>livingRentalType</td>
 <td>String</td>
-<td>Blank (“”) or one of the strings below below.</td>
 </tr>
 <tr>
-<td>.</td>
+<td></td>
 <td>Non-Regulated or Market Rate apartment.</td>
-<td>.</td>
-<td>.</td>
+<td></td>
 <td>MarketRate</td>
 </tr>
 <tr>
 <td></td>
 <td>Rent controlled or rent stabilized apartment.</td>
-<td></td>
 <td></td>
 <td>RentControlled</td>
 </tr>
@@ -149,13 +144,11 @@
 <td></td>
 <td>Family Home.</td>
 <td></td>
-<td></td>
 <td>FamilyHome</td>
 </tr>
 <tr>
 <td></td>
 <td>Condo.</td>
-<td></td>
 <td></td>
 <td>Condo</td>
 </tr>
@@ -163,13 +156,11 @@
 <td></td>
 <td>NYCHA Housing.</td>
 <td></td>
-<td></td>
 <td>NYCHA</td>
 </tr>
 <tr>
 <td></td>
 <td>Rent Regulated Hotel/Single Room.</td>
-<td></td>
 <td></td>
 <td>RentRegulatedHotel</td>
 </tr>
@@ -177,13 +168,11 @@
 <td></td>
 <td>Section 213 apartments.</td>
 <td></td>
-<td></td>
 <td>Section213</td>
 </tr>
 <tr>
 <td></td>
 <td>Limited Dividend development apartments.</td>
-<td></td>
 <td></td>
 <td>LimitedDividendDevelopment</td>
 </tr>
@@ -191,13 +180,11 @@
 <td></td>
 <td>Mitchell-Lama apartments.</td>
 <td></td>
-<td></td>
 <td>MitchellLama</td>
 </tr>
 <tr>
 <td></td>
 <td>Redevelopment Company apartments.</td>
-<td></td>
 <td></td>
 <td>RedevelopmentCompany</td>
 </tr>
@@ -205,53 +192,46 @@
 <td></td>
 <td>Housing Development Fund Company (HDFC) Cooperative.</td>
 <td></td>
-<td></td>
 <td>HDFC</td>
 </tr>
 <tr>
 <td>Owner of the Home or Apt.</td>
 <td>A household member owns the home or apartment.</td>
 <td>livingOwner</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Staying with a Friend</td>
 <td>Staying with a friend</td>
 <td>livingStayingWithFriend</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Hotel</td>
 <td>In a hotel.</td>
 <td>livingHotel</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Shelter or Homeless</td>
 <td>In a shelter or homeless.</td>
 <td>livingShelter</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Prefer not to Say</td>
 <td>Preference to not disclose housing.</td>
 <td>livingPreferNotToSay</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 </tbody></table>
-<h2 id="person">Person</h2>
+<h3 id="person">Person</h3>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
 <th>Data Attribute</th>
-<th>Type</th>
 <th>Value</th>
 </tr>
 </thead>
@@ -260,83 +240,71 @@
 <td>The age of the person.</td>
 <td>age</td>
 <td>Integer</td>
-<td>Integer greater than 0. <br>Example: 31</td>
 </tr>
 <tr>
 <td>Student</td>
 <td>Whether the person is a student or not.</td>
 <td>student</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Full-time Student</td>
 <td>Whether the person is a full-time student or not.</td>
 <td>studentFulltime</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Pregnant</td>
 <td>Whether the person is pregnant or not.</td>
 <td>pregnant</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Unemployed</td>
 <td>Whether the person is employed or not.</td>
 <td>unemployed</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Unemployed and Worked in the Last 18 Months</td>
 <td>Whether the person is unemployed and worked within the last 18 months.</td>
 <td>unemployedWorkedLast18Months</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Is Blind</td>
 <td>Whether the person is blind or not.</td>
 <td>blind</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Has any Disabilities</td>
 <td>Whether the person has disabilities or not.</td>
 <td>disabled</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Veteran</td>
 <td>Whether the person is a veteran or not.</td>
 <td>veteran</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Receives Medicaid Benefits</td>
 <td>Whether the person receives medicaid benefits or not.</td>
 <td>benefitsMedicaid</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Receives Disability-related Medicaid Benefits</td>
 <td>Whether the person receives disability-related medicaid benefits or not.</td>
 <td>benefitsMedicaidDisability</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Is the Head of the Household.</td>
 <td>Whether the person is the head of household or not. Note, only one person can be the head of household.</td>
 <td>headOfHousehold</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
@@ -344,11 +312,9 @@
 <td>If person isn’t the head of household, what is their relation to the head of household (see below).</td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>headOfHouseholdRelation</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -358,12 +324,10 @@
 <td>Blank (“”) or one of the strings below below.</td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td></td>
 <td>Child</td>
-<td></td>
 <td></td>
 <td>Child</td>
 </tr>
@@ -371,13 +335,11 @@
 <td></td>
 <td>Foster Child</td>
 <td></td>
-<td></td>
 <td>FosterChild</td>
 </tr>
 <tr>
 <td></td>
 <td>Step-child</td>
-<td></td>
 <td></td>
 <td>StepChild</td>
 </tr>
@@ -385,20 +347,17 @@
 <td></td>
 <td>Grandchild</td>
 <td></td>
-<td></td>
 <td>Grandchild</td>
 </tr>
 <tr>
 <td></td>
 <td>Spouse</td>
 <td></td>
-<td></td>
 <td>Spouse</td>
 </tr>
 <tr>
 <td></td>
 <td>Parent</td>
-<td></td>
 <td></td>
 <td>Parent</td>
 </tr>
@@ -406,13 +365,11 @@
 <td></td>
 <td>Foster Parent</td>
 <td></td>
-<td></td>
 <td>FosterParent</td>
 </tr>
 <tr>
 <td></td>
 <td>Step-parent</td>
-<td></td>
 <td></td>
 <td>StepParent</td>
 </tr>
@@ -420,13 +377,11 @@
 <td></td>
 <td>Grandparent</td>
 <td></td>
-<td></td>
 <td>Grandparent</td>
 </tr>
 <tr>
 <td></td>
 <td>Sister/Brother</td>
-<td></td>
 <td></td>
 <td>SisterBrother</td>
 </tr>
@@ -434,13 +389,11 @@
 <td></td>
 <td>Step-sister/Step-brother</td>
 <td></td>
-<td></td>
 <td>StepSisterStepBrother</td>
 </tr>
 <tr>
 <td></td>
 <td>Boyfriend/Girlfriend</td>
-<td></td>
 <td></td>
 <td>BoyfriendGirlfriend</td>
 </tr>
@@ -448,13 +401,11 @@
 <td></td>
 <td>Domestic Partner</td>
 <td></td>
-<td></td>
 <td>DomesticPartner</td>
 </tr>
 <tr>
 <td></td>
 <td>Unrelated</td>
-<td></td>
 <td></td>
 <td>Unrelated</td>
 </tr>
@@ -462,48 +413,41 @@
 <td></td>
 <td>Related in some other way</td>
 <td></td>
-<td></td>
 <td>Other</td>
 </tr>
 <tr>
 <td>Owner or on deed</td>
 <td>If the household owns the home, is the person the owner or on the deed.</td>
 <td>livingOwnerOnDeed</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Renting and on the Rental Lease.</td>
 <td>If the household rental is renting, whether the person on the lease or not.</td>
 <td>livingRentalOnLease</td>
-<td>Boolean</td>
 <td>true/false</td>
 </tr>
 <tr>
 <td>Income</td>
 <td>A collection of one or more income objects.</td>
 <td>incomes</td>
-<td>Array</td>
 <td><code>[{ “amount”: “200.00”, “type”: “Veteran”, “frequency”: “monthly”}, ...]</code></td>
 </tr>
 <tr>
 <td></td>
 <td><strong>Income amount.</strong> The dollar amount of the income.</td>
 <td>amount</td>
-<td>Float</td>
 <td>Value greater than or equal to 0.<br>Example: 200.00</td>
 </tr>
 <tr>
 <td></td>
 <td><strong>Income type.</strong> The type of the income (see below).</td>
 <td>type</td>
-<td>String</td>
 <td>One of the strings below.</td>
 </tr>
 <tr>
 <td></td>
 <td>Wages, salaries, tips.</td>
-<td></td>
 <td></td>
 <td>Wages</td>
 </tr>
@@ -511,13 +455,11 @@
 <td></td>
 <td>Self-employment income.</td>
 <td></td>
-<td></td>
 <td>SelfEmployment</td>
 </tr>
 <tr>
 <td></td>
 <td>Unemployment benefits.</td>
-<td></td>
 <td></td>
 <td>Unemployment</td>
 </tr>
@@ -525,13 +467,11 @@
 <td></td>
 <td>Cash Assistance grant.</td>
 <td></td>
-<td></td>
 <td>CashAssistance</td>
 </tr>
 <tr>
 <td></td>
 <td>Child support (received).</td>
-<td></td>
 <td></td>
 <td>ChildSupport</td>
 </tr>
@@ -539,13 +479,11 @@
 <td></td>
 <td>Disability-related Medicaid.</td>
 <td></td>
-<td></td>
 <td>DisabilityMedicaid</td>
 </tr>
 <tr>
 <td></td>
 <td>Supplemental Security Income (SSI).</td>
-<td></td>
 <td></td>
 <td>SSI</td>
 </tr>
@@ -553,13 +491,11 @@
 <td></td>
 <td>Social Security Dependent benefits.</td>
 <td></td>
-<td></td>
 <td>SSDependent</td>
 </tr>
 <tr>
 <td></td>
 <td>Social Security Disability benefits.</td>
-<td></td>
 <td></td>
 <td>SSDisability</td>
 </tr>
@@ -567,13 +503,11 @@
 <td></td>
 <td>Social Security Survivor’s benefits.</td>
 <td></td>
-<td></td>
 <td>SSSurvivor</td>
 </tr>
 <tr>
 <td></td>
 <td>Social Security Retirement benefits.</td>
-<td></td>
 <td></td>
 <td>SSRetirement</td>
 </tr>
@@ -581,13 +515,11 @@
 <td></td>
 <td>New York State Disability benefits.</td>
 <td></td>
-<td></td>
 <td>NYSDisability</td>
 </tr>
 <tr>
 <td></td>
 <td>Veteran’s Pension or benefits.</td>
-<td></td>
 <td></td>
 <td>Veteran</td>
 </tr>
@@ -595,13 +527,11 @@
 <td></td>
 <td>Government or Private Pension.</td>
 <td></td>
-<td></td>
 <td>Pension</td>
 </tr>
 <tr>
 <td></td>
 <td>Withdrawals from Deferred Compensation (IRA, Keogh, etc.).</td>
-<td></td>
 <td></td>
 <td>DeferredComp</td>
 </tr>
@@ -609,13 +539,11 @@
 <td></td>
 <td>Worker’s Compensation.</td>
 <td></td>
-<td></td>
 <td>WorkersComp</td>
 </tr>
 <tr>
 <td></td>
 <td>Alimony (received).</td>
-<td></td>
 <td></td>
 <td>Alimony</td>
 </tr>
@@ -623,13 +551,11 @@
 <td></td>
 <td>Boarder or lodger.</td>
 <td></td>
-<td></td>
 <td>Boarder</td>
 </tr>
 <tr>
 <td></td>
 <td>Gifts/contributions (received)</td>
-<td></td>
 <td></td>
 <td>Gifts</td>
 </tr>
@@ -637,13 +563,11 @@
 <td></td>
 <td>Rental income.</td>
 <td></td>
-<td></td>
 <td>Rental</td>
 </tr>
 <tr>
 <td></td>
 <td>Investment income (interest, dividends, and profit from selling stocks).</td>
-<td></td>
 <td></td>
 <td>Investment</td>
 </tr>
@@ -651,13 +575,11 @@
 <td></td>
 <td><strong>Income frequency.</strong> How often the income is received.</td>
 <td>frequency</td>
-<td>String</td>
 <td>One of the strings below.</td>
 </tr>
 <tr>
 <td></td>
 <td>Every week.</td>
-<td></td>
 <td></td>
 <td>weekly</td>
 </tr>
@@ -665,13 +587,11 @@
 <td></td>
 <td>Every 2 weeks.</td>
 <td></td>
-<td></td>
 <td>biweekly</td>
 </tr>
 <tr>
 <td></td>
 <td>Monthly</td>
-<td></td>
 <td></td>
 <td>monthly</td>
 </tr>
@@ -679,13 +599,11 @@
 <td></td>
 <td>Twice a month.</td>
 <td></td>
-<td></td>
 <td>semimonthly</td>
 </tr>
 <tr>
 <td></td>
 <td>Every year.</td>
-<td></td>
 <td></td>
 <td>yearly</td>
 </tr>
@@ -693,27 +611,23 @@
 <td>Expenses</td>
 <td>A collection of one or more expense objects.</td>
 <td>expenses</td>
-<td>Array</td>
 <td><code>[{ “amount”: ”50.00”, “type”: ”Medical”, “frequency”: ”weekly”}, ...]</code></td>
 </tr>
 <tr>
 <td></td>
 <td><strong>Expense amount.</strong> The dollar amount of the expense.</td>
 <td>amount</td>
-<td>Float</td>
 <td>Value greater than or equal to 0.</td>
 </tr>
 <tr>
 <td></td>
 <td><strong>Expense type.</strong> The type of the expense (see below).</td>
 <td>type</td>
-<td>String</td>
 <td>One of the strings below.</td>
 </tr>
 <tr>
 <td></td>
 <td>Child care.</td>
-<td></td>
 <td></td>
 <td>ChildCare</td>
 </tr>
@@ -721,13 +635,11 @@
 <td></td>
 <td>Child Support (paid).</td>
 <td></td>
-<td></td>
 <td>ChildSupport</td>
 </tr>
 <tr>
 <td></td>
 <td>Dependent Care.</td>
-<td></td>
 <td></td>
 <td>DependentCare</td>
 </tr>
@@ -735,13 +647,11 @@
 <td></td>
 <td>Rent</td>
 <td></td>
-<td></td>
 <td>Rent</td>
 </tr>
 <tr>
 <td></td>
 <td>Medical expense</td>
-<td></td>
 <td></td>
 <td>Medical</td>
 </tr>
@@ -749,34 +659,29 @@
 <td></td>
 <td>Heating</td>
 <td></td>
-<td></td>
 <td>Heating</td>
 </tr>
 <tr>
 <td></td>
 <td>Cooling</td>
 <td></td>
-<td></td>
 <td>Cooling</td>
 </tr>
 <tr>
 <td></td>
 <td>Mortgage</td>
 <td></td>
-<td></td>
 <td>Mortgage</td>
 </tr>
 <tr>
 <td></td>
 <td>Utilities</td>
 <td></td>
-<td></td>
 <td>Utilities</td>
 </tr>
 <tr>
 <td></td>
 <td>Telephone</td>
-<td></td>
 <td></td>
 <td>Telephone</td>
 </tr>
@@ -784,20 +689,17 @@
 <td></td>
 <td>Third party insurance premiums.</td>
 <td></td>
-<td></td>
 <td>InsurancePremiums</td>
 </tr>
 <tr>
 <td></td>
 <td><strong>Expense frequency.</strong> How often the expense is paid (see below).</td>
 <td>frequency</td>
-<td>string</td>
 <td>One of the strings below.</td>
 </tr>
 <tr>
 <td></td>
 <td>Every week.</td>
-<td></td>
 <td></td>
 <td>weekly</td>
 </tr>
@@ -805,13 +707,11 @@
 <td></td>
 <td>Every 2 weeks.</td>
 <td></td>
-<td></td>
 <td>biweekly</td>
 </tr>
 <tr>
 <td></td>
 <td>Monthly</td>
-<td></td>
 <td></td>
 <td>monthly</td>
 </tr>
@@ -819,13 +719,11 @@
 <td></td>
 <td>Twice a month.</td>
 <td></td>
-<td></td>
 <td>semimonthly</td>
 </tr>
 <tr>
 <td></td>
 <td>Every year.</td>
-<td></td>
 <td></td>
 <td>yearly</td>
 </tr>
@@ -844,17 +742,15 @@ See the full list on the Benefits and Programs API page.</p>
 <li>Your username and a valid token is required for making a request.</li>
 <li>Set the <code>Content-Type</code> to <code>application/json</code>.</li>
 <li>The request body must be in JSON format.</li>
-<li>Use the testing domain for sample requests and development and the production domain for production level applications.
-T* he request body should include Household Composition Data that includes the household and person datatypes with as many of the available parameters filled out possible for the most accurate eligibility evaluation.</li>
+<li>Use the testing domain for sample requests and development and the production domain for production level applications.</li>
+<li>The request body should include Household Composition Data that includes the household and person datatypes with as many of the available parameters filled out possible for the most accurate eligibility evaluation.</li>
 <li>The request response will contain a list of program names and codes</li>
 <li>Program codes can be mapped to additional content in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a>.</li>
 </ul>
-<br>
-<hr>
-
 <h2 id="next">Next</h2>
-<p><a href="/endpoints">Endpoints</a>.</p>
-	</div>
+<p><a href="/endpoints">Endpoints</a></p>
+	
+    </div>
 	
 	</section>
 
