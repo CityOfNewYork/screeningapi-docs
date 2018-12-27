@@ -1,5 +1,64 @@
-<h1 id="making-a-request">Making a Request</h1>
-<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your username and token is required for all requests. Your username is sent to you when your account is created. Getting a token is described in Set Password and Token Based Authentication. The request body and response are sent as JSON so the <code>Content-Type</code> header must be set to <code>application/json</code>. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Eligibility API - Making a Request</title>
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  
+  </head>
+
+<body>
+	<header class="p-2">
+	  <h1 class="font-sans text-color-blue-dark">
+	    NYC Benefits Eligibility API
+	  </h1>
+	</header>
+
+	<section class="usa-grid screen-desktop:layout--sidebar-small-gutter">
+	  <aside>
+	    <nav class="c-side-nav">
+  <ul>
+    <li>
+      <a class="active" href="/">Overview</a>
+    </li>
+    <li>
+      <a href="terms-of-service">Terms of Service</a>
+    </li>
+    <li>
+      <a href="request-an-account">Request an Account</a>
+    </li>
+    <li>
+      <a href="request-account-form">Request Account Form</a>
+    </li>
+    <li>
+      <a href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
+    </li>
+    <li>
+      <a href="eligibility-guidelines">Eligibility Guidelines</a>
+    </li>
+    <li>
+      <a href="making-a-request">Making a Request</a>
+    </li>
+    <li>
+      <a href="endpoints">Endpoints</a>
+    </li>
+    <li>
+      <a href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
+    </li>
+    <li>
+      <a href="feedback-and-support">Feedback and Support</a>
+    </li>
+  </ul>
+</nav>	  </aside>
+
+	  	
+	<div class="o-content">
+	<h1 id="making-a-request">Making a Request</h1>
+<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your username and token is required for all requests. Your username is sent to you when your <a href="/request-account-form">account is created</a>. Getting a token is described in <a href="/set-password-and-token-based-on-authentication">Set Password and Token Based Authentication</a>. The request body and response are sent as JSON so the <code>Content-Type</code> header must be set to <code>application/json</code>. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
 <pre><code>curl -X POST \
   &#39;https://{{ domain }}/access-nyc-rest/{{ endpoint }}&#39; \
   -H &#39;Content-Type: application/json&#39; \
@@ -32,7 +91,7 @@
 <p>Please note, there are two domains for sending requests, one for testing and one for production level applications. Please use the appropriate domain during testing and application development, as well as the production domain for production level applications.</p>
 <h2 id="request-body-household-composition-data-">Request Body (Household Composition Data)</h2>
 <p>The request for each endpoint should contain certain datum pertinent to the household of the client for which eligibility is being evaluated. We refer to this as Household Composition Data. The entire dataset is made up of two distinct types:  Household and Person(s). Each type has different attributes that must be filled out as completely as possible for the most accurate eligibility evaluation. There can only be one type of Household and there can be more than one Person associated with each household.</p>
-<p>Below is a list of all parameters and their description. For a description of how to structure the data for each endpoint, please refer to the endpoint documentation.</p>
+<p>Below is a list of all parameters and their description. For a description of how to structure the data for each endpoint, please refer to the <a href="/swagger">endpoint documentation</a>.</p>
 <h3 id="household">Household</h3>
 <table>
 <thead>
@@ -772,7 +831,7 @@
 </tr>
 </tbody></table>
 <h2 id="response-program-codes-">Response (Program Codes)</h2>
-<p>Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the Benefits and Programs API which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the endpoint documentation;
+<p>Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the <a href="/swagger">endpoint documentation</a>;
 |Program Code|Program Name|
 |--|--|
 |S2R010|Cash Assistance|
@@ -788,7 +847,20 @@ See the full list on the Benefits and Programs API page.</p>
 <li>Use the testing domain for sample requests and development and the production domain for production level applications.
 T* he request body should include Household Composition Data that includes the household and person datatypes with as many of the available parameters filled out possible for the most accurate eligibility evaluation.</li>
 <li>The request response will contain a list of program names and codes</li>
-<li>Program codes can be mapped to additional content in the Benefits and Programs API.</li>
+<li>Program codes can be mapped to additional content in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a>.</li>
 </ul>
+<br>
+<hr>
+
 <h2 id="next">Next</h2>
-<p>Endpoints.</p>
+<p><a href="/endpoints">Endpoints</a>.</p>
+	</div>
+	
+	</section>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	
+	<script src="js/source.js"></script>
+
+</body>
+</html>
