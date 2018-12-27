@@ -37,8 +37,8 @@ gulp.task('lint-css', function(){
 });
 
 // STYLES
-gulp.task('styles', gulp.series('lint-css'), function () {
-  return gulp.src('src/scss/*.scss')
+gulp.task('styles', gulp.series('lint-css', function () {
+  return gulp.src(SOURCE + 'scss/*.scss')
     .pipe(sass({
       includePaths: [
         'node_modules',
@@ -48,7 +48,7 @@ gulp.task('styles', gulp.series('lint-css'), function () {
     .pipe(concat('style.css'))
     .pipe(gulp.dest(DIST + 'css'))
     .pipe(notify({message: 'Styles task complete'}))
-});
+}));
 
 // RESOURCES
 gulp.task('resources', function() {
