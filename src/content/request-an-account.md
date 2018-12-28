@@ -23,4 +23,8 @@ Keep your username and temporary password to set your password.
 * Contact us through [Support](mailto:eligibilityapi@nycopportunity.nyc.gov) if you need to update your account information.
 
 ## Next
+
 [Set Password and Token Based Authentication](/set-password-and-token-based-authentication)
+
+<br>
+<br>

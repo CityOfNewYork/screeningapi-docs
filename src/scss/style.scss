@@ -49,9 +49,17 @@ h3 {
   @extend .text-color-white;
   @extend .border-crosstown;
 
+  margin-left: 10px;
   text-decoration: none;
   font-size: 16px;
-  color: #fff;
   border-radius: .5rem;
-  padding: 3px;
+  padding: 3px 6px;
+}
+
+.o-footer__copyright p {
+  margin-top: 0;
+}
+
+body {
+  @extend .bg-color-white;
 }

@@ -143,14 +143,16 @@ Expenses| A collection of one or more expense objects. | expenses|`[{ â€œamountâ
 ||Every year.||yearly|
 
 ## Response (Program Codes)
-Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the [Benefits and Programs API](https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju) which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the [endpoint documentation](/swagger);
+Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the [Benefits and Programs API](https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju) which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the [endpoint documentation](/swagger).
+
 |Program Code|Program Name|
 |--|--|
 |S2R010|Cash Assistance|
 |S2R001|Child and Dependent Care Tax Credit|
 |S2R004|Child Tax Credit|
 |...|...|
-See the full list on the Benefits and Programs API page.
+
+See the full list on the [Benefits and Programs API](https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju) page.
 
 ## Summary
 * Your username and a valid token is required for making a request.
@@ -164,3 +166,6 @@ See the full list on the Benefits and Programs API page.
 ## Next
 
 [Endpoints](/endpoints)
+
+<br>
+<br>

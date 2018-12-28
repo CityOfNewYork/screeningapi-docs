@@ -13,11 +13,13 @@
 </head>
 
 <body>
-	<header class="p-2">
-	  <h1 class="font-sans text-color-blue-dark">
-	    NYC Benefits Eligibility API <a class="version" href="https://github.com/CityOfNewYork/eligibilityapi">1.0.0</a>
+	<header class="p-2 flex items-center font-sans ">
+	  <h1 class="text-color-blue-dark">
+	    NYC Benefits Eligibility API
 	  </h1>
-	</header>
+    <a class="version" href="https://github.com/CityOfNewYork/eligibilityapi">1.0.0</a>
+  </header>
+  <div class="divider"></div>
 
 	<section class="usa-grid screen-desktop:layout--sidebar-small-gutter">
 	  <aside>
@@ -27,12 +29,28 @@
     <div class="font-sans">
     {% block content %}{% endblock %}
     </div>
-	
 	</section>
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-	
+  <footer class="o-footer bg-color-blue-light">
+    {# <nav class="o-footer_nav">
+      <ul class="o-footer__nav-list">
+        <li class="o-footer__column-first"></li>
+      </ul>
+    </nav> #}
+    <div class="o-footer__copyright text-color-blue-dark">
+      <svg class="icon icon-logo-nyc">
+        <use xlink:href="#icon-logo-nyc"></use>
+      </svg>
+      <p>City of New York, 2019 All Rights Reserved.
+      <br />NYC is a trademark and service mark of the City of New York.</p>
+    </div>
+  </footer> 
+
 	<script src="js/source.js"></script>
+  <script type="text/javascript">
+    var access = new AccessNyc();
+    access.icons('/svg/icons.svg');
+  </script>
 
 </body>
 </html>

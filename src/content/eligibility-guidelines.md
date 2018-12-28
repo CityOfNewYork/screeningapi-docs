@@ -15,3 +15,6 @@ It’s important for developers and end-users impacted by use of the API to unde
 
 ## Next
 [Making a Request](/making-a-request)
+
+<br>
+<br>

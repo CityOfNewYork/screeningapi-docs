@@ -7,17 +7,24 @@ var browserSync = require('browser-sync').create(),
   notify = require('gulp-notify'),
   concat = require('gulp-concat'),
   twig = require('gulp-twig'),
+  svgmin = require('gulp-svgmin'),
+  svgstore = require('gulp-svgstore'),
+  rename = require('gulp-rename'),
   twigMarkdown = require('twig-markdown'),
   sass = require('gulp-sass'),
   stylelint = require('gulp-stylelint');
 
 // var DIST = 'dist/',
 var DIST = 'dist/68d422386f1c9b95dab97295f2644aa1687647a4/',
-  SOURCE = 'src/';
+  SOURCE = 'src/',
+  PATTERNS = 'node_modules/access-nyc-patterns/';
 
 // SCRIPTS
 gulp.task('scripts', function() {
-  return gulp.src('src/js/*.js')
+  return gulp.src([
+    SOURCE + 'js/*.js',
+    PATTERNS + 'dist/scripts/*.js'
+  ])
     .pipe(concat('source.js'))
     .pipe(gulp.dest(DIST + 'js'))
     .pipe(notify({message: 'Scripts task complete'}))
@@ -57,6 +64,18 @@ gulp.task('resources', function() {
     .pipe(notify({message: 'Resources task complete'}))
 });
 
+// ICONS
+gulp.task('icons', function () {
+  return gulp.src(PATTERNS + 'src/svg/*.svg')
+    .pipe(svgmin())
+    .pipe(svgstore({
+      inlineSvg: true
+    }))
+    .pipe(rename('icons.svg'))
+    .pipe(gulp.dest(DIST + 'svg'))
+    .pipe(notify({message: 'Icons task complete'}))
+});
+
 // VIEWS
 gulp.task('views', function () {
   return gulp.src('src/views/*.twig')
@@ -82,10 +101,10 @@ gulp.task('default', function(){
   gulp.watch(SOURCE+'scss/**/*', gulp.series('styles', 'views'));
   gulp.watch(SOURCE+'content/**/*', gulp.series('styles', 'views'));
   gulp.watch(SOURCE+'js/**/*', gulp.series('scripts'));
-  gulp.watch(SOURCE+'views/**/*', gulp.series('resources', 'styles','views'));
+  gulp.watch(SOURCE+'views/**/*', gulp.series('resources', 'styles', 'views'));
   
   gulp.watch(DIST + '/*').on('change', browserSync.reload);
 });
 
 // BUILD
-gulp.task('build', gulp.parallel('scripts', 'views'));
+gulp.task('build', gulp.parallel('resources', 'icons', 'scripts', 'styles', 'views'));

@@ -1,6 +1,10 @@
 @charset 'utf-8';
 
+// Global dependencies
+@import 'bourbon/app/assets/stylesheets/settings/deprecation-warnings';
+
 // Elements
+@import 'access-nyc-patterns/src/elements/base/base';
 @import 'access-nyc-patterns/src/elements/layouts/layouts';
 @import 'access-nyc-patterns/src/elements/divider/divider';
 @import 'access-nyc-patterns/src/elements/code/code';
@@ -13,10 +17,12 @@
 
 // Objects
 @import 'access-nyc-patterns/src/objects/content/content';
+@import 'access-nyc-patterns/src/objects/footer/footer';
 
 // Utilities
 @import 'access-nyc-patterns/src/utilities/font';
 @import 'access-nyc-patterns/src/utilities/color';
+@import 'access-nyc-patterns/src/utilities/icons/icons';
 @import 'access-nyc-patterns/dist/styles/_tailwind.scss';
 
 @import 'swagger.scss';
