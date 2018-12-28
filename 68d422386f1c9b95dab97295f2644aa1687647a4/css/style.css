@@ -1,5 +1,56 @@
 @charset "UTF-8";
 /**
+ * Base
+ */
+html {
+  box-sizing: border-box; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+html,
+body {
+  background-color: #EEF3F7;
+  height: auto;
+  margin: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  padding: 0; }
+
+[hidden] {
+  display: none !important; }
+
+use {
+  pointer-events: none; }
+
+[class*='border'] {
+  border-style: solid;
+  border-width: 0; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+a {
+  overflow-wrap: break-word;
+  word-wrap: break-word; }
+
+.print-view html, .print-view body {
+  overflow: visible !important; }
+
+.print-view * {
+  -webkit-print-color-adjust: exact; }
+
+@media print {
+  html,
+  body {
+    overflow: visible !important; }
+  * {
+    -webkit-print-color-adjust: exact; } }
+
+/**
  * Layouts
  */
 /*
@@ -1124,6 +1175,70 @@ a, .btn-link {
         padding: 12px 48px; } }
 
 /**
+ * Footer
+ */
+.o-footer {
+  padding: 48px 0;
+  border-top: 3px solid #112E51; }
+  .o-footer .o-footer__nav-list {
+    font-weight: normal;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    font-family: "Noto Sans", sans-serif;
+    display: block;
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0; }
+    @media screen and (min-width: 768px) {
+      .o-footer .o-footer__nav-list {
+        font-size: 1rem; } }
+    .o-footer .o-footer__nav-list::after {
+      clear: both;
+      content: "";
+      display: table; }
+    .o-footer .o-footer__nav-list .type-h3 {
+      margin-bottom: 24px; }
+    .o-footer .o-footer__nav-list ul {
+      list-style: none;
+      margin: 0 0 48px;
+      padding: 0; }
+      .o-footer .o-footer__nav-list ul > li {
+        margin-bottom: 24px; }
+    .o-footer .o-footer__nav-list > li {
+      width: 100%;
+      float: left;
+      padding: 0 24px; }
+      @media screen and (min-width: 768px) {
+        .o-footer .o-footer__nav-list > li {
+          width: 33.33%; }
+          .o-footer .o-footer__nav-list > li:last-child {
+            width: 100%; } }
+      @media screen and (min-width: 960px) {
+        .o-footer .o-footer__nav-list > li {
+          width: 25%; }
+          .o-footer .o-footer__nav-list > li:last-child {
+            width: 25%; } }
+  .o-footer .o-footer__copyright {
+    margin: 0 24px; }
+
+.o-footer__copyright {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: #172129;
+  font-size: 12px; }
+  .o-footer__copyright::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .o-footer__copyright .icon-logo-nyc {
+    width: 90px;
+    height: 30px;
+    float: left;
+    margin-right: 12px; }
+
+/**
  * Font
  */
 .font-smooth {
@@ -1198,6 +1313,644 @@ a, .btn-link {
   background-color: #0D6D3B;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+/**
+ * Icons
+ */
+[class*='icon-'] {
+  overflow: visible !important;
+  max-width: 100%; }
+
+[class*='bg-icon-'] {
+  display: inline-block; }
+
+.bg-icon-logo-full {
+  height: 30px;
+  width: 180px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-logo-full.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-logo-full {
+  height: 30px;
+  width: 180px; }
+
+.bg-icon-logo-full--large {
+  height: 45px;
+  width: 270px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-logo-full.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-logo-full--large {
+  height: 45px;
+  width: 270px; }
+
+.bg-icon-logo-mark {
+  height: 30px;
+  width: 30px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-logo-mark.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-logo-mark {
+  height: 30px;
+  width: 30px; }
+
+.bg-icon-logo-nyc {
+  height: 16px;
+  width: 48px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-logo-nyc.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-logo-nyc {
+  height: 16px;
+  width: 48px; }
+
+.bg-icon-close {
+  height: 20px;
+  width: 20px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-close.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-close {
+  height: 20px;
+  width: 20px; }
+
+.bg-icon-contact {
+  height: 20px;
+  width: 22px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-contact.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-contact {
+  height: 20px;
+  width: 22px; }
+
+.bg-icon-gear {
+  height: 23px;
+  width: 23px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-gear.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-gear {
+  height: 23px;
+  width: 23px; }
+
+.bg-icon-minus {
+  height: 32px;
+  width: 32px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-minus.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-minus {
+  height: 32px;
+  width: 32px; }
+
+.bg-icon-plus {
+  height: 32px;
+  width: 32px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-plus.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-plus {
+  height: 32px;
+  width: 32px; }
+
+.bg-icon-screening {
+  height: 30px;
+  width: 30px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-screening.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-screening {
+  height: 30px;
+  width: 30px; }
+
+.bg-icon-search {
+  height: 16px;
+  width: 16px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-search.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-search {
+  height: 16px;
+  width: 16px; }
+
+.bg-icon-printer {
+  height: 32px;
+  width: 32px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-printer.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-printer {
+  height: 32px;
+  width: 32px; }
+
+.bg-icon-share {
+  height: 32px;
+  width: 32px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-share.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-share {
+  height: 32px;
+  width: 32px; }
+
+.bg-icon-eligibilitycheck {
+  height: 32px;
+  width: 32px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-eligibilitycheck.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-eligibilitycheck {
+  height: 32px;
+  width: 32px; }
+
+.bg-icon-checkmark {
+  height: 32px;
+  width: 32px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-checkmark.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-checkmark {
+  height: 32px;
+  width: 32px; }
+
+.bg-icon-arrow-down {
+  height: 32px;
+  width: 32px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-arrow-down {
+  height: 32px;
+  width: 32px; }
+
+.bg-icon-info {
+  height: 32px;
+  width: 32px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-info.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-info {
+  height: 32px;
+  width: 32px; }
+
+.bg-icon-success {
+  height: 32px;
+  width: 32px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-success.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-success {
+  height: 32px;
+  width: 32px; }
+
+.bg-icon-urgent {
+  height: 32px;
+  width: 32px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-urgent.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-urgent {
+  height: 32px;
+  width: 32px; }
+
+.bg-icon-warning {
+  height: 32px;
+  width: 32px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-warning.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-warning {
+  height: 32px;
+  width: 32px; }
+
+.bg-icon-card-cash-expenses {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-card-cash-expenses.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-card-cash-expenses {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-card-child-care {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-card-child-care.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-card-child-care {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-card-city-id-card {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-card-city-id-card.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-card-city-id-card {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-card-education {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-card-education.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-card-education {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-card-enrichment {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-card-enrichment.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-card-enrichment {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-card-expenses {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-card-expenses.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-card-expenses {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-card-family-services {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-card-family-services.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-card-family-services {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-card-food {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-card-food.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-card-food {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-card-health {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-card-health.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-card-health {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-card-housing {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-card-housing.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-card-housing {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-card-special-needs {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-card-special-needs.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-card-special-needs {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-card-work {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-card-work.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-card-work {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-cash-expenses {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-cash-expenses.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-cash-expenses {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-child-care {
+  height: 52px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-child-care.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-child-care {
+  height: 52px;
+  width: 50px; }
+
+.bg-icon-city-id-card {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-city-id-card.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-city-id-card {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-education {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-education.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-education {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-enrichment {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-enrichment.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-enrichment {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-family-services {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-family-services.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-family-services {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-food {
+  height: 52px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-food.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-food {
+  height: 52px;
+  width: 50px; }
+
+.bg-icon-health {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-health.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-health {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-housing {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-housing.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-housing {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-special-needs {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-special-needs.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-special-needs {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-work {
+  height: 52px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/svg/icon-work.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-work {
+  height: 52px;
+  width: 50px; }
+
+.bg-icon-application {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/images/headsup_application_25px-1.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-application {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-badge {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/images/headsup_badge_30px-1.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-badge {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-calendar {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/images/headsup_calendar_25px-1.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-calendar {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-flag {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/images/headsup_flag_30px-1.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-flag {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-generic {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/images/headsup_generic_30px-1.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-generic {
+  height: 50px;
+  width: 50px; }
+
+.bg-icon-check {
+  height: 50px;
+  width: 50px;
+  background-image: url("https://cdn.jsdelivr.net/gh/CityOfNewYork/ACCESS-NYC-PATTERNS@v0.1.0/dist/images/icon-eligibilitycheck.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center; }
+
+.icon-check {
+  height: 50px;
+  width: 50px; }
+
+[class*='icon-subway'] {
+  color: #ffffff;
+  font-size: 75%;
+  font-family: helvetica, arial, sans-serif;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 1px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 9999px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  flex-shrink: 0; }
+  [class*='icon-subway'].bg-broadway {
+    color: #000000; }
+
+.icon-subway-express {
+  position: relative;
+  z-index: 1; }
+  .icon-subway-express[class*='bg-'] {
+    background-color: transparent !important; }
+  .icon-subway-express:before, .icon-subway-express:after {
+    content: '';
+    border: 15px solid transparent;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -3px;
+    z-index: -1; }
+  .icon-subway-express:before {
+    top: -18px;
+    border-bottom-color: inherit; }
+  .icon-subway-express:after {
+    bottom: -18px;
+    border-top-color: inherit; }
 
 .list-reset {
   list-style: none !important;
@@ -1274,7 +2027,7 @@ a, .btn-link {
 .bg-color-black {
   background-color: #000 !important; }
 
-.bg-color-white {
+.bg-color-white, body {
   background-color: #fff !important; }
 
 .bg-color-transparent {
@@ -11456,11 +12209,14 @@ h3 {
   font-size: 16px; }
 
 .version {
+  margin-left: 10px;
   text-decoration: none;
   font-size: 16px;
-  color: #fff;
   border-radius: .5rem;
-  padding: 3px; }
+  padding: 3px 6px; }
+
+.o-footer__copyright p {
+  margin-top: 0; }
 
 .swagger-ui .title {
   display: none; }

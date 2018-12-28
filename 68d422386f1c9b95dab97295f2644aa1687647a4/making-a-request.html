@@ -12,11 +12,13 @@
   </head>
 
 <body>
-	<header class="p-2">
-	  <h1 class="font-sans text-color-blue-dark">
-	    NYC Benefits Eligibility API <a class="version" href="https://github.com/CityOfNewYork/eligibilityapi">1.0.0</a>
+	<header class="p-2 flex items-center font-sans ">
+	  <h1 class="text-color-blue-dark">
+	    NYC Benefits Eligibility API
 	  </h1>
-	</header>
+    <a class="version" href="https://github.com/CityOfNewYork/eligibilityapi">1.0.0</a>
+  </header>
+  <div class="divider"></div>
 
 	<section class="usa-grid screen-desktop:layout--sidebar-small-gutter">
 	  <aside>
@@ -729,14 +731,32 @@
 </tr>
 </tbody></table>
 <h2 id="response-program-codes-">Response (Program Codes)</h2>
-<p>Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the <a href="/swagger">endpoint documentation</a>;
-|Program Code|Program Name|
-|--|--|
-|S2R010|Cash Assistance|
-|S2R001|Child and Dependent Care Tax Credit|
-|S2R004|Child Tax Credit|
-|...|...|
-See the full list on the Benefits and Programs API page.</p>
+<p>Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the <a href="/swagger">endpoint documentation</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Program Code</th>
+<th>Program Name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S2R010</td>
+<td>Cash Assistance</td>
+</tr>
+<tr>
+<td>S2R001</td>
+<td>Child and Dependent Care Tax Credit</td>
+</tr>
+<tr>
+<td>S2R004</td>
+<td>Child Tax Credit</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody></table>
+<p>See the full list on the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> page.</p>
 <h2 id="summary">Summary</h2>
 <ul>
 <li>Your username and a valid token is required for making a request.</li>
@@ -749,14 +769,28 @@ See the full list on the Benefits and Programs API page.</p>
 </ul>
 <h2 id="next">Next</h2>
 <p><a href="/endpoints">Endpoints</a></p>
+<br>
+<br>
 	
     </div>
-	
 	</section>
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-	
+  <footer class="o-footer bg-color-blue-light">
+    
+    <div class="o-footer__copyright text-color-blue-dark">
+      <svg class="icon icon-logo-nyc">
+        <use xlink:href="#icon-logo-nyc"></use>
+      </svg>
+      <p>City of New York, 2019 All Rights Reserved.
+      <br />NYC is a trademark and service mark of the City of New York.</p>
+    </div>
+  </footer> 
+
 	<script src="js/source.js"></script>
+  <script type="text/javascript">
+    var access = new AccessNyc();
+    access.icons('/svg/icons.svg');
+  </script>
 
 </body>
 </html>
