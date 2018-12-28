@@ -59,9 +59,16 @@ gulp.task('styles', gulp.series('lint-css', function () {
 
 // RESOURCES
 gulp.task('resources', function() {
-  return gulp.src('src/resources/*')
+  return gulp.src(SOURCE + 'resources/*')
     .pipe(gulp.dest(DIST + 'resources'))
     .pipe(notify({message: 'Resources task complete'}))
+});
+
+// IMAGES
+gulp.task('images', function() {
+  return gulp.src(PATTERNS + 'dist/images/*')
+    .pipe(gulp.dest(DIST + 'images'))
+    .pipe(notify({message: 'Images task complete'}))
 });
 
 // ICONS
@@ -107,4 +114,11 @@ gulp.task('default', function(){
 });
 
 // BUILD
-gulp.task('build', gulp.parallel('resources', 'icons', 'scripts', 'styles', 'views'));
+gulp.task('build', gulp.parallel(
+  'resources', 
+  'images',
+  'icons', 
+  'scripts', 
+  'styles', 
+  'views'
+));
