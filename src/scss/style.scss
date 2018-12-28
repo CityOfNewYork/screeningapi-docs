@@ -11,7 +11,7 @@ table {
   text-align: right;
 
   thead {
-    @extend .text-eighth-avenue;
+    @extend .text-color-blue;
   }
 
   tbody tr:nth-child(odd) {
@@ -29,7 +29,7 @@ table {
 }
 
 h1 {
-  @extend .text-eighth-avenue;
+  @extend .text-color-blue;
 }
 
 h2 {
@@ -62,4 +62,20 @@ h3 {
 
 body {
   @extend .bg-color-white;
+}
+
+input {
+  width: 100%;
+}
+
+.mc-field-group {
+  margin-bottom: 10px;
+
+  .asterisk, {
+    @extend .text-color-red;
+  }
+
+  div.mce_inline_error {
+    @extend .bg-color-red;
+  }
 }

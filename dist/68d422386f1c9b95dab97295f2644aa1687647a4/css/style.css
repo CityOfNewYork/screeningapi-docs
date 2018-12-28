@@ -961,6 +961,222 @@ a, .btn-link {
   border-top: 0.3em solid transparent; }
 
 /**
+ * Inputs
+ */
+@media screen and (min-width: 768px) {
+  .screen-tablet\:input-w-400px input {
+    width: 400px;
+    max-width: 100%; } }
+
+.input-currency-usd {
+  display: inline-block;
+  position: relative; }
+  .input-currency-usd input {
+    margin: 0;
+    padding-left: 30px;
+    z-index: 3; }
+  .input-currency-usd::after {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #0D6D3B;
+    content: '$';
+    font-size: 22px;
+    font-weight: bold;
+    text-align: left;
+    z-index: 2;
+    pointer-events: none; }
+
+.input-phone-us {
+  display: inline-block;
+  position: relative; }
+  .input-phone-us input {
+    margin: 0;
+    padding-left: 42px;
+    z-index: 3; }
+  .input-phone-us::after {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #184E9E;
+    content: '+1';
+    font-size: 22px;
+    font-weight: bold;
+    text-align: left;
+    z-index: 2;
+    pointer-events: none; }
+
+.error.input-phone-us::after,
+.error.input-currency-usd::after {
+  color: #C6252b; }
+
+.input-search {
+  position: relative; }
+  .input-search input {
+    text-overflow: ellipsis;
+    display: block;
+    padding: 24px;
+    padding-right: 60px;
+    width: 100%; }
+
+.input-search__submit {
+  right: 24px;
+  line-height: 24px;
+  margin: -13px 0 0 0 !important;
+  padding: 0 !important;
+  position: absolute;
+  top: 50%; }
+  .input-search__submit .icon {
+    width: 24px;
+    height: 24px; }
+
+/**
+ * Buttons
+ */
+.btn, [class*='btn-'] {
+  appearance: none;
+  transition: background .2s ease-in, color .2s ease-in;
+  font-weight: bold;
+  font-size: 1.09rem;
+  line-height: 1.3;
+  font-family: "Noto Sans", sans-serif;
+  background: #ffffff;
+  border: 0;
+  border-radius: 5px;
+  display: inline-block;
+  line-height: 1;
+  padding: 15.9984px 24px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer; }
+  .btn .icon, [class*='btn-'] .icon {
+    vertical-align: middle; }
+
+.btn-tag {
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.3;
+  font-family: "Noto Sans", sans-serif;
+  border-radius: 15px;
+  margin: 5px 2px;
+  padding: 8px; }
+  .btn-tag:first-of-type {
+    margin-left: 0; }
+  .btn-tag:last-of-type {
+    margin-right: 0; }
+
+.btn-toggle {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0;
+  font-size: 0.72rem;
+  padding: 24px;
+  text-align: left;
+  border-radius: 5px; }
+  .btn-toggle::after {
+    content: '';
+    position: relative;
+    top: -.1em;
+    height: 0;
+    width: 0;
+    border-left: .4em solid transparent;
+    border-right: .4em solid transparent;
+    border-top: .6em solid;
+    border-top-color: inherit;
+    display: inline-block;
+    margin-left: .5em; }
+  .btn-toggle.active::after {
+    border-top: 0;
+    border-bottom: .6em solid;
+    border-bottom-color: inherit; }
+
+.btn-small {
+  font-size: .727rem; }
+
+@media screen and (min-width: 768px) {
+  .screen-tablet\:btn-normal {
+    font-weight: bold;
+    font-size: 1.09rem;
+    line-height: 1.3;
+    font-family: "Noto Sans", sans-serif; } }
+
+@media screen and (min-width: 960px) {
+  .screen-desktop\:btn-normal {
+    font-weight: bold;
+    font-size: 1.09rem;
+    line-height: 1.3;
+    font-family: "Noto Sans", sans-serif; } }
+
+.btn-primary {
+  color: #ffffff;
+  background: #184E9E;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .btn-primary:link, .btn-primary:visited {
+    color: #ffffff;
+    background: #184E9E; }
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    color: #ffffff;
+    background: #1658b9; }
+
+.btn-secondary {
+  color: #ffffff;
+  background: #0D6D3B;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .btn-secondary:link, .btn-secondary:visited {
+    color: #ffffff;
+    background: #0D6D3B; }
+  .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+    color: #ffffff;
+    background: #0c8747; }
+
+.btn-next[class*='-next'],
+.btn-previous[class*='-next'] {
+  position: relative;
+  padding-right: 40px; }
+  .btn-next[class*='-next']::after,
+  .btn-previous[class*='-next']::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    border-bottom: .3em solid transparent;
+    border-left: .4em solid;
+    border-left-color: inherit;
+    border-top: .3em solid transparent;
+    top: 50%;
+    margin-top: -.3em;
+    margin-right: 24px;
+    right: -.3em; }
+
+.btn-next[class*='-previous'],
+.btn-previous[class*='-previous'] {
+  position: relative;
+  padding-left: 40px; }
+  .btn-next[class*='-previous']::before,
+  .btn-previous[class*='-previous']::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    border-bottom: .3em solid transparent;
+    border-right: .4em solid;
+    border-right-color: inherit;
+    border-top: .3em solid transparent;
+    top: 50%;
+    margin-top: -.3em;
+    margin-left: 24px;
+    left: -.3em; }
+
+.btn-text {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0; }
+
+/**
  * Header
  */
 .c-header {
@@ -2006,7 +2222,7 @@ a, .btn-link {
 .bg-color-pink {
   background-color: #f1647c !important; }
 
-.bg-color-red {
+.bg-color-red, .mc-field-group div.mce_inline_error {
   background-color: #c6252b !important; }
 
 .bg-color-purple {
@@ -4114,7 +4330,7 @@ a, .btn-link {
 .text-color-blue-bright {
   color: #118df0 !important; }
 
-.text-color-blue {
+.text-color-blue, table thead, h1 {
   color: #184e9e !important; }
 
 .text-color-blue-dark {
@@ -4144,7 +4360,7 @@ a, .btn-link {
 .text-color-pink {
   color: #f1647c !important; }
 
-.text-color-red {
+.text-color-red, .mc-field-group .asterisk {
   color: #c6252b !important; }
 
 .text-color-purple {
@@ -4171,7 +4387,7 @@ a, .btn-link {
 .text-color-transparent {
   color: rgba(255, 255, 255, 0) !important; }
 
-.text-eighth-avenue, table thead, h1 {
+.text-eighth-avenue {
   color: #2850ad !important; }
 
 .text-sixth-avenue, h2 {
@@ -12217,6 +12433,12 @@ h3 {
 
 .o-footer__copyright p {
   margin-top: 0; }
+
+input {
+  width: 100%; }
+
+.mc-field-group {
+  margin-bottom: 10px; }
 
 .swagger-ui .title {
   display: none; }
