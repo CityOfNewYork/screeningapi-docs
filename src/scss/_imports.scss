@@ -1,30 +1,20 @@
 @charset 'utf-8';
 
-// Global dependencies
-@import 'bourbon/app/assets/stylesheets/settings/deprecation-warnings';
+// NYCO-PATTERNS
+@import 'nyco-patterns/src/elements/base/base';
+@import 'nyco-patterns/src/elements/code/code';
+@import 'nyco-patterns/src/elements/links/links';
+@import 'nyco-patterns/src/elements/layouts/layouts';
 
-// Elements
-@import 'access-nyc-patterns/src/elements/base/base';
-@import 'access-nyc-patterns/src/elements/layouts/layouts';
-@import 'access-nyc-patterns/src/elements/divider/divider';
-@import 'access-nyc-patterns/src/elements/code/code';
-@import 'access-nyc-patterns/src/elements/forms/forms';
-@import 'access-nyc-patterns/src/elements/links/links';
-@import 'access-nyc-patterns/src/elements/inputs/inputs';
-@import 'access-nyc-patterns/src/elements/buttons/btn';
+@import 'nyco-patterns/src/config/variables';
+@import 'nyco-patterns/src/elements/icons/icons';
+@import 'nyco-patterns/src/elements/tables/tables';
+@import 'nyco-patterns/src/elements/buttons/buttons';
 
-// Components
-@import 'access-nyc-patterns/src/components/header/header';
-@import 'access-nyc-patterns/src/components/side-nav/side-nav';
-
-// Objects
-@import 'access-nyc-patterns/src/objects/content/content';
-@import 'access-nyc-patterns/src/objects/footer/footer';
-
-// Utilities
-@import 'access-nyc-patterns/src/utilities/font';
-@import 'access-nyc-patterns/src/utilities/color';
-@import 'access-nyc-patterns/src/utilities/icons/icons';
-@import 'access-nyc-patterns/dist/styles/_tailwind.scss';
+@import 'nyco-patterns/src/utilities/fonts/fonts';
+@import 'nyco-patterns/src/utilities/type/type';
+@import 'nyco-patterns/src/utilities/colors/colors';
 
 @import 'swagger.scss';
+
+@tailwind utilities;

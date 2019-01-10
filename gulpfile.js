@@ -3,32 +3,52 @@
 // gulp
 
 var browserSync = require('browser-sync').create(),
+  babelify = require('babelify'),
+  browserify = require('browserify'),
+  buffer = require('vinyl-buffer'),
+  concat = require('gulp-concat'),
   gulp = require('gulp'),
   notify = require('gulp-notify'),
-  concat = require('gulp-concat'),
-  twig = require('gulp-twig'),
+  postcss = require('gulp-postcss'),
+  tailwindcss = require('tailwindcss'),
+  rename = require('gulp-rename'),
+  sass = require('gulp-sass'),
+  source = require('vinyl-source-stream'),
+  stylelint = require('gulp-stylelint'),
   svgmin = require('gulp-svgmin'),
   svgstore = require('gulp-svgstore'),
-  rename = require('gulp-rename'),
-  twigMarkdown = require('twig-markdown'),
-  sass = require('gulp-sass'),
-  stylelint = require('gulp-stylelint');
+  twig = require('gulp-twig'),
+  twigMarkdown = require('twig-markdown');
 
 // var DIST = 'dist/',
 var DIST = 'dist/68d422386f1c9b95dab97295f2644aa1687647a4/',
-  SOURCE = 'src/',
-  PATTERNS = 'node_modules/access-nyc-patterns/';
+  SOURCE = 'src/';
 
 // SCRIPTS
 gulp.task('scripts', function() {
   return gulp.src([
-    SOURCE + 'js/*.js',
-    PATTERNS + 'dist/scripts/*.js'
+    DIST + 'js/source.js',
   ])
     .pipe(concat('source.js'))
     .pipe(gulp.dest(DIST + 'js'))
     .pipe(notify({message: 'Scripts task complete'}))
 });
+
+gulp.task('scripts:browserify', function() {
+  return browserify({
+    entries: [
+      SOURCE + 'js/main.js',
+    ], 
+    debug: false
+  })
+    .transform('babelify',{presets: ["@babel/preset-env"]})
+    .bundle()
+    .pipe(source('source.js'))
+    .pipe(buffer())
+    .pipe(gulp.dest(DIST + 'js'))
+    .pipe(notify({message: 'Scripts:browserify task complete'}))
+});
+
 
 // STYLES - LINTING
 gulp.task('lint-css', function(){
@@ -49,9 +69,13 @@ gulp.task('styles', gulp.series('lint-css', function () {
     .pipe(sass({
       includePaths: [
         'node_modules',
-        'node_modules/access-nyc-patterns/src'
+        'node_modules/nyco-patterns/src'
       ]
     }))
+    .pipe(postcss([
+      tailwindcss('./node_modules/nyco-patterns/config/tailwind.js'),
+      require('autoprefixer'),
+    ]))
     .pipe(concat('style.css'))
     .pipe(gulp.dest(DIST + 'css'))
     .pipe(notify({message: 'Styles task complete'}))
@@ -64,16 +88,11 @@ gulp.task('resources', function() {
     .pipe(notify({message: 'Resources task complete'}))
 });
 
-// IMAGES
-gulp.task('images', function() {
-  return gulp.src(PATTERNS + 'dist/images/*')
-    .pipe(gulp.dest(DIST + 'images'))
-    .pipe(notify({message: 'Images task complete'}))
-});
-
 // ICONS
 gulp.task('icons', function () {
-  return gulp.src(PATTERNS + 'src/svg/*.svg')
+  return gulp.src([
+    'node_modules/nyco-patterns/src/svg/*.svg'
+    ])
     .pipe(svgmin())
     .pipe(svgstore({
       inlineSvg: true
@@ -107,7 +126,7 @@ gulp.task('default', function(){
   gulp.watch(SOURCE+'resources/**/*', gulp.series('resources'));
   gulp.watch(SOURCE+'scss/**/*', gulp.series('styles', 'views'));
   gulp.watch(SOURCE+'content/**/*', gulp.series('styles', 'views'));
-  gulp.watch(SOURCE+'js/**/*', gulp.series('scripts'));
+  gulp.watch(SOURCE+'js/**/*', gulp.series('scripts:browserify', 'scripts'));
   gulp.watch(SOURCE+'views/**/*', gulp.series('resources', 'styles', 'views'));
   
   gulp.watch(DIST + '/*').on('change', browserSync.reload);
@@ -116,7 +135,6 @@ gulp.task('default', function(){
 // BUILD
 gulp.task('build', gulp.parallel(
   'resources', 
-  'images',
   'icons', 
   'scripts', 
   'styles', 

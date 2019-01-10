@@ -1,22 +1,32 @@
-// Swagger styling
-.swagger-ui {
-  .title {
-    display: none;
-  }
+/*Swagger styling*/
 
-  .info {
-    display: none;
-  }
+#swagger-editor {
+  .swagger-ui {
+    width: 100%;
+    display: inline-block;
 
-  .live-responses-table {
-    display: none;
-  }
+    .title {
+      display: none;
+    }
 
-  .scheme-container {
-    display: none;
-  }
+    .info {
+      display: none;
+    }
 
-  .response-col_links {
-    display: none;
+    .scheme-container {
+      display: none;
+    }
+
+    .response-col_links {
+      display: none;
+    }
+
+    .live-responses-table {
+      display: none;
+    }
+
+    .request-url {
+      display: none;
+    }
   }
 }

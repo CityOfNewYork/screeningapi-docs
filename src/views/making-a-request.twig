@@ -1,11 +1,9 @@
-{% extends "partials/default.twig" %}
+{% extends "layouts/default.twig" %}
 
 {% set page_title = ' - Making a Request' %}
 
 {% block content %}	
-	{# <div class="o-content"> #}
 	{% markdown '../content/making-a-request.md' %}{% endmarkdown %}
-	{# </div> #}
 {% endblock %}
 
 	

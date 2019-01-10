@@ -6,61 +6,67 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  
+
   <title>Eligibility API - Endpoints</title>
+
   
-  </head>
+  <link href='https://www1.nyc.gov/assets/home/css/css-min/global.css' media='screen' rel='stylesheet' type='text/css'>
+  <link href='https://www1.nyc.gov/assets/home/css/css-min/module.css' media='screen' rel='stylesheet' type='text/css'>
+  <link href='https://www1.nyc.gov/assets/home/css/print.css' media='print' rel='stylesheet' type='text/css'>
+  <link href='https://www1.nyc.gov/assets/home/css/modules/status-updates-short.css' media='screen' rel='stylesheet' type='text/css'>
+  <link href='https://www1.nyc.gov/assets/home/css/modules/status-updates-mini.css' media='screen' rel='stylesheet' type='text/css'>
+  <link href='https://www1.nyc.gov/assets/home/css/includes/header-agencies.css' media='screen' rel='stylesheet' type='text/css'>
+  <link href='https://www1.nyc.gov/assets/home/css/modules/news-panel.css' media='screen' rel='stylesheet' type='text/css'>
+  <link href='https://www1.nyc.gov/assets/home/css/modules/agencies-about-links.css' media='screen' rel='stylesheet' type='text/css'>
+  <link href='https://www1.nyc.gov/assets/home/css/modules/programs-and-initiatives.css' media='screen' rel='stylesheet' type='text/css'>
+  <link href='https://www1.nyc.gov/assets/home/css/modules/homepage-hero.css' media='screen' rel='stylesheet' type='text/css'>
+  <link href='https://www1.nyc.gov/assets/home/css/pages/agencies/index.css' media='screen' rel='stylesheet' type='text/css'>
+  <link href='https://www1.nyc.gov/assets/opportunity/css/agency-styles.css' media='screen' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
 
 <body>
-	<header class="p-2 flex items-center font-sans ">
-	  <h1 class="text-color-blue-dark">
-	    NYC Benefits Eligibility API
-	  </h1>
-    <a class="version" href="https://github.com/CityOfNewYork/eligibilityapi">1.0.0</a>
+  <header class="layout--sidebar screen-tablet:flex">
+    <div class="flex items-center justify-center bg-primary-blue text-base-white screen-tablet:w-64 p-3 screen-tablet:p-4">
+      <h1 class="m-0 p-0">
+        <span class="hidden">
+          The Mayor's Office<br>for Economic Opportunity
+        </span>
+        <svg class="icon-logo text-base-white" aria-hidden='true'>
+          <use xlink:href="#icon-logo">
+        </svg>
+      </h1>
+    </div>
+    <div class="flex-1 flex flex-col content-center justify-center bg-primary-navy text-base-white links-invert p-3 screen-tablet:p-4"> 
+      <h1 class="jumbo mt--2 mb-0">Eligibility API</h1>
+    </div>
+
+    <div class="flex flex-col content-center justify-center color-dark-background px-3 pb-3 screen-tablet:p-4">
+      <a href="https://github.com/CityOfNewYork/eligibilityapi">1.0.0</a>
+    </div>
   </header>
-  <div class="divider"></div>
 
-	<section class="usa-grid screen-desktop:layout--sidebar-small-gutter">
-	  <aside>
-	    <nav class="c-side-nav">
-  <ul>
-    <li>
-      <a href="/">Overview</a>
-    </li>
-    <li>
-      <a href="terms-of-service">Terms of Service</a>
-    </li>
-    <li>
-      <a href="request-an-account">Request an Account</a>
-    </li>
-    <li>
-      <a href="request-account-form">Request Account Form</a>
-    </li>
-    <li>
-      <a href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
-    </li>
-    <li>
-      <a href="eligibility-guidelines">Eligibility Guidelines</a>
-    </li>
-    <li>
-      <a href="making-a-request">Making a Request</a>
-    </li>
-    <li>
-      <a href="endpoints">Endpoints</a>
-    </li>
-    <li>
-      <a href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
-    </li>
-    <li>
-      <a href="feedback-and-support">Feedback and Support</a>
-    </li>
-  </ul>
-</nav>
-	  </aside>
+  <main class="layout--sidebar screen-tablet:flex items-stretch m-0 p-0 min-h-screen">
+    <aside class="color-mid-background py-2 px-3">
+      <nav class="screen-tablet:pb-2">
+  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="/">Overview</a>
+  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="terms-of-service">Terms of Service</a>
+  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="request-an-account">Request an Account</a>
+  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="request-account-form">Request Account Form</a>
+  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
+  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="eligibility-guidelines">Eligibility Guidelines</a>
+  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="making-a-request">Making a Request</a>
+  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="endpoints">Endpoints</a>
+  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
+  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="feedback-and-support">Feedback and Support</a>
 
-    <div class="font-sans">
-    	<h1 id="endpoints">Endpoints</h1>
+  
+    </aside>
+
+    <article class="color-light-background py-2 px-4 screen-desktop:px-6">
+      	<h1 id="endpoints">Endpoints</h1>
 <p>Below is documentation in Swagger. You can also download our <a href="/resources/NYC_Benefits_Eligibility_API_Postman_Collection.zip">Postman Collections</a> for testing.</p>
 
 	<div id="swagger-editor" class="font-serif"></div>
@@ -79,21 +85,17 @@
     }
   </script>
 
-    </div>
-	</section>
+    </article>
+  </main>
 
-  <footer class="o-footer bg-color-blue-light">
-    
-    <div class="o-footer__copyright text-color-blue-dark">
-      <svg class="icon icon-logo-nyc">
-        <use xlink:href="#icon-logo-nyc"></use>
-      </svg>
-      <p>City of New York, 2019 All Rights Reserved.
-      <br />NYC is a trademark and service mark of the City of New York.</p>
-    </div>
-  </footer> 
-
-	<script src="js/source.js"></script>
+  <footer class="py-6 bg-primary-blue text-center text-base-white links-invert">
+  <p class="m-0">
+  
+    <p>Maintained by <a href="" class="text-base-white">@CityOfNewYork/NYCOpportunity</a> on GitHub.</p>
+  </p>
+  
+</footer>
+  <script src="js/source.js"></script>
   <script type="text/javascript">
     var access = new AccessNyc();
     access.icons('svg/icons.svg');
