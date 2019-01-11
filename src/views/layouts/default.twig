@@ -1,6 +1,9 @@
 {% include "../partials/head.twig" %}
 
 <body>
+  <div class="hidden">
+    {% include "../partials/icons.twig" %}
+  </div>
   <header class="layout--sidebar screen-tablet:flex">
     <div class="flex items-center justify-center bg-primary-blue text-base-white screen-tablet:w-64 p-3 screen-tablet:p-4">
       <h1 class="m-0 p-0">
@@ -34,10 +37,6 @@
   {% include "../partials/footer.twig" %}
 
   <script src="js/source.js"></script>
-  <script type="text/javascript">
-    var access = new AccessNyc();
-    access.icons('svg/icons.svg');
-  </script>
 
 </body>
 </html>
