@@ -24,7 +24,6 @@ A successful request will return a `token` in the response which means your pass
   "token": "{{ your new token will here }}"
 }
 ```
-Be sure to keep track of your password as it can only be done once. If, for any reason, you need to reset your password or update your account information please contact us through Support.
 
 ## Tokens
 
@@ -43,16 +42,29 @@ curl -X POST \
 
 ## Forgot Password
 
-If you forget your password, you can reset it with the `/forgotPassword` and `/confirmPassword` endpoints. 
+If you forget your password, you can reset it with the `/forgotPassword` and `/confirmPassword` endpoints. Curl `/forgotPassword` to receive an email with a verification code. Then curl `/confirmPassword` with your username, verification code, and new password.  You will receive the email at the address you provided to us when setting up your account.
+
+### `/forgotPassword`
 
 ```
 curl -X POST \
-  'https://{{ domain }}/access-nyc-rest/authToken' \
+  'https://{{ domain }}/access-nyc-rest/forgotPassword' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
     "username" : "{{ username }}",
-    "password": "{{ temporary password }}"
+  }'
+```
+
+### `/confirmPassword`
+
+```
+curl -X POST \
+  'https://{{ domain }}/access-nyc-rest/confirmPassword' \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '{
+    "username" : "{{ username }}",
   }'
 ```
 

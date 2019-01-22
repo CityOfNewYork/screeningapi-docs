@@ -1,1 +1,14 @@
 @import 'imports';
+
+code {
+  @extend .code;
+}
+
+div[class*="request-table-"] {
+  position: relative;
+  overflow-x: auto;
+}
+
+table {
+  @extend .table;
+}

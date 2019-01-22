@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import responses from './responses.json';
 
 export default function() {
@@ -10,9 +9,6 @@ export default function() {
   * @param {object} event - event object
   */
   function validateFields(form, event) {
-    console.log(responses)
-    console.log('validateFields')
-
     event.preventDefault();
 
     const fields = form.serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{})

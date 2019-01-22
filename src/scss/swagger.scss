@@ -21,12 +21,24 @@
       display: none;
     }
 
-    .live-responses-table {
-      display: none;
+    .opblock-post,
+    .opblock-summary-post {
+      background-color: #f3f3f3;
+      border-color: #3155a6;
+
+      .opblock-summary-method {
+        background-color: #3155a6;
+      }
     }
 
-    .request-url {
-      display: none;
+    .opblock-options,
+    .opblock-summary-options {
+      background-color: #f3f3f3;
+      border-color: #2f334f;
+
+      .opblock-summary-method {
+        background-color: #2f334f;
+      }
     }
   }
 }

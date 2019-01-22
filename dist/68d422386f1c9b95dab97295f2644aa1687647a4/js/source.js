@@ -10369,11 +10369,29 @@ return jQuery;
 
 var _submission = _interopRequireDefault(require("./modules/submission.js"));
 
+var _swagger = _interopRequireDefault(require("./modules/swagger.js"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _submission.default)();
+window.$ = window.jQuery = require('jquery');
 
-},{"./modules/submission.js":4}],3:[function(require,module,exports){
+if (window.location.pathname.indexOf('endpoints') >= 0) {
+  (0, _swagger.default)();
+}
+
+if (window.location.pathname.indexOf('form') >= 0) {
+  (0, _submission.default)();
+}
+/* Tables */
+
+
+$('table').each(function (i) {
+  $(this).before('<div class="request-table-' + i + '">');
+  $('.request-table-' + i).prepend('<div class="table"></div>');
+  $('.request-table-' + i).find('.table').prepend(this);
+});
+
+},{"./modules/submission.js":4,"./modules/swagger.js":5,"jquery":1}],3:[function(require,module,exports){
 module.exports=[
   {
     "EMAIL": "Please enter a valid email."
@@ -10411,8 +10429,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _jquery = _interopRequireDefault(require("jquery"));
-
 var _responses = _interopRequireDefault(require("./responses.json"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -10426,8 +10442,6 @@ function _default() {
   */
 
   function validateFields(form, event) {
-    console.log(_responses.default);
-    console.log('validateFields');
     event.preventDefault();
     var fields = form.serializeArray().reduce(function (obj, item) {
       return obj[item.name] = item.value, obj;
@@ -10437,17 +10451,17 @@ function _default() {
     var hasErrors = false; // loop through each required field
 
     requiredFields.each(function () {
-      var fieldName = (0, _jquery.default)(this).attr('name');
+      var fieldName = $(this).attr('name');
 
       if (!fields[fieldName] || fieldName == 'EMAIL' && !emailRegex.test(fields.EMAIL)) {
         hasErrors = true;
-        (0, _jquery.default)(this).addClass('is-error');
-        (0, _jquery.default)(this).addClass('border-primary-red');
-        (0, _jquery.default)(this).before('<p class="is-error text-primary-red text-small my-0">' + _responses.default.find(function (x) {
+        $(this).addClass('is-error');
+        $(this).addClass('border-primary-red');
+        $(this).before('<p class="is-error text-primary-red text-small my-0">' + _responses.default.find(function (x) {
           return x[fieldName];
         })[fieldName] + '</p>');
       } else {
-        (0, _jquery.default)(this).removeClass('border-primary-red');
+        $(this).removeClass('border-primary-red');
       }
     }); // if there are no errors, submit
 
@@ -10464,7 +10478,7 @@ function _default() {
 
 
   function submitSignup(form, formData) {
-    _jquery.default.ajax({
+    $.ajax({
       url: form.attr('action'),
       type: form.attr('method'),
       dataType: 'json',
@@ -10512,11 +10526,41 @@ function _default() {
   */
 
 
-  (0, _jquery.default)('#mc-embedded-subscribe:button[type="submit"]').click(function (event) {
+  $('#mc-embedded-subscribe:button[type="submit"]').click(function (event) {
     event.preventDefault();
-    var $form = (0, _jquery.default)(this).parents('form');
+    var $form = $(this).parents('form');
     validateFields($form, event);
   });
 }
 
-},{"./responses.json":3,"jquery":1}]},{},[2]);
+},{"./responses.json":3}],5:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+
+function _default() {
+  window.editor = SwaggerEditorBundle({
+    dom_id: '#swagger-editor',
+    url: 'resources/access_eligibility_api.yaml'
+  });
+  $('.SplitPane').css('position', 'relative');
+  $('.Pane1').css('display', 'none');
+  $('.Pane2').css('width', '100%'); // hide elements in response
+
+  $('body').on('click', '.execute', function (event) {
+    var par_node = $(this).parent().next();
+    setTimeout(function () {
+      var res = par_node.find('.responses-inner').children().first().children().first();
+      res.children().each(function (i) {
+        if (i != 0) {
+          $(this).hide();
+        }
+      });
+    }, 100);
+  });
+}
+
+},{}]},{},[2]);
