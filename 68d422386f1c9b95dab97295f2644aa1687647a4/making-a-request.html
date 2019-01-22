@@ -69,7 +69,7 @@
 
     <article class="color-light-background py-2 px-4 screen-desktop:px-6">
       	
-	<h1 id="making-a-request">Making a Request</h1>
+  <h1 id="making-a-request">Making a Request</h1>
 <p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your username and token is required for all requests. Your username is sent to you when your <a href="/request-account-form">account is created</a>. Getting a token is described in <a href="/set-password-and-token-based-on-authentication">Set Password and Token Based Authentication</a>. The request body and response are sent as JSON so the <code>Content-Type</code> header must be set to <code>application/json</code>. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
 <pre><code>curl -X POST \
   &#39;https://{{ domain }}/access-nyc-rest/{{ endpoint }}&#39; \
@@ -104,7 +104,7 @@
 <h2 id="request-body-household-composition-data-">Request Body (Household Composition Data)</h2>
 <p>The request for each endpoint should contain certain datum pertinent to the household of the client for which eligibility is being evaluated. We refer to this as Household Composition Data. The entire dataset is made up of two distinct types:  Household and Person(s). Each type has different attributes that must be filled out as completely as possible for the most accurate eligibility evaluation. There can only be one type of Household and there can be more than one Person associated with each household.</p>
 <p>Below is a list of all parameters and their description. For a description of how to structure the data for each endpoint, please refer to the <a href="/swagger">endpoint documentation</a>.</p>
-<h3 id="household">Household</h3>
+  <h3 id="household">Household</h3>
 <table>
 <thead>
 <tr>
@@ -235,7 +235,7 @@
 <td>true/false</td>
 </tr>
 </tbody></table>
-<h3 id="person">Person</h3>
+  <h3 id="person">Person</h3>
 <table>
 <thead>
 <tr>
@@ -738,7 +738,7 @@
 <td>yearly</td>
 </tr>
 </tbody></table>
-<h2 id="response-program-codes-">Response (Program Codes)</h2>
+  <h2 id="response-program-codes-">Response (Program Codes)</h2>
 <p>Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the <a href="/swagger">endpoint documentation</a>.</p>
 <table>
 <thead>
@@ -778,8 +778,7 @@
 <h2 id="next">Next</h2>
 <p><a href="/endpoints">Endpoints</a></p>
 <br>
-<br>
-    </article>
+<br>    </article>
   </main>
 
   <footer class="py-6 bg-primary-blue text-center text-base-white links-invert">
@@ -790,6 +789,6 @@
   
 </footer>
   <script src="js/source.js"></script>
-
+  
 </body>
 </html>
