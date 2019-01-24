@@ -647,9 +647,9 @@ paths:
           schema:
             type: string
         - in: header
-          name: username
+          name: x-api-key
           description: |
-            Username of the Cognito user pool
+            User's API key
           schema:
             type: string
           required: true
@@ -1138,9 +1138,9 @@ paths:
           schema:
             type: string
         - in: header
-          name: username
+          name: x-api-key
           description: |
-            Username of the Cognito user pool
+            User's API key
           schema:
             type: string
           required: true
