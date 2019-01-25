@@ -653,6 +653,13 @@ paths:
           schema:
             type: string
           required: true
+        - in: header
+          name: Authorization
+          description: |
+            User's auth token
+          schema:
+            type: string
+          required: true
       security:
         - ApiKeyAuth: []
       requestBody:
@@ -1141,6 +1148,13 @@ paths:
           name: x-api-key
           description: |
             User's API key
+          schema:
+            type: string
+          required: true
+        - in: header
+          name: Authorization
+          description: |
+            User's auth key
           schema:
             type: string
           required: true

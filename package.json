@@ -1,7 +1,7 @@
 {
   "name": "eligibilityapidocs",
   "version": "0.0.1",
-  "description": "Documentation for the Eligbility API",
+  "description": "Documentation for the Eligibility API",
   "author": "Mayor's Office for Economic Opportunity",
   "license": "GPL-3.0",
   "main": "npm run start",

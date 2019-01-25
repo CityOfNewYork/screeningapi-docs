@@ -70,12 +70,12 @@
     <article class="color-light-background py-2 px-4 screen-desktop:px-6">
       	
   <h1 id="making-a-request">Making a Request</h1>
-<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your username and token is required for all requests. Your username is sent to you when your <a href="/request-account-form">account is created</a>. Getting a token is described in <a href="/set-password-and-token-based-on-authentication">Set Password and Token Based Authentication</a>. The request body and response are sent as JSON so the <code>Content-Type</code> header must be set to <code>application/json</code>. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
+<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="/request-account-form">account is created</a>. Getting a token is described in <a href="/set-password-and-token-based-on-authentication">Set Password and Token Based Authentication</a>. The request body and response are sent as JSON so the <code>Content-Type</code> header must be set to <code>application/json</code>. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
 <pre><code>curl -X POST \
-  &#39;https://{{ domain }}/access-nyc-rest/{{ endpoint }}&#39; \
+  &#39;https://{{ domain }}/{{ endpoint }}&#39; \
   -H &#39;Content-Type: application/json&#39; \
   -H &#39;cache-control: no-cache&#39; \
-  -H &#39;username: {{ username }}&#39; \
+  -H &#39;x-api-key: {{ api-key }}&#39; \
   -H &#39;Authorization: {{ token }}&#39; \
   -d &#39;{{ request body }}&#39;</code></pre><h1 id="headers">Headers</h1>
 <p>Here is a full list of headers required for each request.</p>
@@ -91,8 +91,8 @@
 <td>application/json</td>
 </tr>
 <tr>
-<td>username</td>
-<td>Your account username.</td>
+<td>x-api-key</td>
+<td>Your api key.</td>
 </tr>
 <tr>
 <td>Authorization</td>
@@ -767,7 +767,7 @@
 <p>See the full list on the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> page.</p>
 <h2 id="summary">Summary</h2>
 <ul>
-<li>Your username and a valid token is required for making a request.</li>
+<li>Your api key and a valid token is required for making a request.</li>
 <li>Set the <code>Content-Type</code> to <code>application/json</code>.</li>
 <li>The request body must be in JSON format.</li>
 <li>Use the testing domain for sample requests and development and the production domain for production level applications.</li>
