@@ -4,7 +4,7 @@ Once you have [requested an account](/request-account-form) and received your us
 
 ```
 curl -X POST \
-  'https://{{ domain }}/access-nyc-rest/authToken' \
+  'https://{{ domain }}/authToken' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
@@ -31,7 +31,7 @@ Once you have a token, you can use it along with your username to make requests 
 
 ```
 curl -X POST \
-  'https://{{ domain }}/access-nyc-rest/authToken' \
+  'https://{{ domain }}/authToken' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
@@ -48,7 +48,7 @@ If you forget your password, you can reset it with the `/forgotPassword` and `/c
 
 ```
 curl -X POST \
-  'https://{{ domain }}/access-nyc-rest/forgotPassword' \
+  'https://{{ domain }}/forgotPassword' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
@@ -60,7 +60,7 @@ curl -X POST \
 
 ```
 curl -X POST \
-  'https://{{ domain }}/access-nyc-rest/confirmPassword' \
+  'https://{{ domain }}/confirmPassword' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
@@ -69,8 +69,6 @@ curl -X POST \
 ```
 
 ## Summary
-
-Setting your new password can only be done once.
 
 * Contact us through [Support](/feedback-and-support) if you need to update your account information.
 * The `authToken` endpoint is used to set your new password using your username and temporary password.
