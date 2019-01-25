@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "9afcc39a-d554-441b-82de-098ef2e1fd11",
+		"name": "NYC Benefits Eligibility API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Eligibility Programs",
+			"item": [
+				{
+					"name": "Basic Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{api_key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"commands\": [\n   {\n     \"insert\": {\n       \"object\": {\n         \"accessnyc.request.Household\": {\n           \"members\": \"1\",\n           \"cashOnHand\": \"50000\",\n           \"livingRentalType\": \"RentControlled\",\n           \"livingRenting\": \"true\",\n           \"livingOwner\": \"false\",\n           \"livingStayingWithFriend\": \"false\",\n           \"livingHotel\": \"false\",\n           \"livingShelter\": \"false\",\n           \"livingPreferNotToSay\": \"false\"\n         }\n       }\n     }\n   },\n   {\n     \"insert\": {\n       \"object\": {\n         \"accessnyc.request.Person\": {\n           \"age\": \"35\",\n           \"incomes\": [\n             {\n               \"amount\": \"200\",\n               \"type\": \"Veteran\",\n               \"frequency\": \"monthly\"\n             }\n           ],\n           \"expenses\": [\n             {\n               \"amount\": \"50\",\n               \"type\": \"Medical\",\n               \"frequency\": \"weekly\"\n             }\n           ],\n           \"student\": \"false\",\n           \"studentFulltime\": \"false\",\n           \"pregnant\": \"false\",\n           \"unemployed\": \"false\",\n           \"unemployedWorkedLast18Months\": \"false\",\n           \"blind\": \"false\",\n           \"disabled\": \"false\",\n           \"veteran\": \"true\",\n           \"benefitsMedicaid\": \"false\",\n           \"benefitsMedicaidDisability\": \"false\",\n           \"headOfHousehold\": \"true\",\n           \"livingOwnerOnDeed\": \"false\",\n           \"livingRentalOnLease\": \"true\"\n         }\n       }\n     }\n   }\n ]\n}"
+						},
+						"url": {
+							"raw": "https://{{domain}}/eligibilityPrograms",
+							"protocol": "https",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"eligibilityPrograms"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This group contains tests for the Eligibility Programs (single request) endpoint. Authorization is managed by the Pre-request Script setting the appropriate environment variables for {{username}} and {{token}}. "
+		},
+		{
+			"name": "Bulk Submission Import",
+			"item": [
+				{
+					"name": "Basic Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{domain}}/bulkSubmission/import",
+							"protocol": "https",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"bulkSubmission",
+								"import"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtered Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{domain}}/bulkSubmission/import",
+							"protocol": "https",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"bulkSubmission",
+								"import"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"username\" : \"{{username}}\",\r\n    \"password\": \"{{temp_password}}\",\r\n    \"newPassword\": \"{{new_password}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{domain}}/authToken",
+					"protocol": "https",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"authToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"username\" : \"{{username}}\",\r\n\t\"password\": \"{{current_password}}\",\r\n\t\"newPassword\": \"{{new_password}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{domain}}/authToken",
+					"protocol": "https",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"authToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forgot Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"username\" : \"{{username}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{domain}}/forgotPassword",
+					"protocol": "https",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"forgotPassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Password Reset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"{{username}}\",\n\t\"verificationCode\": \"{{verification_code}}\",\n\t\"newPassword\": \"{{new_password}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{domain}}/confirmPassword",
+					"protocol": "https",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"confirmPassword"
+					]
+				},
+				"description": "example curl to reset password with verification code recieved via email."
+			},
+			"response": []
+		}
+	]
+}

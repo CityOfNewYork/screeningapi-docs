@@ -1,0 +1,22 @@
+I've attached the postman collection, environment, and sample csv for bulk submissions.
+
+Instructions for use;
+
+Getting Postman
+Install Postman; https://www.getpostman.com/
+
+Access to the API
+You will receive an email for access to the API from “no-reply@eligibilityapi.cityofnewyork.us” with a username, temporary password and api key.
+
+Testing Rules on API
+Import Postman collection (json). Learn how to import collections here; https://www.getpostman.com/docs/v6/postman/collections/data_formats#importing-postman-data
+
+Import Benefit Eligibility API postman environment (json). You will need to fill in domain, username, temppassword, password, and api_key under “Manage Environments.” Learn how to import and manage postman environments here; https://www.getpostman.com/docs/v6/postman/collections/data_formats#importing-postman-data
+
+You will find your username, temppassword and api_key from an email you receive that is sent to you when your account is created.
+
+Sandbox domain is sandbox.eligibilityapi.cityofnewyork.us. Production domain is eligibilityapi.cityofnewyork.us.
+
+The password will be whatever you want your new password for the api to be.
+
+The API requires users to be authenticated when making requests. The first thing to do is to use the “Reset Password” request in the collection to change your password. Select it in the left-hand column and click “send.” That should be all you need to do to authenticate the other requests.
