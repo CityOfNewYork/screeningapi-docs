@@ -10406,16 +10406,16 @@ module.exports=[
     "ORG": "Please enter your organization."
   },
   {
-    "ERR1": "You have already made a request. If you have not heard back from us, please send us a message at <a class=\"text-primary-red\" href=\"mailto:eligibilityapi@nycopportunity.nyc.gov\">eligibilityapi@nycopportunity.nyc.gov</a>. We will get back to you as soon as possible!"
+    "ERR": "There was a problem with your request. Please try again later or send us a message at <a class=\"text-primary-red\" href=\"mailto:eligibilityapi@nycopportunity.nyc.gov\">eligibilityapi@nycopportunity.nyc.gov</a>. We will get back to you as soon as possible!"
   },
   {
-    "ERR2": "There was a problem with your request. Please try again later or send us a message at <a class=\"text-primary-red\" href=\"mailto:eligibilityapi@nycopportunity.nyc.gov\">eligibilityapi@nycopportunity.nyc.gov</a>. We will get back to you as soon as possible!"
+    "ERR_ALREADY_REQUESTED": "You have already made a request. If you have not heard back from us, please send us a message at <a class=\"text-primary-red\" href=\"mailto:eligibilityapi@nycopportunity.nyc.gov\">eligibilityapi@nycopportunity.nyc.gov</a>. We will get back to you as soon as possible!"
   },
   {
-    "ERR3": "It seems that you have made too many requests. Please try again later or send us a message at <a class=\"text-primary-red\" href=\"mailto:eligibilityapi@nycopportunity.nyc.gov\">eligibilityapi@nycopportunity.nyc.gov</a>. We will get back to you as soon as possible!"
+    "ERR_TOO_MANY_REQUESTS": "It seems that you have made too many requests. Please try again later or send us a message at <a class=\"text-primary-red\" href=\"mailto:eligibilityapi@nycopportunity.nyc.gov\">eligibilityapi@nycopportunity.nyc.gov</a>. We will get back to you as soon as possible!"
   },
   {
-    "ERR4": "You have already made a request! Check your email for confirmation or send us a message at <a class=\"text-primary-red\" href=\"mailto:eligibilityapi@nycopportunity.nyc.gov\">eligibilityapi@nycopportunity.nyc.gov</a>. We will get back to you as soon as possible!"
+    "MSG_RECAPTCHA": "There's one more step!"
   },
   {
     "SUCCESS": "Thank you! Your request will be reviewed with confirmation within 1-2 business days."
@@ -10490,22 +10490,26 @@ function _default() {
         if (response.result !== 'success') {
           if (response.msg.includes('already subscribed')) {
             form.html('<p class="text-primary-red text-center italic">' + _responses.default.find(function (x) {
-              return x["ERR1"];
-            })["ERR1"] + '</p>');
+              return x["ERR_ALREADY_REQUESTED"];
+            })["ERR_ALREADY_REQUESTED"] + '</p>');
+          } else if (response.msg.includes('too many recent signup requests')) {
+            form.html('<p class="text-primary-red text-center italic">' + _responses.default.find(function (x) {
+              return x["ERR_TOO_MANY_REQUESTS"];
+            })["ERR_TOO_MANY_REQUESTS"] + '</p>');
+          } else if (response.msg.includes('captcha')) {
+            var url = $("form#mc-embedded-subscribe-form").attr("action");
+            var parameters = $.param(response.params);
+            url = url.split("-json?")[0];
+            url += "?";
+            url += parameters;
+            window.open(url, '_blank');
+            form.html('<p class="text-primary-navy text-center italic">' + _responses.default.find(function (x) {
+              return x["MSG_RECAPTCHA"];
+            })["MSG_RECAPTCHA"] + '<a class="text-primary-red" target="_blank" href="' + url + '"> Please confirm that you are not a robot.</a></p>');
           } else {
             form.html('<p class="text-primary-red text-center italic">' + _responses.default.find(function (x) {
-              return x["ERR2"];
-            })["ERR2"] + '</p>');
-          }
-
-          if (response.msg.includes('too many recent signup requests')) {
-            form.html('<p class="text-primary-red text-center italic">' + _responses.default.find(function (x) {
-              return x["ERR3"];
-            })["ERR3"] + '</p>');
-          } else if (response.msg.includes('already subscribed')) {
-            form.html('<p class="text-primary-red text-center italic">' + _responses.default.find(function (x) {
-              return x["ERR4"];
-            })["ERR4"] + '</p>');
+              return x["ERR"];
+            })["ERR"] + '</p>');
           }
         } else {
           form.html('<p class="text-primary-navy text-center italic">' + _responses.default.find(function (x) {
@@ -10514,9 +10518,10 @@ function _default() {
         }
       },
       error: function error(response) {
+        console.log(response);
         form.before('<p class="text-primary-red text-center italic">' + _responses.default.find(function (x) {
-          return x["ERR2"];
-        })["ERR2"] + '</p>');
+          return x["ERR"];
+        })["ERR"] + '</p>');
       }
     });
   }
