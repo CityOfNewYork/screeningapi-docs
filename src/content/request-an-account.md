@@ -8,8 +8,6 @@ Once you have credentials you will then use them with the [Authentication Endpoi
 
 
 ## Summary
-* <a href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a> with your email address. 
-
 * By requesting an account, you agree to the [terms of service](terms-of-service).
 Usernames cannot be changed.
 
@@ -21,6 +19,10 @@ Usernames cannot be changed.
 Keep your username and temporary password to set your password.
 
 * Contact us through [Support](mailto:eligibilityapi@nycopportunity.nyc.gov) if you need to update your account information.
+
+<br>
+<a href="http://eepurl.com/gfLTuH" target="_blank" class="btn color-primary-button text-secondary-white-30t">Request an Account</a>
+<br>
 
 ## Next
 
