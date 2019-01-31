@@ -1,6 +1,6 @@
 # Eligibility Guidelines
 
-The guidelines governing eligibility criteria for the 31 benefits programs in the API are maintained and updated on a regular basis by NYC Opportunity in partnership with the benefit program’s administering agency. These guidelines are interpreted and implemented as logic in the eligibility engine which runs on the business rules management system [Drools](http://drools.org/). 
+The guidelines governing eligibility criteria for the 31 benefits programs in the API are maintained and updated on a regular basis by NYC Opportunity in partnership with the benefit program’s administering agency. These guidelines are interpreted and implemented as logic in the eligibility engine which runs on the business rules management system <a href="http://drools.org/" target="_blank">Drools</a>. 
 
 It’s important for developers and end-users impacted by use of the API to understand that:
 

@@ -1,6 +1,6 @@
 # Set Password and Token Based Authentication
 
-Once you have [requested an account](/request-account-form) and received your username and temporary password, you will be able to set your password for making additional requests. This requires the use of the `authToken` endpoint which accepts a JSON payload with your username, temporary password, and new password. The new password field is not required on subsequent `authToken` requests but if populated your password will update. Below is a full example of a curl request of this method. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
+Once you have <a href="http://eepurl.com/gfLTuH" target="_blank">requested an account</a> and received your username and temporary password, you will be able to set your password for making additional requests. This requires the use of the `authToken` endpoint which accepts a JSON payload with your username, temporary password, and new password. The new password field is not required on subsequent `authToken` requests but if populated your password will update. Below is a full example of a curl request of this method. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
 
 ```
 curl -X POST \
@@ -44,7 +44,7 @@ curl -X POST \
 
 If you forget your password, you can reset it with the `/forgotPassword` and `/confirmPassword` endpoints. Curl `/forgotPassword` to receive an email with a verification code. Then curl `/confirmPassword` with your username, verification code, and new password.  You will receive the email at the address you provided to us when setting up your account.
 
-### `/forgotPassword`
+### forgotPassword
 
 ```
 curl -X POST \
@@ -56,7 +56,7 @@ curl -X POST \
   }'
 ```
 
-### `/confirmPassword`
+### confirmPassword
 
 ```
 curl -X POST \
@@ -70,7 +70,7 @@ curl -X POST \
 
 ## Summary
 
-* Contact us through [Support](/feedback-and-support) if you need to update your account information.
+* Contact us through [Support](mailto:eligibilityapi@nycopportunity.nyc.gov) if you need to update your account information.
 * The `authToken` endpoint is used to set your new password using your username and temporary password.
 * The `authToken` endpoint responds with a token that expires after 1 hour (`3600` seconds).
 * The `authToken` endpoint is also used to retrieve new tokens.

@@ -56,21 +56,17 @@
   <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="/">Overview</a>
   <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="terms-of-service">Terms of Service</a>
   <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="request-an-account">Request an Account</a>
-  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="request-account-form">Request Account Form</a>
   <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
   <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="eligibility-guidelines">Eligibility Guidelines</a>
   <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="making-a-request">Making a Request</a>
   <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="endpoints">Endpoints</a>
   <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
-  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="feedback-and-support">Feedback and Support</a>
-
-  
-    </aside>
+  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="feedback-and-support">Feedback and Support</a>    </aside>
 
     <article class="color-light-background py-2 px-4 screen-desktop:px-6">
       	
   <h1 id="making-a-request">Making a Request</h1>
-<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="/request-account-form">account is created</a>. Getting a token is described in <a href="/set-password-and-token-based-on-authentication">Set Password and Token Based Authentication</a>. The request body and response are sent as JSON so the <code>Content-Type</code> header must be set to <code>application/json</code>. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
+<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="http://eepurl.com/gfLTuH" target="_blank">account is created</a>. Getting a token is described in <a href="/set-password-and-token-based-on-authentication">Set Password and Token Based Authentication</a>. The request body and response are sent as JSON so the <code>Content-Type</code> header must be set to <code>application/json</code>. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
 <pre><code>curl -X POST \
   &#39;https://{{ domain }}/{{ endpoint }}&#39; \
   -H &#39;Content-Type: application/json&#39; \
@@ -103,7 +99,7 @@
 <p>Please note, there are two domains for sending requests, one for testing and one for production level applications. Please use the appropriate domain during testing and application development, as well as the production domain for production level applications.</p>
 <h2 id="request-body-household-composition-data-">Request Body (Household Composition Data)</h2>
 <p>The request for each endpoint should contain certain datum pertinent to the household of the client for which eligibility is being evaluated. We refer to this as Household Composition Data. The entire dataset is made up of two distinct types:  Household and Person(s). Each type has different attributes that must be filled out as completely as possible for the most accurate eligibility evaluation. There can only be one type of Household and there can be more than one Person associated with each household.</p>
-<p>Below is a list of all parameters and their description. For a description of how to structure the data for each endpoint, please refer to the <a href="/swagger">endpoint documentation</a>.</p>
+<p>Below is a list of all parameters and their description. For a description of how to structure the data for each endpoint, please refer to the <a href="/endpoints">endpoint documentation</a>.</p>
   <h3 id="household">Household</h3>
 <table>
 <thead>
@@ -739,7 +735,7 @@
 </tr>
 </tbody></table>
   <h2 id="response-program-codes-">Response (Program Codes)</h2>
-<p>Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the <a href="/swagger">endpoint documentation</a>.</p>
+<p>Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the <a href="/endpoints">endpoint documentation</a>.</p>
 <table>
 <thead>
 <tr>
@@ -784,7 +780,7 @@
   <footer class="py-6 bg-primary-blue text-center text-base-white links-invert">
   <p class="m-0">
   
-    <p>Maintained by <a href="" class="text-base-white">@CityOfNewYork/NYCOpportunity</a> on GitHub.</p>
+    <p>Maintained by <a href="https://github.com/search?q=topic%3Anycopportunity+org%3ACityOfNewYork+fork%3Atrue" target="_blank" class="text-base-white">@CityOfNewYork/NYCOpportunity</a> on GitHub.</p>
   </p>
   
 </footer>
