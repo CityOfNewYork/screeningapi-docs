@@ -10,8 +10,8 @@ servers:
         default: access-nyc-rest
   - url: /
 tags:
-  - name: Account Management Endpoints
-  - name: Eligibility Screening Endpoints
+  - name: Authentication
+  - name: Eligibility
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -22,9 +22,11 @@ paths:
   /authToken:
     post:
       tags:
-        - Account Management Endpoints
+        - Authentication
       description: >
-        The /authToken endpoint generates new authentication tokens (they expire every hour) and can also reset your password if the "newPassword" field is present.
+        This endpoint is used to set your initial account password and retrieve an authentication token to make requests to the <b>Eligibility</b> endpoints. 
+        See <a href="/set-password-and-token-based-authentication">Set Password and Token Based Authentication</a> for more details on setting your initial account password. 
+        On successful response, the retrieved token must be provided in the request header of the <b>Eligibility</b> endpoints to make an authenticated request.
       requestBody:
         required: true
         content:
@@ -219,9 +221,10 @@ paths:
   /forgotPassword:
     post:
       tags:
-        - Account Management Endpoints
+        - Authentication
       description: >
-        The /forgotPassword endpoint triggers the password reset flow. POSTing to this endpoint will cause the API to send an email with password reset instructions.
+        This endpoint is used to trigger a forgotten password email that is sent to the email associated with a user’s account.
+        The email includes a verification code that the user will use to reset their password with the /confirmPassword endpoint.
       requestBody:
         required: true
         content:
@@ -404,9 +407,9 @@ paths:
   /confirmPassword:
     post:
       tags:
-        - Account Management Endpoints
+        - Authentication
       description: >
-        The /confirmPassword endpoint completes the password reset flow initiated by the /forgotPassword endpoint.
+        With a verification code retrieved from the email sent by the /forgotPassword endpoint, this endpoint is used to set a new password for the user’s account.
       requestBody:
         required: true
         content:
@@ -599,10 +602,10 @@ paths:
   /eligibilityPrograms:
     post:
       tags:
-        - Eligibility Screening Endpoints
+        - Eligibility
       description: >
-        The /eligibilityPrograms endpoint returns a list of public benefits that an individual may be eligible for. 
-        Possible request fields are specified in the "Request body" section below.
+        This endpoint is used to make single requests to retrieve a response containing potentially eligible program names and codes based on household composition data provided by the user.
+        See <a href="/making-a-request">Making a Request</a> for more details on household composition data and the response codes.
       parameters:
         - name: interestedPrograms
           in: query
@@ -1079,26 +1082,19 @@ paths:
                             elementPath:
                               type: string
                               example: null
-    options:
-      tags:
-        - Eligibility Screening Endpoints
-      description: >
-        The /eligibilityPrograms OPTIONS method returns a list of supported HTTP methods, a readable schema and an example request payload.
-      responses:
-        '200':
-          description: Success Response
   /bulkSubmission/import:
     post:
       tags:
-        - Eligibility Screening Endpoints
+        - Eligibility
       description: >-
-        The /bulkSubmission/import endpoint returns a list of public benefits in a structured CSV format that a group of people may be eligible for. 
-        An example input CSV is available in our Postman Collection.
+        This endpoint accepts a structured CSV of multiple household compositions allowing users to query for potential eligibility in bulk. The response will be a CSV containing the potentially eligible program names and codes.
+        See <a href="/making-a-request">Making a Request</a> for more details on household composition data and the response codes. 
+        Click <a href="/resources/sample_bulk_submission_import.csv">here</a> to download a sample request CSV.
       security:
         - ApiKeyAuth: []
       parameters:
-        - name: interestedPrograms
-          in: query
+        - in: query
+          name: interestedPrograms
           required: false
           description: >
             Pipe-separated list of program codes a user is interested in. 
@@ -1133,7 +1129,8 @@ paths:
                   type: string
                   format: binary
                   description: >-
-                    An example input CSV file is available in our Postman Collection
+                    See "Making a Request" for CSV composition details. 
+                    Click <a href="/resources/sample_bulk_submission_import.csv">here</a> to download a sample request CSV.
       responses:
         '200':
           description: Success Response
