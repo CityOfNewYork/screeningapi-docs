@@ -10,8 +10,8 @@ servers:
         default: access-nyc-rest
   - url: /
 tags:
-  - name: Cognito User Pool Authorization API
-  - name: Eligibility Screening API
+  - name: Account Management Endpoints
+  - name: Eligibility Screening Endpoints
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -22,16 +22,10 @@ paths:
   /authToken:
     post:
       tags:
-        - Cognito User Pool Authorization API
+        - Account Management Endpoints
       description: >
-        The Cognito User Pool Authorization API will be used by the user pool
-        client to get auth token from Cognito. The auth token must be provided
-        in the request header of the eligibility and bulk submission APIs to
-        make an authenticated request. When used for the Eligibility Screening
-        and Bulk Submission APIs, the Cognito Auth API will use the format
-        required to exchange authentication credentials for an access token.
+        The /authToken endpoint generates new authentication tokens (they expire every hour) and can also reset your password if the "newPassword" field is present.
       requestBody:
-        description: Request body of the Cognito User Pool Authorization API
         required: true
         content:
           application/json:
@@ -42,22 +36,14 @@ paths:
               properties:
                 username:
                   type: string
-                  description: Username of the Cognito user pool
                   example: testuser01
                 password:
                   type: string
-                  description: >-
-                    Temporary password of the Cognito user pool received by the
-                    user that must be passed only while doing first time
-                    authentication
                   example: temp@123
                 newPassword:
                   type: string
                   description: >-
-                    New password of the Cognito user pool that must be set only
-                    while doing first time authentication. Second time onward,
-                    the newly set password must be provided in the password
-                    field.
+                    "newPassword" is required if "password" is your initial temporary password
                   example: new@123
       responses:
         '200':
@@ -95,7 +81,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -128,7 +114,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -160,7 +146,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -192,7 +178,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -222,7 +208,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -233,16 +219,10 @@ paths:
   /forgotPassword:
     post:
       tags:
-        - Cognito User Pool Authorization API
+        - Account Management Endpoints
       description: >
-        The /forgetPassword endpoint, together with the /confirmPassword
-        endpoint, is used to reset a user's password. cURLing the
-        /forgotPassword endpoint triggers AWS Cognito to send the user an email
-        with a verification code. The user can then reset their password by
-        sending this verification code, along with a new password, to the
-        /confirmPassword endpoint
+        The /forgotPassword endpoint triggers the password reset flow. POSTing to this endpoint will cause the API to send an email with password reset instructions.
       requestBody:
-        description: Request body of the Cognito User Pool Authorization API
         required: true
         content:
           application/json:
@@ -252,7 +232,6 @@ paths:
               properties:
                 username:
                   type: string
-                  description: Username of the Cognito user pool
                   example: testuser01
       responses:
         '200':
@@ -287,7 +266,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -320,7 +299,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -352,7 +331,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -384,7 +363,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -414,7 +393,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -425,16 +404,10 @@ paths:
   /confirmPassword:
     post:
       tags:
-        - Cognito User Pool Authorization API
+        - Account Management Endpoints
       description: >
-        The /confirmPassword endpoint, together with the /resetPassword
-        endpoint, is used to reset a user's password. cURLing the
-        /forgotPassword endpoint triggers AWS Cognito to send the user an email
-        with a verification code. The user can then reset their password by
-        sending this verification code, along with a new password, to the
-        /confirmPassword endpoint
+        The /confirmPassword endpoint completes the password reset flow initiated by the /forgotPassword endpoint.
       requestBody:
-        description: Request body for confirming new password
         required: true
         content:
           application/json:
@@ -446,15 +419,14 @@ paths:
               properties:
                 username:
                   type: string
-                  description: Username of the Cognito user pool
                   example: testuser01
                 newPassword:
                   type: string
-                  description: New password for Cognito user
+                  description: Your new account password
                   example: NYC@Opportunity1
                 verificationCode:
                   type: string
-                  description: Verification code sent to the Cognito user
+                  description: Verification code sent to your email address
                   example: t53Gv%a
       responses:
         '200':
@@ -489,7 +461,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -522,7 +494,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -554,7 +526,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -586,7 +558,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -616,7 +588,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -627,43 +599,37 @@ paths:
   /eligibilityPrograms:
     post:
       tags:
-        - Eligibility Screening API
+        - Eligibility Screening Endpoints
       description: >
-        The eligibility API will be used for public benefits eligibility
-        screening and is based on the existing eligibility rules engine of
-        ACCESS NYC web portal. The API accepts dozens of pieces of information,
-        such as a person’s marital status or income, and returns a list of
-        potential eligible government programs for which the resident can apply
-        for.
+        The /eligibilityPrograms endpoint returns a list of public benefits that an individual may be eligible for. 
+        Possible request fields are specified in the "Request body" section below.
       parameters:
         - name: interestedPrograms
           in: query
           required: false
           description: >
-            Pipe-separated list of program codes a user is interested in. It
-            will be used for filtering the program codes returned by the
-            eligibility API to show only the eligible program codes a user is
-            interested in. Program codes should always be passed in upper case.
+            Pipe-separated list of program codes a user is interested in. 
+            If specified, the eligibility API will only return programs included in this list. 
+            Program codes should always be passed in upper case.
           schema:
             type: string
         - in: header
           name: x-api-key
           description: |
-            User's API key
+            API key from initial email
           schema:
             type: string
           required: true
         - in: header
           name: Authorization
           description: |
-            User's auth token
+            Auth token generated with /authToken endpoint
           schema:
             type: string
           required: true
       security:
         - ApiKeyAuth: []
       requestBody:
-        description: Request body of the Eligibility API
         required: true
         content:
           application/json:
@@ -945,7 +911,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -979,7 +945,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -1011,7 +977,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -1043,7 +1009,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -1073,7 +1039,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -1105,7 +1071,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -1115,22 +1081,19 @@ paths:
                               example: null
     options:
       tags:
-        - Eligibility Screening API
+        - Eligibility Screening Endpoints
       description: >
-        The OPTIONS method will primarily return the HTTP methods that the
-        server supports for the specified URL along with a readable schema and
-        an example of the request payload.
+        The /eligibilityPrograms OPTIONS method returns a list of supported HTTP methods, a readable schema and an example request payload.
       responses:
         '200':
           description: Success Response
   /bulkSubmission/import:
     post:
       tags:
-        - Eligibility Screening API
+        - Eligibility Screening Endpoints
       description: >-
-        The bulk submission API will be provisioned to accept a structured CSV
-        input allowing users to query for bulk requests and respond back with
-        the collated eligibility results in a structured CSV format.
+        The /bulkSubmission/import endpoint returns a list of public benefits in a structured CSV format that a group of people may be eligible for. 
+        An example input CSV is available in our Postman Collection.
       security:
         - ApiKeyAuth: []
       parameters:
@@ -1138,28 +1101,26 @@ paths:
           in: query
           required: false
           description: >
-            Pipe-separated list of program codes a user is interested in. It
-            will be used for filtering the program codes returned by the
-            eligibility API to show only the eligible program codes a user is
-            interested in. Program codes should always be passed in upper case.
+            Pipe-separated list of program codes a user is interested in. 
+            If specified, the eligibility API will only return programs included in this list. 
+            Program codes should always be passed in upper case.
           schema:
             type: string
         - in: header
           name: x-api-key
           description: |
-            User's API key
+            API key from initial email
           schema:
             type: string
           required: true
         - in: header
           name: Authorization
           description: |
-            User's auth key
+            Auth token generated with /authToken endpoint
           schema:
             type: string
           required: true
       requestBody:
-        description: Request body of the Bulk Submission API
         required: true
         content:
           multipart/form-data:
@@ -1171,7 +1132,15 @@ paths:
                 file:
                   type: string
                   format: binary
+                  description: >-
+                    An example input CSV file is available in our Postman Collection
       responses:
+        '200':
+          description: Success Response
+          content:
+            text/csv:
+              schema:
+                type: string
         '400':
           description: Bad Request
           content:
@@ -1194,7 +1163,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -1227,7 +1196,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -1259,7 +1228,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
@@ -1289,7 +1258,7 @@ paths:
                             moreInfo:
                               type: string
                               example: >-
-                                See API documentation at <APIDocumentationPath>
+                                See API documentation at https://eligibilityapidocs.cityofnewyork.us
                                 for details on valid requests.
                             code:
                               type: string
