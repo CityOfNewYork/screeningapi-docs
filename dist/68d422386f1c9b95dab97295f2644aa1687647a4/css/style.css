@@ -520,11 +520,40 @@ ol {
   display: none;
 }
 
-#swagger-editor .swagger-ui .scheme-container {
+#swagger-editor .swagger-ui .response-col_links {
   display: none;
 }
 
-#swagger-editor .swagger-ui .response-col_links {
+#swagger-editor .swagger-ui .servers label {
+  margin-right: 0;
+}
+
+#swagger-editor .swagger-ui .servers select {
+  width: 100%;
+}
+
+#swagger-editor .swagger-ui .servers h4 {
+  display: none;
+}
+
+#swagger-editor .swagger-ui .servers .computed-url {
+  display: none;
+}
+
+#swagger-editor .swagger-ui .servers table {
+  display: none;
+}
+
+#swagger-editor .swagger-ui .curl {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+#swagger-editor .swagger-ui .execute {
+  display: none;
+}
+
+#swagger-editor .swagger-ui .auth-wrapper {
   display: none;
 }
 
@@ -12620,11 +12649,40 @@ div[class*="request-table-"] {
   display: none;
 }
 
-#swagger-editor .swagger-ui .scheme-container {
+#swagger-editor .swagger-ui .response-col_links {
   display: none;
 }
 
-#swagger-editor .swagger-ui .response-col_links {
+#swagger-editor .swagger-ui .servers label {
+  margin-right: 0;
+}
+
+#swagger-editor .swagger-ui .servers select {
+  width: 100%;
+}
+
+#swagger-editor .swagger-ui .servers h4 {
+  display: none;
+}
+
+#swagger-editor .swagger-ui .servers .computed-url {
+  display: none;
+}
+
+#swagger-editor .swagger-ui .servers table {
+  display: none;
+}
+
+#swagger-editor .swagger-ui .curl {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+#swagger-editor .swagger-ui .execute {
+  display: none;
+}
+
+#swagger-editor .swagger-ui .auth-wrapper {
   display: none;
 }
 

@@ -13,11 +13,42 @@
       display: none;
     }
 
-    .scheme-container {
+    .response-col_links {
       display: none;
     }
 
-    .response-col_links {
+    .servers {
+      label {
+        margin-right: 0;
+      }
+
+      select {
+        width: 100%;
+      }
+
+      h4 {
+        display: none;
+      }
+
+      .computed-url {
+        display: none;
+      }
+
+      table {
+        display: none;
+      }
+    }
+
+    .curl {
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    .execute {
+      display: none;
+    }
+
+    .auth-wrapper {
       display: none;
     }
 
