@@ -4,11 +4,14 @@ info:
   title: Eligibility Screening API Documentation
   description: Eligibility Screening API Documentation
 servers:
-  - url: '/{pathName}'
+  - url: 'https://sandbox.eligibilityapi.cityofnewyork.us'
     variables:
       pathName:
         default: access-nyc-rest
-  - url: /
+  - url: 'https://eligibilityapi.cityofnewyork.us'
+    variables:
+      pathName:
+        default: access-nyc-rest
 tags:
   - name: Authentication
   - name: Eligibility
