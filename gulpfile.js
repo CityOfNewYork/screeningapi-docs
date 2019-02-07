@@ -20,9 +20,10 @@ var browserSync = require('browser-sync').create(),
   twig = require('gulp-twig'),
   twigMarkdown = require('twig-markdown');
 
-// var DIST = 'dist/',
-var DIST = 'dist/68d422386f1c9b95dab97295f2644aa1687647a4/',
-  SOURCE = 'src/';
+const NODE_ENV = process.env.NODE_ENV;
+const DIST_PROD = 'dist/68d422386f1c9b95dab97295f2644aa1687647a4/';
+const DIST = (NODE_ENV === 'development') ? 'dev/' : DIST_PROD;
+const SOURCE = 'src/';
 
 // SCRIPTS
 gulp.task('scripts', function() {
@@ -38,7 +39,7 @@ gulp.task('scripts:browserify', function() {
   return browserify({
     entries: [
       SOURCE + 'js/main.js',
-    ], 
+    ],
     debug: false
   })
     .transform('babelify',{presets: ["@babel/preset-env"]})
@@ -128,15 +129,15 @@ gulp.task('default', function(){
   gulp.watch(SOURCE+'content/**/*', gulp.series('styles', 'views'));
   gulp.watch(SOURCE+'js/**/*', gulp.series('scripts:browserify', 'scripts'));
   gulp.watch(SOURCE+'views/**/*', gulp.series('resources', 'styles', 'views'));
-  
+
   gulp.watch(DIST + '/*').on('change', browserSync.reload);
 });
 
 // BUILD
 gulp.task('build', gulp.parallel(
-  'resources', 
-  'icons', 
-  'scripts', 
-  'styles', 
+  'resources',
+  'icons',
+  'scripts',
+  'styles',
   'views'
 ));
