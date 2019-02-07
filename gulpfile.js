@@ -18,12 +18,14 @@ var browserSync = require('browser-sync').create(),
   svgmin = require('gulp-svgmin'),
   svgstore = require('gulp-svgstore'),
   twig = require('gulp-twig'),
-  twigMarkdown = require('twig-markdown');
+  twigMarkdown = require('twig-markdown'),
+  gulpif = require('gulp-if');
 
 const NODE_ENV = process.env.NODE_ENV;
 const DIST_PROD = 'dist/68d422386f1c9b95dab97295f2644aa1687647a4/';
 const DIST = (NODE_ENV === 'development') ? 'dev/' : DIST_PROD;
 const SOURCE = 'src/';
+const PACKAGE = require('./package.json');
 
 // SCRIPTS
 gulp.task('scripts', function() {
@@ -32,7 +34,8 @@ gulp.task('scripts', function() {
   ])
     .pipe(concat('source.js'))
     .pipe(gulp.dest(DIST + 'js'))
-    .pipe(notify({message: 'Scripts task complete'}))
+    .pipe(gulpif((NODE_ENV !== 'development'),
+      notify({message: 'Scripts task complete'})));
 });
 
 gulp.task('scripts:browserify', function() {
@@ -47,7 +50,8 @@ gulp.task('scripts:browserify', function() {
     .pipe(source('source.js'))
     .pipe(buffer())
     .pipe(gulp.dest(DIST + 'js'))
-    .pipe(notify({message: 'Scripts:browserify task complete'}))
+    .pipe(gulpif((NODE_ENV !== 'development'),
+      notify({message: 'Scripts:browserify task complete'})));
 });
 
 
@@ -79,14 +83,16 @@ gulp.task('styles', gulp.series('lint-css', function () {
     ]))
     .pipe(concat('style.css'))
     .pipe(gulp.dest(DIST + 'css'))
-    .pipe(notify({message: 'Styles task complete'}))
+    .pipe(gulpif((NODE_ENV !== 'development'),
+      notify({message: 'Styles task complete'})));
 }));
 
 // RESOURCES
 gulp.task('resources', function() {
   return gulp.src(SOURCE + 'resources/*')
     .pipe(gulp.dest(DIST + 'resources'))
-    .pipe(notify({message: 'Resources task complete'}))
+    .pipe(gulpif((NODE_ENV !== 'development'),
+      notify({message: 'Resources task complete'})));
 });
 
 // ICONS
@@ -100,16 +106,17 @@ gulp.task('icons', function () {
     }))
     .pipe(rename('icons.svg'))
     .pipe(gulp.dest(DIST + 'svg'))
-    .pipe(notify({message: 'Icons task complete'}))
+    .pipe(gulpif((NODE_ENV !== 'development'),
+      notify({message: 'Icons task complete'})));
 });
 
 // VIEWS
 gulp.task('views', function () {
   return gulp.src('src/views/*.twig')
-    .pipe(twig({data: {}, extend: twigMarkdown}))
+    .pipe(twig({data: {package: PACKAGE}, extend: twigMarkdown}))
     .pipe(gulp.dest(DIST))
-    .pipe(notify({message: 'Views task complete'}))
-
+    .pipe(gulpif((NODE_ENV !== 'development'),
+      notify({message: 'Views task complete'})));
 });
 
 // DEFAULT

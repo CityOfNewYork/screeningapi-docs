@@ -1,11 +1,12 @@
 {
-  "name": "eligibilityapidocs",
+  "name": "eligibilityapi-docs",
   "version": "0.0.1",
-  "description": "Documentation for the Eligibility API",
-  "author": "Mayor's Office for Economic Opportunity",
+  "title": "NYC Benefits and Eligibility API",
+  "description": "Documentation for the NYC Benefits and Eligibility API https://eligibilityapidocs.cityofnewyork.us/",
+  "author": "The Mayor's Office for Economic Opportunity",
   "license": "GPL-3.0",
-  "main": "npm run start",
-  "homepage": "https://github.com/CityOfNewYork/eligibilityapi-docs#readme",
+  "main": "npm run dev",
+  "homepage": "https://github.com/CityOfNewYork/eligibilityapi-docs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CityOfNewYork/eligibilityapi-docs.git"
@@ -35,6 +36,7 @@
     "gh-pages": "^2.0.1",
     "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-if": "^2.0.2",
     "gulp-notify": "^3.2.0",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
