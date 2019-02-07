@@ -1,5 +1,3 @@
-# Sample Data, Code, and SDKs
-
 Here is a list of existing repositories to help get started with the API.
 
 * [Eligibility API Composer SDK](https://github.com/CityOfNewYork/eligibilityapi-library-php) -  A Composer Package (PHP) for interacting with the Eligibility API with practical test scripts for integrating into an application.
@@ -10,7 +8,7 @@ Contact us through [Support](mailto:eligibilityapi@nycopportunity.nyc.gov) if yo
 
 ## Next
 
-[Feedback and Support](/feedback-and-support)
+<a href="feedback-and-support" title="Feedback and Support" class="btn color-secondary-button">Feedback and Support&nbsp;&nbsp;❯</a>
 
 <br>
 <br>

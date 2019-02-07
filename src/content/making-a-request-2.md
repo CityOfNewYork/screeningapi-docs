@@ -21,7 +21,7 @@ See the full list on the [Benefits and Programs API](https://data.cityofnewyork.
 
 ## Next
 
-[Endpoints](/endpoints)
+<a href="endpoints" title="Endpoints" class="btn color-secondary-button">Endpoints&nbsp;&nbsp;❯</a>
 
 <br>
 <br>

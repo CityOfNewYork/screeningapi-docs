@@ -1,5 +1,3 @@
-# Set Password and Token Based Authentication
-
 Once you have <a href="http://eepurl.com/gfLTuH" target="_blank">requested an account</a> and received your username and temporary password, you will be able to set your password for making additional requests. This requires the use of the `authToken` endpoint which accepts a JSON payload with your username, temporary password, and new password. The new password field is not required on subsequent `authToken` requests but if populated your password will update. Below is a full example of a curl request of this method. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
 
 ```
@@ -16,7 +14,7 @@ curl -X POST \
 
 ## Response
 
-A successful request will return a `token` in the response which means your password has been set. 
+A successful request will return a `token` in the response which means your password has been set.
 
 ```
 {
@@ -77,7 +75,7 @@ curl -X POST \
 
 ## Next
 
-[Making a Request](/making-a-request)
+<a href="making-a-request" title="Making a Request" class="btn color-secondary-button">Making a Request&nbsp;&nbsp;❯</a>
 
 <br>
 <br>

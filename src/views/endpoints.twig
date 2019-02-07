@@ -1,9 +1,14 @@
 {% extends "layouts/default.twig" %}
 
-{% set page_title = ' - Endpoints' %}
+{% set title = 'Endpoints' %}
+{% set page_title = ' - ' ~ title %}
 
 {% block content %}
 	{% markdown '../content/endpoints.md' %}{% endmarkdown %}
 
 	{% include 'partials/swagger.twig' %}
+
+	<h2 id="next">Next</h2>
+
+	<a href="sample-code-and-sdks" title="Sample Data, Code, and SDKs" class="btn color-secondary-button">Sample Data, Code, and SDKs&nbsp;&nbsp;❯</a>
 {% endblock %}
