@@ -15,6 +15,10 @@
 @import 'nyco-patterns/src/utilities/type/type';
 @import 'nyco-patterns/src/utilities/colors/colors';
 
-@import 'swagger.scss';
+@import 'colors';
+
+@import 'swagger';
+
+@import 'o-content';
 
 @tailwind utilities;

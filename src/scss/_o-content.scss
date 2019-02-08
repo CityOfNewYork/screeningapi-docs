@@ -1,0 +1,12 @@
+
+.o-content {
+  display: block;
+
+  p code {
+    @extend .code;
+  }
+
+  table {
+    @include table();
+  }
+}

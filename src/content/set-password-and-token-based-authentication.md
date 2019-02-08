@@ -1,6 +1,6 @@
 Once you have <a href="http://eepurl.com/gfLTuH" target="_blank">requested an account</a> and received your username and temporary password, you will be able to set your password for making additional requests. This requires the use of the `authToken` endpoint which accepts a JSON payload with your username, temporary password, and new password. The new password field is not required on subsequent `authToken` requests but if populated your password will update. Below is a full example of a curl request of this method. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
 
-```
+<div class="code-block"><pre>
 curl -X POST \
   'https://{{ domain }}/authToken' \
   -H 'Content-Type: application/json' \
@@ -9,34 +9,30 @@ curl -X POST \
     "username" : "{{ username }}",
     "password": "{{ temporary password }}",
     "newPassword": "{{ new password }}"
-  }'
-```
+  }'</pre></div>
 
 ## Response
 
 A successful request will return a `token` in the response which means your password has been set.
 
-```
+<div class="code-block"><pre>
 {
   "type": "SUCCESS",
   "token": "{{ your new token will here }}"
-}
-```
+}</pre></div>
 
 ## Tokens
 
 Once you have a token, you can use it along with your username to make requests to other endpoints. Tokens are set to expire every hour (or `3600` seconds) so you will need to keep track of the expiration to regenerate your token. Retrieving a new token can be done using the same `authToken` endpoint. All that’s needed is your username and password.
 
-```
-curl -X POST \
+<div class="code-block"><pre>curl -X POST \
   'https://{{ domain }}/authToken' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
     "username" : "{{ username }}",
     "password": "{{ temporary password }}"
-  }'
-```
+  }'</pre></div>
 
 ## Forgot Password
 
@@ -44,27 +40,23 @@ If you forget your password, you can reset it with the `/forgotPassword` and `/c
 
 ### forgotPassword
 
-```
-curl -X POST \
+<div class="code-block"><pre>curl -X POST \
   'https://{{ domain }}/forgotPassword' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
     "username" : "{{ username }}",
-  }'
-```
+  }'</pre></div>
 
 ### confirmPassword
 
-```
-curl -X POST \
+<div class="code-block"><pre>curl -X POST \
   'https://{{ domain }}/confirmPassword' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
     "username" : "{{ username }}",
-  }'
-```
+  }'</pre></div>
 
 ## Summary
 

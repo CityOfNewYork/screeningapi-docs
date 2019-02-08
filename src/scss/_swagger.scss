@@ -5,6 +5,18 @@
     width: 100%;
     display: inline-block;
 
+    .wrapper {
+      max-width: initial;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    // enables scrolling for schema that gets cut off
+    .opblock-description-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .title {
       display: none;
     }
@@ -52,23 +64,28 @@
       display: none;
     }
 
-    .opblock-post,
+    .opblock-body pre,
+    .opblock-summary-method {
+      @include font-smooth;
+    }
+
+    .opblock#{".opblock-post"},
     .opblock-summary-post {
-      background-color: #f3f3f3;
-      border-color: #3155a6;
+      background: rgba($secondary-grey, .1);
+      border-color: $primary-blue;
 
       .opblock-summary-method {
-        background-color: #3155a6;
+        background-color: $primary-blue;
       }
     }
 
     .opblock-options,
     .opblock-summary-options {
-      background-color: #f3f3f3;
-      border-color: #2f334f;
+      background-color: $secondary-white;
+      border-color: $primary-navy;
 
       .opblock-summary-method {
-        background-color: #2f334f;
+        background-color: $primary-navy;
       }
     }
   }

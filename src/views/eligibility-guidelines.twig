@@ -4,5 +4,7 @@
 {% set page_title = ' - ' ~ title %}
 
 {% block content %}
-	{% markdown '../content/eligibility-guidelines.md' %}{% endmarkdown %}
+	<div class="o-content">
+		{% markdown '../content/eligibility-guidelines.md' %}{% endmarkdown %}
+	</div>
 {% endblock %}
