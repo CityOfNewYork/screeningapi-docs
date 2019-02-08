@@ -12,3 +12,11 @@ div[class*="request-table-"] {
 table {
   @extend .table;
 }
+
+.screener-json {
+  display: none;
+
+  pre {
+    display: block;
+  }
+}

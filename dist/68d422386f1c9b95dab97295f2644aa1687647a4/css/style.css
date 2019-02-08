@@ -3826,6 +3826,14 @@ div[class*="request-table-"] {
   overflow-x: auto;
 }
 
+.screener-json {
+  display: none;
+}
+
+.screener-json pre {
+  display: block;
+}
+
 @media (min-width: 960px) {
   .screen-desktop\:list-reset {
     list-style: none !important;
