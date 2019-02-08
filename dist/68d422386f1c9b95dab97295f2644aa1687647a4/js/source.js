@@ -10394,6 +10394,9 @@ $('table').each(function (i) {
 
 /* Generate json from form */
 
+var personContainer = $('.person-data:first').clone();
+var incomesContainer = $('.incomes:first').clone();
+var expensesContainer = $('.expenses:first').clone();
 $('.generate-json').on('click', function (event) {
   event.preventDefault();
   var formdata = $('.screener-form');
@@ -10476,10 +10479,30 @@ $('.generate-json').on('click', function (event) {
   $('.screener-json').prepend('<pre><code>' + JSON.stringify(finalObj, undefined, 2) + '</code></pre>');
   $('.screener-json').show();
 });
+/* Go back to the form */
+
 $('.generate-form').on('click', function (event) {
   event.preventDefault();
   $('.screener-json').hide();
   $('.screener-form').show();
+});
+/* Add additional persons*/
+
+$(document).on('click', '.add-person', function (event) {
+  event.preventDefault();
+  personContainer.clone().insertBefore(this);
+});
+/* Add additional incomes*/
+
+$(document).on('click', '.add-income', function (event) {
+  event.preventDefault();
+  incomesContainer.clone().insertBefore(this);
+});
+/* Add additional expenses*/
+
+$(document).on('click', '.add-expense', function (event) {
+  event.preventDefault();
+  expensesContainer.clone().insertBefore(this);
 });
 
 },{"./modules/submission.js":4,"./modules/swagger.js":5,"jquery":1}],3:[function(require,module,exports){
