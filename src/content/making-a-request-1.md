@@ -15,9 +15,9 @@ Here is a full list of headers required for each request.
 
 | Header | Value |
 |--------|-------|
-| Content-Type | application/json |
-| x-api-key    | Your api key.|
-| Authorization|A valid token retrieved via the `authToken` endpoint.
+| <code class="whitespace-no-wrap h5">Content-Type</code>  | <em class="text-secondary-grey">application/json</em> |
+| <code class="whitespace-no-wrap h5">x-api-key</code>     | Your api key. |
+| <code class="whitespace-no-wrap h5">Authorization</code> | A valid token retrieved via the `authToken` endpoint. |
 
 ## Testing
 

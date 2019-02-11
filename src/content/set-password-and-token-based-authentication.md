@@ -61,9 +61,13 @@ If you forget your password, you can reset it with the `/forgotPassword` and `/c
 ## Summary
 
 * Contact us through [Support](mailto:eligibilityapi@nycopportunity.nyc.gov) if you need to update your account information.
+
 * The `authToken` endpoint is used to set your new password using your username and temporary password.
+
 * The `authToken` endpoint responds with a token that expires after 1 hour (`3600` seconds).
+
 * The `authToken` endpoint is also used to retrieve new tokens.
+
 
 ## Next
 
