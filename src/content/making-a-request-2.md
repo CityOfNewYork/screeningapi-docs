@@ -7,7 +7,7 @@ Successful responses will return a list of program names and codes of all of the
 | <b>S2R001</b> | Child and Dependent Care Tax Credit |
 | <b>S2R004</b> | Child Tax Credit |
 | <b>S2R004</b> | Home Energy Assistance Program (HEAP) |
-|...|...|
+|…|…|
 
 See the full list on the [Benefits and Programs API](https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju) page.
 
@@ -30,6 +30,3 @@ parameters filled out possible for the most accurate eligibility evaluation.
 ## Next
 
 <a href="endpoints" title="Endpoints" class="btn color-secondary-button">Endpoints&nbsp;&nbsp;❯</a>
-
-<br>
-<br>

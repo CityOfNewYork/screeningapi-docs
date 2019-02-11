@@ -4,5 +4,492 @@
     "description": "Description",
     "dataAttribute": "Data Attribute",
     "possibleValue": "Type and/or Value"
+  },
+  {
+    "name": "<b class='whitespace-no-wrap'>Age</b>",
+    "description": "The age of the person.",
+    "dataAttribute": "<code class='font-bold text-h5'>age</code>",
+    "possibleValue": "<b class='text-primary-blue'>Integer</b>"
+  },
+  {
+    "name": "<b class='whitespace-no-wrap'>Age</b>",
+    "description": "The age of the person.",
+    "dataAttribute": "<code class='font-bold text-h5'>age</code>",
+    "possibleValue": "<b class='text-primary-blue'>Integer</b>"
+  },
+
+  {
+    "name": "<b class='whitespace-no-wrap'>Student</b>",
+    "description": "Whether the person is a student or not.",
+    "dataAttribute": "<code class='font-bold text-h5'>student</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b class='whitespace-no-wrap'>Full-time Student</b>",
+    "description": "Whether the person is a full-time student or not.",
+    "dataAttribute": "<code class='font-bold text-h5'>studentFulltime</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b class='whitespace-no-wrap'>Pregnant</b>",
+    "description": "Whether the person is pregnant or not.",
+    "dataAttribute": "<code class='font-bold text-h5'>pregnant</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b class='whitespace-no-wrap'>Unemployed</b>",
+    "description": "Whether the person is employed or not.",
+    "dataAttribute": "<code class='font-bold text-h5'>unemployed</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b>Unemployed and Worked in the Last 18 Months</b>",
+    "description": "Whether the person is unemployed and worked within the last 18 months.",
+    "dataAttribute": "<code class='font-bold text-h5'>unemployedWorkedLast18Months</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b class='whitespace-no-wrap'>Is Blind</b>",
+    "description": "Whether the person is blind or not.",
+    "dataAttribute": "<code class='font-bold text-h5'>blind</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b class='whitespace-no-wrap'>Has any Disabilities</b>",
+    "description": "Whether the person has disabilities or not.",
+    "dataAttribute": "<code class='font-bold text-h5'>disabled</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b class='whitespace-no-wrap'>Veteran</b>",
+    "description": "Whether the person is a veteran or not.",
+    "dataAttribute": "<code class='font-bold text-h5'>veteran</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b class='whitespace-no-wrap'>Receives Medicaid Benefits</b>",
+    "description": "Whether the person receives medicaid benefits or not.",
+    "dataAttribute": "<code class='font-bold text-h5'>benefitsMedicaid</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b>Receives Disability-related Medicaid Benefits</b>",
+    "description": "Whether the person receives disability-related medicaid benefits or not.",
+    "dataAttribute": "<code class='font-bold text-h5'>benefitsMedicaidDisability</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b class='whitespace-no-wrap'>Head of the Household</b>",
+    "description": "Whether the person is the head of household or not. Note, only one person can be the head of household.",
+    "dataAttribute": "<code class='font-bold text-h5'>headOfHousehold</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b>Relation to the Head of Household</b>",
+    "description": "If person isn’t the head of household, what is their relation to the head of household (see below).",
+    "dataAttribute": "<code class='font-bold text-h5'>headOfHouseholdRelation</code>",
+    "possibleValue": "Blank <b class='text-primary-blue'>String</b><em class='text-secondary-grey'>(\"\")</em> or one listed below."
+  },
+  {
+    "name": "",
+    "description": "Child",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Child</em>"
+  },
+  {
+    "name": "",
+    "description": "Foster Child",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>FosterChild</em>"
+  },
+  {
+    "name": "",
+    "description": "Step-child",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>StepChild</em>"
+  },
+  {
+    "name": "",
+    "description": "Grandchild",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Grandchild</em>"
+  },
+  {
+    "name": "",
+    "description": "Spouse",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Spouse</em>"
+  },
+  {
+    "name": "",
+    "description": "Parent",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Parent</em>"
+  },
+  {
+    "name": "",
+    "description": "Foster Parent",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>FosterParent</em>"
+  },
+  {
+    "name": "",
+    "description": "Step-parent",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>StepParent</em>"
+  },
+  {
+    "name": "",
+    "description": "Grandparent",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Grandparent</em>"
+  },
+  {
+    "name": "",
+    "description": "Sister or Brother",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>SisterBrother</em>"
+  },
+  {
+    "name": "",
+    "description": "Step-sister or Step-brother",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>StepSisterStepBrother</em>"
+  },
+  {
+    "name": "",
+    "description": "Boyfriend or Girlfriend",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>BoyfriendGirlfriend</em>"
+  },
+  {
+    "name": "",
+    "description": "Domestic Partner",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>DomesticPartner</em>"
+  },
+  {
+    "name": "",
+    "description": "Unrelated",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Unrelated</em>"
+  },
+  {
+    "name": "",
+    "description": "Related in some other way",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Other</em>"
+  },
+  {
+    "name": "<b class='whitespace-no-wrap'>Owner or on deed</b>",
+    "description": "If the household owns the home, is the person the owner or on the deed.",
+    "dataAttribute": "<code class='font-bold text-h5'>livingOwnerOnDeed</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b>Renting and on the Rental Lease</b>",
+    "description": "If the household rental is renting, whether the person on the lease or not.",
+    "dataAttribute": "<code class='font-bold text-h5'>livingRentalOnLease</code>",
+    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+  },
+  {
+    "name": "<b>Income</b>",
+    "description": "A collection of one or more income objects.",
+    "dataAttribute": "<code class='font-bold text-h5'>incomes</code>",
+    "possibleValue": "<b class='text-primary-blue'>Array</b> of <b class='text-primary-blue'>Objects</b><div class='code-block small'><pre>[<br>  {<br>    \"amount\": \"200.00\",<br>    \"type\": \"Veteran\",<br>    \"frequency\": \"monthly\"<br>  },<br>  … additional Incomes…<br>]</pre></div>"
+  },
+  {
+    "name": "",
+    "description": "<b>Income amount</b>. The dollar amount of the income.",
+    "dataAttribute": "<code class='font-bold text-h5'>amount</code>",
+    "possibleValue": "<b class='text-primary-blue'>Number</b> greater than or equal to 0. <span class='whitespace-no-wrap'><em class='text-secondary-grey'>Example: 200.00</em></span>"
+  },
+  {
+    "name": "",
+    "description": "<b>Income type</b>. The type of the income (see below).",
+    "dataAttribute": "<code class='font-bold text-h5'>type</code>",
+    "possibleValue": "Blank <b class='text-primary-blue'>String</b><em class='text-secondary-grey'>(\"\")</em> or one listed below."
+  },
+  {
+    "name": "",
+    "description": "Wages, salaries, tips.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Wages</em>"
+  },
+  {
+    "name": "",
+    "description": "Self-employment income.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>SelfEmployment</em>"
+  },
+  {
+    "name": "",
+    "description": "Unemployment benefits.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Unemployment</em>"
+  },
+  {
+    "name": "",
+    "description": "Cash Assistance grant.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>CashAssistance</em>"
+  },
+  {
+    "name": "",
+    "description": "Child support (received).",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>ChildSupport</em>"
+  },
+  {
+    "name": "",
+    "description": "Disability-related Medicaid.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>DisabilityMedicaid</em>"
+  },
+  {
+    "name": "",
+    "description": "Supplemental Security Income (SSI).",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>SSI</em>"
+  },
+  {
+    "name": "",
+    "description": "Social Security Dependent benefits.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>SSDependent</em>"
+  },
+  {
+    "name": "",
+    "description": "Social Security Disability benefits.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>SSDisability</em>"
+  },
+  {
+    "name": "",
+    "description": "Social Security Survivor’s benefits.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>SSSurvivor</em>"
+  },
+  {
+    "name": "",
+    "description": "Social Security Retirement benefits.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>SSRetirement</em>"
+  },
+  {
+    "name": "",
+    "description": "New York State Disability benefits.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>NYSDisability</em>"
+  },
+  {
+    "name": "",
+    "description": "Veteran’s Pension or benefits.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Veteran</em>"
+  },
+  {
+    "name": "",
+    "description": "Government or Private Pension.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Pension</em>"
+  },
+  {
+    "name": "",
+    "description": "Withdrawals from Deferred Compensation (IRA, Keogh, etc.).",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>DeferredComp</em>"
+  },
+  {
+    "name": "",
+    "description": "Worker’s Compensation.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>WorkersComp</em>"
+  },
+  {
+    "name": "",
+    "description": "Alimony (received).",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Alimony</em>"
+  },
+  {
+    "name": "",
+    "description": "Boarder or lodger.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Boarder</em>"
+  },
+  {
+    "name": "",
+    "description": "Gifts/contributions (received)",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Gifts</em>"
+  },
+  {
+    "name": "",
+    "description": "Rental income.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Rental</em>"
+  },
+  {
+    "name": "",
+    "description": "Investment income (interest, dividends, and profit from selling stocks).",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Investment</em>"
+  },
+  {
+    "name": "",
+    "description": "<b>Income frequency</b>. How often the income is received.",
+    "dataAttribute": "<code class='font-bold text-h5'>frequency</code>",
+    "possibleValue": "Blank <b class='text-primary-blue'>String</b><em class='text-secondary-grey'>(\"\")</em> or one listed below."
+  },
+  {
+    "name": "",
+    "description": "Every week.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>weekly</em>"
+  },
+  {
+    "name": "",
+    "description": "Every 2 weeks.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>biweekly</em>"
+  },
+  {
+    "name": "",
+    "description": "Monthly",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>monthly</em>"
+  },
+  {
+    "name": "",
+    "description": "Twice a month.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>semimonthly</em>"
+  },
+  {
+    "name": "",
+    "description": "Every year.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>yearly</em>"
+  },
+  {
+    "name": "<b class='whitespace-no-wrap'>Expenses",
+    "description": "A collection of one or more expense objects.",
+    "dataAttribute": "<code class='font-bold text-h5'>expenses</code>",
+    "possibleValue": "<b class='text-primary-blue'>Array</b> of <b class='text-primary-blue'>Objects</b> <div class='code-block small'><pre>[<br>  {<br>    \"amount\": \"50.00\",<br>    \"type\": \"Medical\",<br>    \"frequency\": \"weekly\"<br>  },<br>  … additional Expenses…<br>]</pre></div>"
+  },
+  {
+    "name": "",
+    "description": "<b>Expense amount</b>. The dollar amount of the expense.",
+    "dataAttribute": "<code class='font-bold text-h5'>amount</code>",
+    "possibleValue": "<b class='text-primary-blue'>Number</b> greater than or equal to 0. <span class='whitespace-no-wrap'><em class='text-secondary-grey'>Example: 2000.00</em></span>"
+  },
+  {
+    "name": "",
+    "description": "<b>Expense type</b>. The type of the expense (see below).",
+    "dataAttribute": "<code class='font-bold text-h5'>type</code",
+    "possibleValue": "Blank <b class='text-primary-blue'>String</b><em class='text-secondary-grey'>(\"\")</em> or one listed below."
+  },
+  {
+    "name": "",
+    "description": "Child care.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>ChildCare</em>"
+  },
+  {
+    "name": "",
+    "description": "Child Support (paid).",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>ChildSupport</em>"
+  },
+  {
+    "name": "",
+    "description": "Dependent Care.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>DependentCare</em>"
+  },
+  {
+    "name": "",
+    "description": "Rent",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Rent</em>"
+  },
+  {
+    "name": "",
+    "description": "Medical expense",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Medical</em>"
+  },
+  {
+    "name": "",
+    "description": "Heating",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Heating</em>"
+  },
+  {
+    "name": "",
+    "description": "Cooling",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Cooling</em>"
+  },
+  {
+    "name": "",
+    "description": "Mortgage",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Mortgage</em>"
+  },
+  {
+    "name": "",
+    "description": "Utilities",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Utilities</em>"
+  },
+  {
+    "name": "",
+    "description": "Telephone",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>Telephone</em>"
+  },
+  {
+    "name": "",
+    "description": "Third party insurance premiums.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>InsurancePremiums</em>"
+  },
+  {
+    "name": "",
+    "description": "<b>Expense frequency</b>. How often the expense is paid (see below).",
+    "dataAttribute": "<code class='font-bold text-h5'>frequency</code>",
+    "possibleValue": "Blank <b class='text-primary-blue'>String</b><em class='text-secondary-grey'>(\"\")</em> or one listed below."
+  },
+  {
+    "name": "",
+    "description": "Every week.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>weekly</em>"
+  },
+  {
+    "name": "",
+    "description": "Every 2 weeks.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>biweekly</em>"
+  },
+  {
+    "name": "",
+    "description": "Monthly",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>monthly</em>"
+  },
+  {
+    "name": "",
+    "description": "Twice a month.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>semimonthly</em>"
+  },
+  {
+    "name": "",
+    "description": "Every year.",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>yearly</em>"
   }
 ]

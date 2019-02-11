@@ -27,7 +27,7 @@
     "name": "<b class='whitespace-no-wrap'>Housing Rental Type</b>",
     "description": "The type of rental, if renting.",
     "dataAttribute": "<code class='font-bold text-h5'>livingRentalType</code>",
-    "possibleValue": "<b class='text-primary-blue'>String</b> blank or one of listed below."
+    "possibleValue": "Blank <b class='text-primary-blue'>String</b><em class='text-secondary-grey'>(“”)</em> or one listed below."
   },
   {
     "name": "",

@@ -16,6 +16,7 @@
 		</div>
 	</div>
 
+	<h3>Household</h3>
 	<div class="relative overflow-x-auto scrolling-touch">
 		<div id="household-table" class="table"></div>
 		<div data-js="jsonToTable" data-js-json-to-table-json="#household-json" data-js-json-to-table-table="#household-table" class="code-block hidden" aria-hidden="true">
@@ -23,9 +24,11 @@
 		</div>
 	</div>
 
+	<h3>Person</h3>
 	<div class="relative overflow-x-auto scrolling-touch">
-		<div class="table">
-			{% markdown '../content/household-composition-person-table.md' %}{% endmarkdown %}
+		<div id="person-table" class="table"></div>
+		<div data-js="jsonToTable" data-js-json-to-table-json="#person-json" data-js-json-to-table-table="#person-table" class="code-block hidden" aria-hidden="true">
+			<pre id="person-json">{% filter escape %}{% include '../js/modules/household-composition-person.json' %}{% endfilter %}</pre>
 		</div>
 	</div>
 

@@ -25,7 +25,7 @@ $('[data-js="jsonToTable"]').each((index, el) => {
 
     $(keys).each((index, key) => {
       let tcell = (i === 0) ? $('<th />') : $('<td />');
-      tcell.append(data[i][key]);
+      tcell.html(data[i][key]);
       row.append(tcell);
     });
 
