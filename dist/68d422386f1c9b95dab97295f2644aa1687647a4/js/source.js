@@ -10371,6 +10371,8 @@ var _submission = _interopRequireDefault(require("./modules/submission.js"));
 
 var _swagger = _interopRequireDefault(require("./modules/swagger.js"));
 
+var _requestFormJson = _interopRequireDefault(require("./modules/request-form-json.js"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.$ = window.jQuery = require('jquery');
@@ -10382,6 +10384,10 @@ if (window.location.pathname.indexOf('endpoints') >= 0) {
 if (window.location.pathname.indexOf('form') >= 0) {
   (0, _submission.default)();
 }
+
+if (window.location.pathname.indexOf('request-builder') >= 0) {
+  (0, _requestFormJson.default)();
+}
 /* Tables */
 
 
@@ -10390,122 +10396,155 @@ $('table').each(function (i) {
   $('.request-table-' + i).prepend('<div class="table"></div>');
   $('.request-table-' + i).find('.table').prepend(this);
 });
-/****************************/
 
-/* Generate json from form */
+},{"./modules/request-form-json.js":3,"./modules/submission.js":5,"./modules/swagger.js":6,"jquery":1}],3:[function(require,module,exports){
+"use strict";
 
-var personContainer = $('.person-data:first').clone();
-var incomesContainer = $('.incomes:first').clone();
-var expensesContainer = $('.expenses:first').clone();
-$('.generate-json').on('click', function (event) {
-  event.preventDefault();
-  var formdata = $('.screener-form');
-  var finalObj = {
-    "commands": []
-  };
-  /*************/
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
 
-  /* HOUSEHOLD */
+/** 
+ * Converts form to JSON
+ */
+function _default() {
+  var personContainer = $('.person-data:first').clone();
+  /* Generate the entire JSON */
 
-  var householdObj = {
-    "insert": {
-      "object": {}
-    }
-  };
-  householdObj['insert']['object']['accessnyc.request.Household'] = formdata.find('[household]').serializeArray().reduce(function (obj, item) {
-    return obj[item.name] = item.value, obj;
-  }, {});
-  /*************/
-
-  /***********/
-
-  /* PERSON */
-
-  var personObj = {
-    "insert": {
-      "object": {}
-    }
-  };
-  personObj['insert']['object']['accessnyc.request.Person'] = formdata.find('[person]').serializeArray().reduce(function (obj, item) {
-    return obj[item.name] = item.value, obj;
-  }, {});
-  /* Incomes */
-
-  var formIncomes = formdata.find('[person-incomes]').serializeArray();
-  var incomesArr = [];
-  var incomesObj = {};
-  var numIncomes = formIncomes.length / 3;
-  var index = 0;
-  var subset;
-
-  for (var i = 0; i < numIncomes; i++) {
-    incomesObj = {};
-    subset = formIncomes.slice(index, index + 3);
-    subset.forEach(function (key) {
-      incomesObj[key.name] = key.value;
+  $('.generate-json').on('click', function (event) {
+    event.preventDefault();
+    var formdata = $('.screener-form');
+    var finalObj = {
+      "commands": []
+    };
+    var householdObj = generateHouseholdObj(formdata);
+    finalObj['commands'].push(householdObj);
+    var personObj = {};
+    $('.person-data').each(function (pi) {
+      personObj = generatePersonObj(formdata, pi);
+      finalObj['commands'].push(personObj);
     });
-    incomesArr.push(incomesObj);
-    index = index + 3;
+    $('.screener-form').hide();
+    $('.screener-json').find('pre').remove();
+    $('.screener-json').prepend('<pre><code class="code">' + JSON.stringify(finalObj, undefined, 2) + '</code></pre>');
+    $('.screener-json').show();
+  });
+  /* Go back to the form */
+
+  $('.generate-form').on('click', function (event) {
+    event.preventDefault();
+    $('.screener-json').hide();
+    $('.screener-form').show();
+  });
+  /* Add additional persons*/
+
+  $(document).on('click', '.add-person', function (event) {
+    event.preventDefault();
+    personContainer.clone().insertBefore(this);
+  });
+  /* Add additional incomes*/
+
+  $(document).on('click', '.add-income', function (event) {
+    event.preventDefault();
+    var incomesContainer = $('<div class="incomes"><label>incomes</label><input type="text" name="amount" placeholder="200" person-incomes><input type="text" name="type" placeholder="Veteran" person-incomes><input type="text" name="frequency" placeholder="monthly" person-incomes></div>');
+    incomesContainer.insertBefore(this);
+  });
+  /* Add additional expenses*/
+
+  $(document).on('click', '.add-expense', function (event) {
+    event.preventDefault();
+    var expensesContainer = $('<div class="expenses"><label>expenses</label><input type="text" name="amount" placeholder="50" person-expenses><input type="text" name="type" placeholder="Medical" person-expenses><input type="text" name="frequency" placeholder="weekly" person-expenses></div>');
+    expensesContainer.clone().insertBefore(this);
+  });
+  /* Generates the household object */
+
+  function generateHouseholdObj(form) {
+    var hh = {
+      "insert": {
+        "object": {}
+      }
+    };
+    hh['insert']['object']['accessnyc.request.Household'] = form.find('[household]').serializeArray().reduce(function (obj, item) {
+      return obj[item.name] = item.value, obj;
+    }, {});
+    return hh;
   }
+  /* Generates the person object */
 
-  personObj['insert']['object']['accessnyc.request.Person']['incomes'] = incomesArr;
-  /***********/
 
-  /* Expenses */
+  function generatePersonObj(form, pindex) {
+    var personForm = form.find('.person-data').eq(pindex);
+    var person = {
+      "insert": {
+        "object": {}
+      }
+    };
+    person['insert']['object']['accessnyc.request.Person'] = personForm.find('[person]').serializeArray().reduce(function (obj, item) {
+      return obj[item.name] = item.value, obj;
+    }, {});
+    /* Incomes */
 
-  var formExpenses = formdata.find('[person-expenses]').serializeArray();
-  var expensesArr = [];
-  var expensesObj = {};
-  var numExpenses = formExpenses.length / 3;
-  index = 0;
+    var formIncomes = personForm.find('[person-incomes]').serializeArray();
+    var incomesArr = [];
+    var incomesObj = {};
+    var numIncomes = formIncomes.length / 3;
+    var index = 0;
+    var subset;
 
-  for (var i = 0; i < numExpenses; i++) {
-    expensesObj = {};
-    subset = formExpenses.slice(index, index + 3);
-    subset.forEach(function (key) {
-      expensesObj[key.name] = key.value;
-    });
-    expensesArr.push(expensesObj);
-    index = index + 3;
+    for (var i = 0; i < numIncomes; i++) {
+      incomesObj = {};
+      subset = formIncomes.slice(index, index + 3);
+      subset.forEach(function (key) {
+        incomesObj[key.name] = key.value;
+      });
+      incomesArr.push(incomesObj);
+      index = index + 3;
+    }
+
+    if (incomesArr.length > 0) {
+      person['insert']['object']['accessnyc.request.Person']['incomes'] = incomesArr;
+    }
+    /* Expenses */
+
+
+    var formExpenses = personForm.find('[person-expenses]').serializeArray();
+    var expensesArr = [];
+    var expensesObj = {};
+    var numExpenses = formExpenses.length / 3;
+    index = 0;
+
+    for (var i = 0; i < numExpenses; i++) {
+      expensesObj = {};
+      subset = formExpenses.slice(index, index + 3);
+      subset.forEach(function (key) {
+        expensesObj[key.name] = key.value;
+      });
+      expensesArr.push(expensesObj);
+      index = index + 3;
+    }
+
+    if (expensesArr.length > 0) {
+      person['insert']['object']['accessnyc.request.Person']['expenses'] = expensesArr;
+    }
+
+    return person;
   }
+  /* Copy the JSON object to the clipboard */
 
-  personObj['insert']['object']['accessnyc.request.Person']['expenses'] = expensesArr;
-  /*generate the final object*/
 
-  finalObj['commands'].push(householdObj);
-  finalObj['commands'].push(personObj);
-  $('.screener-form').hide();
-  $('.screener-json').find('pre').remove();
-  $('.screener-json').prepend('<pre><code>' + JSON.stringify(finalObj, undefined, 2) + '</code></pre>');
-  $('.screener-json').show();
-});
-/* Go back to the form */
+  $(document).on('click', '.copy-obj', function (event) {
+    event.preventDefault();
+    var range = document.createRange();
+    range.selectNode(document.getElementsByClassName("code")[0]);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+    $(this).text('Copied!');
+  });
+}
 
-$('.generate-form').on('click', function (event) {
-  event.preventDefault();
-  $('.screener-json').hide();
-  $('.screener-form').show();
-});
-/* Add additional persons*/
-
-$(document).on('click', '.add-person', function (event) {
-  event.preventDefault();
-  personContainer.clone().insertBefore(this);
-});
-/* Add additional incomes*/
-
-$(document).on('click', '.add-income', function (event) {
-  event.preventDefault();
-  incomesContainer.clone().insertBefore(this);
-});
-/* Add additional expenses*/
-
-$(document).on('click', '.add-expense', function (event) {
-  event.preventDefault();
-  expensesContainer.clone().insertBefore(this);
-});
-
-},{"./modules/submission.js":4,"./modules/swagger.js":5,"jquery":1}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 module.exports=[
   {
     "EMAIL": "Please enter a valid email."
@@ -10535,7 +10574,7 @@ module.exports=[
     "SUCCESS": "Thank you! Your request will be reviewed with confirmation within 1-2 business days."
   }
 ]
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10652,7 +10691,7 @@ function _default() {
   });
 }
 
-},{"./responses.json":3}],5:[function(require,module,exports){
+},{"./responses.json":4}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

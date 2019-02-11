@@ -64,9 +64,13 @@
   <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="feedback-and-support">Feedback and Support</a>    </aside>
 
     <article class="color-light-background py-2 px-4 screen-desktop:px-6">
-        <form class="screener-form">
+        <h1 id="request-builder">Request Builder</h1>
+<p>Use the following form to generate a data object you can pass to the Benefits Eligibility API.</p>
+
+  <form class="screener-form">
     <div class="household-data">
-  <h1>HOUSEHOLD</h1>
+  <h2>Household</h2>
+  <p>Enter values into the fields below for the Household Level data for the Household Composition.</p>
 
   <label>zip</label>
   <input type="text" name="zip" placeholder="11201" household>
@@ -102,7 +106,9 @@
   <label>livingPreferNotToSay</label>
   <input type="text" name="livingPreferNotToSay" placeholder="false" household>
 </div>    <div class="person-data">
-  <h1>PERSON(S)</h1>
+  <h2>Person</h2>
+  <p>Enter values into the fields below for one individual of the Household.</p>
+
   <label>age</label>
   <input type="text" name="age" placeholder="35" person>
 
@@ -148,30 +154,20 @@
   <label>livingRentalOnLease</label>
   <input type="text" name="livingRentalOnLease" placeholder="true" person>
 
-  <div class="incomes">
-    <label>incomes</label>
-    <input type="text" name="amount" placeholder="200" person-incomes>
-    <input type="text" name="type" placeholder="Veteran" person-incomes>
-    <input type="text" name="frequency" placeholder="monthly" person-incomes>
-  </div>
-  <button class="add-income">Add income</button>
+  <button class="btn color-secondary-button add-income">Add income</button>
 
-  <div class="expenses">
-    <label>expenses</label>
-    <input type="text" name="amount" placeholder="50" person-expenses>
-    <input type="text" name="type" placeholder="Medical" person-expenses>
-    <input type="text" name="frequency" placeholder="weekly" person-expenses>
-  </div>
-  <button class="add-expense">Add expense</button>
+  <button class="btn color-secondary-button add-expense">Add expense</button>
 
 </div>
-<button class="add-person">Add Person</button>
 
-    <button type="submit" class="generate-json">Generate JSON</button>
+<button class="btn color-secondary-button add-person">Add Person</button>
+
+    <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
   </form>
 
   <div class="screener-json">
-    <button type="submit" class="generate-form">Edit Values</button>
+    <button type="submit" class="btn color-primary-button generate-form">Edit Values</button>
+    <button class="btn color-secondary-button copy-obj">Copy</button>
   </div>
 
     </article>
