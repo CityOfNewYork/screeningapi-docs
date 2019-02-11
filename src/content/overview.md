@@ -22,7 +22,4 @@ More information about NYC Opportunity’s products can be found on nyc.gov/oppo
 
 ## Next
 
-<a href="request-an-account" title="Request an Account" class="btn color-secondary-button">Request an Account&nbsp;&nbsp;❯</a>
-
-<br>
-<br>
+<a href="getting-started" title="Getting Started" class="btn color-secondary-button">Getting Started&nbsp;&nbsp;❯</a>
