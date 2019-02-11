@@ -11,6 +11,3 @@ Contact us through [Support](mailto:eligibilityapi@nycopportunity.nyc.gov) if yo
 ## Next
 
 <a href="feedback-and-support" title="Feedback and Support" class="btn color-secondary-button">Feedback and Support&nbsp;&nbsp;❯</a>
-
-<br>
-<br>

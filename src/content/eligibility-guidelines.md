@@ -19,6 +19,3 @@ It’s important for developers and end-users impacted by use of the API to unde
 ## Next
 
 <a href="making-a-request" title="Making a Request" class="btn color-secondary-button">Making a Request&nbsp;&nbsp;❯</a>
-
-<br>
-<br>

@@ -35,6 +35,3 @@ You agree to the following:
 	* Change any or all of the provisions of this access agreement, including a change which would require you to change your application or result in you not being eligible to continue to access the API.
 
 NYC Opportunity will endeavor to inform you in advance of any of the above actions but has no obligation to do so.
-
-<br>
-<br>

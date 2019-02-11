@@ -72,6 +72,3 @@ If you forget your password, you can reset it with the `/forgotPassword` and `/c
 ## Next
 
 <a href="making-a-request" title="Making a Request" class="btn color-secondary-button">Making a Request&nbsp;&nbsp;❯</a>
-
-<br>
-<br>

@@ -22,6 +22,3 @@ Keep your username and temporary password to set your password.
 ## Next
 
 <a href="set-password-and-token-based-authentication" title="Set Password and Token Based Authentication" class="btn color-secondary-button">Set Password and Token Based Authentication&nbsp;&nbsp;❯</a>
-
-<br>
-<br>
