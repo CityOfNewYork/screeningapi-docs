@@ -1,18 +1,15 @@
-{% set navclass = "inline-block screen-tablet:block p-1 screen-tablet:p-2" %}
-{% set borderclass = "screen-tablet:border-b border-primary-blue-30t" %}
-
-<nav class="screen-tablet:pb-4 screen-tablet:border-b">
-  <a class="{{navclass}} {{borderclass}}" href="index">Overview</a>
-  <a class="{{navclass}} {{borderclass}}" href="getting-started">Getting Started</a>
-  <a class="{{navclass}} {{borderclass}}" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
-  <a class="{{navclass}} {{borderclass}}" href="making-a-request">Making a Request</a>
-  <a class="{{navclass}} {{borderclass}}" href="endpoints">Endpoints</a>
-  <a class="{{navclass}}" href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
+<nav class="{{ classes.nav_one }}">
+  <a class="{{ classes.li }} {{ classes.border }}" href="index">Overview</a>
+  <a class="{{ classes.li }} {{ classes.border }}" href="getting-started">Getting Started</a>
+  <a class="{{ classes.li }} {{ classes.border }}" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
+  <a class="{{ classes.li }} {{ classes.border }}" href="making-a-request">Making a Request</a>
+  <a class="{{ classes.li }} {{ classes.border }}" href="endpoints">Endpoints</a>
+  <a class="{{ classes.li }}" href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
 </nav>
 
-<nav class="screen-tablet:pb-2 screen-tablet:pt-4">
-  <a class="{{navclass}} {{borderclass}}" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
-  <a class="{{navclass}} {{borderclass}}" href="eligibility-guidelines">Eligibility Guidelines</a>
-  <a class="{{navclass}} {{borderclass}}" href="feedback-and-support">Feedback and Support</a>
-  <a class="{{navclass}}" href="terms-of-service">Terms of Service</a>
+<nav class="{{ classes.nav_two }}">
+  <a class="{{ classes.li }} {{ classes.border }}" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
+  <a class="{{ classes.li }} {{ classes.border }}" href="eligibility-guidelines">Eligibility Guidelines</a>
+  <a class="{{ classes.li }} {{ classes.border }}" href="feedback-and-support">Feedback and Support</a>
+  <a class="{{ classes.li }}" href="terms-of-service">Terms of Service</a>
 </nav>

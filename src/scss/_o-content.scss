@@ -3,7 +3,7 @@
   display: block;
 
   p code {
-    @extend .code;
+    @include inline-code();
   }
 
   table {

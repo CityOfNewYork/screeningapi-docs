@@ -31,7 +31,12 @@
 
   <main class="layout--sidebar screen-tablet:flex items-stretch m-0 p-0 min-h-screen">
     <aside class="color-mid-background py-2 px-3">
-      {% include "../partials/nav.twig" %}
+      {% include "../partials/nav.twig" with { 'classes': {
+        'nav_one': 'screen-tablet:pb-4 screen-tablet:border-b',
+        'nav_two': 'screen-tablet:pb-2 screen-tablet:pt-4',
+        'li': 'inline-block screen-tablet:block p-1 screen-tablet:p-2',
+        'border': 'screen-tablet:border-b border-primary-blue-30t'
+       } } only %}
     </aside>
 
     <article id="main-content" class="color-light-background py-2 px-4 screen-desktop:px-6">
