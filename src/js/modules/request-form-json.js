@@ -4,7 +4,7 @@
 
 export default function() {
 
-  var personContainer = $('.person-data:first').clone()
+  var personContainer = $('.person-data:first').clone();
 
   /* Generate the entire JSON */
   $('.generate-json').on('click', function(event){
@@ -68,6 +68,8 @@ export default function() {
     };
 
     hh['insert']['object']['accessnyc.request.Household'] = form.find('[household]').serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{});
+
+    var fields = form.find('[household]')
 
     return hh;
   }

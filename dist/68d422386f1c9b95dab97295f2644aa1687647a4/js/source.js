@@ -10468,6 +10468,7 @@ function _default() {
     hh['insert']['object']['accessnyc.request.Household'] = form.find('[household]').serializeArray().reduce(function (obj, item) {
       return obj[item.name] = item.value, obj;
     }, {});
+    var fields = form.find('[household]');
     return hh;
   }
   /* Generates the person object */

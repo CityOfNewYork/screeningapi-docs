@@ -3,49 +3,79 @@
   <p>Enter values into the fields below for one individual of the Household.</p>
 
   <label>age</label>
-  <input type="text" name="age" placeholder="35" person>
+  <input type="text" name="age" value="35" person>
 
   <label>student</label>
-  <input type="text" name="student" placeholder="false" person>
+  <input type="radio" name="student" value="true" person> True<br>
+  <input type="radio" name="student" value="false" person> False<br>
 
   <label>studentFulltime</label>
-  <input type="text" name="studentFulltime" placeholder="false" person>
+  <input type="radio" name="studentFulltime" value="true" person> True<br>
+  <input type="radio" name="studentFulltime" value="false" person> False<br>
 
   <label>pregnant</label>
-  <input type="text" name="pregnant" placeholder="false" person>
+  <input type="radio" name="pregnant" value="true" person> True<br>
+  <input type="radio" name="pregnant" value="false" person> False<br>
 
   <label>unemployed</label>
-  <input type="text" name="unemployed" placeholder="false" person>
+  <input type="radio" name="unemployed" value="true" person> True<br>
+  <input type="radio" name="unemployed" value="false" person> False<br>
 
   <label>unemployedWorkedLast18Months</label>
-  <input type="text" name="unemployedWorkedLast18Months" placeholder="false" person>
+  <input type="radio" name="unemployedWorkedLast18Months" value="true" person> True<br>
+  <input type="radio" name="unemployedWorkedLast18Months" value="false" person> False<br>
 
   <label>blind</label>
-  <input type="text" name="blind" placeholder="false" person>
+  <input type="radio" name="blind" value="true" person> True<br>
+  <input type="radio" name="blind" value="false" person> False<br>
 
   <label>disabled</label>
-  <input type="text" name="disabled" placeholder="false" person>
+  <input type="radio" name="disabled" value="true" person> True<br>
+  <input type="radio" name="disabled" value="false" person> False<br>
 
   <label>veteran</label>
-  <input type="text" name="veteran" placeholder="false" person>
+  <input type="radio" name="veteran" value="true" person> True<br>
+  <input type="radio" name="veteran" value="false" person> False<br>
 
   <label>benefitsMedicaid</label>
-  <input type="text" name="benefitsMedicaid" placeholder="false" person>
+  <input type="radio" name="benefitsMedicaid" value="true" person> True<br>
+  <input type="radio" name="benefitsMedicaid" value="false" person> False<br>
 
   <label>benefitsMedicaidDisability</label>
-  <input type="text" name="benefitsMedicaidDisability" placeholder="false" person>
+  <input type="radio" name="benefitsMedicaidDisability" value="true" person> True<br>
+  <input type="radio" name="benefitsMedicaidDisability" value="false" person> False<br>
 
   <label>headOfHousehold</label>
-  <input type="text" name="headOfHousehold" placeholder="false" person>
+  <input type="radio" name="headOfHousehold" value="true" person> True<br>
+  <input type="radio" name="headOfHousehold" value="false" person> False<br>
 
   <label>headOfHouseholdRelation</label>
-  <input type="text" name="headOfHouseholdRelation" placeholder="Spouse" person>
+  <select name="livingRentalType" person>
+    <option value="Self">You</option>
+    <option value="Child">Child</option>
+    <option value="FosterChild">Foster Child</option>
+    <option value="StepChild">Step-child</option>
+    <option value="Grandchild">Grandchild</option>
+    <option value="Spouse">Spouse</option>
+    <option value="Parent">Parent</option>
+    <option value="FosterParent">Foster Parent</option>
+    <option value="StepParent">Step-parent</option>
+    <option value="Grandparent">Grandparent</option>
+    <option value="SisterBrother">Sister/Brother</option>
+    <option value="StepSisterStepBrother">Step-sister/Step-brother</option>
+    <option value="BoyfriendGirlfriend">Boyfriend/Girlfriend</option>
+    <option value="DomesticPartner">Domestic Partner</option>
+    <option value="Unrelated">Unrelated</option>
+    <option value="Other">Other</option>
+  </select>
 
   <label>livingOwnerOnDeed</label>
-  <input type="text" name="livingOwnerOnDeed" placeholder="false" person>
+  <input type="radio" name="livingOwnerOnDeed" value="true" person> True<br>
+  <input type="radio" name="livingOwnerOnDeed" value="false" person> False<br>
 
   <label>livingRentalOnLease</label>
-  <input type="text" name="livingRentalOnLease" placeholder="true" person>
+  <input type="radio" name="livingRentalOnLease" value="true" person> True<br>
+  <input type="radio" name="livingRentalOnLease" value="false" person> False<br>
 
   <button class="btn color-secondary-button add-income">Add income</button>
 
