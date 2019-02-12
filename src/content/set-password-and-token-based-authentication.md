@@ -36,9 +36,7 @@ Once you have a token, you can use it along with your username to make requests 
 
 ## Forgot Password
 
-If you forget your password, you can reset it with the `/forgotPassword` and `/confirmPassword` endpoints. Curl `/forgotPassword` to receive an email with a verification code. Then curl `/confirmPassword` with your username, verification code, and new password.  You will receive the email at the address you provided to us when setting up your account.
-
-### forgotPassword
+If you forget your password, you can reset it with the `/forgotPassword` and `/confirmPassword` endpoints. Curl `/forgotPassword` to receive an email with a verification code.
 
 <div class="code-block"><pre>curl -X POST \
   'https://{{ domain }}/forgotPassword' \
@@ -48,7 +46,7 @@ If you forget your password, you can reset it with the `/forgotPassword` and `/c
     "username" : "{{ username }}",
   }'</pre></div>
 
-### confirmPassword
+Then curl `/confirmPassword` with your username, verification code, and new password. You will receive the email at the address you provided to us when setting up your account.
 
 <div class="code-block"><pre>curl -X POST \
   'https://{{ domain }}/confirmPassword' \
