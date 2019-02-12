@@ -3,15 +3,15 @@
   <p>Enter values into the fields below for the Household Level data for the Household Composition.</p>
 
   <label>Number of household members (members)</label>
-  <input type="text" name="members" value="1" household>
+  <input type="text" name="members" placeholder="1" household required>
 
   <label>What is the household's cash on hand? (cashOnHand)</label>
-  <input type="text" name="cashOnHand" value="0" household>
+  <input type="text" name="cashOnHand" placeholder="0" household required>
 
   <h6>What is the household's living situation?</h6>
   <label>livingRenting</label>
-  <input type="radio" name="livingRenting" value="true" household> True<br>
-  <input type="radio" name="livingRenting" value="false" household> False<br>
+  <input type="radio" name="livingRenting" value="true" household required><span> True</span><br>
+  <input type="radio" name="livingRenting" value="false" household  required><span> False</span><br>
   
   <label>Type of rental (livingRentalType)</label>
   <select name="livingRentalType" household>
@@ -30,23 +30,23 @@
   </select>
 
   <label>livingOwner</label>
-  <input type="radio" name="livingOwner" value="true" household> True<br>
-  <input type="radio" name="livingOwner" value="false" household> False<br>
+  <input type="radio" name="livingOwner" value="true" household required><span> True</span><br>
+  <input type="radio" name="livingOwner" value="false" household required><span> False</span><br>
 
   <label>
   livingStayingWithFriend</label>
-  <input type="radio" name="livingStayingWithFriend" value="true" household> True<br>
-  <input type="radio" name="livingStayingWithFriend" value="false" household> False<br>
+  <input type="radio" name="livingStayingWithFriend" value="true" household required><span> True</span><br>
+  <input type="radio" name="livingStayingWithFriend" value="false" household required><span> False</span><br>
 
   <label>livingHotel</label>
-  <input type="radio" name="livingHotel" value="true" household> True<br>
-  <input type="radio" name="livingHotel" value="false" household> False<br>
+  <input type="radio" name="livingHotel" value="true" household required><span> True</span><br>
+  <input type="radio" name="livingHotel" value="false" household required><span> False</span><br>
 
   <label>livingShelter</label>
-  <input type="radio" name="livingShelter" value="true" household> True<br>
-  <input type="radio" name="livingShelter" value="false" household> False<br>
+  <input type="radio" name="livingShelter" value="true" household required><span> True</span><br>
+  <input type="radio" name="livingShelter" value="false" household required><span> False</span><br>
 
   <label>livingPreferNotToSay</label>
-  <input type="radio" name="livingPreferNotToSay" value="true" household> True<br>
-  <input type="radio" name="livingPreferNotToSay" value="false" household> False<br>
+  <input type="radio" name="livingPreferNotToSay" value="true" household required><span> True</span><br>
+  <input type="radio" name="livingPreferNotToSay" value="false" household required><span> False</span><br>
 </div>

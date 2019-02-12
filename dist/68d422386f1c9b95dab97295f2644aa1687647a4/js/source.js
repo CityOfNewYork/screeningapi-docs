@@ -10410,10 +10410,13 @@ exports.default = _default;
  */
 function _default() {
   var personContainer = $('.person-data:first').clone();
+  var incomesContainer = $('.incomes').clone();
+  var expensesContainer = $('.expenses').clone();
   /* Generate the entire JSON */
 
   $('.generate-json').on('click', function (event) {
     event.preventDefault();
+    $('.error-msg').remove();
     var formdata = $('.screener-form');
     var finalObj = {
       "commands": []
@@ -10425,10 +10428,17 @@ function _default() {
       personObj = generatePersonObj(formdata, pi);
       finalObj['commands'].push(personObj);
     });
-    $('.screener-form').hide();
-    $('.screener-json').find('pre').remove();
-    $('.screener-json').prepend('<pre><code class="code">' + JSON.stringify(finalObj, undefined, 2) + '</code></pre>');
-    $('.screener-json').show();
+    var hasErrors = validateFields(formdata);
+
+    if (hasErrors) {
+      formdata.append('<p class="error-msg">Please resolve the errors and try again.</p>');
+    } else {
+      $('.error-msg').remove();
+      $('.screener-form').hide();
+      $('.screener-json').find('pre').remove();
+      $('.screener-json').prepend('<pre><code class="code">' + JSON.stringify(finalObj, undefined, 2) + '</code></pre>');
+      $('.screener-json').show();
+    }
   });
   /* Go back to the form */
 
@@ -10441,21 +10451,60 @@ function _default() {
 
   $(document).on('click', '.add-person', function (event) {
     event.preventDefault();
-    personContainer.clone().insertBefore(this);
+    personContainer.clone().insertBefore($(this).parent());
+
+    if ($('.person-data').length > 1) {
+      $('.remove-person').show();
+    }
+  });
+  /* Remove person*/
+
+  $(document).on('click', '.remove-person', function (event) {
+    event.preventDefault();
+
+    if ($('.person-data').length > 1) {
+      $('.person-data:last').remove();
+    }
+
+    if ($('.person-data').length == 1) {
+      $(this).hide();
+    }
   });
   /* Add additional incomes*/
 
   $(document).on('click', '.add-income', function (event) {
     event.preventDefault();
-    var incomesContainer = $('<div class="incomes"><label>incomes</label><input type="text" name="amount" placeholder="200" person-incomes><input type="text" name="type" placeholder="Veteran" person-incomes><input type="text" name="frequency" placeholder="monthly" person-incomes></div>');
-    incomesContainer.insertBefore(this);
+    incomesContainer.clone().insertBefore($(this).parent());
+
+    if ($('.incomes').length > 0) {
+      $('.remove-income').show();
+    }
+  });
+  $(document).on('click', '.remove-income', function (event) {
+    event.preventDefault();
+    $('.incomes:last').remove();
+
+    if ($('.incomes').length == 0) {
+      $('.remove-income').hide();
+    }
   });
   /* Add additional expenses*/
 
   $(document).on('click', '.add-expense', function (event) {
     event.preventDefault();
-    var expensesContainer = $('<div class="expenses"><label>expenses</label><input type="text" name="amount" placeholder="50" person-expenses><input type="text" name="type" placeholder="Medical" person-expenses><input type="text" name="frequency" placeholder="weekly" person-expenses></div>');
-    expensesContainer.clone().insertBefore(this);
+    expensesContainer.clone().insertBefore($(this).parent());
+
+    if ($('.expenses').length > 0) {
+      $('.remove-expense').show();
+    }
+  });
+  $(document).on('click', '.remove-expense', function (event) {
+    event.preventDefault();
+    $('.expenses:last').remove();
+
+    if ($('.expenses').length == 0) {
+      $('.remove-expense').hide();
+    }
   });
   /* Generates the household object */
 
@@ -10543,6 +10592,39 @@ function _default() {
     document.execCommand("copy");
     $(this).text('Copied!');
   });
+  /* Validate the form */
+
+  function validateFields(form) {
+    var field, fieldName, groupSeleted;
+    var errors = false;
+    var fieldsObj = form.serializeArray().reduce(function (obj, item) {
+      return obj[item.name] = item.value, obj;
+    }, {});
+    var fields = form.find('[required]');
+    fields.each(function () {
+      fieldName = $(this).attr('name');
+      groupSeleted = Object.keys(fieldsObj).find(function (a) {
+        return a.includes(fieldName);
+      }) ? true : false;
+
+      if ($(this).val() === "" || !groupSeleted) {
+        $(this).addClass('error');
+
+        if ($(this).attr('type') == 'radio') {
+          $(this).next().addClass('error');
+        }
+
+        errors = true;
+      } else {
+        $(this).removeClass('error');
+
+        if ($(this).attr('type') == 'radio') {
+          $(this).next().removeClass('error');
+        }
+      }
+    });
+    return errors;
+  }
 }
 
 },{}],4:[function(require,module,exports){

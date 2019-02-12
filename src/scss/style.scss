@@ -20,3 +20,12 @@ table {
     display: block;
   }
 }
+
+.remove-person {
+  display: none;
+}
+
+.error {
+  border-color: red !important;
+  color: red;
+}
