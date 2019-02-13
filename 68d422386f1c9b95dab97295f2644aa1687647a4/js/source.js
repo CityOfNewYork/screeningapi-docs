@@ -10391,10 +10391,32 @@ if (window.location.pathname.indexOf('request-builder') >= 0) {
 /* Tables */
 
 
-$('table').each(function (i) {
-  $(this).before('<div class="request-table-' + i + '">');
-  $('.request-table-' + i).prepend('<div class="table"></div>');
-  $('.request-table-' + i).find('.table').prepend(this);
+$('[data-js="jsonToTable"]').each(function (index, el) {
+  var json = $(el.dataset.jsJsonToTableJson);
+  var data = JSON.parse(json.text());
+  var table = $('<table />');
+  var thead = $('<thead />');
+  var tbody = $('<tbody />');
+
+  var _loop = function _loop() {
+    var row = $('<tr />');
+    var keys = Object.keys(data[i]);
+    var twrap = i === 0 ? thead : tbody;
+    $(keys).each(function (index, key) {
+      var tcell = i === 0 ? $('<th />') : $('<td />');
+      tcell.html(data[i][key]);
+      row.append(tcell);
+    });
+    twrap.append(row);
+  };
+
+  for (var i = 0; i < data.length; i++) {
+    _loop();
+  }
+
+  table.append(thead);
+  table.append(tbody);
+  $(el.dataset.jsJsonToTableTable).html(table);
 });
 
 },{"./modules/request-form-json.js":3,"./modules/submission.js":5,"./modules/swagger.js":6,"jquery":1}],3:[function(require,module,exports){
