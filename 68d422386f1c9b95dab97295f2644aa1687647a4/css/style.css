@@ -370,7 +370,7 @@ a,
 .button,
 [class*='button--'] {
   color: inherit;
-  font-weight: normal;
+  font-weight: bold;
   font-size: inherit;
   font-family: inherit;
   line-height: 1;
@@ -384,11 +384,11 @@ a,
   cursor: pointer;
   background: transparent;
   padding: 12px 16px;
-  border: 1.5px solid;
+  border: 2px solid;
   border-color: inherit;
   border-radius: 500px;
   box-shadow: 0 2px 15px 3px rgba(0, 0, 0, 0);
-  transition: background .2s ease-in, color .2s ease-in, box-shadow .2s ease-in;
+  transition: background .1s ease-in, color .1s ease-in, box-shadow .1s ease-in;
 }
 
 .btn .icon,
@@ -418,7 +418,7 @@ a,
 [class*='button--'].color-primary-button:focus,
 [class*='button--'].color-primary-button:active {
   color: #fff;
-  background: #315dc0;
+  background: #264997;
 }
 
 .btn.color-secondary-button:hover,
@@ -434,7 +434,7 @@ a,
 [class*='button--'].color-secondary-button:focus,
 [class*='button--'].color-secondary-button:active {
   color: #fff;
-  background: #f87c71;
+  background: #f54f40;
 }
 
 .font-smooth {
@@ -641,6 +641,7 @@ ol {
 .color-primary-button {
   color: #fff;
   background-color: #3155a6;
+  font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -648,6 +649,7 @@ ol {
 .color-secondary-button {
   color: #fff;
   background-color: #f2695d;
+  font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

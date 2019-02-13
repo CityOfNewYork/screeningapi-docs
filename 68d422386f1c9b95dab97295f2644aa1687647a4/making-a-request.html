@@ -7,7 +7,7 @@
 
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
-  <title>Eligibility API - Making a Request</title>
+  <title>Making a Request | NYC Benefits and Eligibility API</title>
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -68,7 +68,7 @@
 					<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="http://eepurl.com/gfLTuH" target="_blank">account is created</a>. Getting a token is described in <a href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>. The request body and response are sent as JSON so the <code>Content-Type</code> header must be set to <code>application/json</code>. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
 <div class="code-block"><pre>
 curl -X POST \
-  'https://{{ domain }}/{{ endpoint }}' \
+  'https://eligibilityapi.cityofnewyork.us/{{ endpoint }}' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -H 'x-api-key: {{ api-key }}' \
