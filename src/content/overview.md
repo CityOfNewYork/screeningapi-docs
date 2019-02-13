@@ -18,7 +18,7 @@ When household data is sent to the Eligibility API, it will return a JSON respon
 
 More information about NYC Opportunity’s products can be found on [nyc.gov/opportunity](http://nyc.gov/opportunity). This site provides documentation on how to use the API. For direct support, contact us following the guide on the Feedback and Support page.
 
-<small><sup>1</sup>The NYC Benefits Eligibility API is intended to be used as a tool to screen for a household’s potential eligibility for a given program. It is not a guarantee that the household will be found eligible for all or any programs. See [Eligibility Guidelines](/eligibility-guidelines) for more details.</small>
+<small><sup>1</sup>The NYC Benefits Eligibility API is intended to be used as a tool to screen for a household’s potential eligibility for a given program. It is not a guarantee that the household will be found eligible for all or any programs. See [Eligibility Guidelines](eligibility-guidelines) for more details.</small>
 
 ## Next
 

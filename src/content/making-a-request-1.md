@@ -2,7 +2,7 @@ There are two steps to making a request which includes (1) getting a token and (
 
 <div class="code-block"><pre>
 curl -X POST \
-  'https://{{ domain }}/{{ endpoint }}' \
+  'https://eligibilityapi.cityofnewyork.us/{{ endpoint }}' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -H 'x-api-key: {{ api-key }}' \
@@ -35,4 +35,4 @@ The request for each endpoint should contain certain datum pertinent to the hous
   <em>… additional Persons …</em>
 ]</pre></div>
 
-Below is the schema for each type. For a detailed description of how to structure the data for each endpoint, please refer to the [endpoint documentation](/endpoints).
+Below is the schema for each type. For a detailed description of how to structure the data for each endpoint, please refer to the [endpoint documentation](endpoints).

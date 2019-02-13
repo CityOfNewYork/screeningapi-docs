@@ -2,7 +2,7 @@ Once you have <a href="http://eepurl.com/gfLTuH" target="_blank">requested an ac
 
 <div class="code-block"><pre>
 curl -X POST \
-  'https://{{ domain }}/authToken' \
+  'https://eligibilityapi.cityofnewyork.us/authToken' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
@@ -26,7 +26,7 @@ A successful request will return a `token` in the response which means your pass
 Once you have a token, you can use it along with your username to make requests to other endpoints. Tokens are set to expire every hour (or `3600` seconds) so you will need to keep track of the expiration to regenerate your token. Retrieving a new token can be done using the same `authToken` endpoint. All that’s needed is your username and password.
 
 <div class="code-block"><pre>curl -X POST \
-  'https://{{ domain }}/authToken' \
+  'https://eligibilityapi.cityofnewyork.us/authToken' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
@@ -39,7 +39,7 @@ Once you have a token, you can use it along with your username to make requests 
 If you forget your password, you can reset it with the `/forgotPassword` and `/confirmPassword` endpoints. Curl `/forgotPassword` to receive an email with a verification code.
 
 <div class="code-block"><pre>curl -X POST \
-  'https://{{ domain }}/forgotPassword' \
+  'https://eligibilityapi.cityofnewyork.us/forgotPassword' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
@@ -49,7 +49,7 @@ If you forget your password, you can reset it with the `/forgotPassword` and `/c
 Then curl `/confirmPassword` with your username, verification code, and new password. You will receive the email at the address you provided to us when setting up your account.
 
 <div class="code-block"><pre>curl -X POST \
-  'https://{{ domain }}/confirmPassword' \
+  'https://eligibilityapi.cityofnewyork.us/confirmPassword' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
