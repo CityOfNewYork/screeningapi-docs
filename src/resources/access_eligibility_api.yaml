@@ -1132,8 +1132,9 @@ paths:
                   type: string
                   format: binary
                   description: >-
-                    See "Making a Request" for CSV composition details. 
+                    See "Making a Request" for CSV composition details.
                     Click <a href="/resources/sample_bulk_submission_import.csv">here</a> to download a sample request CSV.
+                    The API will not accept files larger than 6MB.
       responses:
         '200':
           description: Success Response

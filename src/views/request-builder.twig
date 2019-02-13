@@ -1,0 +1,18 @@
+{% extends "layouts/default.twig" %}
+
+{% block content %}
+  {% markdown '../content/request-builder.md' %}{% endmarkdown %}
+
+  <form class="screener-form">
+    {% include 'partials/household.twig' %}
+    {% include 'partials/person.twig' %}
+
+    <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
+  </form>
+
+  <div class="screener-json">
+    <button type="submit" class="btn color-primary-button generate-form">Edit Values</button>
+    <button class="btn color-secondary-button copy-obj">Copy</button>
+  </div>
+
+{% endblock %}
