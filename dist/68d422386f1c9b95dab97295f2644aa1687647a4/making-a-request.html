@@ -9,71 +9,73 @@
 
   <title>Eligibility API - Making a Request</title>
 
-  
-  <link href='https://www1.nyc.gov/assets/home/css/css-min/global.css' media='screen' rel='stylesheet' type='text/css'>
-  <link href='https://www1.nyc.gov/assets/home/css/css-min/module.css' media='screen' rel='stylesheet' type='text/css'>
-  <link href='https://www1.nyc.gov/assets/home/css/print.css' media='print' rel='stylesheet' type='text/css'>
-  <link href='https://www1.nyc.gov/assets/home/css/modules/status-updates-short.css' media='screen' rel='stylesheet' type='text/css'>
-  <link href='https://www1.nyc.gov/assets/home/css/modules/status-updates-mini.css' media='screen' rel='stylesheet' type='text/css'>
-  <link href='https://www1.nyc.gov/assets/home/css/includes/header-agencies.css' media='screen' rel='stylesheet' type='text/css'>
-  <link href='https://www1.nyc.gov/assets/home/css/modules/news-panel.css' media='screen' rel='stylesheet' type='text/css'>
-  <link href='https://www1.nyc.gov/assets/home/css/modules/agencies-about-links.css' media='screen' rel='stylesheet' type='text/css'>
-  <link href='https://www1.nyc.gov/assets/home/css/modules/programs-and-initiatives.css' media='screen' rel='stylesheet' type='text/css'>
-  <link href='https://www1.nyc.gov/assets/home/css/modules/homepage-hero.css' media='screen' rel='stylesheet' type='text/css'>
-  <link href='https://www1.nyc.gov/assets/home/css/pages/agencies/index.css' media='screen' rel='stylesheet' type='text/css'>
-  <link href='https://www1.nyc.gov/assets/opportunity/css/agency-styles.css' media='screen' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
   <div class="hidden">
     <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs/><symbol id="icon-logo" viewBox="0 0 700 368.57"><g fill="currentColor"><path class="cls-1" d="M46.43 258.17c26.12 0 41 19.24 41 43.37s-14.92 43.37-41 43.37-41-19.24-41-43.37 14.88-43.37 41-43.37zm0 68.09c14 0 19.36-12.24 19.36-24.72s-5.36-24.72-19.36-24.72-19.36 12.24-19.36 24.72 5.37 24.73 19.36 24.73zM97.28 282.66h18.89v7h.23a19.08 19.08 0 0 1 16.67-8.74c19 0 27.05 16.21 27.05 33.35 0 15.74-8.39 30.67-25.54 30.67-7.35 0-13.18-2.8-17.26-8.28h-.23v26.82H97.28zm19.12 29.62c0 10.61 3 17.49 12 17.49 8.75 0 11.89-9.21 11.89-17.49 0-7.7-2.92-16.21-11.78-16.21-5.23 0-12.11 3.61-12.11 16.21zM169.58 282.66h18.89v7h.23a19.08 19.08 0 0 1 16.67-8.74c19 0 27.05 16.21 27.05 33.35 0 15.74-8.39 30.67-25.54 30.67-7.35 0-13.18-2.8-17.26-8.28h-.23v26.82h-19.81zm19.12 29.62c0 10.61 3 17.49 12 17.49 8.75 0 11.89-9.21 11.89-17.49 0-7.7-2.91-16.21-11.78-16.21-5.23 0-12.11 3.61-12.11 16.21zM270.8 280.91c18.77 0 31.95 13.88 31.95 32.06s-13.18 31.95-31.95 31.95S239 331.17 239 313s13-32.09 31.8-32.09zm0 48.85c9.33 0 12.13-9 12.13-16.79s-2.8-16.91-12.13-16.91-12 9.21-12 16.91 2.79 16.8 12 16.8zM309.75 282.66H329v10.61h.23c2.92-7.81 9.68-11.78 18.19-11.78a21.09 21.09 0 0 1 4.66.47V300a24.44 24.44 0 0 0-7.58-1.17c-9.79 0-14.92 6.76-14.92 14.34v30h-19.83zM399.89 295.49h-12.24V323c0 4.78 2.8 5.83 7.11 5.83 1.75 0 3.38-.23 5.13-.23v14.57c-3.61.12-7.23.58-10.84.58-16.91 0-21.22-5-21.22-21.34v-26.92h-10v-12.83h10v-18.31h19.82v18.31h12.24zM470.09 343.17h-19.24v-8.27h-.23c-3.73 6.18-11.43 10-18.42 10-17.37 0-22.39-10-22.39-25.88v-36.36h19.82v35.1c0 8 3.38 10.84 9.79 10.84 4.2 0 10.84-2.8 10.84-13.53v-32.41h19.82zM483.39 282.66h19.24v8.28h.23c3.73-6.18 11.78-10 19-10 20.17 0 21.8 14.69 21.8 23.44v38.83h-19.81v-35.36c0-5.83-2-10.61-9.91-10.61-7.46 0-10.73 6.41-10.73 12.94v33h-19.82zM576.21 275.08h-19.82v-15.16h19.82zm-19.82 7.58h19.82v60.51h-19.82zM626.7 295.49h-12.24V323c0 4.78 2.8 5.83 7.11 5.83 1.75 0 3.38-.23 5.13-.23v14.57c-3.61.12-7.23.58-10.84.58-16.91 0-21.22-5-21.22-21.34v-26.92h-10v-12.83h10v-18.31h19.82v18.31h12.24zM671.48 348.54c-4.66 13.29-12 14.92-25.3 14.92h-9.33v-16.09h6.88c4.55 0 7.93-2.57 7.93-6.76 0-3.26-3.85-12.59-5-15.86L631 282.66h21l11.43 39.41h.23l11.43-39.41h20.29zM681.15 102.59l14.4-13.6V47.7L652.36 6.42H508.37L465.19 47.7V20.18l-14.4-13.76h-57.6L378.8 20.18V47.7l-28.79 27.53-28.8-27.53V20.18l-14.4-13.76h-57.59l-14.4 13.76-14.41-13.76h-57.59l-14.39 13.76v55.05L76.44 6.42H18.85L4.45 20.18v192.67l14.4 13.76h57.59l14.39-13.76V157.8l71.99 68.81h57.59l14.41-13.76v-110.1l71.99 68.81v41.29l14.4 13.76h57.59l14.39-13.76v-41.29l72-68.81v82.57l43.18 41.29h143.99l43.19-41.29v-41.28l-14.4-13.78h-71.98v13.78h-57.59V88.99h57.59v13.6h71.98z"/></g></symbol></svg>  </div>
-  <header class="layout--sidebar screen-tablet:flex">
+  <header class="screen-tablet:layout--sidebar screen-tablet:flex">
     <div class="flex items-center justify-center bg-primary-blue text-base-white screen-tablet:w-64 p-3 screen-tablet:p-4">
       <h1 class="m-0 p-0">
         <span class="hidden">
-          The Mayor's Office<br>for Economic Opportunity
+          The Mayor's Office for Economic Opportunity
         </span>
+
         <svg class="icon-logo text-base-white" aria-hidden='true'>
           <use xlink:href="#icon-logo">
         </svg>
       </h1>
     </div>
-    <div class="flex-1 flex flex-col content-center justify-center bg-primary-navy text-base-white links-invert p-3 screen-tablet:p-4"> 
-      <h1 class="jumbo mt--2 mb-0">Eligibility API</h1>
+
+    <div class="flex-1 flex flex-col content-center justify-center color-dark-background p-3 screen-tablet:p-4 screen-desktop:px-6">
+      <h1 class="jumbo mt--2 mb-0">NYC Benefits and Eligibility API</h1>
+      <a href="#main-content">Skip to main content</a>
     </div>
 
     <div class="flex flex-col content-center justify-center color-dark-background px-3 pb-3 screen-tablet:p-4">
-      <a href="https://github.com/CityOfNewYork/eligibilityapi">1.0.0</a>
+      <div>
+        <a href="https://github.com/CityOfNewYork/eligibilityapi-docs" class='btn'>v0.0.1</a>
+      </div>
     </div>
   </header>
 
-  <main class="layout--sidebar screen-tablet:flex items-stretch m-0 p-0 min-h-screen">
+  <main class="screen-tablet:layout--sidebar screen-tablet:flex items-stretch m-0 p-0 min-h-screen">
     <aside class="color-mid-background py-2 px-3">
-      <nav class="screen-tablet:pb-2">
-  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="/">Overview</a>
-  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="terms-of-service">Terms of Service</a>
-  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="request-an-account">Request an Account</a>
-  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
-  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="eligibility-guidelines">Eligibility Guidelines</a>
-  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="making-a-request">Making a Request</a>
-  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="endpoints">Endpoints</a>
-  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
-  <a class="inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" href="feedback-and-support">Feedback and Support</a>    </aside>
+      <nav class="screen-tablet:pb-4 screen-tablet:border-b">
+  <a class="inline-block screen-tablet:block p-1 screen-tablet:p-2 screen-tablet:border-b border-primary-blue-30t" href="index">Overview</a>
+  <a class="inline-block screen-tablet:block p-1 screen-tablet:p-2 screen-tablet:border-b border-primary-blue-30t" href="getting-started">Getting Started</a>
+  <a class="inline-block screen-tablet:block p-1 screen-tablet:p-2 screen-tablet:border-b border-primary-blue-30t" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
+  <a class="inline-block screen-tablet:block p-1 screen-tablet:p-2 screen-tablet:border-b border-primary-blue-30t" href="making-a-request">Making a Request</a>
+  <a class="inline-block screen-tablet:block p-1 screen-tablet:p-2 screen-tablet:border-b border-primary-blue-30t" href="endpoints">Endpoints</a>
+  <a class="inline-block screen-tablet:block p-1 screen-tablet:p-2" href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
+</nav>
 
-    <article class="color-light-background py-2 px-4 screen-desktop:px-6">
-      	
-  <h1 id="making-a-request">Making a Request</h1>
-<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="http://eepurl.com/gfLTuH" target="_blank">account is created</a>. Getting a token is described in <a href="/set-password-and-token-based-on-authentication">Set Password and Token Based Authentication</a>. The request body and response are sent as JSON so the <code>Content-Type</code> header must be set to <code>application/json</code>. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
-<pre><code>curl -X POST \
-  &#39;https://{{ domain }}/{{ endpoint }}&#39; \
-  -H &#39;Content-Type: application/json&#39; \
-  -H &#39;cache-control: no-cache&#39; \
-  -H &#39;x-api-key: {{ api-key }}&#39; \
-  -H &#39;Authorization: {{ token }}&#39; \
-  -d &#39;{{ request body }}&#39;</code></pre><h1 id="headers">Headers</h1>
+<nav class="screen-tablet:pb-2 screen-tablet:pt-4">
+  <a class="inline-block screen-tablet:block p-1 screen-tablet:p-2 screen-tablet:border-b border-primary-blue-30t" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
+  <a class="inline-block screen-tablet:block p-1 screen-tablet:p-2 screen-tablet:border-b border-primary-blue-30t" href="eligibility-guidelines">Eligibility Guidelines</a>
+  <a class="inline-block screen-tablet:block p-1 screen-tablet:p-2 screen-tablet:border-b border-primary-blue-30t" href="feedback-and-support">Feedback and Support</a>
+  <a class="inline-block screen-tablet:block p-1 screen-tablet:p-2" href="terms-of-service">Terms of Service</a>
+</nav>    </aside>
+
+    <article id="main-content" class="color-light-background py-2 px-4 screen-desktop:px-6">
+      <section>
+	<div class="flex flex-col screen-desktop:flex-row flex-wrap">
+		<div class="mt-4 layout--content">
+			<div class="screen-desktop:pr-4 screen-desktop:pr-6">
+				<h1 class="mt-0 p-0">Making a Request</h1>				<div class="o-content">
+					<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="http://eepurl.com/gfLTuH" target="_blank">account is created</a>. Getting a token is described in <a href="set-password-and-token-based-on-authentication">Set Password and Token Based Authentication</a>. The request body and response are sent as JSON so the <code>Content-Type</code> header must be set to <code>application/json</code>. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
+<div class="code-block"><pre>
+curl -X POST \
+  'https://{{ domain }}/{{ endpoint }}' \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache' \
+  -H 'x-api-key: {{ api-key }}' \
+  -H 'Authorization: {{ token }}' \
+  -d '{{ request body }}'</pre></div>
+
+<h1 id="headers">Headers</h1>
 <p>Here is a full list of headers required for each request.</p>
 <table>
 <thead>
@@ -83,659 +85,691 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>Content-Type</td>
-<td>application/json</td>
+<td><code class="whitespace-no-wrap h5">Content-Type</code></td>
+<td><em class="text-secondary-grey">application/json</em></td>
 </tr>
 <tr>
-<td>x-api-key</td>
+<td><code class="whitespace-no-wrap h5">x-api-key</code></td>
 <td>Your api key.</td>
 </tr>
 <tr>
-<td>Authorization</td>
-<td>A valid token retrieved via the <code>authToken</code> endpoint.</td>
+<td><code class="whitespace-no-wrap h5">Authorization</code></td>
+<td>A valid token retrieved via the <code class='code'>authToken</code> endpoint.</td>
 </tr>
 </tbody></table>
 <h2 id="testing">Testing</h2>
 <p>Please note, there are two domains for sending requests, one for testing and one for production level applications. Please use the appropriate domain during testing and application development, as well as the production domain for production level applications.</p>
 <h2 id="request-body-household-composition-data-">Request Body (Household Composition Data)</h2>
-<p>The request for each endpoint should contain certain datum pertinent to the household of the client for which eligibility is being evaluated. We refer to this as Household Composition Data. The entire dataset is made up of two distinct types:  Household and Person(s). Each type has different attributes that must be filled out as completely as possible for the most accurate eligibility evaluation. There can only be one type of Household and there can be more than one Person associated with each household.</p>
-<p>Below is a list of all parameters and their description. For a description of how to structure the data for each endpoint, please refer to the <a href="/endpoints">endpoint documentation</a>.</p>
-  <h3 id="household">Household</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Data Attribute</th>
-<th>Possible Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Members</td>
-<td>Number of People in the household. Directly related to the number of Person types. Minimum is 1 and maximum value is 8.</td>
-<td>members</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>Cash On Hand</td>
-<td>How much does your whole household has right now in; cash on hand, checking or saving accounts, stocks, bonds or mutual funds.</td>
-<td>cashOnHand</td>
-<td>Numeric value greater than or equal to 0. <br> Example: 2000.00</td>
-</tr>
-<tr>
-<td>Renting</td>
-<td>Renting the current living situation.</td>
-<td>livingRenting</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Housing Rental Type</td>
-<td>The type of rental, if renting.</td>
-<td>livingRentalType</td>
-<td>String</td>
-</tr>
-<tr>
-<td></td>
-<td>Non-Regulated or Market Rate apartment.</td>
-<td></td>
-<td>MarketRate</td>
-</tr>
-<tr>
-<td></td>
-<td>Rent controlled or rent stabilized apartment.</td>
-<td></td>
-<td>RentControlled</td>
-</tr>
-<tr>
-<td></td>
-<td>Family Home.</td>
-<td></td>
-<td>FamilyHome</td>
-</tr>
-<tr>
-<td></td>
-<td>Condo.</td>
-<td></td>
-<td>Condo</td>
-</tr>
-<tr>
-<td></td>
-<td>NYCHA Housing.</td>
-<td></td>
-<td>NYCHA</td>
-</tr>
-<tr>
-<td></td>
-<td>Rent Regulated Hotel/Single Room.</td>
-<td></td>
-<td>RentRegulatedHotel</td>
-</tr>
-<tr>
-<td></td>
-<td>Section 213 apartments.</td>
-<td></td>
-<td>Section213</td>
-</tr>
-<tr>
-<td></td>
-<td>Limited Dividend development apartments.</td>
-<td></td>
-<td>LimitedDividendDevelopment</td>
-</tr>
-<tr>
-<td></td>
-<td>Mitchell-Lama apartments.</td>
-<td></td>
-<td>MitchellLama</td>
-</tr>
-<tr>
-<td></td>
-<td>Redevelopment Company apartments.</td>
-<td></td>
-<td>RedevelopmentCompany</td>
-</tr>
-<tr>
-<td></td>
-<td>Housing Development Fund Company (HDFC) Cooperative.</td>
-<td></td>
-<td>HDFC</td>
-</tr>
-<tr>
-<td>Owner of the Home or Apt.</td>
-<td>A household member owns the home or apartment.</td>
-<td>livingOwner</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Staying with a Friend</td>
-<td>Staying with a friend</td>
-<td>livingStayingWithFriend</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Hotel</td>
-<td>In a hotel.</td>
-<td>livingHotel</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Shelter or Homeless</td>
-<td>In a shelter or homeless.</td>
-<td>livingShelter</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Prefer not to Say</td>
-<td>Preference to not disclose housing.</td>
-<td>livingPreferNotToSay</td>
-<td>true/false</td>
-</tr>
-</tbody></table>
-  <h3 id="person">Person</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Data Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Age</td>
-<td>The age of the person.</td>
-<td>age</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>Student</td>
-<td>Whether the person is a student or not.</td>
-<td>student</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Full-time Student</td>
-<td>Whether the person is a full-time student or not.</td>
-<td>studentFulltime</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Pregnant</td>
-<td>Whether the person is pregnant or not.</td>
-<td>pregnant</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Unemployed</td>
-<td>Whether the person is employed or not.</td>
-<td>unemployed</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Unemployed and Worked in the Last 18 Months</td>
-<td>Whether the person is unemployed and worked within the last 18 months.</td>
-<td>unemployedWorkedLast18Months</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Is Blind</td>
-<td>Whether the person is blind or not.</td>
-<td>blind</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Has any Disabilities</td>
-<td>Whether the person has disabilities or not.</td>
-<td>disabled</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Veteran</td>
-<td>Whether the person is a veteran or not.</td>
-<td>veteran</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Receives Medicaid Benefits</td>
-<td>Whether the person receives medicaid benefits or not.</td>
-<td>benefitsMedicaid</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Receives Disability-related Medicaid Benefits</td>
-<td>Whether the person receives disability-related medicaid benefits or not.</td>
-<td>benefitsMedicaidDisability</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Is the Head of the Household.</td>
-<td>Whether the person is the head of household or not. Note, only one person can be the head of household.</td>
-<td>headOfHousehold</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Relation to the Head of Household</td>
-<td>If person isn’t the head of household, what is their relation to the head of household (see below).</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>headOfHouseholdRelation</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>String</td>
-<td>Blank (“”) or one of the strings below below.</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>Child</td>
-<td></td>
-<td>Child</td>
-</tr>
-<tr>
-<td></td>
-<td>Foster Child</td>
-<td></td>
-<td>FosterChild</td>
-</tr>
-<tr>
-<td></td>
-<td>Step-child</td>
-<td></td>
-<td>StepChild</td>
-</tr>
-<tr>
-<td></td>
-<td>Grandchild</td>
-<td></td>
-<td>Grandchild</td>
-</tr>
-<tr>
-<td></td>
-<td>Spouse</td>
-<td></td>
-<td>Spouse</td>
-</tr>
-<tr>
-<td></td>
-<td>Parent</td>
-<td></td>
-<td>Parent</td>
-</tr>
-<tr>
-<td></td>
-<td>Foster Parent</td>
-<td></td>
-<td>FosterParent</td>
-</tr>
-<tr>
-<td></td>
-<td>Step-parent</td>
-<td></td>
-<td>StepParent</td>
-</tr>
-<tr>
-<td></td>
-<td>Grandparent</td>
-<td></td>
-<td>Grandparent</td>
-</tr>
-<tr>
-<td></td>
-<td>Sister/Brother</td>
-<td></td>
-<td>SisterBrother</td>
-</tr>
-<tr>
-<td></td>
-<td>Step-sister/Step-brother</td>
-<td></td>
-<td>StepSisterStepBrother</td>
-</tr>
-<tr>
-<td></td>
-<td>Boyfriend/Girlfriend</td>
-<td></td>
-<td>BoyfriendGirlfriend</td>
-</tr>
-<tr>
-<td></td>
-<td>Domestic Partner</td>
-<td></td>
-<td>DomesticPartner</td>
-</tr>
-<tr>
-<td></td>
-<td>Unrelated</td>
-<td></td>
-<td>Unrelated</td>
-</tr>
-<tr>
-<td></td>
-<td>Related in some other way</td>
-<td></td>
-<td>Other</td>
-</tr>
-<tr>
-<td>Owner or on deed</td>
-<td>If the household owns the home, is the person the owner or on the deed.</td>
-<td>livingOwnerOnDeed</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Renting and on the Rental Lease.</td>
-<td>If the household rental is renting, whether the person on the lease or not.</td>
-<td>livingRentalOnLease</td>
-<td>true/false</td>
-</tr>
-<tr>
-<td>Income</td>
-<td>A collection of one or more income objects.</td>
-<td>incomes</td>
-<td><code>[{ “amount”: “200.00”, “type”: “Veteran”, “frequency”: “monthly”}, ...]</code></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>Income amount.</strong> The dollar amount of the income.</td>
-<td>amount</td>
-<td>Value greater than or equal to 0.<br>Example: 200.00</td>
-</tr>
-<tr>
-<td></td>
-<td><strong>Income type.</strong> The type of the income (see below).</td>
-<td>type</td>
-<td>One of the strings below.</td>
-</tr>
-<tr>
-<td></td>
-<td>Wages, salaries, tips.</td>
-<td></td>
-<td>Wages</td>
-</tr>
-<tr>
-<td></td>
-<td>Self-employment income.</td>
-<td></td>
-<td>SelfEmployment</td>
-</tr>
-<tr>
-<td></td>
-<td>Unemployment benefits.</td>
-<td></td>
-<td>Unemployment</td>
-</tr>
-<tr>
-<td></td>
-<td>Cash Assistance grant.</td>
-<td></td>
-<td>CashAssistance</td>
-</tr>
-<tr>
-<td></td>
-<td>Child support (received).</td>
-<td></td>
-<td>ChildSupport</td>
-</tr>
-<tr>
-<td></td>
-<td>Disability-related Medicaid.</td>
-<td></td>
-<td>DisabilityMedicaid</td>
-</tr>
-<tr>
-<td></td>
-<td>Supplemental Security Income (SSI).</td>
-<td></td>
-<td>SSI</td>
-</tr>
-<tr>
-<td></td>
-<td>Social Security Dependent benefits.</td>
-<td></td>
-<td>SSDependent</td>
-</tr>
-<tr>
-<td></td>
-<td>Social Security Disability benefits.</td>
-<td></td>
-<td>SSDisability</td>
-</tr>
-<tr>
-<td></td>
-<td>Social Security Survivor’s benefits.</td>
-<td></td>
-<td>SSSurvivor</td>
-</tr>
-<tr>
-<td></td>
-<td>Social Security Retirement benefits.</td>
-<td></td>
-<td>SSRetirement</td>
-</tr>
-<tr>
-<td></td>
-<td>New York State Disability benefits.</td>
-<td></td>
-<td>NYSDisability</td>
-</tr>
-<tr>
-<td></td>
-<td>Veteran’s Pension or benefits.</td>
-<td></td>
-<td>Veteran</td>
-</tr>
-<tr>
-<td></td>
-<td>Government or Private Pension.</td>
-<td></td>
-<td>Pension</td>
-</tr>
-<tr>
-<td></td>
-<td>Withdrawals from Deferred Compensation (IRA, Keogh, etc.).</td>
-<td></td>
-<td>DeferredComp</td>
-</tr>
-<tr>
-<td></td>
-<td>Worker’s Compensation.</td>
-<td></td>
-<td>WorkersComp</td>
-</tr>
-<tr>
-<td></td>
-<td>Alimony (received).</td>
-<td></td>
-<td>Alimony</td>
-</tr>
-<tr>
-<td></td>
-<td>Boarder or lodger.</td>
-<td></td>
-<td>Boarder</td>
-</tr>
-<tr>
-<td></td>
-<td>Gifts/contributions (received)</td>
-<td></td>
-<td>Gifts</td>
-</tr>
-<tr>
-<td></td>
-<td>Rental income.</td>
-<td></td>
-<td>Rental</td>
-</tr>
-<tr>
-<td></td>
-<td>Investment income (interest, dividends, and profit from selling stocks).</td>
-<td></td>
-<td>Investment</td>
-</tr>
-<tr>
-<td></td>
-<td><strong>Income frequency.</strong> How often the income is received.</td>
-<td>frequency</td>
-<td>One of the strings below.</td>
-</tr>
-<tr>
-<td></td>
-<td>Every week.</td>
-<td></td>
-<td>weekly</td>
-</tr>
-<tr>
-<td></td>
-<td>Every 2 weeks.</td>
-<td></td>
-<td>biweekly</td>
-</tr>
-<tr>
-<td></td>
-<td>Monthly</td>
-<td></td>
-<td>monthly</td>
-</tr>
-<tr>
-<td></td>
-<td>Twice a month.</td>
-<td></td>
-<td>semimonthly</td>
-</tr>
-<tr>
-<td></td>
-<td>Every year.</td>
-<td></td>
-<td>yearly</td>
-</tr>
-<tr>
-<td>Expenses</td>
-<td>A collection of one or more expense objects.</td>
-<td>expenses</td>
-<td><code>[{ “amount”: ”50.00”, “type”: ”Medical”, “frequency”: ”weekly”}, ...]</code></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>Expense amount.</strong> The dollar amount of the expense.</td>
-<td>amount</td>
-<td>Value greater than or equal to 0.</td>
-</tr>
-<tr>
-<td></td>
-<td><strong>Expense type.</strong> The type of the expense (see below).</td>
-<td>type</td>
-<td>One of the strings below.</td>
-</tr>
-<tr>
-<td></td>
-<td>Child care.</td>
-<td></td>
-<td>ChildCare</td>
-</tr>
-<tr>
-<td></td>
-<td>Child Support (paid).</td>
-<td></td>
-<td>ChildSupport</td>
-</tr>
-<tr>
-<td></td>
-<td>Dependent Care.</td>
-<td></td>
-<td>DependentCare</td>
-</tr>
-<tr>
-<td></td>
-<td>Rent</td>
-<td></td>
-<td>Rent</td>
-</tr>
-<tr>
-<td></td>
-<td>Medical expense</td>
-<td></td>
-<td>Medical</td>
-</tr>
-<tr>
-<td></td>
-<td>Heating</td>
-<td></td>
-<td>Heating</td>
-</tr>
-<tr>
-<td></td>
-<td>Cooling</td>
-<td></td>
-<td>Cooling</td>
-</tr>
-<tr>
-<td></td>
-<td>Mortgage</td>
-<td></td>
-<td>Mortgage</td>
-</tr>
-<tr>
-<td></td>
-<td>Utilities</td>
-<td></td>
-<td>Utilities</td>
-</tr>
-<tr>
-<td></td>
-<td>Telephone</td>
-<td></td>
-<td>Telephone</td>
-</tr>
-<tr>
-<td></td>
-<td>Third party insurance premiums.</td>
-<td></td>
-<td>InsurancePremiums</td>
-</tr>
-<tr>
-<td></td>
-<td><strong>Expense frequency.</strong> How often the expense is paid (see below).</td>
-<td>frequency</td>
-<td>One of the strings below.</td>
-</tr>
-<tr>
-<td></td>
-<td>Every week.</td>
-<td></td>
-<td>weekly</td>
-</tr>
-<tr>
-<td></td>
-<td>Every 2 weeks.</td>
-<td></td>
-<td>biweekly</td>
-</tr>
-<tr>
-<td></td>
-<td>Monthly</td>
-<td></td>
-<td>monthly</td>
-</tr>
-<tr>
-<td></td>
-<td>Twice a month.</td>
-<td></td>
-<td>semimonthly</td>
-</tr>
-<tr>
-<td></td>
-<td>Every year.</td>
-<td></td>
-<td>yearly</td>
-</tr>
-</tbody></table>
-  <h2 id="response-program-codes-">Response (Program Codes)</h2>
-<p>Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the <a href="/endpoints">endpoint documentation</a>.</p>
+<p>The request for each endpoint should contain certain datum pertinent to the household of the client for which eligibility is being evaluated. We refer to this as <strong>Household Composition Data</strong>. The entire dataset is made up of two distinct types: <strong>Household</strong> and <strong>Person(s)</strong>. Each type has different attributes that must be filled out as completely as possible for the most accurate eligibility evaluation. There can only be one type of <strong>Household</strong> and there can be more than one <strong>Person</strong> associated with each household.</p>
+<div class="code-block"><pre>
+[
+  {{ Household }},
+  {{ Person (1) }},
+  {{ Person (2) }},
+  <em>… additional Persons …</em>
+]</pre></div>
+
+<p>Below is the schema for each type. For a detailed description of how to structure the data for each endpoint, please refer to the <a href="endpoints">endpoint documentation</a>.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h3>Household</h3>
+	<div class="relative overflow-x-auto scrolling-touch">
+		<div id="household-table" class="table"></div>
+		<div data-js="jsonToTable" data-js-json-to-table-json="#household-json" data-js-json-to-table-table="#household-table" class="code-block hidden" aria-hidden="true">
+			<pre id="household-json">[
+  {
+    &quot;name&quot;: &quot;Name&quot;,
+    &quot;description&quot;: &quot;Description&quot;,
+    &quot;dataAttribute&quot;: &quot;Data Attribute&quot;,
+    &quot;possibleValue&quot;: &quot;Type and/or Value&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b&gt;Members&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Number of People in the household. Directly related to the number of Person types. Minimum is 1 and maximum value is 8.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;members&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Integer&lt;/b&gt; &lt;br&gt;&lt;em class=&#039;whitespace-no-wrap text-secondary-grey&#039;&gt;Min: 1, Max: 8&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Cash on Hand&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;How much does your whole household has right now in; cash on hand, checking or saving accounts, stocks, bonds or mutual funds.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;cashOnHand&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Number&lt;/b&gt; greater than or equal to 0. &lt;span class=&#039;whitespace-no-wrap&#039;&gt;&lt;em class=&#039;text-secondary-grey&#039;&gt;Example: 2000.00&lt;/em&gt;&lt;/span&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b&gt;Renting&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Renting the current living situation.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;livingRenting&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Housing Rental Type&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;The type of rental, if renting.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;livingRentalType&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;Blank &lt;b class=&#039;text-primary-blue&#039;&gt;String&lt;/b&gt;&lt;em class=&#039;text-secondary-grey&#039;&gt;(“”)&lt;/em&gt; or one listed below.&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Non-Regulated or Market Rate apartment.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;MarketRate&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Rent controlled or rent stabilized apartment.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;RentControlled&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Family Home.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;FamilyHome&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Condo.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Condo&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Family Home.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;FamilyHome&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;NYCHA Housing.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;NYCHA&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;NYCHA Housing.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;NYCHA&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Rent Regulated Hotel/Single Room.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;RentRegulatedHotel&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Section 213 apartments.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Section213&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Limited Dividend development apartments.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;LimitedDividendDevelopment&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Mitchell-Lama apartments.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;MitchellLama&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Redevelopment Company apartments.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;RedevelopmentCompany&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Housing Development Fund Company (HDFC) Cooperative.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;HDFC&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Owner of the Home or Apt.&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;A household member owns the home or apartment.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;livingOwner&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Staying with a Friend&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Staying with a friend.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;livingStayingWithFriend&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Hotel&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;In a hotel.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;livingHotel&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Shelter or Homeless&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;In a shelter or homeless.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;livingShelter&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Prefer not to Say&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Preference to not disclose housing.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;livingPreferNotToSay&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  }
+]</pre>
+		</div>
+	</div>
+
+	<h3>Person</h3>
+	<div class="relative overflow-x-auto scrolling-touch">
+		<div id="person-table" class="table"></div>
+		<div data-js="jsonToTable" data-js-json-to-table-json="#person-json" data-js-json-to-table-table="#person-table" class="code-block hidden" aria-hidden="true">
+			<pre id="person-json">[
+  {
+    &quot;name&quot;: &quot;Name&quot;,
+    &quot;description&quot;: &quot;Description&quot;,
+    &quot;dataAttribute&quot;: &quot;Data Attribute&quot;,
+    &quot;possibleValue&quot;: &quot;Type and/or Value&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Age&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;The age of the person.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;age&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Integer&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Age&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;The age of the person.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;age&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Integer&lt;/b&gt;&quot;
+  },
+
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Student&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Whether the person is a student or not.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;student&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Full-time Student&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Whether the person is a full-time student or not.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;studentFulltime&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Pregnant&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Whether the person is pregnant or not.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;pregnant&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Unemployed&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Whether the person is employed or not.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;unemployed&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b&gt;Unemployed and Worked in the Last 18 Months&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Whether the person is unemployed and worked within the last 18 months.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;unemployedWorkedLast18Months&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Is Blind&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Whether the person is blind or not.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;blind&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Has any Disabilities&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Whether the person has disabilities or not.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;disabled&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Veteran&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Whether the person is a veteran or not.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;veteran&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Receives Medicaid Benefits&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Whether the person receives medicaid benefits or not.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;benefitsMedicaid&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b&gt;Receives Disability-related Medicaid Benefits&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Whether the person receives disability-related medicaid benefits or not.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;benefitsMedicaidDisability&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Head of the Household&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;Whether the person is the head of household or not. Note, only one person can be the head of household.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;headOfHousehold&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b&gt;Relation to the Head of Household&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;If person isn’t the head of household, what is their relation to the head of household (see below).&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;headOfHouseholdRelation&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;Blank &lt;b class=&#039;text-primary-blue&#039;&gt;String&lt;/b&gt;&lt;em class=&#039;text-secondary-grey&#039;&gt;(\&quot;\&quot;)&lt;/em&gt; or one listed below.&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Child&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Child&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Foster Child&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;FosterChild&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Step-child&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;StepChild&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Grandchild&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Grandchild&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Spouse&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Spouse&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Parent&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Parent&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Foster Parent&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;FosterParent&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Step-parent&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;StepParent&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Grandparent&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Grandparent&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Sister or Brother&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;SisterBrother&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Step-sister or Step-brother&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;StepSisterStepBrother&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Boyfriend or Girlfriend&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;BoyfriendGirlfriend&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Domestic Partner&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;DomesticPartner&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Unrelated&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Unrelated&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Related in some other way&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Other&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Owner or on deed&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;If the household owns the home, is the person the owner or on the deed.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;livingOwnerOnDeed&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b&gt;Renting and on the Rental Lease&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;If the household rental is renting, whether the person on the lease or not.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;livingRentalOnLease&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b&gt;Income&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;A collection of one or more income objects.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;incomes&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Array&lt;/b&gt; of &lt;b class=&#039;text-primary-blue&#039;&gt;Objects&lt;/b&gt;&lt;div class=&#039;code-block small&#039;&gt;&lt;pre&gt;[&lt;br&gt;  {&lt;br&gt;    \&quot;amount\&quot;: \&quot;200.00\&quot;,&lt;br&gt;    \&quot;type\&quot;: \&quot;Veteran\&quot;,&lt;br&gt;    \&quot;frequency\&quot;: \&quot;monthly\&quot;&lt;br&gt;  },&lt;br&gt;  … additional Incomes…&lt;br&gt;]&lt;/pre&gt;&lt;/div&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;&lt;b&gt;Income amount&lt;/b&gt;. The dollar amount of the income.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;amount&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Number&lt;/b&gt; greater than or equal to 0. &lt;span class=&#039;whitespace-no-wrap&#039;&gt;&lt;em class=&#039;text-secondary-grey&#039;&gt;Example: 200.00&lt;/em&gt;&lt;/span&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;&lt;b&gt;Income type&lt;/b&gt;. The type of the income (see below).&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;type&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;Blank &lt;b class=&#039;text-primary-blue&#039;&gt;String&lt;/b&gt;&lt;em class=&#039;text-secondary-grey&#039;&gt;(\&quot;\&quot;)&lt;/em&gt; or one listed below.&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Wages, salaries, tips.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Wages&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Self-employment income.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;SelfEmployment&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Unemployment benefits.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Unemployment&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Cash Assistance grant.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;CashAssistance&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Child support (received).&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;ChildSupport&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Disability-related Medicaid.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;DisabilityMedicaid&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Supplemental Security Income (SSI).&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;SSI&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Social Security Dependent benefits.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;SSDependent&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Social Security Disability benefits.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;SSDisability&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Social Security Survivor’s benefits.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;SSSurvivor&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Social Security Retirement benefits.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;SSRetirement&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;New York State Disability benefits.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;NYSDisability&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Veteran’s Pension or benefits.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Veteran&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Government or Private Pension.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Pension&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Withdrawals from Deferred Compensation (IRA, Keogh, etc.).&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;DeferredComp&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Worker’s Compensation.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;WorkersComp&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Alimony (received).&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Alimony&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Boarder or lodger.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Boarder&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Gifts/contributions (received)&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Gifts&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Rental income.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Rental&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Investment income (interest, dividends, and profit from selling stocks).&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Investment&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;&lt;b&gt;Income frequency&lt;/b&gt;. How often the income is received.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;frequency&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;Blank &lt;b class=&#039;text-primary-blue&#039;&gt;String&lt;/b&gt;&lt;em class=&#039;text-secondary-grey&#039;&gt;(\&quot;\&quot;)&lt;/em&gt; or one listed below.&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Every week.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;weekly&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Every 2 weeks.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;biweekly&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Monthly&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;monthly&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Twice a month.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;semimonthly&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Every year.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;yearly&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Expenses&quot;,
+    &quot;description&quot;: &quot;A collection of one or more expense objects.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;expenses&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Array&lt;/b&gt; of &lt;b class=&#039;text-primary-blue&#039;&gt;Objects&lt;/b&gt; &lt;div class=&#039;code-block small&#039;&gt;&lt;pre&gt;[&lt;br&gt;  {&lt;br&gt;    \&quot;amount\&quot;: \&quot;50.00\&quot;,&lt;br&gt;    \&quot;type\&quot;: \&quot;Medical\&quot;,&lt;br&gt;    \&quot;frequency\&quot;: \&quot;weekly\&quot;&lt;br&gt;  },&lt;br&gt;  … additional Expenses…&lt;br&gt;]&lt;/pre&gt;&lt;/div&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;&lt;b&gt;Expense amount&lt;/b&gt;. The dollar amount of the expense.&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;amount&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Number&lt;/b&gt; greater than or equal to 0. &lt;span class=&#039;whitespace-no-wrap&#039;&gt;&lt;em class=&#039;text-secondary-grey&#039;&gt;Example: 2000.00&lt;/em&gt;&lt;/span&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;&lt;b&gt;Expense type&lt;/b&gt;. The type of the expense (see below).&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;type&lt;/code&quot;,
+    &quot;possibleValue&quot;: &quot;Blank &lt;b class=&#039;text-primary-blue&#039;&gt;String&lt;/b&gt;&lt;em class=&#039;text-secondary-grey&#039;&gt;(\&quot;\&quot;)&lt;/em&gt; or one listed below.&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Child care.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;ChildCare&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Child Support (paid).&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;ChildSupport&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Dependent Care.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;DependentCare&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Rent&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Rent&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Medical expense&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Medical&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Heating&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Heating&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Cooling&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Cooling&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Mortgage&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Mortgage&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Utilities&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Utilities&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Telephone&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;Telephone&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Third party insurance premiums.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;InsurancePremiums&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;&lt;b&gt;Expense frequency&lt;/b&gt;. How often the expense is paid (see below).&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;frequency&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;Blank &lt;b class=&#039;text-primary-blue&#039;&gt;String&lt;/b&gt;&lt;em class=&#039;text-secondary-grey&#039;&gt;(\&quot;\&quot;)&lt;/em&gt; or one listed below.&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Every week.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;weekly&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Every 2 weeks.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;biweekly&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Monthly&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;monthly&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Twice a month.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;semimonthly&lt;/em&gt;&quot;
+  },
+  {
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Every year.&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;yearly&lt;/em&gt;&quot;
+  }
+]</pre>
+		</div>
+	</div>
+
+	<div class="flex flex-col screen-desktop:flex-row flex-wrap pb-4">
+		<div class="mt-4 layout--content">
+			<div class="screen-desktop:pr-4 screen-desktop:pr-6">
+				<div class="o-content">
+					<h2 id="response-program-codes-">Response (Program Codes)</h2>
+<p>Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the <a href="endpoints">endpoint documentation</a>.</p>
 <table>
 <thead>
 <tr>
@@ -744,45 +778,89 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>S2R010</td>
+<td><b>S2R010</b></td>
 <td>Cash Assistance</td>
 </tr>
 <tr>
-<td>S2R001</td>
+<td><b>S2R001</b></td>
 <td>Child and Dependent Care Tax Credit</td>
 </tr>
 <tr>
-<td>S2R004</td>
+<td><b>S2R004</b></td>
 <td>Child Tax Credit</td>
 </tr>
 <tr>
-<td>...</td>
-<td>...</td>
+<td><b>S2R004</b></td>
+<td>Home Energy Assistance Program (HEAP)</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
 </tr>
 </tbody></table>
 <p>See the full list on the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> page.</p>
 <h2 id="summary">Summary</h2>
 <ul>
-<li>Your api key and a valid token is required for making a request.</li>
-<li>Set the <code>Content-Type</code> to <code>application/json</code>.</li>
-<li>The request body must be in JSON format.</li>
-<li>Use the testing domain for sample requests and development and the production domain for production level applications.</li>
-<li>The request body should include Household Composition Data that includes the household and person datatypes with as many of the available parameters filled out possible for the most accurate eligibility evaluation.</li>
-<li>The request response will contain a list of program names and codes</li>
-<li>Program codes can be mapped to additional content in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a>.</li>
+<li><p>Your api key and a valid token is required for making a request.</p>
+</li>
+<li><p>Set the <code>Content-Type</code> to <code>application/json</code>.</p>
+</li>
+<li><p>The request body must be in JSON format.</p>
+</li>
+<li><p>Use the testing domain for sample requests and development and the production domain for production level applications.</p>
+</li>
+<li><p>The request body should include Household Composition Data that includes the household and person datatypes with as many of the available
+parameters filled out possible for the most accurate eligibility evaluation.</p>
+</li>
+<li><p>The request response will contain a list of program names and codes.</p>
+</li>
+<li><p>Program codes can be mapped to additional content in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a>.</p>
+</li>
 </ul>
 <h2 id="next">Next</h2>
-<p><a href="/endpoints">Endpoints</a></p>
-<br>
-<br>    </article>
+<p><a href="endpoints" title="Endpoints" class="btn color-secondary-button">Endpoints&nbsp;&nbsp;❯</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+    </article>
   </main>
 
-  <footer class="py-6 bg-primary-blue text-center text-base-white links-invert">
-  <p class="m-0">
-  
-    <p>Maintained by <a href="https://github.com/search?q=topic%3Anycopportunity+org%3ACityOfNewYork+fork%3Atrue" target="_blank" class="text-base-white">@CityOfNewYork/NYCOpportunity</a> on GitHub.</p>
-  </p>
-  
+  <footer class="px-3 py-6 color-dark-background screen-tablet:layout--four-columns-gutter">
+
+  <nav class="">
+  <a class="inline-block p-1 screen-tablet:block screen-tablet:px-0 screen-tablet:py-2 " href="index">Overview</a>
+  <a class="inline-block p-1 screen-tablet:block screen-tablet:px-0 screen-tablet:py-2 " href="getting-started">Getting Started</a>
+  <a class="inline-block p-1 screen-tablet:block screen-tablet:px-0 screen-tablet:py-2 " href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
+  <a class="inline-block p-1 screen-tablet:block screen-tablet:px-0 screen-tablet:py-2 " href="making-a-request">Making a Request</a>
+  <a class="inline-block p-1 screen-tablet:block screen-tablet:px-0 screen-tablet:py-2 " href="endpoints">Endpoints</a>
+  <a class="inline-block p-1 screen-tablet:block screen-tablet:px-0 screen-tablet:py-2" href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
+</nav>
+
+<nav class="">
+  <a class="inline-block p-1 screen-tablet:block screen-tablet:px-0 screen-tablet:py-2 " href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
+  <a class="inline-block p-1 screen-tablet:block screen-tablet:px-0 screen-tablet:py-2 " href="eligibility-guidelines">Eligibility Guidelines</a>
+  <a class="inline-block p-1 screen-tablet:block screen-tablet:px-0 screen-tablet:py-2 " href="feedback-and-support">Feedback and Support</a>
+  <a class="inline-block p-1 screen-tablet:block screen-tablet:px-0 screen-tablet:py-2" href="terms-of-service">Terms of Service</a>
+</nav>
+  <div aria-hidden="true">&nbsp;</div>
+
+  <div class="m-0">
+    <a href="http://nyc.gov/opportunity" title="The Mayor's Office for Economic Opportunity">
+      <svg class="icon-logo text-base-white" aria-hidden='true' style='height:72px'>
+        <use xlink:href="#icon-logo">
+      </svg>
+    </a>
+
+    <p>NYC Opportunity is the New York City Mayor&#39;s Office for Economic Opportunity. We are committed to sharing open source software that we use in our products. Feel free to ask questions and share feedback. Follow @nycopportunity on <a href="https://twitter.com/nycopportunity">Twitter</a>, <a href="https://www.facebook.com/NYCOpportunity/">Facebook</a>, <a href="https://medium.com/@nycopportunity">Medium</a>, and <a href="https://github.com/orgs/CityOfNewYork/teams/nycopportunity">Github</a>.</p>
+
+    <small>
+      © City of New York, 2019 All Rights Reserved.<br>
+      NYC is a trademark and service mark of the City of New York.
+    </small>
+  </div>
+
 </footer>
   <script src="js/source.js"></script>
   

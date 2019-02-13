@@ -1,4 +1,4 @@
-There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="http://eepurl.com/gfLTuH" target="_blank">account is created</a>. Getting a token is described in [Set Password and Token Based Authentication](/set-password-and-token-based-on-authentication). The request body and response are sent as JSON so the `Content-Type` header must be set to `application/json`. Below is an example of the format for requests. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
+There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="http://eepurl.com/gfLTuH" target="_blank">account is created</a>. Getting a token is described in [Set Password and Token Based Authentication](set-password-and-token-based-on-authentication). The request body and response are sent as JSON so the `Content-Type` header must be set to `application/json`. Below is an example of the format for requests. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
 
 <div class="code-block"><pre>
 curl -X POST \
@@ -35,4 +35,4 @@ The request for each endpoint should contain certain datum pertinent to the hous
   <em>… additional Persons …</em>
 ]</pre></div>
 
-Below is the schema for each type. For a detailed description of how to structure the data for each endpoint, please refer to the [endpoint documentation](/endpoints).
+Below is the schema for each type. For a detailed description of how to structure the data for each endpoint, please refer to the [endpoint documentation](endpoints).
