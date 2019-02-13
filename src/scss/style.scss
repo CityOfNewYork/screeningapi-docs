@@ -12,3 +12,20 @@ div[class*="request-table-"] {
 table {
   @extend .table;
 }
+
+.screener-json {
+  display: none;
+
+  pre {
+    display: block;
+  }
+}
+
+.remove-person {
+  display: none;
+}
+
+.error {
+  border-color: red !important;
+  color: red;
+}

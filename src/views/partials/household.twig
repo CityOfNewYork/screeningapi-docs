@@ -1,0 +1,52 @@
+<div class="household-data">
+  <h2>Household</h2>
+  <p>Enter values into the fields below for the Household Level data for the Household Composition.</p>
+
+  <label>Number of household members (members)</label>
+  <input type="text" name="members" placeholder="1" household required>
+
+  <label>What is the household's cash on hand? (cashOnHand)</label>
+  <input type="text" name="cashOnHand" placeholder="0" household required>
+
+  <h6>What is the household's living situation?</h6>
+  <label>livingRenting</label>
+  <input type="radio" name="livingRenting" value="true" household required><span> True</span><br>
+  <input type="radio" name="livingRenting" value="false" household  required><span> False</span><br>
+  
+  <label>Type of rental (livingRentalType)</label>
+  <select name="livingRentalType" household>
+    <option value="">Please make a selection if applicable</option>
+    <option value="NYCHA">NYCHA Housing</option>
+    <option value="MarketRate">Non-Regulated or Market Rate apartment</option>
+    <option value="RentControlled">Rent controlled or rent stabilized apartment</option>
+    <option value="RentRegulatedHotel">Rent Regulated Hotel/Single Room</option>
+    <option value="Section213">Section 213 apartments</option>
+    <option value="LimitedDividendDevelopment">Limited Dividend development apartments</option>
+    <option value="MitchellLama">Mitchell-Lama apartments</option>
+    <option value="RedevelopmentCompany">Redevelopment Company apartments</option>
+    <option value="HDFC">Housing Development Fund Company (HDFC) Cooperative</option>
+    <option value="FamilyHome">Family Home</option>
+    <option value="Condo">Condo</option>
+  </select>
+
+  <label>livingOwner</label>
+  <input type="radio" name="livingOwner" value="true" household required><span> True</span><br>
+  <input type="radio" name="livingOwner" value="false" household required><span> False</span><br>
+
+  <label>
+  livingStayingWithFriend</label>
+  <input type="radio" name="livingStayingWithFriend" value="true" household required><span> True</span><br>
+  <input type="radio" name="livingStayingWithFriend" value="false" household required><span> False</span><br>
+
+  <label>livingHotel</label>
+  <input type="radio" name="livingHotel" value="true" household required><span> True</span><br>
+  <input type="radio" name="livingHotel" value="false" household required><span> False</span><br>
+
+  <label>livingShelter</label>
+  <input type="radio" name="livingShelter" value="true" household required><span> True</span><br>
+  <input type="radio" name="livingShelter" value="false" household required><span> False</span><br>
+
+  <label>livingPreferNotToSay</label>
+  <input type="radio" name="livingPreferNotToSay" value="true" household required><span> True</span><br>
+  <input type="radio" name="livingPreferNotToSay" value="false" household required><span> False</span><br>
+</div>

@@ -3826,6 +3826,23 @@ div[class*="request-table-"] {
   overflow-x: auto;
 }
 
+.screener-json {
+  display: none;
+}
+
+.screener-json pre {
+  display: block;
+}
+
+.remove-person {
+  display: none;
+}
+
+.error {
+  border-color: red !important;
+  color: red;
+}
+
 @media (min-width: 960px) {
   .screen-desktop\:list-reset {
     list-style: none !important;
