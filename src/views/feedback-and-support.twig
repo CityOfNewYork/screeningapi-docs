@@ -1,7 +1,10 @@
 {% extends "layouts/default.twig" %}
 
-{% set page_title = ' - Feedback and Support' %}
+{% set title = 'Feedback and Support' %}
+{% set page_title = ' - ' ~ title %}
 
 {% block content %}
-	{% markdown '../content/feedback-and-support.md' %}{% endmarkdown %}
+	<div class="o-content">
+		{% markdown '../content/feedback-and-support.md' %}{% endmarkdown %}
+	</div>
 {% endblock %}

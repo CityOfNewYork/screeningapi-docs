@@ -1,7 +1,10 @@
 {% extends "layouts/default.twig" %}
 
-{% set page_title = ' - Eligibility Guidelines' %}
+{% set title = 'Eligibility Guidelines' %}
+{% set page_title = ' - ' ~ title %}
 
 {% block content %}
-	{% markdown '../content/eligibility-guidelines.md' %}{% endmarkdown %}
+	<div class="o-content">
+		{% markdown '../content/eligibility-guidelines.md' %}{% endmarkdown %}
+	</div>
 {% endblock %}

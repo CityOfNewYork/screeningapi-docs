@@ -1,4 +1,5 @@
 ### Household
+
 |Name|Description|Data Attribute|Possible Value|
 | ----- | ----- | ----- | ----- |
 |Members|Number of People in the household. Directly related to the number of Person types. Minimum is 1 and maximum value is 8. |members|Integer|Integer greater than 0 <br> Example: 1|

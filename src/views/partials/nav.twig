@@ -1,11 +1,15 @@
-{% set navclass = "inline-block screen-tablet:block screen-tablet:border-b border-primary-blue-30t p-1 screen-tablet:p-2" %}
-<nav class="screen-tablet:pb-2">
-  <a class="{{navclass}}" href="/">Overview</a>
-  <a class="{{navclass}}" href="terms-of-service">Terms of Service</a>
-  <a class="{{navclass}}" href="request-an-account">Request an Account</a>
-  <a class="{{navclass}}" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
-  <a class="{{navclass}}" href="eligibility-guidelines">Eligibility Guidelines</a>
-  <a class="{{navclass}}" href="making-a-request">Making a Request</a>
-  <a class="{{navclass}}" href="endpoints">Endpoints</a>
-  <a class="{{navclass}}" href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
-  <a class="{{navclass}}" href="feedback-and-support">Feedback and Support</a>
+<nav class="{{ classes.nav_one }}">
+  <a class="{{ classes.li }} {{ classes.border }}" href="index">Overview</a>
+  <a class="{{ classes.li }} {{ classes.border }}" href="getting-started">Getting Started</a>
+  <a class="{{ classes.li }} {{ classes.border }}" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
+  <a class="{{ classes.li }} {{ classes.border }}" href="making-a-request">Making a Request</a>
+  <a class="{{ classes.li }} {{ classes.border }}" href="endpoints">Endpoints</a>
+  <a class="{{ classes.li }}" href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
+</nav>
+
+<nav class="{{ classes.nav_two }}">
+  <a class="{{ classes.li }} {{ classes.border }}" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
+  <a class="{{ classes.li }} {{ classes.border }}" href="eligibility-guidelines">Eligibility Guidelines</a>
+  <a class="{{ classes.li }} {{ classes.border }}" href="feedback-and-support">Feedback and Support</a>
+  <a class="{{ classes.li }}" href="terms-of-service">Terms of Service</a>
+</nav>

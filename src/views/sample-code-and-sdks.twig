@@ -1,9 +1,10 @@
 {% extends "layouts/default.twig" %}
 
-{% set page_title = ' - Sample Code and SDKs' %}
+{% set title = 'Sample Code and SDKs' %}
+{% set page_title = ' - ' ~ title %}
 
 {% block content %}
-	<div>
+	<div class="o-content">
 		{% markdown '../content/sample-code-and-sdks.md' %}{% endmarkdown %}
 	</div>
 {% endblock %}

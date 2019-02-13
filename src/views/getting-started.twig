@@ -1,9 +1,10 @@
 {% extends "layouts/default.twig" %}
 
-{% set page_title = ' - Request an Account' %}
+{% set title = 'Getting Started' %}
+{% set page_title = ' - ' ~ title %}
 
 {% block content %}
-	<div>
+	<div class="o-content">
 		{% markdown '../content/request-an-account.md' %}{% endmarkdown %}
 	</div>
 {% endblock %}

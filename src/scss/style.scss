@@ -1,17 +1,14 @@
 @import 'imports';
 
-code {
-  @extend .code;
-}
-
-div[class*="request-table-"] {
-  position: relative;
-  overflow-x: auto;
-}
-
-table {
-  @extend .table;
-}
+// Tailwind is perfect for avoiding having to write utilities like this;
+// See https://tailwindcss.com/docs/positioning
+// See https://tailwindcss.com/docs/overflow
+// .relative, .overflow-x-scroll and .scrolling-touch
+// div[class*="request-table-"] {
+//   position: relative;
+//   overflow-x: auto;
+//   -webkit-overflow-scrolling: touch;
+// }
 
 .screener-json {
   display: none;
@@ -21,10 +18,12 @@ table {
   }
 }
 
+// Use Tailwind's .none class instead of recreating this utility
 .remove-person {
   display: none;
 }
 
+// Use Tailwind's color utilities instead of recreating these utilities
 .error {
   border-color: red !important;
   color: red;
