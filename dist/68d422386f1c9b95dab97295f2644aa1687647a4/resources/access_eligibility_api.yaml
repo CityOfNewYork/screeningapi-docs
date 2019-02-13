@@ -28,7 +28,7 @@ paths:
         - Authentication
       description: >
         This endpoint is used to set your initial account password and retrieve an authentication token to make requests to the <b>Eligibility</b> endpoints. 
-        See <a href="/set-password-and-token-based-authentication">Set Password and Token Based Authentication</a> for more details on setting your initial account password. 
+        See <a href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a> for more details on setting your initial account password. 
         On successful response, the retrieved token must be provided in the request header of the <b>Eligibility</b> endpoints to make an authenticated request.
       requestBody:
         required: true
@@ -608,7 +608,7 @@ paths:
         - Eligibility
       description: >
         This endpoint is used to make single requests to retrieve a response containing potentially eligible program names and codes based on household composition data provided by the user.
-        See <a href="/making-a-request">Making a Request</a> for more details on household composition data and the response codes.
+        See <a href="making-a-request">Making a Request</a> for more details on household composition data and the response codes.
       parameters:
         - name: interestedPrograms
           in: query
@@ -1091,8 +1091,8 @@ paths:
         - Eligibility
       description: >-
         This endpoint accepts a structured CSV of multiple household compositions allowing users to query for potential eligibility in bulk. The response will be a CSV containing the potentially eligible program names and codes.
-        See <a href="/making-a-request">Making a Request</a> for more details on household composition data and the response codes. 
-        Click <a href="/resources/sample_bulk_submission_import.csv">here</a> to download a sample request CSV.
+        See <a href="making-a-request">Making a Request</a> for more details on household composition data and the response codes. 
+        Click <a href="resources/sample_bulk_submission_import.csv">here</a> to download a sample request CSV.
       security:
         - ApiKeyAuth: []
       parameters:
@@ -1133,7 +1133,7 @@ paths:
                   format: binary
                   description: >-
                     See "Making a Request" for CSV composition details.
-                    Click <a href="/resources/sample_bulk_submission_import.csv">here</a> to download a sample request CSV.
+                    Click <a href="resources/sample_bulk_submission_import.csv">here</a> to download a sample request CSV.
                     The API will not accept files larger than 6MB.
       responses:
         '200':
