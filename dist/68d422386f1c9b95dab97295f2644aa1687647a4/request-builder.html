@@ -63,7 +63,7 @@
             <section class="flex flex-col screen-desktop:flex-row flex-wrap pb-4">
         <div class="mt-4 layout--content">
           <div class="screen-desktop:pr-4 screen-desktop:pr-6">
-            <h1 class="mt-0 p-0">Build a Request</h1>              <h1 id="request-builder">Request Builder</h1>
+            <h1 class="mt-0 p-0">Build a Request</h1>              <h2 id="request-builder">Request Builder</h2>
 <p>Use the following form to generate a data object you can pass to the Benefits Eligibility API.</p>
 
   <form class="screener-form">
@@ -71,107 +71,55 @@
   <h2>Household</h2>
   <p>Enter values into the fields below for the Household Level data for the Household Composition.</p>
 
-  <label>Number of household members (members)</label>
-  <input type="text" name="members" placeholder="1" household required>
+  <label>Number of household members</label><br>
+  <input type="number" name="members" placeholder="1" min="1" household required><br>
 
-  <label>What is the household's cash on hand? (cashOnHand)</label>
-  <input type="text" name="cashOnHand" placeholder="0" household required>
+  <label>What is the household's cash on hand?</label><br>
+  <input type="number" name="cashOnHand" placeholder="0" min="0" household required>
 
-  <h6>What is the household's living situation?</h6>
-  <label>livingRenting</label>
-  <input type="radio" name="livingRenting" value="true" household required><span> True</span><br>
-  <input type="radio" name="livingRenting" value="false" household  required><span> False</span><br>
-  
-  <label>Type of rental (livingRentalType)</label>
-  <select name="livingRentalType" household>
-    <option value="">Please make a selection if applicable</option>
-    <option value="NYCHA">NYCHA Housing</option>
-    <option value="MarketRate">Non-Regulated or Market Rate apartment</option>
-    <option value="RentControlled">Rent controlled or rent stabilized apartment</option>
-    <option value="RentRegulatedHotel">Rent Regulated Hotel/Single Room</option>
-    <option value="Section213">Section 213 apartments</option>
-    <option value="LimitedDividendDevelopment">Limited Dividend development apartments</option>
-    <option value="MitchellLama">Mitchell-Lama apartments</option>
-    <option value="RedevelopmentCompany">Redevelopment Company apartments</option>
-    <option value="HDFC">Housing Development Fund Company (HDFC) Cooperative</option>
-    <option value="FamilyHome">Family Home</option>
-    <option value="Condo">Condo</option>
+  <br>
+  <label>What is the household's living situation?</label><br>
+  <select name="livingType" household required>
+    <option value="">Please make a selection</option>
+    <option value="livingRenting">Renting</option>
+    <option value="livingOwner">Owner</option>
+    <option value="livingStayingWithFriend">Staying with a friend</option>
+    <option value="livingHotel">Hotel</option>
+    <option value="livingShelter">Shelter</option>
+    <option value="livingPreferNotToSay">Prefer not to say</option>
   </select>
 
-  <label>livingOwner</label>
-  <input type="radio" name="livingOwner" value="true" household required><span> True</span><br>
-  <input type="radio" name="livingOwner" value="false" household required><span> False</span><br>
-
-  <label>
-  livingStayingWithFriend</label>
-  <input type="radio" name="livingStayingWithFriend" value="true" household required><span> True</span><br>
-  <input type="radio" name="livingStayingWithFriend" value="false" household required><span> False</span><br>
-
-  <label>livingHotel</label>
-  <input type="radio" name="livingHotel" value="true" household required><span> True</span><br>
-  <input type="radio" name="livingHotel" value="false" household required><span> False</span><br>
-
-  <label>livingShelter</label>
-  <input type="radio" name="livingShelter" value="true" household required><span> True</span><br>
-  <input type="radio" name="livingShelter" value="false" household required><span> False</span><br>
-
-  <label>livingPreferNotToSay</label>
-  <input type="radio" name="livingPreferNotToSay" value="true" household required><span> True</span><br>
-  <input type="radio" name="livingPreferNotToSay" value="false" household required><span> False</span><br>
+  <br>
+  <div class="livingRentalType hidden">
+    <label>Type of rental</label><br>
+    <select name="livingRentalType" household>
+      <option value="">Please make a selection</option>
+      <option value="NYCHA">NYCHA Housing</option>
+      <option value="MarketRate">Non-Regulated or Market Rate apartment</option>
+      <option value="RentControlled">Rent controlled or rent stabilized apartment</option>
+      <option value="RentRegulatedHotel">Rent Regulated Hotel/Single Room</option>
+      <option value="Section213">Section 213 apartments</option>
+      <option value="LimitedDividendDevelopment">Limited Dividend development apartments</option>
+      <option value="MitchellLama">Mitchell-Lama apartments</option>
+      <option value="RedevelopmentCompany">Redevelopment Company apartments</option>
+      <option value="HDFC">Housing Development Fund Company (HDFC) Cooperative</option>
+      <option value="FamilyHome">Family Home</option>
+      <option value="Condo">Condo</option>
+    </select>
+  </div>
 </div>    <div class="person-data">
   <h2>Person</h2>
   <p>Enter values into the fields below for one individual of the Household.</p>
 
   <label>age</label>
-  <input type="text" name="age" placeholder="35" person required>
+  <input type="number" name="age" placeholder="35" person required>
+  <br>
 
-  <label>student</label>
-  <input type="radio" name="student" value="true" person required><span> True</span><br>
-  <input type="radio" name="student" value="false" person required><span> False</span><br>
+  <input type="checkbox" name="headOfHousehold" person><span> This person is head of the household</span><br>
 
-  <label>studentFulltime</label>
-  <input type="radio" name="studentFulltime" value="true" person required><span> True</span><br>
-  <input type="radio" name="studentFulltime" value="false" person required><span> False</span><br>
-
-  <label>pregnant</label>
-  <input type="radio" name="pregnant" value="true" person required><span> True</span><br>
-  <input type="radio" name="pregnant" value="false" person required><span> False</span><br>
-
-  <label>unemployed</label>
-  <input type="radio" name="unemployed" value="true" person required><span> True</span><br>
-  <input type="radio" name="unemployed" value="false" person required><span> False</span><br>
-
-  <label>unemployedWorkedLast18Months</label>
-  <input type="radio" name="unemployedWorkedLast18Months" value="true" person required><span> True</span><br>
-  <input type="radio" name="unemployedWorkedLast18Months" value="false" person required><span> False</span><br>
-
-  <label>blind</label>
-  <input type="radio" name="blind" value="true" person required><span> True</span><br>
-  <input type="radio" name="blind" value="false" person required><span> False</span><br>
-
-  <label>disabled</label>
-  <input type="radio" name="disabled" value="true" person required><span> True</span><br>
-  <input type="radio" name="disabled" value="false" person required><span> False</span><br>
-
-  <label>veteran</label>
-  <input type="radio" name="veteran" value="true" person required><span> True</span><br>
-  <input type="radio" name="veteran" value="false" person required><span> False</span><br >
-
-  <label>benefitsMedicaid</label>
-  <input type="radio" name="benefitsMedicaid" value="true" person required><span> True</span><br>
-  <input type="radio" name="benefitsMedicaid" value="false" person required><span> False</span><br>
-
-  <label>benefitsMedicaidDisability</label>
-  <input type="radio" name="benefitsMedicaidDisability" value="true" person required><span> True</span><br>
-  <input type="radio" name="benefitsMedicaidDisability" value="false" person required><span> False</span><br>
-
-  <label>headOfHousehold</label>
-  <input type="radio" name="headOfHousehold" value="true" person required><span> True</span><br>
-  <input type="radio" name="headOfHousehold" value="false" person required><span> False</span><br>
-
-  <label>headOfHouseholdRelation</label>
-  <select name="livingRentalType" person required>
-    <option value="Self">You</option>
+  <label>This person's relationship to the head of Household</label><br>
+  <select name="headOfHouseholdRelation" person required>
+    <option value="Self">Self</option>
     <option value="Child">Child</option>
     <option value="FosterChild">Foster Child</option>
     <option value="StepChild">Step-child</option>
@@ -187,15 +135,29 @@
     <option value="DomesticPartner">Domestic Partner</option>
     <option value="Unrelated">Unrelated</option>
     <option value="Other">Other</option>
-  </select>
+  </select><br>
 
-  <label>livingOwnerOnDeed</label>
-  <input type="radio" name="livingOwnerOnDeed" value="true" person required><span> True</span><br>
-  <input type="radio" name="livingOwnerOnDeed" value="false" person required><span> False</span><br>
+  <div class="deed hidden">
+    <input type="checkbox" name="livingOwnerOnDeed" person><span> This person is on the deed</span><br>
+  </div>
 
-  <label>livingRentalOnLease</label>
-  <input type="radio" name="livingRentalOnLease" value="true" person required><span> True</span><br>
-  <input type="radio" name="livingRentalOnLease" value="false" person required><span> False</span><br>
+  <div class="lease hidden">
+    <input type="checkbox" name="livingRentalOnLease" person><span> This person is on the lease</span><br>
+  </div>
+
+  <label>Select all that apply for this person</label><br>
+  <input type="checkbox" name="student" person><span> Student</span>
+  <input type="checkbox" name="studentFulltime" person><span> Student Full time</span><br>
+  <input type="checkbox" name="pregnant" person><span> Pregnant</span><br>
+  <input type="checkbox" name="unemployed" person><span> Unemployed</span>
+  <input type="checkbox" name="unemployedWorkedLast18Months" person><span> Unemployed last 18 months</span><br>
+  <input type="checkbox" name="blind" person><span> Blind</span><br>
+  <input type="checkbox" name="disabled" person><span> Disabled</span><br>
+  <input type="checkbox" name="veteran" person><span> Veteran</span><br>
+
+  <label>Is this person receiving any of the below benefits</label><br>
+  <input type="checkbox" name="benefitsMedicaid" person><span> Medicaid</span><br>
+  <input type="checkbox" name="benefitsMedicaidDisability" person><span> Disability-related medicaid</span><br>
 
   <div class="incomes">
     <label>incomes</label>
@@ -268,16 +230,18 @@
 
 <div class="add-remove">
   <button class="btn color-secondary-button add-person">Add Person</button>
-  <button class="btn color-secondary-button remove-person">RemovePerson</button>
+  <button class="btn color-secondary-button remove-person hidden">RemovePerson</button>
 </div>
 
     <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
+    <p class="error-msg text-primary-red hidden">Please resolve the errors and try again.</p>
   </form>
 
-  <div class="screener-json">
+  <div class="screener-json hidden">
     <button type="submit" class="btn color-primary-button generate-form">Edit Values</button>
     <button class="btn color-secondary-button copy-obj">Copy</button>
   </div>
+
 
           </div>
         </div>

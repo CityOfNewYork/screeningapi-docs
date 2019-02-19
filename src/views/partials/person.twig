@@ -3,55 +3,14 @@
   <p>Enter values into the fields below for one individual of the Household.</p>
 
   <label>age</label>
-  <input type="text" name="age" placeholder="35" person required>
+  <input type="number" name="age" placeholder="35" person required>
+  <br>
 
-  <label>student</label>
-  <input type="radio" name="student" value="true" person required><span> True</span><br>
-  <input type="radio" name="student" value="false" person required><span> False</span><br>
+  <input type="checkbox" name="headOfHousehold" person><span> This person is head of the household</span><br>
 
-  <label>studentFulltime</label>
-  <input type="radio" name="studentFulltime" value="true" person required><span> True</span><br>
-  <input type="radio" name="studentFulltime" value="false" person required><span> False</span><br>
-
-  <label>pregnant</label>
-  <input type="radio" name="pregnant" value="true" person required><span> True</span><br>
-  <input type="radio" name="pregnant" value="false" person required><span> False</span><br>
-
-  <label>unemployed</label>
-  <input type="radio" name="unemployed" value="true" person required><span> True</span><br>
-  <input type="radio" name="unemployed" value="false" person required><span> False</span><br>
-
-  <label>unemployedWorkedLast18Months</label>
-  <input type="radio" name="unemployedWorkedLast18Months" value="true" person required><span> True</span><br>
-  <input type="radio" name="unemployedWorkedLast18Months" value="false" person required><span> False</span><br>
-
-  <label>blind</label>
-  <input type="radio" name="blind" value="true" person required><span> True</span><br>
-  <input type="radio" name="blind" value="false" person required><span> False</span><br>
-
-  <label>disabled</label>
-  <input type="radio" name="disabled" value="true" person required><span> True</span><br>
-  <input type="radio" name="disabled" value="false" person required><span> False</span><br>
-
-  <label>veteran</label>
-  <input type="radio" name="veteran" value="true" person required><span> True</span><br>
-  <input type="radio" name="veteran" value="false" person required><span> False</span><br >
-
-  <label>benefitsMedicaid</label>
-  <input type="radio" name="benefitsMedicaid" value="true" person required><span> True</span><br>
-  <input type="radio" name="benefitsMedicaid" value="false" person required><span> False</span><br>
-
-  <label>benefitsMedicaidDisability</label>
-  <input type="radio" name="benefitsMedicaidDisability" value="true" person required><span> True</span><br>
-  <input type="radio" name="benefitsMedicaidDisability" value="false" person required><span> False</span><br>
-
-  <label>headOfHousehold</label>
-  <input type="radio" name="headOfHousehold" value="true" person required><span> True</span><br>
-  <input type="radio" name="headOfHousehold" value="false" person required><span> False</span><br>
-
-  <label>headOfHouseholdRelation</label>
-  <select name="livingRentalType" person required>
-    <option value="Self">You</option>
+  <label>This person's relationship to the head of Household</label><br>
+  <select name="headOfHouseholdRelation" person required>
+    <option value="Self">Self</option>
     <option value="Child">Child</option>
     <option value="FosterChild">Foster Child</option>
     <option value="StepChild">Step-child</option>
@@ -67,15 +26,29 @@
     <option value="DomesticPartner">Domestic Partner</option>
     <option value="Unrelated">Unrelated</option>
     <option value="Other">Other</option>
-  </select>
+  </select><br>
 
-  <label>livingOwnerOnDeed</label>
-  <input type="radio" name="livingOwnerOnDeed" value="true" person required><span> True</span><br>
-  <input type="radio" name="livingOwnerOnDeed" value="false" person required><span> False</span><br>
+  <div class="deed hidden">
+    <input type="checkbox" name="livingOwnerOnDeed" person><span> This person is on the deed</span><br>
+  </div>
 
-  <label>livingRentalOnLease</label>
-  <input type="radio" name="livingRentalOnLease" value="true" person required><span> True</span><br>
-  <input type="radio" name="livingRentalOnLease" value="false" person required><span> False</span><br>
+  <div class="lease hidden">
+    <input type="checkbox" name="livingRentalOnLease" person><span> This person is on the lease</span><br>
+  </div>
+
+  <label>Select all that apply for this person</label><br>
+  <input type="checkbox" name="student" person><span> Student</span>
+  <input type="checkbox" name="studentFulltime" person><span> Student Full time</span><br>
+  <input type="checkbox" name="pregnant" person><span> Pregnant</span><br>
+  <input type="checkbox" name="unemployed" person><span> Unemployed</span>
+  <input type="checkbox" name="unemployedWorkedLast18Months" person><span> Unemployed last 18 months</span><br>
+  <input type="checkbox" name="blind" person><span> Blind</span><br>
+  <input type="checkbox" name="disabled" person><span> Disabled</span><br>
+  <input type="checkbox" name="veteran" person><span> Veteran</span><br>
+
+  <label>Is this person receiving any of the below benefits</label><br>
+  <input type="checkbox" name="benefitsMedicaid" person><span> Medicaid</span><br>
+  <input type="checkbox" name="benefitsMedicaidDisability" person><span> Disability-related medicaid</span><br>
 
   <div class="incomes">
     <label>incomes</label>
@@ -148,5 +121,5 @@
 
 <div class="add-remove">
   <button class="btn color-secondary-button add-person">Add Person</button>
-  <button class="btn color-secondary-button remove-person">RemovePerson</button>
+  <button class="btn color-secondary-button remove-person hidden">RemovePerson</button>
 </div>

@@ -11,7 +11,6 @@ export default function() {
   /* Generate the entire JSON */
   $('.generate-json').on('click', function(event){
     event.preventDefault();
-    $('.error-msg').remove();
 
     var formdata=$('.screener-form');
     
@@ -31,21 +30,38 @@ export default function() {
     var hasErrors = validateFields(formdata);
 
     if (hasErrors) {
-      formdata.append('<p class="error-msg">Please resolve the errors and try again.</p>');
+      $('.error-msg').removeClass('hidden');
     }else {
-      $('.error-msg').remove();
+      $('.error-msg').addClass('hidden');
+      $('.error').removeClass('error');
       $('.screener-form').hide();
       $('.screener-json').find('pre').remove();
-      $('.screener-json').prepend('<pre><code class="code">' + JSON.stringify(finalObj, undefined, 2) + '</code></pre>');
-      $('.screener-json').show();
+      $('.screener-json').prepend('<pre class="block"><code class="code">' + JSON.stringify(finalObj, undefined, 2) + '</code></pre>');
+      $('.screener-json').removeClass('hidden');
     }
   })
 
   /* Go back to the form */
   $('.generate-form').on('click', function(event) {
     event.preventDefault();
-    $('.screener-json').hide();
+    $('.screener-json').addClass('hidden');
     $('.screener-form').show();
+  })
+
+  $(document).on('change','[name=livingType]', function(event) {
+    event.preventDefault();
+    if($(this).val() == 'livingRenting'){
+      $('.livingRentalType').removeClass('hidden');
+      $('.lease').removeClass('hidden');
+    } else {
+      $('.livingRentalType').addClass('hidden');
+      $('.lease').addClass('hidden');
+    }
+    if($(this).val() == 'livingOwner'){
+      $('.deed').removeClass('hidden');
+    } else {
+      $('.deed').addClass('hidden');
+    }
   })
 
   /* Add additional persons*/
@@ -54,7 +70,7 @@ export default function() {
     personContainer.clone().insertBefore($(this).parent());
 
     if ($('.person-data').length > 1) {
-      $('.remove-person').show();
+      $('.remove-person').removeClass('hidden');
     }
   })
 
@@ -113,7 +129,18 @@ export default function() {
 
     hh['insert']['object']['accessnyc.request.Household'] = form.find('[household]').serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{});
 
-    var fields = form.find('[household]')
+    var livingType = form.find('[name=livingType]').children();
+
+    livingType.each(function(){
+      if ($(this).val() != ""){
+        if($(this).val() == livingType.parent().val()){
+          hh['insert']['object']['accessnyc.request.Household'][$(this).val()]="true";
+        } else {
+          hh['insert']['object']['accessnyc.request.Household'][$(this).val()]="false";
+        }
+      }
+    })
+    delete hh['insert']['object']['accessnyc.request.Household']['livingType'];
 
     return hh;
   }
@@ -129,6 +156,20 @@ export default function() {
     };
 
     person['insert']['object']['accessnyc.request.Person'] = personForm.find('[person]').serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{});
+
+    var personType = personForm.find('[type=checkbox]').filter('[person]');
+    personType.each(function(){
+      if ($(this).is(':checked')){
+        person['insert']['object']['accessnyc.request.Person'][$(this).attr('name')]="true";
+      }else {
+        person['insert']['object']['accessnyc.request.Person'][$(this).attr('name')]="false";
+      }      
+    })
+
+    if(personForm.find('[name=headOfHouseholdRelation]').val() == 'Self'){
+      person['insert']['object']['accessnyc.request.Person']['headOfHouseholdRelation']="";
+    }
+
 
     /* Incomes */
     var formIncomes = personForm.find('[person-incomes]').serializeArray();
@@ -199,6 +240,9 @@ export default function() {
     var fieldsObj = form.serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{})
     var fields = form.find('[required]');
 
+    $('.error-msg').children().remove();
+
+    // check for empty fields
     fields.each(function(){
       fieldName = $(this).attr('name');
       groupSeleted = Object.keys(fieldsObj).find(a =>a.includes(fieldName))? true : false;
@@ -217,7 +261,29 @@ export default function() {
           $(this).next().removeClass('error');
         }
       }
+
+      if( ($(this).val() == 'livingRenting') && 
+        (form.find('[name=livingRentalType]').val() == "")
+      ) {
+        form.find('[name=livingRentalType]').addClass('error')
+        errors = true;
+      }
     });
+
+    if($('[name=headOfHousehold]:checked').length > 1 ||
+      $('[name=headOfHousehold]:checked').length == 0
+    ){
+      $('[name=headOfHousehold]').next().addClass('error')
+      $('.error-msg').append('<p>Head of Household: Either none declared or too many declared.</p>')
+      errors = true;
+    }
+
+    if ($('[name=members]').val() != $('.person-data').length){
+      $('[name=members]').addClass('error')
+      $('.error-msg').append('<p>Persons: The number of persons does not match number of members entered.</p>')
+      errors = true;
+    }
+
     return errors;
   }
 }
