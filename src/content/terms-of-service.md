@@ -6,7 +6,7 @@ This API returns results of potential, but not guaranteed eligibility at the hou
 
 The guidelines governing eligibility criteria for the 31 benefits programs are maintained and updated on a regular basis by NYC Opportunity in partnership with the benefit program’s administering agency. NYC Opportunity makes the effort to produce an update every quarter, but does not guarantee this. We’ll communicate information about eligibility criteria changes by email to developer accounts. You can also sign up for updates here.These guidelines are interpreted and implemented in the eligibility engine which runs on the business rules management system [Drools](http://drools.org/).
 
-Members of the public can obtain the human-readable eligibility guidelines in the form of the [NYC Benefits Eligibility Master Rules Document](). NYC Opportunity is making the API available to developers who agree to the provisions of this access agreement and comply with its requirements.
+Members of the public can obtain the human-readable eligibility guidelines in the form of the [NYC Benefits Eligibility Master Rules Document](eligibility-guidelines). NYC Opportunity is making the API available to developers who agree to the provisions of this access agreement and comply with its requirements.
 
 Credentials will be issued to developers who agree to the terms and conditions of this agreement by submission of the registration form.  This will enable the developer to access the sandbox NYC Benefits Eligibility API. When the developer is ready, they can request access to the Production API key.
 
