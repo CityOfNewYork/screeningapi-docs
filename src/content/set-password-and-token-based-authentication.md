@@ -43,7 +43,7 @@ If you forget your password, you can reset it with the `/forgotPassword` and `/c
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
-    "username" : "{{ username }}",
+    "username" : "{{ username }}"
   }'</pre></div>
 
 Then curl `/confirmPassword` with your username, verification code, and new password. You will receive the email at the address you provided to us when setting up your account.
@@ -54,6 +54,8 @@ Then curl `/confirmPassword` with your username, verification code, and new pass
   -H 'cache-control: no-cache' \
   -d '{
     "username" : "{{ username }}",
+    "newPassword" ; "{{ new_password }}",
+    "verificationCode": "{{ verification_code }}"
   }'</pre></div>
 
 ## Summary

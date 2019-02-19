@@ -1,7 +1,7 @@
-There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="http://eepurl.com/gfLTuH" target="_blank">account is created</a>. Getting a token is described in [Set Password and Token Based Authentication](set-password-and-token-based-authentication). The request body and response are sent as JSON so the `Content-Type` header must be set to `application/json`. Below is an example of the format for requests. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
+There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="http://eepurl.com/gfLTuH" target="_blank">account is created</a>. Getting a token is described in [Set Password and Token Based Authentication](set-password-and-token-based-authentication). The `Content-Type` header is also required and its value may vary, refer to the [Endpoints](endpoints) documentation for details. Below is an example of the format for requests. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
 
 <div class="code-block"><pre>
-curl -X POST \
+curl -X POST \	curl -X POST \
   'https://eligibilityapi.cityofnewyork.us/{{ endpoint }}' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
@@ -15,7 +15,7 @@ Here is a full list of headers required for each request.
 
 | Header | Value |
 |--------|-------|
-| <code class="whitespace-no-wrap h5">Content-Type</code>  | <em class="text-secondary-grey">application/json</em> |
+| <code class="whitespace-no-wrap h5">Content-Type</code>  | Set according to endpoint |
 | <code class="whitespace-no-wrap h5">x-api-key</code>     | Your api key. |
 | <code class="whitespace-no-wrap h5">Authorization</code> | A valid token retrieved via the <code class='code'>authToken</code> endpoint. |
 

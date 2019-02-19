@@ -14,10 +14,6 @@ See the full list on the [Benefits and Programs API](https://data.cityofnewyork.
 ## Summary
 * Your api key and a valid token is required for making a request.
 
-* Set the `Content-Type` to `application/json`.
-
-* The request body must be in JSON format.
-
 * Use the testing domain for sample requests and development and the production domain for production level applications.
 
 * The request body should include Household Composition Data that includes the household and person datatypes with as many of the available

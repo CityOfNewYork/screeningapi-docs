@@ -1131,6 +1131,7 @@ paths:
                 file:
                   type: string
                   format: binary
+                  example: =@/path/to/input.csv;type=text/csv
                   description: >-
                     See "Making a Request" for CSV composition details.
                     Click <a href="resources/sample_bulk_submission_import.csv">here</a> to download a sample request CSV.
