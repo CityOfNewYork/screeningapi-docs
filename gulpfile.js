@@ -40,12 +40,11 @@ gulp.task('scripts', function() {
 
 gulp.task('scripts:browserify', function() {
   return browserify({
-    entries: [
-      SOURCE + 'js/main.js',
-    ],
+    entries: [SOURCE + 'js/main.js'],
+    paths: ['node_modules'],
     debug: false
   })
-    .transform('babelify',{presets: ["@babel/preset-env"]})
+    .transform('babelify', {presets: ["@babel/preset-env"]})
     .bundle()
     .pipe(source('source.js'))
     .pipe(buffer())

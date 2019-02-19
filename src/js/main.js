@@ -1,6 +1,9 @@
 import requestForm from './modules/submission.js'
 import swagger from './modules/swagger.js'
 import requestFormJSON from './modules/request-form-json.js'
+import Icons from 'nyco-patterns/dist/elements/icons/Icons.common'
+
+new Icons();
 
 window.$ = window.jQuery = require('jquery');
 

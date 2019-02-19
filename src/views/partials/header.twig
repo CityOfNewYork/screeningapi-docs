@@ -1,0 +1,36 @@
+<header class="o-header screen-tablet:layout--sidebar">
+  <div class="o-header__banner-main color-primary-button">
+    <label class="o-header__main-toggle toggle-label" for="menu">Menu</label>
+
+    <h1 class="o-header__main-title">
+      <span class="hidden">{{ package.author }}</span>
+
+      <svg aria-hidden="true"
+        class="o-header__logo-main icon-logo-nyco">
+        <use xlink:href="#icon-logo-nyco"></use>
+      </svg>
+
+      <svg aria-hidden="true" class="o-header__logo-secondary icon-logo-nyco">
+        <use xlink:href="#icon-logo-nyco"></use>
+      </svg>
+    </h1>
+
+    <div aria-hidden="true" class="o-header__main-version">{{ package.version }}</div>
+  </div>
+
+  <div class="o-header__banner-secondary color-dark-background">
+    <h1 class="o-header__secondary-title text-jumbo">{{ package.title }}</h1>
+    <a href="#main-content">Skip to main content</a>
+  </div>
+
+  <div class="o-header__secondary-version color-dark-background">
+    <div>
+      <a class="btn flex items-center" href="{{ package.homepage }}/tree/v{{ package.version }}">
+        <svg aria-hidden="true" class="icon-github-mark icon-small mr-1">
+          <use xlink:href="#icon-github-mark"></use>
+        </svg>
+        {{ package.version }}
+      </a>
+    </div>
+  </div>
+</header>
