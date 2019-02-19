@@ -10,21 +10,21 @@
 //   -webkit-overflow-scrolling: touch;
 // }
 
-.screener-json {
-  display: none;
+// .screener-json {
+//   display: none;
 
-  pre {
-    display: block;
-  }
-}
+//   pre {
+//     display: block;
+//   }
+// }
 
-// Use Tailwind's .none class instead of recreating this utility
-.remove-person {
-  display: none;
-}
+// // Use Tailwind's .none class instead of recreating this utility
+// .remove-person {
+//   display: none;
+// }
 
-// Use Tailwind's color utilities instead of recreating these utilities
+// // Use Tailwind's color utilities instead of recreating these utilities
 .error {
-  border-color: red !important;
-  color: red;
+  @extend .text-primary-red;
+  @extend .border-primary-red;
 }

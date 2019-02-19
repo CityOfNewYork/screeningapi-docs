@@ -11,11 +11,13 @@
     {% include 'partials/person.twig' %}
 
     <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
+    <p class="error-msg text-primary-red hidden">Please resolve the errors and try again.</p>
   </form>
 
-  <div class="screener-json">
+  <div class="screener-json hidden">
     <button type="submit" class="btn color-primary-button generate-form">Edit Values</button>
     <button class="btn color-secondary-button copy-obj">Copy</button>
   </div>
+
 
 {% endblock %}
