@@ -10381,7 +10381,7 @@ var _Icons = _interopRequireDefault(require("nyco-patterns/dist/elements/icons/I
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-new _Icons.default();
+new _Icons.default('svg/icons.svg');
 window.$ = window.jQuery = require('jquery');
 
 if (window.location.pathname.indexOf('endpoints') >= 0) {

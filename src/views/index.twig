@@ -1,9 +1,145 @@
-{% extends "layouts/default.twig" %}
+{% extends "layouts/full.twig" %}
 
-{% set title = 'Overview' %}
+{% set icons = {
+  "set" : [
+    false,
+    "icon-cash-expenses", false,
+    "icon-child-care", false,
+    "icon-family-services", false,
+    "icon-work", false,
+    "icon-city-id-card", false,
+    "icon-education", false,
+    "icon-enrichment", false,
+    "icon-food", false,
+    "icon-health", false,
+    "icon-housing", false,
+    "icon-special-needs", false
+  ],
+  "gutter": "my-1",
+  "dimensions": 'width:56px;height:56px'
+} %}
+
+{% set card = {
+  'wrap': 'text-center mx-auto',
+  'img': 'bg-base-white py-4',
+  'icon': 'text-primary-blue',
+  'dimensions': 'width:64px;height:64px',
+  'title': 'h5 p-2 pb-4 m-0',
+  'links': 'text-primary-blue',
+  'content': [
+    {
+      'icon': 'icon-logo-mark',
+      'link': '/overview',
+      'title': 'Overview'
+    },
+    {
+      'icon': 'icon-logo-swagger',
+      'link': 'endpoints',
+      'title': 'Endpoints'
+    },
+    {
+      'icon': 'icon-logo-github',
+      'link': 'sample-data-and-code',
+      'title': 'Sample Data and Code'
+    }
+  ]
+} %}
 
 {% block content %}
-  <div class="o-content">
-    {% markdown '../content/overview.md' %}{% endmarkdown %}
-  </div>
+  <section class="color-dark-background py-6">
+    <div class="layout--wrap mx-auto px-4 pb-6">
+      <div>
+        <div class="flex items-center justify-between" aria-hidden="true">
+          {% for index, i in icons.set %}{% if index > -1 and index < 5 %}
+            {% if i %}
+            <svg class="{{ icons.gutter }} {{ i }}" style="{{ icons.dimensions }}">
+              <use xlink:href="#{{ i }}"></use>
+            </svg>
+            {% else %}
+            <div style="{{ icons.dimensions }}">&nbsp;</div>
+            {% endif %}
+          {% endif %}{% endfor %}
+        </div>
+
+        <div class="flex items-center justify-between" aria-hidden="true">
+          {% for index, i in icons.set %}{% if index > 4 and index < 10 %}
+            {% if i %}
+            <svg class="{{ icons.gutter }} {{ i }}" style="{{ icons.dimensions }}">
+              <use xlink:href="#{{ i }}"></use>
+            </svg>
+            {% else %}
+            <div style="{{ icons.dimensions }}">&nbsp;</div>
+            {% endif %}
+          {% endif %}{% endfor %}
+        </div>
+
+        <div style="max-width: 38rem" class="mx-auto pt-4 pb-2">
+          <h1 class="screen-mobile:text-jumbo font-normal mt-0">NYC Benefits Eligibility API</h1>
+          <p>
+            Create modern web applications that evaluate household data against eligibility rules for 31 different City, State, and Federal benefits programs (including SNAP, Cash Assistance, WIC, HEAP, and more).
+            <a href="overview">Read more about the API</a>.
+          <p>
+          <div class="text-center pt-2">
+            <a class="btn text-h4 font-normal p-2 px-3 color-secondary-button" href="getting-started">Get Started</a>
+          </div>
+        </div>
+
+        <div class="hidden screen-mobile:flex items-center justify-between" aria-hidden="true">
+          {% for index, i in icons.set %}{% if index > 11 and index < 17 %}
+            {% if i %}
+            <svg class="{{ icons.gutter }} {{ i }}" style="{{ icons.dimensions }}">
+              <use xlink:href="#{{ i }}"></use>
+            </svg>
+            {% else %}
+            <div style="{{ icons.dimensions }}">&nbsp;</div>
+            {% endif %}
+          {% endif %}{% endfor %}
+        </div>
+
+        <div class="hidden screen-mobile:flex items-center justify-between" aria-hidden="true">
+          {% for index, i in icons.set %}{% if index > 16 and index < 22 %}
+            {% if i %}
+            <svg class="{{ icons.gutter }} {{ i }}" style="{{ icons.dimensions }}">
+              <use xlink:href="#{{ i }}"></use>
+            </svg>
+            {% else %}
+            <div style="{{ icons.dimensions }}">&nbsp;</div>
+            {% endif %}
+          {% endif %}{% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="color-mid-background pt-6">
+    <div class="layout--wrap mx-auto px-6 pt-6">
+      <div class="text-center">
+        <h2 class="mt-0">Read the Documentation</h2>
+      </div>
+
+      <div class="screen-mobile:layout--three-columns-gutter pb-6">
+        {% for c in card.content %}
+        <article class="{{ card.wrap }}" style="max-width:18rem">
+          <a class="{{ card.links }}" href="{{ c.link }}">
+            <header class="{{ card.img }}" aria-hidden="true">
+              <svg class="{{ c.icon }} {{ card.icon }}" style="{{ card.dimensions }}">
+                <use xlink:href="#{{ c.icon }}"></use>
+              </svg>
+            </header>
+          </a>
+
+          <h3 class="{{ card.title }}">
+            <a class="{{ card.links }}" href="{{ c.link }}">{{ c.title }}</a>
+          </h3>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="color-mid-background text-center pb-6">
+    <div class="layout--wrap mx-auto px-4 pb-6">
+      <a class="btn text-h4 font-normal p-2 px-3 color-primary-button" href="getting-started">Get Started</a>
+    </div>
+  </section>
 {% endblock %}

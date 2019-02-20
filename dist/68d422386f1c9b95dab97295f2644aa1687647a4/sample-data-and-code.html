@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
   <link rel="shortcut icon" href="/images/favicon/favicon.ico">
 
-  <title>Set Password and Token | NYC Benefits and Eligibility API</title>
+  <title>Sample Data and Code | NYC Benefits and Eligibility API</title>
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -84,70 +84,19 @@
             <section class="flex flex-col screen-desktop:flex-row flex-wrap pb-4">
         <div class="mt-4 layout--content">
           <div class="screen-desktop:pr-4 screen-desktop:pr-6">
-            <h1 class="mt-0 p-0">Set Password and Token</h1>            	<div class="o-content">
-		<p>Once you have <a href="http://eepurl.com/gfLTuH" target="_blank">requested an account</a> and received your username and temporary password, you will be able to set your password for making additional requests. This requires the use of the <code>authToken</code> endpoint which accepts a JSON payload with your username, temporary password, and new password. The new password field is not required on subsequent <code>authToken</code> requests but if populated your password will update. Below is a full example of a curl request of this method. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
-<div class="code-block"><pre>
-curl -X POST \
-  'https://eligibilityapi.cityofnewyork.us/authToken' \
-  -H 'Content-Type: application/json' \
-  -H 'cache-control: no-cache' \
-  -d '{
-    "username" : "{{ username }}",
-    "password": "{{ temporary password }}",
-    "newPassword": "{{ new password }}"
-  }'</pre></div>
-
-<h2 id="response">Response</h2>
-<p>A successful request will return a <code>token</code> in the response which means your password has been set.</p>
-<div class="code-block"><pre>
-{
-  "type": "SUCCESS",
-  "token": "{{ your new token will here }}"
-}</pre></div>
-
-<h2 id="tokens">Tokens</h2>
-<p>Once you have a token, you can use it along with your username to make requests to other endpoints. Tokens are set to expire every hour (or <code>3600</code> seconds) so you will need to keep track of the expiration to regenerate your token. Retrieving a new token can be done using the same <code>authToken</code> endpoint. All that’s needed is your username and password.</p>
-<div class="code-block"><pre>curl -X POST \
-  'https://eligibilityapi.cityofnewyork.us/authToken' \
-  -H 'Content-Type: application/json' \
-  -H 'cache-control: no-cache' \
-  -d '{
-    "username" : "{{ username }}",
-    "password": "{{ temporary password }}"
-  }'</pre></div>
-
-<h2 id="forgot-password">Forgot Password</h2>
-<p>If you forget your password, you can reset it with the <code>/forgotPassword</code> and <code>/confirmPassword</code> endpoints. Curl <code>/forgotPassword</code> to receive an email with a verification code.</p>
-<div class="code-block"><pre>curl -X POST \
-  'https://eligibilityapi.cityofnewyork.us/forgotPassword' \
-  -H 'Content-Type: application/json' \
-  -H 'cache-control: no-cache' \
-  -d '{
-    "username" : "{{ username }}",
-  }'</pre></div>
-
-<p>Then curl <code>/confirmPassword</code> with your username, verification code, and new password. You will receive the email at the address you provided to us when setting up your account.</p>
-<div class="code-block"><pre>curl -X POST \
-  'https://eligibilityapi.cityofnewyork.us/confirmPassword' \
-  -H 'Content-Type: application/json' \
-  -H 'cache-control: no-cache' \
-  -d '{
-    "username" : "{{ username }}",
-  }'</pre></div>
-
-<h2 id="summary">Summary</h2>
+            <h1 class="mt-0 p-0">Sample Data and Code</h1>            	<div class="o-content">
+		<p>Here is a list of existing repositories to help get started with the API.</p>
 <ul>
-<li><p>Contact us through <a href="mailto:eligibilityapi@nycopportunity.nyc.gov">Support</a> if you need to update your account information.</p>
+<li><p><a href="https://github.com/CityOfNewYork/eligibilityapi-library-php">Eligibility API PHP Library</a> -  A Composer Package (PHP) for interacting with the Eligibility API with practical test scripts for integrating into an application.</p>
 </li>
-<li><p>The <code>authToken</code> endpoint is used to set your new password using your username and temporary password.</p>
+<li><p><a href="https://github.com/CityOfNewYork/eligibilityapi-sample-app">Eligibility API Sample Application</a> - A single page form (JavaScript) that interacts with the <code>bulkSubmission</code> submission endpoint.</p>
 </li>
-<li><p>The <code>authToken</code> endpoint responds with a token that expires after 1 hour (<code>3600</code> seconds).</p>
-</li>
-<li><p>The <code>authToken</code> endpoint is also used to retrieve new tokens.</p>
+<li><p><a href="resources/sample_bulk_submission_import.csv">Eligibility API Sample Data</a> - Sample data for use with the <code>bulkSubmission</code> endpoint.</p>
 </li>
 </ul>
+<p>Contact us through <a href="mailto:eligibilityapi@nycopportunity.nyc.gov">Support</a> if you need additional help or have interest in sharing and listing SDKs or sample applications for this project.</p>
 <h2 id="next">Next</h2>
-<p><a href="making-a-request" title="Making a Request" class="btn color-secondary-button">Making a Request&nbsp;&nbsp;❯</a></p>
+<p><a href="feedback-and-support" title="Feedback and Support" class="btn color-secondary-button">Feedback and Support&nbsp;&nbsp;❯</a></p>
 	</div>
           </div>
         </div>
