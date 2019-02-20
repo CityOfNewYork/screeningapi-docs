@@ -1,27 +1,31 @@
-<footer class="px-3 py-6 color-dark-background screen-tablet:layout--four-columns-gutter">
+<footer class="o-footer color-dark-background screen-tablet:layout--four-columns-gutter">
+  {# {% include "../partials/nav.twig" with { 'classes': {
+    'header': 'o-footer__nav-header',
+    'link': 'o-footer__nav-link'
+    } } only %} #}
 
-  {% include "../partials/nav.twig" with { 'classes': {
-    'nav_one': '',
-    'nav_two': '',
-    'li': 'inline-block p-1 screen-tablet:block screen-tablet:px-0 screen-tablet:py-2',
-    'border': ''
-    } } only %}
+  <nav>
+    <a class="o-footer__nav-link" href="index">Overview</a>
+    <a class="o-footer__nav-link" href="getting-started">Getting Started</a>
+    <a class="o-footer__nav-link" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
+  </nav>
 
-  <div aria-hidden="true">&nbsp;</div>
+  <nav>
+    <a class="o-footer__nav-link" href="feedback-and-support">Feedback and Support</a>
+    <a class="o-footer__nav-link" href="terms-of-service">Terms of Service</a>
+  </nav>
 
-  <div class="m-0">
+  <div></div>
+
+  <div class="o-footer__info">
     <a href="http://nyc.gov/opportunity" title="{{ package.author }}">
-      <svg class="icon-logo text-base-white" aria-hidden='true' style='height:72px'>
-        <use xlink:href="#icon-logo">
+      <svg aria-hidden="true" class="icon-logo-secondary o-footer__logo text-base-white">
+        <use xlink:href="#icon-logo-secondary"></use>
       </svg>
     </a>
 
     {% markdown '../content/about-nyc-opportunity.md' %}{% endmarkdown %}
 
-    <small>
-      © City of New York, {{ 'now'|date('Y') }} All Rights Reserved.<br>
-      NYC is a trademark and service mark of the City of New York.
-    </small>
+    <small>© City of New York, {{ 'now'|date('Y') }} All Rights Reserved.<br>NYC is a trademark and service mark of the City of New York.</small>
   </div>
-
 </footer>

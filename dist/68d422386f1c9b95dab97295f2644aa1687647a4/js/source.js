@@ -10365,6 +10365,10 @@ return jQuery;
 } );
 
 },{}],2:[function(require,module,exports){
+"use strict";var classCallCheck=function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")},Utility=function t(){return classCallCheck(this,t),this};Utility.debug=function(){return"1"===Utility.getUrlParameter(Utility.PARAMS.DEBUG)},Utility.getUrlParameter=function(t,e){var i=e||window.location.search,n=t.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]"),r=new RegExp("[\\?&]"+n+"=([^&#]*)").exec(i);return null===r?"":decodeURIComponent(r[1].replace(/\+/g," "))},Utility.localize=function(t){var e=t||"",i=(window.LOCALIZED_STRINGS||[]).filter(function(e){return!(!e.hasOwnProperty("slug")||e.slug!==t)&&e});return i[0]&&i[0].hasOwnProperty("label")?i[0].label:e},Utility.validateEmail=function(t){var e=document.createElement("input");return e.type="email",e.value=t,"function"==typeof e.checkValidity?e.checkValidity():/\S+@\S+\.\S+/.test(t)},Utility.joinValues=function(t){if(t.target.matches('input[type="checkbox"]')&&t.target.closest("[data-js-join-values]")){var e=t.target.closest("[data-js-join-values]"),i=document.querySelector(e.dataset.jsJoinValues);return i.value=Array.from(e.querySelectorAll('input[type="checkbox"]')).filter(function(t){return t.value&&t.checked}).map(function(t){return t.value}).join(", "),i}},Utility.valid=function(t){t.preventDefault(),Utility.debug()&&console.dir({init:"Validation",event:t});for(var e=t.target.checkValidity(),i=t.target.querySelectorAll('input[required="true"]'),n=0;n<i.length;n++){var r=i[n],a=r.parentNode,l=a.querySelector(".error-message");a.classList.remove("error"),l&&l.remove(),r.validity.valid||(l=document.createElement("div"),r.validity.valueMissing?l.innerHTML=Utility.localize("VALID_REQUIRED"):r.validity.valid?l.innerHTML=r.validationMessage:l.innerHTML=Utility.localize("VALID_"+r.type.toUpperCase()+"_INVALID"),l.setAttribute("aria-live","polite"),l.classList.add("error-message"),a.classList.add("error"),a.insertBefore(l,a.childNodes[0]))}return Utility.debug()&&console.dir({complete:"Validation",valid:e,event:t}),e?t:e},Utility.parseMarkdown=function(){if("undefined"==typeof markdown)return!1;for(var t=document.querySelectorAll(Utility.SELECTORS.parseMarkdown),e=function(e){var i=t[e];fetch(i.dataset.jsMarkdown).then(function(t){if(t.ok)return t.text();i.innerHTML="",Utility.debug()&&console.dir(t)}).catch(function(t){Utility.debug()&&console.dir(t)}).then(function(t){try{i.classList.toggle("animated"),i.classList.toggle("fadeIn"),i.innerHTML=markdown.toHTML(t)}catch(t){}})},i=0;i<t.length;i++)e(i)},Utility.PARAMS={DEBUG:"debug"},Utility.SELECTORS={parseMarkdown:'[data-js="markdown"]'};var Icons=function t(e){return classCallCheck(this,t),e=e||t.path,fetch(e).then(function(t){if(t.ok)return t.text();Utility.debug()&&console.dir(t)}).catch(function(t){Utility.debug()&&console.dir(t)}).then(function(t){var e=document.createElement("div");e.innerHTML=t,e.setAttribute("aria-hidden",!0),e.setAttribute("style","display: none;"),document.body.appendChild(e)}),this};Icons.path="icons.svg",module.exports=Icons;
+
+
+},{}],3:[function(require,module,exports){
 "use strict";
 
 var _submission = _interopRequireDefault(require("./modules/submission.js"));
@@ -10373,8 +10377,11 @@ var _swagger = _interopRequireDefault(require("./modules/swagger.js"));
 
 var _requestFormJson = _interopRequireDefault(require("./modules/request-form-json.js"));
 
+var _Icons = _interopRequireDefault(require("nyco-patterns/dist/elements/icons/Icons.common"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+new _Icons.default();
 window.$ = window.jQuery = require('jquery');
 
 if (window.location.pathname.indexOf('endpoints') >= 0) {
@@ -10419,7 +10426,7 @@ $('[data-js="jsonToTable"]').each(function (index, el) {
   $(el.dataset.jsJsonToTableTable).html(table);
 });
 
-},{"./modules/request-form-json.js":3,"./modules/submission.js":5,"./modules/swagger.js":6,"jquery":1}],3:[function(require,module,exports){
+},{"./modules/request-form-json.js":4,"./modules/submission.js":6,"./modules/swagger.js":7,"jquery":1,"nyco-patterns/dist/elements/icons/Icons.common":2}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10649,7 +10656,7 @@ function _default() {
   }
 }
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 module.exports=[
   {
     "EMAIL": "Please enter a valid email."
@@ -10679,7 +10686,7 @@ module.exports=[
     "SUCCESS": "Thank you! Your request will be reviewed with confirmation within 1-2 business days."
   }
 ]
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10796,7 +10803,7 @@ function _default() {
   });
 }
 
-},{"./responses.json":4}],6:[function(require,module,exports){
+},{"./responses.json":5}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10833,4 +10840,4 @@ function _default() {
   });
 }
 
-},{}]},{},[2]);
+},{}]},{},[3]);
