@@ -56,6 +56,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
+    "access-nyc-patterns": "^0.1.8",
     "nyco-patterns": "^1.2.2",
     "tailwindcss": "^0.5.2"
   },

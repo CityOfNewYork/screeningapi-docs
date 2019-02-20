@@ -97,9 +97,26 @@ gulp.task('resources', function() {
 // ICONS
 gulp.task('icons', function () {
   return gulp.src([
-    'node_modules/nyco-patterns/src/svg/*.svg'
+      'src/svg/*.svg',
+      'node_modules/nyco-patterns/src/svg/*.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-cash-expenses.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-child-care.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-family-services.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-work.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-city-id-card.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-education.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-enrichment.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-food.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-health.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-housing.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-special-needs.svg'
     ])
-    .pipe(svgmin())
+    .pipe(svgmin({
+      plugins: [
+        { removeViewBox: false },
+        { removeDimensions: true }
+      ]
+    }))
     .pipe(svgstore({
       inlineSvg: true
     }))

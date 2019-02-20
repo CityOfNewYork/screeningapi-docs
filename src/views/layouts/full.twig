@@ -1,0 +1,39 @@
+{% include "../partials/head.twig" %}
+
+<body>
+  <header class="overflow-hidden color-dark-background py-2">
+    <div class="layout--wrap mx-auto px-4 flex justify-between items-center">
+      <h1 class="m-0">
+        <span class="hidden">{{ package.author }}</span>
+        <svg aria-hidden="true" class="icon-logo-nyco" style="width:96px;height:52px;">
+          <use xlink:href="#icon-logo-nyco"></use>
+        </svg>
+      </h1>
+
+      <label class="toggle-label cursor-pointer underline font-bold" for="menu">Menu</label>
+    </div>
+  </header>
+
+  <input class="toggle" id="menu" type="checkbox"/>
+  <aside class="color-mid-background p-4 text-center">
+    <div class="layout--wrap screen-tablet:layout--two-columns-gutter justify-center mx-auto">
+      <div>
+        {% include "../partials/nav.twig" with { 'classes': {
+          'header': 'block py-3 text-h4 font-normal border-b text-primary-blue-70t border-primary-blue-30t',
+          'link': 'block py-3 text-h4 font-normal'
+        } } only %}
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "../partials/footer.twig" %}
+
+  <script src="js/source.js"></script>
+  {% block scripts %}{% endblock %}
+
+</body>
+</html>
