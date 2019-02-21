@@ -10,7 +10,7 @@
         </svg>
       </h1>
 
-      <button data-js="toggle" aria-pressed="false" aria-expanded="false" aria-controls="navigation" class="cursor-pointer underline font-bold">Menu</label>
+      <button data-js="toggle" aria-pressed="false" aria-expanded="false" aria-controls="navigation" class="cursor-pointer underline font-bold">Menu</button>
     </div>
   </header>
 
@@ -33,6 +33,7 @@
 
   {% include "../partials/footer.twig" %}
 
+  <script crossorigin='anonymous' src='https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Array.prototype.forEach,Element.prototype.matches,Element.prototype.remove,fetch,Promise'></script>
   <script src="js/source.js"></script>
   {% block scripts %}{% endblock %}
 
