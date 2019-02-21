@@ -251,15 +251,9 @@ export default function() {
         !groupSeleted
       ) {
         $(this).addClass('error');
-        if($(this).attr('type') == 'radio'){
-          $(this).next().addClass('error');
-        }
         errors = true;
       } else {
         $(this).removeClass('error');
-        if($(this).attr('type') == 'radio'){
-          $(this).next().removeClass('error');
-        }
       }
 
       if( ($(this).val() == 'livingRenting') && 
@@ -268,6 +262,7 @@ export default function() {
         form.find('[name=livingRentalType]').addClass('error')
         errors = true;
       }
+
     });
 
     if($('[name=headOfHousehold]:checked').length > 1 ||

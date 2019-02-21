@@ -71,14 +71,14 @@
   <h2>Household</h2>
   <p>Enter values into the fields below for the Household Level data for the Household Composition.</p>
 
-  <label>Number of household members</label><br>
+  <label class="font-bold">Number of household members</label><br>
   <input type="number" name="members" placeholder="1" min="1" household required><br>
 
-  <label>What is the household's cash on hand?</label><br>
+  <label class="font-bold">What is the household's cash on hand?</label><br>
   <input type="number" name="cashOnHand" placeholder="0" min="0" household required>
 
   <br>
-  <label>What is the household's living situation?</label><br>
+  <label class="font-bold">What is the household's living situation?</label><br>
   <select name="livingType" household required>
     <option value="">Please make a selection</option>
     <option value="livingRenting">Renting</option>
@@ -91,7 +91,7 @@
 
   <br>
   <div class="livingRentalType hidden">
-    <label>Type of rental</label><br>
+    <label class="font-bold">Type of rental</label><br>
     <select name="livingRentalType" household>
       <option value="">Please make a selection</option>
       <option value="NYCHA">NYCHA Housing</option>
@@ -111,13 +111,21 @@
   <h2>Person</h2>
   <p>Enter values into the fields below for one individual of the Household.</p>
 
-  <label>age</label>
+  <label class="font-bold">What is this person's age?</label>
   <input type="number" name="age" placeholder="35" person required>
   <br>
 
-  <input type="checkbox" name="headOfHousehold" person><span> This person is head of the household</span><br>
+  <input type="checkbox" name="headOfHousehold" person><span class="font-bold"> This person is head of the household</span><br>
 
-  <label>This person's relationship to the head of Household</label><br>
+  <div class="deed hidden">
+    <input type="checkbox" name="livingOwnerOnDeed" person><span class="font-bold"> This person is on the deed</span><br>
+  </div>
+
+  <div class="lease hidden">
+    <input type="checkbox" name="livingRentalOnLease" person><span class="font-bold"> This person is on the lease</span><br>
+  </div>
+
+  <label class="font-bold">What is this person's relationship to the Head of Household?</label><br>
   <select name="headOfHouseholdRelation" person required>
     <option value="Self">Self</option>
     <option value="Child">Child</option>
@@ -137,15 +145,7 @@
     <option value="Other">Other</option>
   </select><br>
 
-  <div class="deed hidden">
-    <input type="checkbox" name="livingOwnerOnDeed" person><span> This person is on the deed</span><br>
-  </div>
-
-  <div class="lease hidden">
-    <input type="checkbox" name="livingRentalOnLease" person><span> This person is on the lease</span><br>
-  </div>
-
-  <label>Select all that apply for this person</label><br>
+  <label class="font-bold">Select all that apply</label><br>
   <input type="checkbox" name="student" person><span> Student</span>
   <input type="checkbox" name="studentFulltime" person><span> Student Full time</span><br>
   <input type="checkbox" name="pregnant" person><span> Pregnant</span><br>
@@ -155,14 +155,15 @@
   <input type="checkbox" name="disabled" person><span> Disabled</span><br>
   <input type="checkbox" name="veteran" person><span> Veteran</span><br>
 
-  <label>Is this person receiving any of the below benefits</label><br>
+  <label class="font-bold">Is this person receiving any of the below benefits</label><br>
   <input type="checkbox" name="benefitsMedicaid" person><span> Medicaid</span><br>
   <input type="checkbox" name="benefitsMedicaidDisability" person><span> Disability-related medicaid</span><br>
 
-  <div class="incomes">
-    <label>incomes</label>
-    <input type="text" name="amount" placeholder="200" person-incomes required>
+  <div class="incomes block">
+    <label class="font-bold">Incomes</label><br>
+    <input type="number" name="amount" placeholder="200" person-incomes required><br>
     <select name="type" person-incomes required>
+      <option value="">Please select income type</option>
       <option value="Wages">wages, salaries, tips</option>
       <option value="SelfEmployment">self-employment Income</option>
       <option value="Unemployment">unemployment benefits</option>
@@ -184,8 +185,9 @@
       <option value="Gifts">gifts/contributions (received)</option>
       <option value="Rental">rental income</option>
       <option value="Investment">investment income (interest, dividends, and profit from selling stocks)</option>
-    </select>
+    </select><br>
     <select name="frequency" person-incomes required>
+      <option value="">Please select income frequency</option>
       <option value="weekly">Every week</option>
       <option value="biweekly">Every 2 weeks</option>
       <option value="monthly">Monthly</option>
@@ -193,15 +195,16 @@
       <option value="yearly">Every year</option>
     </select>
   </div>
-  <div class="add-remove">
-    <button class="btn color-secondary-button remove-income">Remove income</button>
-    <button class="btn color-secondary-button add-income">Add income</button>
+  <div class="add-remove block">
+    <button class="btn bg-secondary-orange border-secondary-white-30t text-secondary-white-30t remove-income">Remove income</button>
+    <button class="btn bg-secondary-orange border-secondary-white-30t text-secondary-white-30t add-income">Add income</button>
   </div>
 
-  <div class="expenses">
-    <label>expenses</label>
-    <input type="text" name="amount" placeholder="50" person-expenses required>
+  <div class="expenses block">
+    <label class="font-bold">Expenses</label><br>
+    <input type="number" name="amount" placeholder="50" person-expenses required><br>
     <select name="type" person-expenses required>
+      <option value="">Please select expense type</option>
       <option value="ChildCare">Child Care</option>
       <option value="ChildSupport">Child Support</option>
       <option value="DependentCare">Dependent Care</option>
@@ -213,8 +216,9 @@
       <option value="Utilities">Utilities</option>
       <option value="Telephone">Telephone</option>
       <option value="InsurancePremiums">Third Party Insurance Premiums</option>
-    </select>
+    </select><br>
     <select name="frequency" person-expenses required>
+      <option value="">Please select expense frenquency</option>
       <option value="weekly">Every week</option>
       <option value="biweekly">Every 2 weeks</option>
       <option value="monthly">Monthly</option>
@@ -222,19 +226,21 @@
       <option value="yearly">Every year</option>
     </select>
   </div>
-  <div class="add-remove">
-    <button class="btn color-secondary-button remove-expense">Remove expense</button>
-    <button class="btn color-secondary-button add-expense">Add expense</button>
+  <div class="add-remove block">
+    <button class="btn bg-secondary-orange border-secondary-white-30t text-secondary-white-30t remove-expense">Remove expense</button>
+    <button class="btn bg-secondary-orange border-secondary-white-30t text-secondary-white-30t add-expense">Add expense</button>
   </div>
 </div>
 
-<div class="add-remove">
-  <button class="btn color-secondary-button add-person">Add Person</button>
-  <button class="btn color-secondary-button remove-person hidden">RemovePerson</button>
-</div>
+  <div class="add-remove block pt-2">
+    <button class="btn color-secondary-button add-person">Add Person</button>
+    <button class="btn color-secondary-button remove-person hidden">RemovePerson</button>
+  </div>
 
-    <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
-    <p class="error-msg text-primary-red hidden">Please resolve the errors and try again.</p>
+    <div class="block pt-2">
+      <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
+      <p class="error-msg text-primary-red hidden">Please resolve the errors and try again.</p>
+    </div>
   </form>
 
   <div class="screener-json hidden">
