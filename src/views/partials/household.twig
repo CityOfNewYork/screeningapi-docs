@@ -2,14 +2,14 @@
   <h2>Household</h2>
   <p>Enter values into the fields below for the Household Level data for the Household Composition.</p>
 
-  <label>Number of household members</label><br>
+  <label class="font-bold">Number of household members</label><br>
   <input type="number" name="members" placeholder="1" min="1" household required><br>
 
-  <label>What is the household's cash on hand?</label><br>
+  <label class="font-bold">What is the household's cash on hand?</label><br>
   <input type="number" name="cashOnHand" placeholder="0" min="0" household required>
 
   <br>
-  <label>What is the household's living situation?</label><br>
+  <label class="font-bold">What is the household's living situation?</label><br>
   <select name="livingType" household required>
     <option value="">Please make a selection</option>
     <option value="livingRenting">Renting</option>
@@ -22,7 +22,7 @@
 
   <br>
   <div class="livingRentalType hidden">
-    <label>Type of rental</label><br>
+    <label class="font-bold">Type of rental</label><br>
     <select name="livingRentalType" household>
       <option value="">Please make a selection</option>
       <option value="NYCHA">NYCHA Housing</option>
