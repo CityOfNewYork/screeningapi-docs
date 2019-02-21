@@ -19,7 +19,10 @@ var browserSync = require('browser-sync').create(),
   svgstore = require('gulp-svgstore'),
   twig = require('gulp-twig'),
   twigMarkdown = require('twig-markdown'),
-  gulpif = require('gulp-if');
+  gulpif = require('gulp-if'),
+  autoprefixer = require('autoprefixer'),
+  mqpacker = require('css-mqpacker'),
+  cssnano = require('cssnano');
 
 const NODE_ENV = process.env.NODE_ENV;
 const DIST_PROD = 'dist/68d422386f1c9b95dab97295f2644aa1687647a4/';
@@ -78,7 +81,9 @@ gulp.task('styles', gulp.series('lint-css', function () {
     }))
     .pipe(postcss([
       tailwindcss('./node_modules/nyco-patterns/config/tailwind.js'),
-      require('autoprefixer'),
+      autoprefixer(),
+      mqpacker({sort: true}),
+      cssnano()
     ]))
     .pipe(concat('style.css'))
     .pipe(gulp.dest(DIST + 'css'))
