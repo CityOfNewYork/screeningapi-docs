@@ -12,12 +12,20 @@
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135011272-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-135011272-1');
+  </script>
 </head>
 
 <body>
   <header class="o-header screen-tablet:layout--sidebar">
   <div class="o-header__banner-main color-primary-button">
-    <label class="o-header__main-toggle toggle-label" for="menu">Menu</label>
+    <button data-js="toggle" aria-pressed="false" aria-expanded="false" aria-controls="navigation" class="o-header__main-toggle cursor-pointer underline font-bold">Menu</button>
 
     <h1 class="o-header__main-title">
       <span class="hidden">The Mayor's Office for Economic Opportunity</span>
@@ -32,7 +40,7 @@
       </svg>
     </h1>
 
-    <div aria-hidden="true" class="o-header__main-version">0.0.1</div>
+    <div aria-hidden="true" class="o-header__main-version">v0.0.1</div>
   </div>
 
   <div class="o-header__banner-secondary color-dark-background">
@@ -53,16 +61,15 @@
 </header>
   <main class="screen-tablet:layout--sidebar screen-tablet:flex items-stretch m-0 p-0 min-h-screen">
     <aside class="o-navigation color-mid-background">
-  <input class="toggle screen-tablet:toggle-disable" id="menu" type="checkbox"/>
-
-  <div class="o-navigation__wrap">
+  <div class="o-navigation__wrap color-mid-background hidden screen-tablet:flex">
     <div class="o-navigation__banner color-dark-background">
       <h1 class="o-navigation__banner-title">NYC Benefits Eligibility API</h1>
     </div>
 
     <div class="o-navigation__nav">
-      <nav>
-  <a class="o-navigation__link" href="index">Overview</a>
+      <div class='o-navigation__stick' style='height: 802px'>
+        <nav>
+  <a class="o-navigation__link" href="overview">Overview</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Guide</span>
   <a class="o-navigation__link" href="getting-started">Getting Started</a>
@@ -70,7 +77,32 @@
   <a class="o-navigation__link" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
   <a class="o-navigation__link" href="making-a-request">Making a Request</a>
   <a class="o-navigation__link" href="endpoints">Endpoints</a>
-  <a class="o-navigation__link" href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
+  <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
+
+  <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
+  <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
+  <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
+  <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
+</nav>      </div>
+    </div>
+  </div>
+
+  <div id="navigation" class="o-navigation__wrap color-mid-background hidden hidden:overflowFadeInUp animated screen-tablet:hidden">
+    <div div class='o-navigation__banner color-dark-background'>
+      <h1 class='o-navigation__banner-title'>NYC Benefits Eligibility API</h1>
+    </div>
+
+    <div class='o-navigation__nav animated'>
+      <nav>
+  <a class="o-navigation__link" href="overview">Overview</a>
+
+  <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Guide</span>
+  <a class="o-navigation__link" href="getting-started">Getting Started</a>
+  <a class="o-navigation__link" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
+  <a class="o-navigation__link" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
+  <a class="o-navigation__link" href="making-a-request">Making a Request</a>
+  <a class="o-navigation__link" href="endpoints">Endpoints</a>
+  <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
@@ -84,7 +116,7 @@
             <section class="flex flex-col screen-desktop:flex-row flex-wrap pb-4">
         <div class="mt-4 layout--content">
           <div class="screen-desktop:pr-4 screen-desktop:pr-6">
-            <h1 class="mt-0 p-0">Build a Request</h1>              <h1 id="request-builder">Request Builder</h1>
+            <h1 class="mt-0 p-0">Build a Request</h1>              <h2 id="request-builder">Request Builder</h2>
 <p>Use the following form to generate a data object you can pass to the Benefits Eligibility API.</p>
 
   <form class="screener-form">
@@ -92,107 +124,63 @@
   <h2>Household</h2>
   <p>Enter values into the fields below for the Household Level data for the Household Composition.</p>
 
-  <label>Number of household members (members)</label>
-  <input type="text" name="members" placeholder="1" household required>
+  <label class="font-bold">Number of household members</label><br>
+  <input type="number" name="members" placeholder="1" min="1" household required><br>
 
-  <label>What is the household's cash on hand? (cashOnHand)</label>
-  <input type="text" name="cashOnHand" placeholder="0" household required>
+  <label class="font-bold">What is the household's cash on hand?</label><br>
+  <input type="number" name="cashOnHand" placeholder="0" min="0" household required>
 
-  <h6>What is the household's living situation?</h6>
-  <label>livingRenting</label>
-  <input type="radio" name="livingRenting" value="true" household required><span> True</span><br>
-  <input type="radio" name="livingRenting" value="false" household  required><span> False</span><br>
-  
-  <label>Type of rental (livingRentalType)</label>
-  <select name="livingRentalType" household>
-    <option value="">Please make a selection if applicable</option>
-    <option value="NYCHA">NYCHA Housing</option>
-    <option value="MarketRate">Non-Regulated or Market Rate apartment</option>
-    <option value="RentControlled">Rent controlled or rent stabilized apartment</option>
-    <option value="RentRegulatedHotel">Rent Regulated Hotel/Single Room</option>
-    <option value="Section213">Section 213 apartments</option>
-    <option value="LimitedDividendDevelopment">Limited Dividend development apartments</option>
-    <option value="MitchellLama">Mitchell-Lama apartments</option>
-    <option value="RedevelopmentCompany">Redevelopment Company apartments</option>
-    <option value="HDFC">Housing Development Fund Company (HDFC) Cooperative</option>
-    <option value="FamilyHome">Family Home</option>
-    <option value="Condo">Condo</option>
+  <br>
+  <label class="font-bold">What is the household's living situation?</label><br>
+  <select name="livingType" household required>
+    <option value="">Please make a selection</option>
+    <option value="livingRenting">Renting</option>
+    <option value="livingOwner">Owner</option>
+    <option value="livingStayingWithFriend">Staying with a friend</option>
+    <option value="livingHotel">Hotel</option>
+    <option value="livingShelter">Shelter</option>
+    <option value="livingPreferNotToSay">Prefer not to say</option>
   </select>
 
-  <label>livingOwner</label>
-  <input type="radio" name="livingOwner" value="true" household required><span> True</span><br>
-  <input type="radio" name="livingOwner" value="false" household required><span> False</span><br>
-
-  <label>
-  livingStayingWithFriend</label>
-  <input type="radio" name="livingStayingWithFriend" value="true" household required><span> True</span><br>
-  <input type="radio" name="livingStayingWithFriend" value="false" household required><span> False</span><br>
-
-  <label>livingHotel</label>
-  <input type="radio" name="livingHotel" value="true" household required><span> True</span><br>
-  <input type="radio" name="livingHotel" value="false" household required><span> False</span><br>
-
-  <label>livingShelter</label>
-  <input type="radio" name="livingShelter" value="true" household required><span> True</span><br>
-  <input type="radio" name="livingShelter" value="false" household required><span> False</span><br>
-
-  <label>livingPreferNotToSay</label>
-  <input type="radio" name="livingPreferNotToSay" value="true" household required><span> True</span><br>
-  <input type="radio" name="livingPreferNotToSay" value="false" household required><span> False</span><br>
+  <br>
+  <div class="livingRentalType hidden">
+    <label class="font-bold">Type of rental</label><br>
+    <select name="livingRentalType" household>
+      <option value="">Please make a selection</option>
+      <option value="NYCHA">NYCHA Housing</option>
+      <option value="MarketRate">Non-Regulated or Market Rate apartment</option>
+      <option value="RentControlled">Rent controlled or rent stabilized apartment</option>
+      <option value="RentRegulatedHotel">Rent Regulated Hotel/Single Room</option>
+      <option value="Section213">Section 213 apartments</option>
+      <option value="LimitedDividendDevelopment">Limited Dividend development apartments</option>
+      <option value="MitchellLama">Mitchell-Lama apartments</option>
+      <option value="RedevelopmentCompany">Redevelopment Company apartments</option>
+      <option value="HDFC">Housing Development Fund Company (HDFC) Cooperative</option>
+      <option value="FamilyHome">Family Home</option>
+      <option value="Condo">Condo</option>
+    </select>
+  </div>
 </div>    <div class="person-data">
   <h2>Person</h2>
   <p>Enter values into the fields below for one individual of the Household.</p>
 
-  <label>age</label>
-  <input type="text" name="age" placeholder="35" person required>
+  <label class="font-bold">What is this person's age?</label>
+  <input type="number" name="age" placeholder="35" person required>
+  <br>
 
-  <label>student</label>
-  <input type="radio" name="student" value="true" person required><span> True</span><br>
-  <input type="radio" name="student" value="false" person required><span> False</span><br>
+  <input type="checkbox" name="headOfHousehold" person><span class="font-bold"> This person is head of the household</span><br>
 
-  <label>studentFulltime</label>
-  <input type="radio" name="studentFulltime" value="true" person required><span> True</span><br>
-  <input type="radio" name="studentFulltime" value="false" person required><span> False</span><br>
+  <div class="deed hidden">
+    <input type="checkbox" name="livingOwnerOnDeed" person><span class="font-bold"> This person is on the deed</span><br>
+  </div>
 
-  <label>pregnant</label>
-  <input type="radio" name="pregnant" value="true" person required><span> True</span><br>
-  <input type="radio" name="pregnant" value="false" person required><span> False</span><br>
+  <div class="lease hidden">
+    <input type="checkbox" name="livingRentalOnLease" person><span class="font-bold"> This person is on the lease</span><br>
+  </div>
 
-  <label>unemployed</label>
-  <input type="radio" name="unemployed" value="true" person required><span> True</span><br>
-  <input type="radio" name="unemployed" value="false" person required><span> False</span><br>
-
-  <label>unemployedWorkedLast18Months</label>
-  <input type="radio" name="unemployedWorkedLast18Months" value="true" person required><span> True</span><br>
-  <input type="radio" name="unemployedWorkedLast18Months" value="false" person required><span> False</span><br>
-
-  <label>blind</label>
-  <input type="radio" name="blind" value="true" person required><span> True</span><br>
-  <input type="radio" name="blind" value="false" person required><span> False</span><br>
-
-  <label>disabled</label>
-  <input type="radio" name="disabled" value="true" person required><span> True</span><br>
-  <input type="radio" name="disabled" value="false" person required><span> False</span><br>
-
-  <label>veteran</label>
-  <input type="radio" name="veteran" value="true" person required><span> True</span><br>
-  <input type="radio" name="veteran" value="false" person required><span> False</span><br >
-
-  <label>benefitsMedicaid</label>
-  <input type="radio" name="benefitsMedicaid" value="true" person required><span> True</span><br>
-  <input type="radio" name="benefitsMedicaid" value="false" person required><span> False</span><br>
-
-  <label>benefitsMedicaidDisability</label>
-  <input type="radio" name="benefitsMedicaidDisability" value="true" person required><span> True</span><br>
-  <input type="radio" name="benefitsMedicaidDisability" value="false" person required><span> False</span><br>
-
-  <label>headOfHousehold</label>
-  <input type="radio" name="headOfHousehold" value="true" person required><span> True</span><br>
-  <input type="radio" name="headOfHousehold" value="false" person required><span> False</span><br>
-
-  <label>headOfHouseholdRelation</label>
-  <select name="livingRentalType" person required>
-    <option value="Self">You</option>
+  <label class="font-bold">What is this person's relationship to the Head of Household?</label><br>
+  <select name="headOfHouseholdRelation" person required>
+    <option value="Self">Self</option>
     <option value="Child">Child</option>
     <option value="FosterChild">Foster Child</option>
     <option value="StepChild">Step-child</option>
@@ -208,20 +196,27 @@
     <option value="DomesticPartner">Domestic Partner</option>
     <option value="Unrelated">Unrelated</option>
     <option value="Other">Other</option>
-  </select>
+  </select><br>
 
-  <label>livingOwnerOnDeed</label>
-  <input type="radio" name="livingOwnerOnDeed" value="true" person required><span> True</span><br>
-  <input type="radio" name="livingOwnerOnDeed" value="false" person required><span> False</span><br>
+  <label class="font-bold">Select all that apply</label><br>
+  <input type="checkbox" name="student" person><span> Student</span>
+  <input type="checkbox" name="studentFulltime" person><span> Student Full time</span><br>
+  <input type="checkbox" name="pregnant" person><span> Pregnant</span><br>
+  <input type="checkbox" name="unemployed" person><span> Unemployed</span>
+  <input type="checkbox" name="unemployedWorkedLast18Months" person><span> Unemployed last 18 months</span><br>
+  <input type="checkbox" name="blind" person><span> Blind</span><br>
+  <input type="checkbox" name="disabled" person><span> Disabled</span><br>
+  <input type="checkbox" name="veteran" person><span> Veteran</span><br>
 
-  <label>livingRentalOnLease</label>
-  <input type="radio" name="livingRentalOnLease" value="true" person required><span> True</span><br>
-  <input type="radio" name="livingRentalOnLease" value="false" person required><span> False</span><br>
+  <label class="font-bold">Is this person receiving any of the below benefits</label><br>
+  <input type="checkbox" name="benefitsMedicaid" person><span> Medicaid</span><br>
+  <input type="checkbox" name="benefitsMedicaidDisability" person><span> Disability-related medicaid</span><br>
 
-  <div class="incomes">
-    <label>incomes</label>
-    <input type="text" name="amount" placeholder="200" person-incomes required>
+  <div class="incomes block">
+    <label class="font-bold">Incomes</label><br>
+    <input type="number" name="amount" placeholder="200" person-incomes required><br>
     <select name="type" person-incomes required>
+      <option value="">Please select income type</option>
       <option value="Wages">wages, salaries, tips</option>
       <option value="SelfEmployment">self-employment Income</option>
       <option value="Unemployment">unemployment benefits</option>
@@ -243,8 +238,9 @@
       <option value="Gifts">gifts/contributions (received)</option>
       <option value="Rental">rental income</option>
       <option value="Investment">investment income (interest, dividends, and profit from selling stocks)</option>
-    </select>
+    </select><br>
     <select name="frequency" person-incomes required>
+      <option value="">Please select income frequency</option>
       <option value="weekly">Every week</option>
       <option value="biweekly">Every 2 weeks</option>
       <option value="monthly">Monthly</option>
@@ -252,15 +248,16 @@
       <option value="yearly">Every year</option>
     </select>
   </div>
-  <div class="add-remove">
-    <button class="btn color-secondary-button remove-income">Remove income</button>
-    <button class="btn color-secondary-button add-income">Add income</button>
+  <div class="add-remove block">
+    <button class="btn bg-secondary-orange border-secondary-white-30t text-secondary-white-30t remove-income">Remove income</button>
+    <button class="btn bg-secondary-orange border-secondary-white-30t text-secondary-white-30t add-income">Add income</button>
   </div>
 
-  <div class="expenses">
-    <label>expenses</label>
-    <input type="text" name="amount" placeholder="50" person-expenses required>
+  <div class="expenses block">
+    <label class="font-bold">Expenses</label><br>
+    <input type="number" name="amount" placeholder="50" person-expenses required><br>
     <select name="type" person-expenses required>
+      <option value="">Please select expense type</option>
       <option value="ChildCare">Child Care</option>
       <option value="ChildSupport">Child Support</option>
       <option value="DependentCare">Dependent Care</option>
@@ -272,8 +269,9 @@
       <option value="Utilities">Utilities</option>
       <option value="Telephone">Telephone</option>
       <option value="InsurancePremiums">Third Party Insurance Premiums</option>
-    </select>
+    </select><br>
     <select name="frequency" person-expenses required>
+      <option value="">Please select expense frenquency</option>
       <option value="weekly">Every week</option>
       <option value="biweekly">Every 2 weeks</option>
       <option value="monthly">Monthly</option>
@@ -281,24 +279,28 @@
       <option value="yearly">Every year</option>
     </select>
   </div>
-  <div class="add-remove">
-    <button class="btn color-secondary-button remove-expense">Remove expense</button>
-    <button class="btn color-secondary-button add-expense">Add expense</button>
+  <div class="add-remove block">
+    <button class="btn bg-secondary-orange border-secondary-white-30t text-secondary-white-30t remove-expense">Remove expense</button>
+    <button class="btn bg-secondary-orange border-secondary-white-30t text-secondary-white-30t add-expense">Add expense</button>
   </div>
 </div>
 
-<div class="add-remove">
-  <button class="btn color-secondary-button add-person">Add Person</button>
-  <button class="btn color-secondary-button remove-person">RemovePerson</button>
-</div>
+  <div class="add-remove block pt-2">
+    <button class="btn color-secondary-button add-person">Add Person</button>
+    <button class="btn color-secondary-button remove-person hidden">RemovePerson</button>
+  </div>
 
-    <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
+    <div class="block pt-2">
+      <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
+      <p class="error-msg text-primary-red hidden">Please resolve the errors and try again.</p>
+    </div>
   </form>
 
-  <div class="screener-json">
+  <div class="screener-json hidden">
     <button type="submit" class="btn color-primary-button generate-form">Edit Values</button>
     <button class="btn color-secondary-button copy-obj">Copy</button>
   </div>
+
 
           </div>
         </div>
@@ -306,21 +308,13 @@
           </article>
   </main>
 
-  <footer class="o-footer color-dark-background screen-tablet:layout--four-columns-gutter">
-  
-
+  <footer class="o-footer color-dark-background screen-tablet:layout--three-columns-gutter">
   <nav>
-    <a class="o-footer__nav-link" href="index">Overview</a>
+    <a class="o-footer__nav-link" href="overview">Overview</a>
     <a class="o-footer__nav-link" href="getting-started">Getting Started</a>
-    <a class="o-footer__nav-link" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
-  </nav>
-
-  <nav>
     <a class="o-footer__nav-link" href="feedback-and-support">Feedback and Support</a>
     <a class="o-footer__nav-link" href="terms-of-service">Terms of Service</a>
   </nav>
-
-  <div></div>
 
   <div class="o-footer__info">
     <a href="http://nyc.gov/opportunity" title="The Mayor's Office for Economic Opportunity">
@@ -334,6 +328,7 @@
     <small>© City of New York, 2019 All Rights Reserved.<br>NYC is a trademark and service mark of the City of New York.</small>
   </div>
 </footer>
+  <script crossorigin='anonymous' src='https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Array.prototype.forEach,Element.prototype.matches,Element.prototype.remove,fetch,Promise'></script>
   <script src="js/source.js"></script>
   
 </body>

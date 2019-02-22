@@ -12,12 +12,20 @@
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135011272-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-135011272-1');
+  </script>
 </head>
 
 <body>
   <header class="o-header screen-tablet:layout--sidebar">
   <div class="o-header__banner-main color-primary-button">
-    <label class="o-header__main-toggle toggle-label" for="menu">Menu</label>
+    <button data-js="toggle" aria-pressed="false" aria-expanded="false" aria-controls="navigation" class="o-header__main-toggle cursor-pointer underline font-bold">Menu</button>
 
     <h1 class="o-header__main-title">
       <span class="hidden">The Mayor's Office for Economic Opportunity</span>
@@ -32,7 +40,7 @@
       </svg>
     </h1>
 
-    <div aria-hidden="true" class="o-header__main-version">0.0.1</div>
+    <div aria-hidden="true" class="o-header__main-version">v0.0.1</div>
   </div>
 
   <div class="o-header__banner-secondary color-dark-background">
@@ -53,16 +61,15 @@
 </header>
   <main class="screen-tablet:layout--sidebar screen-tablet:flex items-stretch m-0 p-0 min-h-screen">
     <aside class="o-navigation color-mid-background">
-  <input class="toggle screen-tablet:toggle-disable" id="menu" type="checkbox"/>
-
-  <div class="o-navigation__wrap">
+  <div class="o-navigation__wrap color-mid-background hidden screen-tablet:flex">
     <div class="o-navigation__banner color-dark-background">
       <h1 class="o-navigation__banner-title">NYC Benefits Eligibility API</h1>
     </div>
 
     <div class="o-navigation__nav">
-      <nav>
-  <a class="o-navigation__link" href="index">Overview</a>
+      <div class='o-navigation__stick' style='height: 802px'>
+        <nav>
+  <a class="o-navigation__link" href="overview">Overview</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Guide</span>
   <a class="o-navigation__link" href="getting-started">Getting Started</a>
@@ -70,7 +77,32 @@
   <a class="o-navigation__link" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
   <a class="o-navigation__link" href="making-a-request">Making a Request</a>
   <a class="o-navigation__link" href="endpoints">Endpoints</a>
-  <a class="o-navigation__link" href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
+  <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
+
+  <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
+  <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
+  <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
+  <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
+</nav>      </div>
+    </div>
+  </div>
+
+  <div id="navigation" class="o-navigation__wrap color-mid-background hidden hidden:overflowFadeInUp animated screen-tablet:hidden">
+    <div div class='o-navigation__banner color-dark-background'>
+      <h1 class='o-navigation__banner-title'>NYC Benefits Eligibility API</h1>
+    </div>
+
+    <div class='o-navigation__nav animated'>
+      <nav>
+  <a class="o-navigation__link" href="overview">Overview</a>
+
+  <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Guide</span>
+  <a class="o-navigation__link" href="getting-started">Getting Started</a>
+  <a class="o-navigation__link" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
+  <a class="o-navigation__link" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
+  <a class="o-navigation__link" href="making-a-request">Making a Request</a>
+  <a class="o-navigation__link" href="endpoints">Endpoints</a>
+  <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
@@ -109,21 +141,13 @@
     </article>
   </main>
 
-  <footer class="o-footer color-dark-background screen-tablet:layout--four-columns-gutter">
-  
-
+  <footer class="o-footer color-dark-background screen-tablet:layout--three-columns-gutter">
   <nav>
-    <a class="o-footer__nav-link" href="index">Overview</a>
+    <a class="o-footer__nav-link" href="overview">Overview</a>
     <a class="o-footer__nav-link" href="getting-started">Getting Started</a>
-    <a class="o-footer__nav-link" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
-  </nav>
-
-  <nav>
     <a class="o-footer__nav-link" href="feedback-and-support">Feedback and Support</a>
     <a class="o-footer__nav-link" href="terms-of-service">Terms of Service</a>
   </nav>
-
-  <div></div>
 
   <div class="o-footer__info">
     <a href="http://nyc.gov/opportunity" title="The Mayor's Office for Economic Opportunity">
@@ -137,6 +161,7 @@
     <small>© City of New York, 2019 All Rights Reserved.<br>NYC is a trademark and service mark of the City of New York.</small>
   </div>
 </footer>
+  <script crossorigin='anonymous' src='https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Array.prototype.forEach,Element.prototype.matches,Element.prototype.remove,fetch,Promise'></script>
   <script src="js/source.js"></script>
   
 </body>
