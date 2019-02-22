@@ -15,32 +15,30 @@
     "icon-housing", false,
     "icon-special-needs", false
   ],
-  "gutter": "my-1",
-  "dimensions": 'width:56px;height:56px'
+  "class": "my-1 icon-7 animated fadeInUp"
 } %}
 
 {% set card = {
-  'wrap': 'text-center mx-auto',
-  'img': 'bg-base-white py-4',
-  'icon': 'text-primary-blue',
-  'dimensions': 'width:64px;height:64px',
-  'title': 'h5 p-2 pb-4 m-0',
-  'links': 'text-primary-blue',
-  'content': [
+  "wrap": "text-center mx-auto",
+  "links": "block bg-base-white hover:bg-secondary-pink-50t",
+  "img": "py-4",
+  "icon": "icon-8",
+  "title": "h5 p-2 pb-4 m-0",
+  "content": [
     {
-      'icon': 'icon-logo-mark',
-      'link': '/overview',
-      'title': 'Overview'
+      "icon": "icon-logo-mark",
+      "link": "/overview",
+      "title": "Overview"
     },
     {
-      'icon': 'icon-logo-swagger',
-      'link': 'endpoints',
-      'title': 'Endpoints'
+      "icon": "icon-logo-swagger",
+      "link": "endpoints",
+      "title": "Endpoints"
     },
     {
-      'icon': 'icon-logo-github',
-      'link': 'sample-data-and-code',
-      'title': 'Sample Data and Code'
+      "icon": "icon-logo-github",
+      "link": "sample-data-and-code",
+      "title": "Sample Data and Code"
     }
   ]
 } %}
@@ -52,11 +50,11 @@
         <div class="flex items-center justify-between" aria-hidden="true">
           {% for index, i in icons.set %}{% if index > -1 and index < 5 %}
             {% if i %}
-            <svg class="{{ icons.gutter }} {{ i }}" style="{{ icons.dimensions }}">
+            <svg class="{{ icons.class }} {{ i }}" style="animation-delay: {{ index ** 0.1 }}s">
               <use xlink:href="#{{ i }}"></use>
             </svg>
             {% else %}
-            <div style="{{ icons.dimensions }}">&nbsp;</div>
+            <div class="{{ icons.class }}">&nbsp;</div>
             {% endif %}
           {% endif %}{% endfor %}
         </div>
@@ -64,16 +62,16 @@
         <div class="flex items-center justify-between" aria-hidden="true">
           {% for index, i in icons.set %}{% if index > 4 and index < 10 %}
             {% if i %}
-            <svg class="{{ icons.gutter }} {{ i }}" style="{{ icons.dimensions }}">
+            <svg class="{{ icons.class }} {{ i }}" style="animation-delay: {{ index ** 0.1 }}s">
               <use xlink:href="#{{ i }}"></use>
             </svg>
             {% else %}
-            <div style="{{ icons.dimensions }}">&nbsp;</div>
+            <div class="{{ icons.class }}">&nbsp;</div>
             {% endif %}
           {% endif %}{% endfor %}
         </div>
 
-        <div style="max-width: 38rem" class="mx-auto pt-4 pb-2">
+        <div style="max-width: 38rem" class="mx-auto pt-4 pb-2 animated fadeInUp">
           <h1 class="screen-mobile:text-jumbo font-normal mt-0">NYC Benefits Eligibility API</h1>
           <p>
             Create modern web applications that evaluate household data against eligibility rules for 31 different City, State, and Federal benefits programs (including SNAP, Cash Assistance, WIC, HEAP, and more).
@@ -87,11 +85,11 @@
         <div class="hidden screen-mobile:flex items-center justify-between" aria-hidden="true">
           {% for index, i in icons.set %}{% if index > 11 and index < 17 %}
             {% if i %}
-            <svg class="{{ icons.gutter }} {{ i }}" style="{{ icons.dimensions }}">
+            <svg class="{{ icons.class }} {{ i }}" style="animation-delay: {{ index ** 0.1 }}s">
               <use xlink:href="#{{ i }}"></use>
             </svg>
             {% else %}
-            <div style="{{ icons.dimensions }}">&nbsp;</div>
+            <div class="{{ icons.class }}">&nbsp;</div>
             {% endif %}
           {% endif %}{% endfor %}
         </div>
@@ -99,11 +97,11 @@
         <div class="hidden screen-mobile:flex items-center justify-between" aria-hidden="true">
           {% for index, i in icons.set %}{% if index > 16 and index < 22 %}
             {% if i %}
-            <svg class="{{ icons.gutter }} {{ i }}" style="{{ icons.dimensions }}">
+            <svg class="{{ icons.class }} {{ i }}" style="animation-delay: {{ index ** 0.1 }}s">
               <use xlink:href="#{{ i }}"></use>
             </svg>
             {% else %}
-            <div style="{{ icons.dimensions }}">&nbsp;</div>
+            <div class="{{ icons.class }}">&nbsp;</div>
             {% endif %}
           {% endif %}{% endfor %}
         </div>
@@ -122,14 +120,14 @@
         <article class="{{ card.wrap }}" style="max-width:18rem">
           <a class="{{ card.links }}" href="{{ c.link }}">
             <header class="{{ card.img }}" aria-hidden="true">
-              <svg class="{{ c.icon }} {{ card.icon }}" style="{{ card.dimensions }}">
+              <svg class="{{ c.icon }} {{ card.icon }}">
                 <use xlink:href="#{{ c.icon }}"></use>
               </svg>
             </header>
           </a>
 
           <h3 class="{{ card.title }}">
-            <a class="{{ card.links }}" href="{{ c.link }}">{{ c.title }}</a>
+            <a href="{{ c.link }}">{{ c.title }}</a>
           </h3>
         </article>
         {% endfor %}

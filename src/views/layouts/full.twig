@@ -2,7 +2,7 @@
 
 <body>
   <header class="overflow-hidden color-dark-background py-2">
-    <div class="layout--wrap mx-auto px-4 flex justify-between items-center">
+    <div class="layout--wrap mx-auto px-6 flex justify-between items-center">
       <h1 class="m-0 flex">
         <span class="hidden">{{ package.author }}</span>
         <svg aria-hidden="true" class="icon-logo-nyco" style="width:96px;height:52px;">
@@ -14,13 +14,13 @@
     </div>
   </header>
 
-  <aside id="navigation" class="color-mid-background text-center hidden hidden:overflowFadeInUp animated">
+  <aside id="navigation" class="color-mid-background hidden hidden:overflowFadeInUp animated">
     <div class="p-4 animated">
       <div class="layout--wrap screen-tablet:layout--two-columns-gutter justify-center mx-auto">
         <div>
           {% include "../partials/nav.twig" with { 'classes': {
-            'header': 'block py-3 text-h4 font-normal border-b text-primary-navy border-primary-navy',
-            'link': 'block py-3 text-h4 font-normal'
+            'header': 'block p-3 text-h4 font-normal border-b text-primary-navy border-primary-navy',
+            'link': 'block p-3 text-h4 no-underline hover:bg-secondary-pink-50t'
           } } only %}
         </div>
       </div>
