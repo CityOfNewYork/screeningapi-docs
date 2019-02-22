@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
   <link rel="shortcut icon" href="/images/favicon/favicon.ico">
 
-  <title>Sample Data and Code | NYC Benefits Eligibility API</title>
+  <title>Terms of Service | NYC Benefits Eligibility API</title>
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -116,19 +116,53 @@
             <section class="flex flex-col screen-desktop:flex-row flex-wrap pb-4">
         <div class="mt-4 layout--content">
           <div class="screen-desktop:pr-4 screen-desktop:pr-6">
-            <h1 class="mt-0 p-0">Sample Data and Code</h1>            	<div class="o-content">
-		<p>Here is a list of existing repositories to help get started with the API.</p>
+            <h1 class="mt-0 p-0">Terms of Service</h1>            	<div class="o-content">
+		<h2 id="agreement-for-access-to-the-nyc-benefits-eligibility-api-eligibility-api-">Agreement for access to the NYC Benefits Eligibility API (“Eligibility API”)</h2>
+<p>The Mayor’s Office for Economic Opportunity (NYC Opportunity) provides access to the rules engine that governs ACCESS NYC’s Eligibility Screener through an application programming interface (API), the NYC Benefits Eligibility API.</p>
+<p>This API returns results of potential, but not guaranteed eligibility at the household level for 31 different City, State, and Federal benefits programs based on household data that is provided. The results of programs that the API returns may be dependent on the quality, accuracy, and completeness of the information provided regarding a New York City family’s household composition.</p>
+<p>The guidelines governing eligibility criteria for the 31 benefits programs are maintained and updated on a regular basis by NYC Opportunity in partnership with the benefit program’s administering agency. NYC Opportunity makes the effort to produce an update every quarter, but does not guarantee this. We’ll communicate information about eligibility criteria changes by email to developer accounts. You can also sign up for updates here.These guidelines are interpreted and implemented in the eligibility engine which runs on the business rules management system <a href="http://drools.org/">Drools</a>.</p>
+<p>Members of the public can obtain the human-readable eligibility guidelines in the form of the <a href="eligibility-guidelines">NYC Benefits Eligibility Master Rules Document</a>. NYC Opportunity is making the API available to developers who agree to the provisions of this access agreement and comply with its requirements.</p>
+<p>Credentials will be issued to developers who agree to the terms and conditions of this agreement by submission of the registration form.  This will enable the developer to access the sandbox NYC Benefits Eligibility API. When the developer is ready, they can request access to the Production API key.</p>
+<h2 id="terms-of-this-agreement">Terms of this Agreement</h2>
+<p>You agree to the following:</p>
+<ol>
+<li><p>You will not state or imply in any manner that your application or use of this API is endorsed by the City of New York, NYC Opportunity, or any related governmental agency. This includes the use of logos, symbols, or other intellectual property.</p>
+</li>
+<li><p>You will not state or imply that eligibility for any program is guaranteed. To enroll in a benefit, an applicant must apply through the administering agency, who will determine final eligibility upon submission of an application for a program. You may however, state that you are utilizing an API from NYC Opportunity and, through your own server, are sending household composition data information to it, and receiving results of potential eligibility based on provided information. These results do not prohibit anyone from applying for any benefits or programs on behalf of a household.</p>
+</li>
+<li><p>The API and associated benefits programs and  eligibility guidelines are maintained with the intent of serving New York City residents.</p>
+</li>
+<li><p>You will not use the API or make it available in any manner that is inaccurate, misleading, false, or unlawful.</p>
+</li>
+<li><p>You will not modify or delete any of the data. You may, however, create an application that uses some but not all of the data (i.e. an application that focuses on potential eligibility for specific benefits programs).</p>
+</li>
+<li><p>You agree to submit household composition data in the prescribed format.</p>
+</li>
+<li><p>The household composition data shared with the API will not contain identifiable information such as First or Last Names, specific Birth Dates, or Street Addresses.</p>
+</li>
+<li><p>The household composition data shared with the API can be shared with City agencies to improve access to benefits and programs. To find out more about how the City might use the data you share with the NYC Benefits Eligibility API, visit the NYC.gov <a href="https://www1.nyc.gov/home/terms-of-use.page">Terms of Use</a>, and <a href="https://www1.nyc.gov/home/privacy-policy.page">Privacy Policy</a>.</p>
+</li>
+<li><p>You accept the data and the data returned from the API “as is” and without any NYC Opportunity representation that the data is(are) merchantable, suitable or fit for a particular purpose, compatible, available, reliable, non-infringing, secure, or virus free.</p>
+</li>
+<li><p>You agree to conduct application or API testing in the sandbox.</p>
+</li>
+<li><p>You will not intentionally subject the API to malicious process or code; will take safeguards to monitor your own applications for malicious/suspicious activity and immediately terminate processes that may be affecting the API.</p>
+</li>
+<li><p>You will not attempt to make calls to the API in a manner that exceeds a reasonable request volume or that circumvents our limits on API usage.</p>
+</li>
+<li><p>Your access to and receipt of the API is entirely at your own risk. You are solely responsible for the development and use of your application, including but not limited to determining and providing within and as part of the development of your application for its design, functionality, and security features.</p>
+</li>
+<li><p>It is your responsibility to comply with all applicable laws including any laws dealing with the ability of a person with a disability to access and use your application. Even if such laws do not apply, NYC Opportunity recommends and requests that insofar as applicable and relevant, you include such accessibility and use in the development of your application.</p>
+</li>
+<li><p>NYC Opportunity reserves the right at any time for any reason or no reason and without notice, to you to:</p>
 <ul>
-<li><p><a href="https://github.com/CityOfNewYork/eligibilityapi-library-php">Eligibility API PHP Library</a> -  A Composer Package (PHP) for interacting with the Eligibility API with practical test scripts for integrating into an application.</p>
-</li>
-<li><p><a href="https://github.com/CityOfNewYork/eligibilityapi-sample-app">Eligibility API Sample Application</a> - A single page form (JavaScript) that interacts with the <code>bulkSubmission</code> submission endpoint.</p>
-</li>
-<li><p><a href="resources/sample_bulk_submission_import.csv">Eligibility API Sample Data</a> - Sample data for use with the <code>bulkSubmission</code> endpoint.</p>
-</li>
+<li>Terminate the availability of the API in any of its forms (sandbox, production, etc.)</li>
+<li>Terminate your access to the API because you have violated this agreement.</li>
+<li>Change any or all of the provisions of this access agreement, including a change which would require you to change your application or result in you not being eligible to continue to access the API.</li>
 </ul>
-<p>Contact us through <a href="mailto:eligibilityapi@nycopportunity.nyc.gov">Support</a> if you need additional help or have interest in sharing and listing SDKs or sample applications for this project.</p>
-<h2 id="next">Next</h2>
-<p><a href="feedback-and-support" title="Feedback and Support" class="btn color-secondary-button">Feedback and Support&nbsp;&nbsp;❯</a></p>
+</li>
+</ol>
+<p>NYC Opportunity will endeavor to inform you in advance of any of the above actions but has no obligation to do so.</p>
 	</div>
           </div>
         </div>
