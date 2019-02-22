@@ -10,12 +10,16 @@
     {% include 'partials/household.twig' %}
     {% include 'partials/person.twig' %}
 
-    <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
+    <div class="block pt-2">
+      <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
+      <p class="error-msg text-primary-red hidden">Please resolve the errors and try again.</p>
+    </div>
   </form>
 
-  <div class="screener-json">
+  <div class="screener-json hidden">
     <button type="submit" class="btn color-primary-button generate-form">Edit Values</button>
     <button class="btn color-secondary-button copy-obj">Copy</button>
   </div>
+
 
 {% endblock %}
