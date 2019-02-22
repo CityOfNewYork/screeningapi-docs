@@ -19,7 +19,10 @@ var browserSync = require('browser-sync').create(),
   svgstore = require('gulp-svgstore'),
   twig = require('gulp-twig'),
   twigMarkdown = require('twig-markdown'),
-  gulpif = require('gulp-if');
+  gulpif = require('gulp-if'),
+  autoprefixer = require('autoprefixer'),
+  mqpacker = require('css-mqpacker'),
+  cssnano = require('cssnano');
 
 const NODE_ENV = process.env.NODE_ENV;
 const DIST_PROD = 'dist/68d422386f1c9b95dab97295f2644aa1687647a4/';
@@ -78,7 +81,9 @@ gulp.task('styles', gulp.series('lint-css', function () {
     }))
     .pipe(postcss([
       tailwindcss('./node_modules/nyco-patterns/config/tailwind.js'),
-      require('autoprefixer'),
+      autoprefixer(),
+      mqpacker({sort: true}),
+      cssnano()
     ]))
     .pipe(concat('style.css'))
     .pipe(gulp.dest(DIST + 'css'))
@@ -97,9 +102,26 @@ gulp.task('resources', function() {
 // ICONS
 gulp.task('icons', function () {
   return gulp.src([
-    'node_modules/nyco-patterns/src/svg/*.svg'
+      'src/svg/*.svg',
+      'node_modules/nyco-patterns/src/svg/*.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-cash-expenses.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-child-care.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-family-services.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-work.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-city-id-card.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-education.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-enrichment.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-food.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-health.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-housing.svg',
+      'node_modules/access-nyc-patterns/src/svg/icon-special-needs.svg'
     ])
-    .pipe(svgmin())
+    .pipe(svgmin({
+      plugins: [
+        { removeViewBox: false },
+        { removeDimensions: true }
+      ]
+    }))
     .pipe(svgstore({
       inlineSvg: true
     }))

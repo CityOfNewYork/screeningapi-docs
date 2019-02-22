@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
   <link rel="shortcut icon" href="/images/favicon/favicon.ico">
 
-  <title>Eligibility Guidelines | NYC Benefits Eligibility API</title>
+  <title>Sample Data and Code | NYC Benefits and Eligibility API</title>
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -32,11 +32,11 @@
       </svg>
     </h1>
 
-    <div aria-hidden="true" class="o-header__main-version">0.0.1</div>
+    <div aria-hidden="true" class="o-header__main-version">v0.0.1</div>
   </div>
 
   <div class="o-header__banner-secondary color-dark-background">
-    <h1 class="o-header__secondary-title text-jumbo">NYC Benefits Eligibility API</h1>
+    <h1 class="o-header__secondary-title text-jumbo">NYC Benefits and Eligibility API</h1>
     <a href="#main-content">Skip to main content</a>
   </div>
 
@@ -57,12 +57,12 @@
 
   <div class="o-navigation__wrap">
     <div class="o-navigation__banner color-dark-background">
-      <h1 class="o-navigation__banner-title">NYC Benefits Eligibility API</h1>
+      <h1 class="o-navigation__banner-title">NYC Benefits and Eligibility API</h1>
     </div>
 
     <div class="o-navigation__nav">
       <nav>
-  <a class="o-navigation__link" href="index">Overview</a>
+  <a class="o-navigation__link" href="overview">Overview</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Guide</span>
   <a class="o-navigation__link" href="getting-started">Getting Started</a>
@@ -70,7 +70,7 @@
   <a class="o-navigation__link" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
   <a class="o-navigation__link" href="making-a-request">Making a Request</a>
   <a class="o-navigation__link" href="endpoints">Endpoints</a>
-  <a class="o-navigation__link" href="sample-code-and-sdks">Sample Data, Code, and SDKs</a>
+  <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
@@ -84,28 +84,19 @@
             <section class="flex flex-col screen-desktop:flex-row flex-wrap pb-4">
         <div class="mt-4 layout--content">
           <div class="screen-desktop:pr-4 screen-desktop:pr-6">
-            <h1 class="mt-0 p-0">Eligibility Guidelines</h1>            	<div class="o-content">
-		<p>The guidelines governing eligibility criteria for the 31 benefits programs in the API are maintained and updated on a regular basis by NYC Opportunity in partnership with the benefit program’s administering agency. These guidelines are interpreted and implemented as logic in the eligibility engine which runs on the business rules management system <a href="http://drools.org/" target="_blank">Drools</a>.</p>
-<p>It’s important for developers and end-users impacted by use of the API to understand that:</p>
+            <h1 class="mt-0 p-0">Sample Data and Code</h1>            	<div class="o-content">
+		<p>Here is a list of existing repositories to help get started with the API.</p>
 <ul>
-<li><p>The results of this API do not represent an eligibility determination and do not guarantee eligibility in any program.</p>
+<li><p><a href="https://github.com/CityOfNewYork/eligibilityapi-library-php">Eligibility API PHP Library</a> -  A Composer Package (PHP) for interacting with the Eligibility API with practical test scripts for integrating into an application.</p>
 </li>
-<li><p>Likewise, the absence of a program result for a household should not be taken as an absolute indication of the household’s ineligibility for a program.</p>
+<li><p><a href="https://github.com/CityOfNewYork/eligibilityapi-sample-app">Eligibility API Sample Application</a> - A single page form (JavaScript) that interacts with the <code>bulkSubmission</code> submission endpoint.</p>
 </li>
-<li><p>To enroll in a benefit or program, a resident will need to submit an application through the administering agency, which will determine eligibility.</p>
-</li>
-<li><p>The results of this API do not prohibit anyone from applying for any benefits or programs.</p>
+<li><p><a href="resources/sample_bulk_submission_import.csv">Eligibility API Sample Data</a> - Sample data for use with the <code>bulkSubmission</code> endpoint.</p>
 </li>
 </ul>
-<h2 id="documentation">Documentation</h2>
-<ul>
-<li><p><a href="resources/NYC_Benefits_Eligibility_Screening_Guide_1.3.0.pdf">NYC Benefits Eligibility Screening Guide 1.3.0 (February, 2019)</a> - This guide summarizes the eligibility criteria that is interpreted and implemented in the NYC Benefits Eligibility API.</p>
-</li>
-<li><p><a href="resources/NYC_Benefits_Eligibility_Screening_Chart_1.3.0.pdf">NYC Benefits Eligibility Screening Chart 1.3.0 (February, 2019)</a> - This chart summarizes how individual request parameters map to the potential eligibility response for benefits programs.</p>
-</li>
-</ul>
+<p>Contact us through <a href="mailto:eligibilityapi@nycopportunity.nyc.gov">Support</a> if you need additional help or have interest in sharing and listing SDKs or sample applications for this project.</p>
 <h2 id="next">Next</h2>
-<p><a href="making-a-request" title="Making a Request" class="btn color-secondary-button">Making a Request&nbsp;&nbsp;❯</a></p>
+<p><a href="feedback-and-support" title="Feedback and Support" class="btn color-secondary-button">Feedback and Support&nbsp;&nbsp;❯</a></p>
 	</div>
           </div>
         </div>
@@ -113,21 +104,13 @@
           </article>
   </main>
 
-  <footer class="o-footer color-dark-background screen-tablet:layout--four-columns-gutter">
-  
-
+  <footer class="o-footer color-dark-background screen-tablet:layout--three-columns-gutter">
   <nav>
-    <a class="o-footer__nav-link" href="index">Overview</a>
+    <a class="o-footer__nav-link" href="overview">Overview</a>
     <a class="o-footer__nav-link" href="getting-started">Getting Started</a>
-    <a class="o-footer__nav-link" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
-  </nav>
-
-  <nav>
     <a class="o-footer__nav-link" href="feedback-and-support">Feedback and Support</a>
     <a class="o-footer__nav-link" href="terms-of-service">Terms of Service</a>
   </nav>
-
-  <div></div>
 
   <div class="o-footer__info">
     <a href="http://nyc.gov/opportunity" title="The Mayor's Office for Economic Opportunity">
