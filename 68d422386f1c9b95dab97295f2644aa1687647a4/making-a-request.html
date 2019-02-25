@@ -114,11 +114,10 @@
 
     <article id="main-content" class="color-light-background py-2 px-4 screen-desktop:px-6">
       <section>
-	<div class="flex flex-col screen-desktop:flex-row flex-wrap">
-		<div class="mt-4 layout--content">
-			<div class="screen-desktop:pr-4 screen-desktop:pr-6">
-				<h1 class="mt-0 p-0">Making a Request</h1>				<div class="o-content">
-					<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="http://eepurl.com/gfLTuH" target="_blank">account is created</a>. Getting a token is described in <a href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>. The <code>Content-Type</code> header is also required and its value may vary, refer to the <a href="endpoints">Endpoints</a> documentation for details. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
+	<div class="layout--content pt-4">
+		<div class="screen-desktop:pr-4 screen-desktop:pr-6">
+			<h1 class="mt-0 p-0">Making a Request</h1>			<div class="o-content">
+				<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="http://eepurl.com/gfLTuH" target="_blank">account is created</a>. Getting a token is described in <a href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>. The <code>Content-Type</code> header is also required and its value may vary, refer to the <a href="endpoints">Endpoints</a> documentation for details. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
 <div class="code-block"><pre>
 curl -X POST \
   'https://eligibilityapi.cityofnewyork.us/{{ endpoint }}' \
@@ -163,7 +162,6 @@ curl -X POST \
 ]</pre></div>
 
 <p>Below is the schema for each type. For a detailed description of how to structure the data for each endpoint, please refer to the <a href="endpoints">endpoint documentation</a>.</p>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -817,11 +815,10 @@ curl -X POST \
 		</div>
 	</div>
 
-	<div class="flex flex-col screen-desktop:flex-row flex-wrap pb-4">
-		<div class="mt-4 layout--content">
-			<div class="screen-desktop:pr-4 screen-desktop:pr-6">
-				<div class="o-content">
-					<h2 id="response-program-codes-">Response (Program Codes)</h2>
+	<div class="layout--content mt-4 pb-4">
+		<div class="screen-desktop:pr-4 screen-desktop:pr-6">
+			<div class="o-content">
+				<h2 id="response-program-codes-">Response (Program Codes)</h2>
 <p>Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the <a href="endpoints">endpoint documentation</a>.</p>
 <table>
 <thead>
@@ -868,7 +865,6 @@ parameters filled out possible for the most accurate eligibility evaluation.</p>
 </ul>
 <h2 id="next">Next</h2>
 <p><a href="endpoints" title="Endpoints" class="btn color-secondary-button">Endpoints&nbsp;&nbsp;❯</a></p>
-				</div>
 			</div>
 		</div>
 	</div>
