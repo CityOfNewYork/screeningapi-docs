@@ -1,6 +1,9 @@
-
 .o-content {
   display: block;
+
+  .code-block {
+    margin-bottom: 1.25em;
+  }
 
   p code {
     @include inline-code();
