@@ -55,18 +55,6 @@
   },
   {
     "name": "",
-    "description": "Family Home.",
-    "dataAttribute": "",
-    "possibleValue": "<em class='text-secondary-grey'>FamilyHome</em>"
-  },
-  {
-    "name": "",
-    "description": "NYCHA Housing.",
-    "dataAttribute": "",
-    "possibleValue": "<em class='text-secondary-grey'>NYCHA</em>"
-  },
-  {
-    "name": "",
     "description": "NYCHA Housing.",
     "dataAttribute": "",
     "possibleValue": "<em class='text-secondary-grey'>NYCHA</em>"

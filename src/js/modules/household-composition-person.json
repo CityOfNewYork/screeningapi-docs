@@ -12,13 +12,6 @@
     "possibleValue": "<b class='text-primary-blue'>Integer</b>"
   },
   {
-    "name": "<b class='whitespace-no-wrap'>Age</b>",
-    "description": "The age of the person.",
-    "dataAttribute": "<code class='font-bold text-h5'>age</code>",
-    "possibleValue": "<b class='text-primary-blue'>Integer</b>"
-  },
-
-  {
     "name": "<b class='whitespace-no-wrap'>Student</b>",
     "description": "Whether the person is a student or not.",
     "dataAttribute": "<code class='font-bold text-h5'>student</code>",
