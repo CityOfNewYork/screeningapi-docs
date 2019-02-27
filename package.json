@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "access-nyc-patterns": "^0.1.8",
-    "nyco-patterns": "^1.3.5",
+    "nyco-patterns": "^1.4.0",
     "tailwindcss": "^0.5.2"
   },
   "stylelint": {
