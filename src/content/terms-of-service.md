@@ -1,6 +1,6 @@
-## Agreement for access to the NYC Benefits Eligibility API (“Eligibility API”)
+## Agreement for access to the NYC Benefits Screening API (“Eligibility API”)
 
-The Mayor’s Office for Economic Opportunity (NYC Opportunity) provides access to the rules engine that governs ACCESS NYC’s Eligibility Screener through an application programming interface (API), the NYC Benefits Eligibility API.
+The Mayor’s Office for Economic Opportunity (NYC Opportunity) provides access to the rules engine that governs ACCESS NYC’s Eligibility Screener through an application programming interface (API), the NYC Benefits Screening API.
 
 This API returns results of potential, but not guaranteed eligibility at the household level for 31 different City, State, and Federal benefits programs based on household data that is provided. The results of programs that the API returns may be dependent on the quality, accuracy, and completeness of the information provided regarding a New York City family’s household composition.
 
@@ -8,7 +8,7 @@ The guidelines governing eligibility criteria for the 31 benefits programs are m
 
 Members of the public can obtain the human-readable eligibility guidelines in the form of the [NYC Benefits Eligibility Master Rules Document](eligibility-guidelines). NYC Opportunity is making the API available to developers who agree to the provisions of this access agreement and comply with its requirements.
 
-Credentials will be issued to developers who agree to the terms and conditions of this agreement by submission of the registration form.  This will enable the developer to access the sandbox NYC Benefits Eligibility API. When the developer is ready, they can request access to the Production API key.
+Credentials will be issued to developers who agree to the terms and conditions of this agreement by submission of the registration form.  This will enable the developer to access the sandbox NYC Benefits Screening API. When the developer is ready, they can request access to the Production API key.
 
 ## Terms of this Agreement
 
@@ -22,7 +22,7 @@ You agree to the following:
 5. You will not modify or delete any of the data. You may, however, create an application that uses some but not all of the data (i.e. an application that focuses on potential eligibility for specific benefits programs).
 6. You agree to submit household composition data in the prescribed format.
 7. The household composition data shared with the API will not contain identifiable information such as First or Last Names, specific Birth Dates, or Street Addresses.
-8. The household composition data shared with the API can be shared with City agencies to improve access to benefits and programs. To find out more about how the City might use the data you share with the NYC Benefits Eligibility API, visit the NYC.gov [Terms of Use](https://www1.nyc.gov/home/terms-of-use.page), and [Privacy Policy](https://www1.nyc.gov/home/privacy-policy.page).
+8. The household composition data shared with the API can be shared with City agencies to improve access to benefits and programs. To find out more about how the City might use the data you share with the NYC Benefits Screening API, visit the NYC.gov [Terms of Use](https://www1.nyc.gov/home/terms-of-use.page), and [Privacy Policy](https://www1.nyc.gov/home/privacy-policy.page).
 9. You accept the data and the data returned from the API “as is” and without any NYC Opportunity representation that the data is(are) merchantable, suitable or fit for a particular purpose, compatible, available, reliable, non-infringing, secure, or virus free.
 10. You agree to conduct application or API testing in the sandbox.
 11. You will not intentionally subject the API to malicious process or code; will take safeguards to monitor your own applications for malicious/suspicious activity and immediately terminate processes that may be affecting the API.

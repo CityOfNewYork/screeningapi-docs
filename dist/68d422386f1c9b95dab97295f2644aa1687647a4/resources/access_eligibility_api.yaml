@@ -684,7 +684,7 @@ paths:
                                           and a decimal. Characteristic will be
                                           min 1 and max 7 in length, and mantissa
                                           will be min 1 and max 2
-                                        example: '5000.00'
+                                        example: '50000.00'
                                       livingRentalType:
                                         type: string
                                         maxLength: 64
@@ -697,23 +697,29 @@ paths:
                                           HDFC, FamilyHome, Condo
                                         example: NYCHA
                                       livingRenting:
+                                        example: true
                                         type: boolean
                                         description: House or apartment on rent
                                       livingOwner:
+                                        example: false
                                         type: boolean
                                         description: >-
                                           Household member owns the home or
                                           apartment
                                       livingStayingWithFriend:
+                                        example: false
                                         type: boolean
                                         description: Staying with a friend
                                       livingHotel:
+                                        example: false
                                         type: boolean
                                         description: Staying in a hotel
                                       livingShelter:
+                                        example: false
                                         type: boolean
                                         description: Staying in a shelter or homeless
                                       livingPreferNotToSay:
+                                        example: false
                                         type: boolean
                                         description: Prefer not to say
                       - type: object
@@ -738,38 +744,49 @@ paths:
                                           Supports numeric
                                         example: 20
                                       student:
+                                        example: false
                                         type: boolean
                                         description: Student
                                       studentFulltime:
+                                        example: false
                                         type: boolean
                                         description: Full time student
                                       pregnant:
+                                        example: false
                                         type: boolean
                                         description: Pregnant
                                       unemployed:
+                                        example: false
                                         type: boolean
                                         description: Unemployed
                                       unemployedWorkedLast18Months:
+                                        example: false
                                         type: boolean
                                         description: Worked in last 18 months
                                       blind:
+                                        example: false
                                         type: boolean
                                         description: Blind or visually impaired
                                       disabled:
+                                        example: false
                                         type: boolean
                                         description: Disabilities
                                       veteran:
+                                        example: true
                                         type: boolean
                                         description: >-
                                           Served in U.S. Armed Forces, National
                                           Guard or Reserves
                                       benefitsMedicaid:
+                                        example: false
                                         type: boolean
                                         description: Medicaid
                                       benefitsMedicaidDisability:
+                                        example: false
                                         type: boolean
                                         description: Disability related medicaid
                                       headOfHousehold:
+                                        example: true
                                         type: boolean
                                         description: >-
                                           Head of the household. There should be
@@ -790,9 +807,11 @@ paths:
                                           Unrelated, Other
                                         example: ''
                                       livingOwnerOnDeed:
+                                        example: false
                                         type: boolean
                                         description: Is the person the owner?
                                       livingRentalOnLease:
+                                        example: true
                                         type: boolean
                                         description: Is the person on the lease?
                                       incomes:
@@ -813,7 +832,7 @@ paths:
                                                 decimal. Characteristic will be min 0
                                                 and max 6 in length. Mantissa will be
                                                 min 1 and max 2
-                                              example: '2000.00'
+                                              example: '200.00'
                                             frequency:
                                               type: string
                                               maxLength: 16
@@ -825,7 +844,7 @@ paths:
                                             type:
                                               type: string
                                               maxLength: 32
-                                              example: Wages
+                                              example: Veteran
                                               description: >-
                                                 Income source. Supported values - Wages,
                                                 SelfEmployment, Unemployment,
@@ -853,7 +872,7 @@ paths:
                                                 decimal. Characteristic will be min 0
                                                 and max 6 in length. Mantissa will be
                                                 min 1 and max 2
-                                              example: '300.00'
+                                              example: '50'
                                             frequency:
                                               type: string
                                               maxLength: 16
@@ -861,7 +880,7 @@ paths:
                                                 How often does the user have the
                                                 expense? Supported values - weekly,
                                                 biweekly, monthly, semimonthly, yearly
-                                              example: monthly
+                                              example: weekly
                                             type:
                                               type: string
                                               maxLength: 32
@@ -871,7 +890,7 @@ paths:
                                                 Rent, Medical, Heating, Cooling,
                                                 Mortgage, Utilities, Telephone,
                                                 InsurancePremiums
-                                              example: Rent
+                                              example: Medical
       responses:
         '200':
           description: Success Response

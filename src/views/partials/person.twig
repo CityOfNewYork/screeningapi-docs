@@ -2,22 +2,26 @@
   <h2>Person</h2>
   <p>Enter values into the fields below for one individual of the Household.</p>
 
-  <label class="font-bold">What is this person's age?</label>
-  <input type="number" name="age" placeholder="35" person required>
-  <br>
+  <div class="input-number">
+    <label class="font-bold">What is this person's age?</label>
+    <input type="number" name="age" placeholder="35" person required>
+  </div>
+  
+  <label class="checkbox">
+    <input type="checkbox" name="headOfHousehold" person>
+    <span class="checkbox__label font-bold"> This person is head of the household</span><br>
+  </label>
 
-  <input type="checkbox" name="headOfHousehold" person><span class="font-bold"> This person is head of the household</span><br>
-
-  <div class="deed hidden">
+  <label class="checkbox deed hidden">
     <input type="checkbox" name="livingOwnerOnDeed" person><span class="font-bold"> This person is on the deed</span><br>
-  </div>
+  </label>
 
-  <div class="lease hidden">
+  <label class="checkbox lease hidden">
     <input type="checkbox" name="livingRentalOnLease" person><span class="font-bold"> This person is on the lease</span><br>
-  </div>
+  </label>
 
   <label class="font-bold">What is this person's relationship to the Head of Household?</label><br>
-  <select name="headOfHouseholdRelation" person required>
+  <select name="headOfHouseholdRelation" class="select" person required>
     <option value="Self">Self</option>
     <option value="Child">Child</option>
     <option value="FosterChild">Foster Child</option>
@@ -36,6 +40,7 @@
     <option value="Other">Other</option>
   </select><br>
 
+  <div class="checkbox">
   <label class="font-bold">Select all that apply</label><br>
   <input type="checkbox" name="student" person><span> Student</span>
   <input type="checkbox" name="studentFulltime" person><span> Student Full time</span><br>
@@ -45,22 +50,28 @@
   <input type="checkbox" name="blind" person><span> Blind</span><br>
   <input type="checkbox" name="disabled" person><span> Disabled</span><br>
   <input type="checkbox" name="veteran" person><span> Veteran</span><br>
+  </div>
 
-  <label class="font-bold">Is this person receiving any of the below benefits</label><br>
-  <input type="checkbox" name="benefitsMedicaid" person><span> Medicaid</span><br>
-  <input type="checkbox" name="benefitsMedicaidDisability" person><span> Disability-related medicaid</span><br>
+  <div class="checkbox">
+    <label class="font-bold">Is this person receiving any of the below benefits</label><br>
+    <input type="checkbox" name="benefitsMedicaid" person><span> Medicaid</span><br>
+    <input type="checkbox" name="benefitsMedicaidDisability" person><span> Disability-related medicaid</span><br>
+  </div>
 
   <div class="incomes block">
-    <label class="font-bold">Incomes</label><br>
-    <input type="number" name="amount" placeholder="200" person-incomes required><br>
-    <select name="type" person-incomes required>
+    <div class="input-number">
+      <label class="font-bold">Incomes</label><br>
+      <input type="number" name="amount" placeholder="200" person-incomes required>
+    </div>
+    
+    <select name="type" class="select" person-incomes required>
       <option value="">Please select income type</option>
-      <option value="Wages">wages, salaries, tips</option>
-      <option value="SelfEmployment">self-employment Income</option>
-      <option value="Unemployment">unemployment benefits</option>
+      <option value="Wages">Wages, salaries, tips</option>
+      <option value="SelfEmployment">Self-employment Income</option>
+      <option value="Unemployment">Unemployment benefits</option>
       <option value="CashAssistance">Cash Assistance grant</option>
       <option value="ChildSupport">Child Support</option>
-      <option value="DisabilityMedicaid">disability-related Medicaid</option>
+      <option value="DisabilityMedicaid">Disability-related Medicaid</option>
       <option value="SSI">Supplemental Security Income (SSI)</option>
       <option value="SSDependent">Social Security Dependent Benefits</option>
       <option value="SSDisability">Social Security Disability Benefits</option>
@@ -71,13 +82,13 @@
       <option value="Pension">Government or Private Pension</option>
       <option value="DeferredComp">Withdrawals from Deferred Compensation (IRA, Keogh, etc.)</option>
       <option value="WorkersComp">Worker\'s Compensation</option>
-      <option value="Alimony">alimony (received)</option>
-      <option value="Boarder">boarder or lodger</option>
-      <option value="Gifts">gifts/contributions (received)</option>
-      <option value="Rental">rental income</option>
-      <option value="Investment">investment income (interest, dividends, and profit from selling stocks)</option>
+      <option value="Alimony">Alimony (received)</option>
+      <option value="Boarder">Boarder or lodger</option>
+      <option value="Gifts">Gifts/contributions (received)</option>
+      <option value="Rental">Rental income</option>
+      <option value="Investment">Investment income (interest, dividends, and profit from selling stocks)</option>
     </select><br>
-    <select name="frequency" person-incomes required>
+    <select name="frequency" class="select" person-incomes required>
       <option value="">Please select income frequency</option>
       <option value="weekly">Every week</option>
       <option value="biweekly">Every 2 weeks</option>
@@ -87,14 +98,17 @@
     </select>
   </div>
   <div class="add-remove block">
-    <button class="btn bg-secondary-orange border-secondary-white-30t text-secondary-white-30t remove-income">Remove income</button>
+    <button class="btn bg-secondary-pink border-secondary-white-30t text-secondary-white-30t remove-income">Remove income</button>
     <button class="btn bg-secondary-orange border-secondary-white-30t text-secondary-white-30t add-income">Add income</button>
   </div>
 
   <div class="expenses block">
-    <label class="font-bold">Expenses</label><br>
-    <input type="number" name="amount" placeholder="50" person-expenses required><br>
-    <select name="type" person-expenses required>
+    <div class="input-number">
+      <label class="font-bold">Expenses</label><br>
+      <input type="number" name="amount" placeholder="50" person-expenses required>
+    </div>
+    
+    <select name="type" class="select" person-expenses required>
       <option value="">Please select expense type</option>
       <option value="ChildCare">Child Care</option>
       <option value="ChildSupport">Child Support</option>
@@ -108,7 +122,7 @@
       <option value="Telephone">Telephone</option>
       <option value="InsurancePremiums">Third Party Insurance Premiums</option>
     </select><br>
-    <select name="frequency" person-expenses required>
+    <select name="frequency" class="select" person-expenses required>
       <option value="">Please select expense frenquency</option>
       <option value="weekly">Every week</option>
       <option value="biweekly">Every 2 weeks</option>
@@ -118,12 +132,12 @@
     </select>
   </div>
   <div class="add-remove block">
-    <button class="btn bg-secondary-orange border-secondary-white-30t text-secondary-white-30t remove-expense">Remove expense</button>
+    <button class="btn bg-secondary-pink border-secondary-white-30t text-secondary-white-30t remove-expense">Remove expense</button>
     <button class="btn bg-secondary-orange border-secondary-white-30t text-secondary-white-30t add-expense">Add expense</button>
   </div>
 </div>
 
   <div class="add-remove block pt-2">
+    <button class="btn color-secondary-button bg-secondary-pink remove-person hidden">Remove Person</button>
     <button class="btn color-secondary-button add-person">Add Person</button>
-    <button class="btn color-secondary-button remove-person hidden">RemovePerson</button>
   </div>
