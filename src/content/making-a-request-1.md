@@ -5,7 +5,6 @@ curl -X POST \
   'https://eligibilityapi.cityofnewyork.us/{{ endpoint }}' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
-  -H 'x-api-key: {{ api-key }}' \
   -H 'Authorization: {{ token }}' \
   -d '{{ request body }}'</pre></div>
 
@@ -16,7 +15,6 @@ Here is a full list of headers required for each request.
 | Header | Value |
 |--------|-------|
 | <code class="whitespace-no-wrap h5">Content-Type</code>  | Set according to endpoint |
-| <code class="whitespace-no-wrap h5">x-api-key</code>     | Your api key. |
 | <code class="whitespace-no-wrap h5">Authorization</code> | A valid token retrieved via the <code class='code'>authToken</code> endpoint. |
 
 ## Testing

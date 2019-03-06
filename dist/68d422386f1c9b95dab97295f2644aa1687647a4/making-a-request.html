@@ -92,7 +92,6 @@ curl -X POST \
   'https://eligibilityapi.cityofnewyork.us/{{ endpoint }}' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
-  -H 'x-api-key: {{ api-key }}' \
   -H 'Authorization: {{ token }}' \
   -d '{{ request body }}'</pre></div>
 
@@ -108,10 +107,6 @@ curl -X POST \
 <tbody><tr>
 <td><code class="whitespace-no-wrap h5">Content-Type</code></td>
 <td>Set according to endpoint</td>
-</tr>
-<tr>
-<td><code class="whitespace-no-wrap h5">x-api-key</code></td>
-<td>Your api key.</td>
 </tr>
 <tr>
 <td><code class="whitespace-no-wrap h5">Authorization</code></td>

@@ -620,13 +620,6 @@ paths:
           schema:
             type: string
         - in: header
-          name: x-api-key
-          description: |
-            API key from initial email
-          schema:
-            type: string
-          required: true
-        - in: header
           name: Authorization
           description: |
             Auth token generated with /authToken endpoint
@@ -1105,13 +1098,6 @@ paths:
             Program codes should always be passed in upper case.
           schema:
             type: string
-        - in: header
-          name: x-api-key
-          description: |
-            API key from initial email
-          schema:
-            type: string
-          required: true
         - in: header
           name: Authorization
           description: |
