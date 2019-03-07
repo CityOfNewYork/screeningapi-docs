@@ -17,7 +17,7 @@ Usernames cannot be changed.
 * You will need to set your developer and production passwords.
 Keep your username and temporary password to set your password.
 
-* Contact us through [Support](mailto:eligibilityapi@nycopportunity.nyc.gov) if you need to update your account information.
+* Contact us through [Support](mailto:screeningapi@nycopportunity.nyc.gov) if you need to update your account information.
 
 ## Next
 

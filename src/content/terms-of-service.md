@@ -1,4 +1,4 @@
-## Agreement for access to the NYC Benefits Screening API (“Eligibility API”)
+## Agreement for access to the NYC Benefits Screening API (“Screening API”)
 
 The Mayor’s Office for Economic Opportunity (NYC Opportunity) provides access to the rules engine that governs ACCESS NYC’s Eligibility Screener through an application programming interface (API), the NYC Benefits Screening API.
 

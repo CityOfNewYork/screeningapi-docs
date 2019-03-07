@@ -14,7 +14,7 @@ When household data is sent to the Screening API, it will return a JSON response
 
 * Inform and better targeting for your benefits outreach campaigns (ex: direct marketing mailers and emails, case worker outreach)
 
-* For City Agencies, NYC Opportunity can provide access to the API through data sharing CSVs instead of technical integration.  [Contact us](mailto:eligibilityapi@nycopportunity.nyc.gov) for more information.
+* For City Agencies, NYC Opportunity can provide access to the API through data sharing CSVs instead of technical integration.  [Contact us](mailto:screeningapi@nycopportunity.nyc.gov) for more information.
 
 More information about NYC Opportunity’s products can be found on [nyc.gov/opportunity](http://nyc.gov/opportunity). This site provides documentation on how to use the API. For direct support, contact us following the guide on the Feedback and Support page.
 

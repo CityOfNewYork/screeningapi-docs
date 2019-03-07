@@ -12,7 +12,7 @@ It’s important for developers and end-users impacted by use of the API to unde
 
 ## Documentation
 
-* [NYC Benefits Eligibility Screening Guide 1.3.0 (February, 2019)](resources/NYC_Benefits_Eligibility_Screening_Guide_1.3.0.pdf) - This guide summarizes the eligibility criteria that is interpreted and implemented in the NYC Benefits Eligibility API.
+* [NYC Benefits Eligibility Screening Guide 1.3.0 (February, 2019)](resources/NYC_Benefits_Eligibility_Screening_Guide_1.3.0.pdf) - This guide summarizes the eligibility criteria that is interpreted and implemented in the NYC Benefits Screening API.
 
 * [NYC Benefits Eligibility Screening Chart 1.3.0 (February, 2019)](resources/NYC_Benefits_Eligibility_Screening_Chart_1.3.0.pdf) - This chart summarizes how individual request parameters map to the potential eligibility response for benefits programs.
 
