@@ -10,7 +10,7 @@ The guidelines governing eligibility criteria for the 31 benefits programs are m
 
 ## How to Access the NYC Benefits Screening API
 
-NYC Opportunity makes the NYC Benefits Screening API available to users who agree to the provisions of these Terms and comply with its requirements. You can obtain credentials to access the NYC Benefits Screening API by completing the registration form, found [here](https://cityofnewyork.us18.list-manage.com/subscribe?u=d04b7b607bddbd338b416fa89&id=9a9b43598c). Developers with such credentials will be able to access the sandbox, NYC Benefits Screening API. When the developer is ready, access can be requested to the Production API key. Members of the public can obtain the human-readable eligibility guidelines in the form of [The NYC Benefits Screening Master Rules Document](resources/NYC_Benefits_Eligibility_Screening_Chart_1.3.0.pdf).
+NYC Opportunity makes the NYC Benefits Screening API available to users who agree to the provisions of these Terms and comply with its requirements. You can obtain credentials to access the NYC Benefits Screening API by completing the registration form, found [here](http://eepurl.com/gfLTuH). Developers with such credentials will be able to access the sandbox, NYC Benefits Screening API. When the developer is ready, access can be requested to the Production API key. Members of the public can obtain the human-readable eligibility guidelines in the form of [The NYC Benefits Screening Master Rules Document](resources/NYC_Benefits_Eligibility_Screening_Chart_1.3.0.pdf).
 
 ## Your Use of the NYC Benefits Screening API
 

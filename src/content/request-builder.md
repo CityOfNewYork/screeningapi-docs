@@ -1,1 +1,1 @@
-Use the following form to generate a data object you can pass to the NYC Benefits Screening API.
+Use the following form to generate a JSON object you can pass to the `/eligibilityPrograms` endpoint of the NYC Benefits Screening API.
