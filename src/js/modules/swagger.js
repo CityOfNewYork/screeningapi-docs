@@ -21,6 +21,10 @@ export default function() {
     generateCurl(this);
   })
 
+  $('body').on('keyup', '[class^=body-param__text]', function(event){
+    generateCurl(this);
+  })
+
   $('body').on('change', '[type^=file]', function(event){
     generateCurl(this);
   })
