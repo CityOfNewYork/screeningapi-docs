@@ -10390,14 +10390,18 @@ return jQuery;
 } );
 
 },{}],3:[function(require,module,exports){
-"use strict";var classCallCheck=function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")},Utility=function t(){return classCallCheck(this,t),this};Utility.debug=function(){return"1"===Utility.getUrlParameter(Utility.PARAMS.DEBUG)},Utility.getUrlParameter=function(t,e){var n=e||window.location.search,i=t.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]"),r=new RegExp("[\\?&]"+i+"=([^&#]*)").exec(n);return null===r?"":decodeURIComponent(r[1].replace(/\+/g," "))},Utility.localize=function(t){var e=t||"",n=(window.LOCALIZED_STRINGS||[]).filter(function(e){return!(!e.hasOwnProperty("slug")||e.slug!==t)&&e});return n[0]&&n[0].hasOwnProperty("label")?n[0].label:e},Utility.parseMarkdown=function(){if("undefined"==typeof markdown)return!1;for(var t=document.querySelectorAll(Utility.SELECTORS.parseMarkdown),e=function(e){var n=t[e];fetch(n.dataset.jsMarkdown).then(function(t){if(t.ok)return t.text();n.innerHTML="",Utility.debug()&&console.dir(t)}).catch(function(t){Utility.debug()&&console.dir(t)}).then(function(t){try{n.classList.toggle("animated"),n.classList.toggle("fadeIn"),n.innerHTML=markdown.toHTML(t)}catch(t){}})},n=0;n<t.length;n++)e(n)},Utility.PARAMS={DEBUG:"debug"},Utility.SELECTORS={parseMarkdown:'[data-js="markdown"]'};var Icons=function t(e){return classCallCheck(this,t),e=e||t.path,fetch(e).then(function(t){if(t.ok)return t.text();Utility.debug()&&console.dir(t)}).catch(function(t){Utility.debug()&&console.dir(t)}).then(function(t){var e=document.createElement("div");e.innerHTML=t,e.setAttribute("aria-hidden",!0),e.setAttribute("style","display: none;"),document.body.appendChild(e)}),this};Icons.path="icons.svg",module.exports=Icons;
+"use strict";var classCallCheck=function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")},Utility=function t(){return classCallCheck(this,t),this};Utility.debug=function(){return"1"===Utility.getUrlParameter(Utility.PARAMS.DEBUG)},Utility.getUrlParameter=function(t,e){var n=e||window.location.search,i=t.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]"),r=new RegExp("[\\?&]"+i+"=([^&#]*)").exec(n);return null===r?"":decodeURIComponent(r[1].replace(/\+/g," "))},Utility.localize=function(t){var e=t||"",n=(window.LOCALIZED_STRINGS||[]).filter(function(e){return!(!e.hasOwnProperty("slug")||e.slug!==t)&&e});return n[0]&&n[0].hasOwnProperty("label")?n[0].label:e},Utility.PARAMS={DEBUG:"debug"},Utility.SELECTORS={parseMarkdown:'[data-js="markdown"]'};var Icons=function t(e){return classCallCheck(this,t),e=e||t.path,fetch(e).then(function(t){if(t.ok)return t.text();Utility.debug()&&console.dir(t)}).catch(function(t){Utility.debug()&&console.dir(t)}).then(function(t){var e=document.createElement("div");e.innerHTML=t,e.setAttribute("aria-hidden",!0),e.setAttribute("style","display: none;"),document.body.appendChild(e)}),this};Icons.path="icons.svg",module.exports=Icons;
 
 
 },{}],4:[function(require,module,exports){
-"use strict";var classCallCheck=function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")},createClass=function(){function e(e,t){for(var s=0;s<t.length;s++){var a=t[s];a.enumerable=a.enumerable||!1,a.configurable=!0,"value"in a&&(a.writable=!0),Object.defineProperty(e,a.key,a)}}return function(t,s,a){return s&&e(t.prototype,s),a&&e(t,a),t}}(),Toggle=function(){function e(t){return classCallCheck(this,e),t=t||{},this._settings={selector:t.selector?t.selector:e.selector,namespace:t.namespace?t.namespace:e.namespace,inactiveClass:t.inactiveClass?t.inactiveClass:e.inactiveClass,activeClass:t.activeClass?t.activeClass:e.activeClass},this}return createClass(e,[{key:"init",value:function(){var e=this;return document.querySelector("body").addEventListener("click",function(t){t.target.matches(e._settings.selector)&&(t.preventDefault(),e._toggle(t))}),this}},{key:"_toggle",value:function(e){var t=this,s=e.target,a=!1;if(a=s.getAttribute("href")?document.querySelector(s.getAttribute("href")):a,!(a=s.getAttribute("aria-controls")?document.querySelector("#"+s.getAttribute("aria-controls")):a))return this;if(this.elementToggle(s,a),s.dataset[this._settings.namespace+"Undo"]){var i=document.querySelector(s.dataset[this._settings.namespace+"Undo"]);i.addEventListener("click",function(e){e.preventDefault(),t.elementToggle(s,a),i.removeEventListener("click")})}return this}},{key:"elementToggle",value:function(t,s){""!==this._settings.activeClass&&(t.classList.toggle(this._settings.activeClass),s.classList.toggle(this._settings.activeClass)),""!==this._settings.inactiveClass&&s.classList.toggle(this._settings.inactiveClass);for(var a=0;a<e.elAriaRoles.length;a++)t.getAttribute(e.elAriaRoles[a])&&t.setAttribute(e.elAriaRoles[a],!("true"===t.getAttribute(e.elAriaRoles[a])));for(var i=0;i<e.targetAriaRoles.length;i++)s.getAttribute(e.targetAriaRoles[i])&&s.setAttribute(e.targetAriaRoles[i],!("true"===s.getAttribute(e.targetAriaRoles[i])));return t.getAttribute("href")&&s.classList.contains(this._settings.activeClass)&&(window.location.hash="",window.location.hash=t.getAttribute("href")),this}}]),e}();Toggle.selector='[data-js="toggle"]',Toggle.namespace="toggle",Toggle.inactiveClass="hidden",Toggle.activeClass="active",Toggle.elAriaRoles=["aria-pressed","aria-expanded"],Toggle.targetAriaRoles=["aria-hidden"],module.exports=Toggle;
+"use strict";var classCallCheck=function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")},createClass=function(){function e(e,t){for(var s=0;s<t.length;s++){var a=t[s];a.enumerable=a.enumerable||!1,a.configurable=!0,"value"in a&&(a.writable=!0),Object.defineProperty(e,a.key,a)}}return function(t,s,a){return s&&e(t.prototype,s),a&&e(t,a),t}}(),Toggle=function(){function e(t){var s=this;classCallCheck(this,e);var a=document.querySelector("body");return t=t||{},this._settings={selector:t.selector?t.selector:e.selector,namespace:t.namespace?t.namespace:e.namespace,inactiveClass:t.inactiveClass?t.inactiveClass:e.inactiveClass,activeClass:t.activeClass?t.activeClass:e.activeClass},a.addEventListener("click",function(e){e.target.matches(s._settings.selector)&&(e.preventDefault(),s._toggle(e))}),this}return createClass(e,[{key:"_toggle",value:function(e){var t=this,s=e.target,a=!1;if(a=s.getAttribute("href")?document.querySelector(s.getAttribute("href")):a,!(a=s.getAttribute("aria-controls")?document.querySelector("#"+s.getAttribute("aria-controls")):a))return this;if(this.elementToggle(s,a),s.dataset[this._settings.namespace+"Undo"]){var i=document.querySelector(s.dataset[this._settings.namespace+"Undo"]);i.addEventListener("click",function(e){e.preventDefault(),t.elementToggle(s,a),i.removeEventListener("click")})}return this}},{key:"elementToggle",value:function(t,s){""!==this._settings.activeClass&&(t.classList.toggle(this._settings.activeClass),s.classList.toggle(this._settings.activeClass)),""!==this._settings.inactiveClass&&s.classList.toggle(this._settings.inactiveClass);for(var a=0;a<e.elAriaRoles.length;a++)t.getAttribute(e.elAriaRoles[a])&&t.setAttribute(e.elAriaRoles[a],!("true"===t.getAttribute(e.elAriaRoles[a])));for(var i=0;i<e.targetAriaRoles.length;i++)s.getAttribute(e.targetAriaRoles[i])&&s.setAttribute(e.targetAriaRoles[i],!("true"===s.getAttribute(e.targetAriaRoles[i])));return t.getAttribute("href")&&s.classList.contains(this._settings.activeClass)&&(window.location.hash="",window.location.hash=t.getAttribute("href")),this}}]),e}();Toggle.selector='[data-js*="toggle"]',Toggle.namespace="toggle",Toggle.inactiveClass="hidden",Toggle.activeClass="active",Toggle.elAriaRoles=["aria-pressed","aria-expanded"],Toggle.targetAriaRoles=["aria-hidden"],module.exports=Toggle;
 
 
 },{}],5:[function(require,module,exports){
+"use strict";var classCallCheck=function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")},createClass=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),Utility=function e(){return classCallCheck(this,e),this};Utility.debug=function(){return"1"===Utility.getUrlParameter(Utility.PARAMS.DEBUG)},Utility.getUrlParameter=function(e,t){var r=t||window.location.search,n=e.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]"),a=new RegExp("[\\?&]"+n+"=([^&#]*)").exec(r);return null===a?"":decodeURIComponent(a[1].replace(/\+/g," "))},Utility.localize=function(e){var t=e||"",r=(window.LOCALIZED_STRINGS||[]).filter(function(t){return!(!t.hasOwnProperty("slug")||t.slug!==e)&&t});return r[0]&&r[0].hasOwnProperty("label")?r[0].label:t},Utility.PARAMS={DEBUG:"debug"},Utility.SELECTORS={parseMarkdown:'[data-js="markdown"]'};var Track=function(){function e(t){var r=this;classCallCheck(this,e);var n=document.querySelector("body");return t=t||{},this._settings={selector:t.selector?t.selector:e.selector},n.addEventListener("click",function(e){if(e.target.matches(r._settings.selector)){var t=e.target.dataset.trackKey,n=JSON.parse(e.target.dataset.trackData);r.click(t,n)}}),this}return createClass(e,[{key:"click",value:function(t,r){var n=r.map(function(t){return t.hasOwnProperty(e.key)&&(t[e.key]=window.location.pathname+"/"+t[e.key]),t}),a=this.webtrends(t,n),i=this.gtag(t,n);return Utility.debug()&&console.dir({Track:[a,i]}),n}},{key:"view",value:function(e,t,r){var n=this.webtrends(t,r),a=this.gtagView(e,t);Utility.debug()&&console.dir({Track:[n,a]})}},{key:"webtrends",value:function(t,r){var n=[{"WT.ti":t}];r[0]&&r[0].hasOwnProperty(e.key)?n.push({"DCS.dcsuri":r[0][e.key]}):Object.assign(n,r);var a={argsa:n.flatMap(function(e){return Object.keys(e).flatMap(function(t){return[t,e[t]]})})};return"undefined"!=typeof Webtrends&&Webtrends.multiTrack(a),["Webtrends",a]}},{key:"gtag",value:function(e){function t(t,r){return e.apply(this,arguments)}return t.toString=function(){return e.toString()},t}(function(t,r){var n=r.find(function(t){return t.hasOwnProperty(e.key)}),a={event_category:t};return"undefined"!=typeof gtag&&gtag(e.key,n[e.key],a),["gtag",e.key,n[e.key],a]})},{key:"gtagView",value:function(t,r){var n={app_name:t,screen_name:r};return"undefined"!=typeof gtag&&gtag("event","screen_view",n),["gtag",e.key,"screen_view",n]}}]),e}();Track.selector='[data-js*="track"]',Track.key="event",module.exports=Track;
+
+
+},{}],6:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -10583,14 +10587,14 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -11180,7 +11184,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":6,"_process":5,"inherits":1}],8:[function(require,module,exports){
+},{"./support/isBuffer":7,"_process":6,"inherits":1}],9:[function(require,module,exports){
 "use strict";
 
 var _submission = _interopRequireDefault(require("./modules/submission.js"));
@@ -11191,12 +11195,15 @@ var _requestFormJson = _interopRequireDefault(require("./modules/request-form-js
 
 var _Icons = _interopRequireDefault(require("nyco-patterns/dist/elements/icons/Icons.common"));
 
-var _toggle = _interopRequireDefault(require("nyco-patterns/dist/utilities/toggle/toggle.common"));
+var _Toggle = _interopRequireDefault(require("nyco-patterns/dist/utilities/toggle/Toggle.common"));
+
+var _Track = _interopRequireDefault(require("nyco-patterns/dist/utilities/track/Track.common"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 new _Icons.default('svg/icons.svg');
-new _toggle.default().init();
+new _Toggle.default();
+new _Track.default();
 window.$ = window.jQuery = require('jquery');
 
 if (window.location.pathname.indexOf('endpoints') >= 0) {
@@ -11241,7 +11248,7 @@ $('[data-js="jsonToTable"]').each(function (index, el) {
   $(el.dataset.jsJsonToTableTable).html(table);
 });
 
-},{"./modules/request-form-json.js":9,"./modules/submission.js":11,"./modules/swagger.js":12,"jquery":2,"nyco-patterns/dist/elements/icons/Icons.common":3,"nyco-patterns/dist/utilities/toggle/toggle.common":4}],9:[function(require,module,exports){
+},{"./modules/request-form-json.js":10,"./modules/submission.js":12,"./modules/swagger.js":13,"jquery":2,"nyco-patterns/dist/elements/icons/Icons.common":3,"nyco-patterns/dist/utilities/toggle/Toggle.common":4,"nyco-patterns/dist/utilities/track/Track.common":5}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11522,7 +11529,7 @@ function _default() {
   }
 }
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports=[
   {
     "EMAIL": "Please enter a valid email."
@@ -11552,7 +11559,7 @@ module.exports=[
     "SUCCESS": "Thank you! Your request will be reviewed with confirmation within 1-2 business days."
   }
 ]
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11669,7 +11676,7 @@ function _default() {
   });
 }
 
-},{"./responses.json":10}],12:[function(require,module,exports){
+},{"./responses.json":11}],13:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11739,4 +11746,4 @@ function _default() {
   }
 }
 
-},{"util":7}]},{},[8]);
+},{"util":8}]},{},[9]);

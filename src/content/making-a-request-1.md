@@ -33,4 +33,4 @@ The request for each endpoint should contain certain datum pertinent to the hous
   <em>… additional Persons …</em>
 ]</pre></div>
 
-Below is the schema for each type. For a detailed description of how to structure the data for each endpoint, please refer to the [endpoint documentation](endpoints).
+Below is the schema for each type. For a detailed description of how to structure the data for each endpoint, please refer to the [endpoint documentation](endpoints). To generate a valid JSON payload (for the `/eligibilityPrograms` endpoint), you can use the [Request Builder](request-builder).

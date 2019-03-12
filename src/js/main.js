@@ -2,10 +2,12 @@ import requestForm from './modules/submission.js'
 import swagger from './modules/swagger.js'
 import requestFormJSON from './modules/request-form-json.js'
 import Icons from 'nyco-patterns/dist/elements/icons/Icons.common'
-import Toggle from 'nyco-patterns/dist/utilities/toggle/toggle.common'
+import Toggle from 'nyco-patterns/dist/utilities/toggle/Toggle.common'
+import Track from 'nyco-patterns/dist/utilities/track/Track.common'
 
 new Icons('svg/icons.svg');
-new Toggle().init();
+new Toggle();
+new Track();
 
 window.$ = window.jQuery = require('jquery');
 
