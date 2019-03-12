@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
   <link rel="shortcut icon" href="/images/favicon/favicon.ico">
 
-  <title>NYC Benefits Eligibility API</title>
+  <title>NYC Benefits Screening API</title>
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -44,7 +44,7 @@
   </div>
 
   <div class="o-header__banner-secondary color-dark-background">
-    <h1 class="o-header__secondary-title text-jumbo">NYC Benefits Eligibility API</h1>
+    <h1 class="o-header__secondary-title text-jumbo">NYC Benefits Screening API</h1>
     <a href="#main-content">Skip to main content</a>
   </div>
 
@@ -63,7 +63,7 @@
     <aside class="o-navigation color-mid-background">
   <div class="o-navigation__wrap color-mid-background hidden screen-tablet:flex">
     <div class="o-navigation__banner color-dark-background">
-      <h1 class="o-navigation__banner-title">NYC Benefits Eligibility API</h1>
+      <h1 class="o-navigation__banner-title">NYC Benefits Screening API</h1>
     </div>
 
     <div class="o-navigation__nav">
@@ -80,6 +80,7 @@
   <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
+  <a class="o-navigation__link" href="request-builder">Request Builder</a>
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
   <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
   <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
@@ -89,7 +90,7 @@
 
   <div id="navigation" class="o-navigation__wrap color-mid-background hidden hidden:overflowFadeInUp animated screen-tablet:hidden">
     <div div class='o-navigation__banner color-dark-background'>
-      <h1 class='o-navigation__banner-title'>NYC Benefits Eligibility API</h1>
+      <h1 class='o-navigation__banner-title'>NYC Benefits Screening API</h1>
     </div>
 
     <div class='o-navigation__nav animated'>
@@ -105,6 +106,7 @@
   <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
+  <a class="o-navigation__link" href="request-builder">Request Builder</a>
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
   <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
   <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
@@ -116,26 +118,19 @@
             <section class="layout--content py-4">
         <div class="screen-desktop:pr-4 screen-desktop:pr-6">
           <h1 class="mt-0 p-0">Overview</h1>            <div class="o-content">
-    <p>The NYC Benefits Eligibility Application Programing Interface (API) allows you to utilize the engine that governs <a href="https://access.nyc.gov/eligibility/">ACCESS NYC’s Eligibility Screener</a>. This web service allows developers to create modern web applications that evaluate household data (i.e. information about a household’s income, expenses, housing situation, etc.) against eligibility rules for 31 different City, State, and Federal benefits programs. It is built around policies of security, privacy, and reliable service following REST principles.</p>
-<p>When household data is sent to the Eligibility API, it will return a JSON response that contains program names and codes. The program codes can be used to cross-reference additional content from the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Program’s Open API</a>. These are the same tools that <a href="http://nyc.gov/accessnyc">ACCESS NYC</a> and <a href="http://nyc.gov/growingupnyc">Growing Up NYC</a> use to provide content and eligibility information for health and human services.   Now, eligibility rules collected and maintained by the <a href="http://nyc.gov/opportunity">Mayor’s Office for Economic Opportunity</a><sup>1</sup> can be used with program content (including the most recent applications, eligibility requirements, and application dates) by the public.</p>
-<p><strong>Benefits of integration with the NYC Benefits Eligibility API:</strong></p>
+    <p>The NYC Benefits Screening Application Programing Interface (the “NYC Benefits Screening API” or “Screening API”) allows you to utilize the rules engine that governs <a href="https://access.nyc.gov/eligibility/">ACCESS NYC’s Eligibility Screener</a>. This web service allows developers to create web applications that evaluate household data (e.g., household income, household expenses, housing situation, etc.) against eligibility rules for 31 different City, State, and Federal benefits programs. The NYC Benefits Screening API is built around policies of security, privacy, and reliable service in accordance with Representational State Transfer (REST) principles, which defines a set of constraints for creating Web Services.</p>
+<p>When household data is sent to the Screening API, it will return a response (JSON) that contains program names and codes. These program codes can be used to cross-reference additional content from the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Program’s Open API</a>. These are the same tools that <a href="http://nyc.gov/accessnyc">ACCESS NYC</a> and <a href="http://nyc.gov/growingupnyc">Growing Up NYC</a> use to provide content and eligibility information for health and human services.   With the NYC Benefits Screening API, the eligibility rules collected and maintained by the <a href="http://nyc.gov/opportunity">Mayor’s Office for Economic Opportunity</a> can be used with program content (including the most recent applications, eligibility requirements, and application dates) by members of the public. </p>
+<p><strong>Benefits of integrating data using the NYC Benefits Screening API:</strong></p>
 <ul>
-<li><p>Potential eligibility for 31 City, State, and Federal programs (including SNAP, Cash Assistance, WIC, HEAP, and more)</p>
+<li><p>Assesses potential eligibility for 31 City, State, and Federal programs (including SNAP, Cash Assistance, WIC, HEAP, and more) against criteria maintained by NYC Opportunity and participating governmental agencies</p>
 </li>
-<li><p>Eligibility criteria maintained by NYC Opportunity and participating governmental agencies</p>
+<li><p>Provides a holistic view of  clients’ potential eligibility for various benefits and suggests appropriate benefits programs </p>
+</li>
+<li><p>Informs and better targets benefits outreach efforts by assessing potential eligibility for specific benefits programs based on existing client data (including through direct outreach mailers and emails, caseworker outreach) </p>
 </li>
 </ul>
-<p><strong>How you can use the API:</strong></p>
-<ul>
-<li><p>Provide a holistic view of your clients’ potential eligibility and suggest appropriate benefits programs for their situation.</p>
-</li>
-<li><p>Inform and better targeting for your benefits outreach campaigns (ex: direct marketing mailers and emails, case worker outreach)</p>
-</li>
-<li><p>For City Agencies, NYC Opportunity can provide access to the API through data sharing CSVs instead of technical integration.  <a href="mailto:eligibilityapi@nycopportunity.nyc.gov">Contact us</a> for more information.</p>
-</li>
-</ul>
-<p>More information about NYC Opportunity’s products can be found on <a href="http://nyc.gov/opportunity">nyc.gov/opportunity</a>. This site provides documentation on how to use the API. For direct support, contact us following the guide on the Feedback and Support page.</p>
-<p><small><sup>1</sup>The NYC Benefits Eligibility API is intended to be used as a tool to screen for a household’s potential eligibility for a given program. It is not a guarantee that the household will be found eligible for all or any programs. See <a href="eligibility-guidelines">Eligibility Guidelines</a> for more details.</small></p>
+<p>This site provides documentation on how to use the Benefits Screening API. For direct support, contact us following the guide on our Feedback and Support page. For City agencies, NYC Opportunity can also provide access to the API through a simple file format used to store tabular data, such as Comma Separated Values (CSV), instead of technical integration. <a href="mailto:screeningapi@nycopportunity.nyc.gov">Contact us</a> for more information about the Benefits Screening API. Additional information about NYC Opportunity’s products can be found on <a href="http://nyc.gov/opportunity">nyc.gov/opportunity</a>.</p>
+<p>All use of the NYC Benefits Screening API is governed by the <a href="terms-of-service">Terms of Service for the NYC Benefits Screening API</a>, the NYC.gov <a href="https://www1.nyc.gov/home/terms-of-use.page">Terms of Use</a>, and NYC.gov <a href="https://www1.nyc.gov/home/privacy-policy.page">Privacy Policy</a>.</p>
 <h2 id="next">Next</h2>
 <p><a href="getting-started" title="Getting Started" class="btn color-secondary-button">Getting Started&nbsp;&nbsp;❯</a></p>
   </div>
