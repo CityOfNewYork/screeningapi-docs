@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
   <link rel="shortcut icon" href="/images/favicon/favicon.ico">
 
-  <title>Making a Request | NYC Benefits Eligibility API</title>
+  <title>Making a Request | NYC Benefits Screening API</title>
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -44,7 +44,7 @@
   </div>
 
   <div class="o-header__banner-secondary color-dark-background">
-    <h1 class="o-header__secondary-title text-jumbo">NYC Benefits Eligibility API</h1>
+    <h1 class="o-header__secondary-title text-jumbo">NYC Benefits Screening API</h1>
     <a href="#main-content">Skip to main content</a>
   </div>
 
@@ -63,7 +63,7 @@
     <aside class="o-navigation color-mid-background">
   <div class="o-navigation__wrap color-mid-background hidden screen-tablet:flex">
     <div class="o-navigation__banner color-dark-background">
-      <h1 class="o-navigation__banner-title">NYC Benefits Eligibility API</h1>
+      <h1 class="o-navigation__banner-title">NYC Benefits Screening API</h1>
     </div>
 
     <div class="o-navigation__nav">
@@ -80,6 +80,7 @@
   <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
+  <a class="o-navigation__link" href="request-builder">Request Builder</a>
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
   <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
   <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
@@ -89,7 +90,7 @@
 
   <div id="navigation" class="o-navigation__wrap color-mid-background hidden hidden:overflowFadeInUp animated screen-tablet:hidden">
     <div div class='o-navigation__banner color-dark-background'>
-      <h1 class='o-navigation__banner-title'>NYC Benefits Eligibility API</h1>
+      <h1 class='o-navigation__banner-title'>NYC Benefits Screening API</h1>
     </div>
 
     <div class='o-navigation__nav animated'>
@@ -105,6 +106,7 @@
   <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
+  <a class="o-navigation__link" href="request-builder">Request Builder</a>
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
   <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
   <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
@@ -117,13 +119,12 @@
 	<div class="layout--content pt-4">
 		<div class="screen-desktop:pr-4 screen-desktop:pr-6">
 			<h1 class="mt-0 p-0">Making a Request</h1>			<div class="o-content">
-				<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your api key and token are required for all requests. Your api key is sent to you when your <a href="http://eepurl.com/gfLTuH" target="_blank">account is created</a>. Getting a token is described in <a href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>. The <code>Content-Type</code> header is also required and its value may vary, refer to the <a href="endpoints">Endpoints</a> documentation for details. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
+				<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your token is required for all requests. Getting a token is described in <a href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>. The <code>Content-Type</code> header is also required and its value may vary. Refer to the <a href="endpoints">Endpoints</a> documentation for details. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
 <div class="code-block"><pre>
 curl -X POST \
-  'https://eligibilityapi.cityofnewyork.us/{{ endpoint }}' \
+  'https://screeningapi.cityofnewyork.us/{{ endpoint }}' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
-  -H 'x-api-key: {{ api-key }}' \
   -H 'Authorization: {{ token }}' \
   -d '{{ request body }}'</pre></div>
 
@@ -141,10 +142,6 @@ curl -X POST \
 <td>Set according to endpoint</td>
 </tr>
 <tr>
-<td><code class="whitespace-no-wrap h5">x-api-key</code></td>
-<td>Your api key.</td>
-</tr>
-<tr>
 <td><code class="whitespace-no-wrap h5">Authorization</code></td>
 <td>A valid token retrieved via the <code class='code'>authToken</code> endpoint.</td>
 </tr>
@@ -152,7 +149,7 @@ curl -X POST \
 <h2 id="testing">Testing</h2>
 <p>Please note, there are two domains for sending requests, one for testing and one for production level applications. Please use the appropriate domain during testing and application development, as well as the production domain for production level applications.</p>
 <h2 id="request-body-household-composition-data-">Request Body (Household Composition Data)</h2>
-<p>The request for each endpoint should contain certain datum pertinent to the household of the client for which eligibility is being evaluated. We refer to this as <strong>Household Composition Data</strong>. The entire dataset is made up of two distinct types: <strong>Household</strong> and <strong>Person(s)</strong>. Each type has different attributes that must be filled out as completely as possible for the most accurate eligibility evaluation. There can only be one type of <strong>Household</strong> and there can be more than one <strong>Person</strong> associated with each household.</p>
+<p>The request for each endpoint should contain certain datum pertinent to the household of the client for which eligibility is being screened. We refer to this as <strong>Household Composition Data</strong>. The entire dataset is made up of two distinct types: <strong>Household</strong> and <strong>Person(s)</strong>. Each type has different attributes that must be filled out as completely as possible for the most accurate eligibility screening. There can only be one type of <strong>Household</strong> and there can be more than one <strong>Person</strong> associated with each household.</p>
 <div class="code-block"><pre>
 [
   {{ Household }},
@@ -161,7 +158,7 @@ curl -X POST \
   <em>… additional Persons …</em>
 ]</pre></div>
 
-<p>Below is the schema for each type. For a detailed description of how to structure the data for each endpoint, please refer to the <a href="endpoints">endpoint documentation</a>.</p>
+<p>Below is the schema for each type. For a detailed description of how to structure the data for each endpoint, please refer to the <a href="endpoints">endpoint documentation</a>. To generate a valid JSON payload (for the <code>/eligibilityPrograms</code> endpoint), you can use the <a href="request-builder">Request Builder</a>.</p>
 			</div>
 		</div>
 	</div>
@@ -832,7 +829,7 @@ curl -X POST \
 <p>See the full list on the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> page.</p>
 <h2 id="summary">Summary</h2>
 <ul>
-<li><p>Your api key and a valid token is required for making a request.</p>
+<li><p>Your token is required for making a request.</p>
 </li>
 <li><p>Use the testing domain for sample requests and development and the production domain for production level applications.</p>
 </li>

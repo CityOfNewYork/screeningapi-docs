@@ -1,8 +1,8 @@
 {
   "name": "eligibilityapi-docs",
   "version": "0.0.1",
-  "title": "NYC Benefits Eligibility API",
-  "description": "Documentation for the NYC Benefits Eligibility API https://eligibilityapidocs.cityofnewyork.us/",
+  "title": "NYC Benefits Screening API",
+  "description": "Documentation for the NYC Benefits Screening API https://eligibilityapidocs.cityofnewyork.us/",
   "author": "The Mayor's Office for Economic Opportunity",
   "license": "GPL-3.0",
   "main": "npm run dev",

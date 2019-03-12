@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
   <link rel="shortcut icon" href="/images/favicon/favicon.ico">
 
-  <title>Terms of Service | NYC Benefits Eligibility API</title>
+  <title>Terms of Service | NYC Benefits Screening API</title>
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -44,7 +44,7 @@
   </div>
 
   <div class="o-header__banner-secondary color-dark-background">
-    <h1 class="o-header__secondary-title text-jumbo">NYC Benefits Eligibility API</h1>
+    <h1 class="o-header__secondary-title text-jumbo">NYC Benefits Screening API</h1>
     <a href="#main-content">Skip to main content</a>
   </div>
 
@@ -63,7 +63,7 @@
     <aside class="o-navigation color-mid-background">
   <div class="o-navigation__wrap color-mid-background hidden screen-tablet:flex">
     <div class="o-navigation__banner color-dark-background">
-      <h1 class="o-navigation__banner-title">NYC Benefits Eligibility API</h1>
+      <h1 class="o-navigation__banner-title">NYC Benefits Screening API</h1>
     </div>
 
     <div class="o-navigation__nav">
@@ -80,6 +80,7 @@
   <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
+  <a class="o-navigation__link" href="request-builder">Request Builder</a>
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
   <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
   <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
@@ -89,7 +90,7 @@
 
   <div id="navigation" class="o-navigation__wrap color-mid-background hidden hidden:overflowFadeInUp animated screen-tablet:hidden">
     <div div class='o-navigation__banner color-dark-background'>
-      <h1 class='o-navigation__banner-title'>NYC Benefits Eligibility API</h1>
+      <h1 class='o-navigation__banner-title'>NYC Benefits Screening API</h1>
     </div>
 
     <div class='o-navigation__nav animated'>
@@ -105,6 +106,7 @@
   <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
+  <a class="o-navigation__link" href="request-builder">Request Builder</a>
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
   <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
   <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
@@ -116,52 +118,65 @@
             <section class="layout--content py-4">
         <div class="screen-desktop:pr-4 screen-desktop:pr-6">
           <h1 class="mt-0 p-0">Terms of Service</h1>          	<div class="o-content">
-		<h2 id="agreement-for-access-to-the-nyc-benefits-eligibility-api-eligibility-api-">Agreement for access to the NYC Benefits Eligibility API (“Eligibility API”)</h2>
-<p>The Mayor’s Office for Economic Opportunity (NYC Opportunity) provides access to the rules engine that governs ACCESS NYC’s Eligibility Screener through an application programming interface (API), the NYC Benefits Eligibility API.</p>
-<p>This API returns results of potential, but not guaranteed eligibility at the household level for 31 different City, State, and Federal benefits programs based on household data that is provided. The results of programs that the API returns may be dependent on the quality, accuracy, and completeness of the information provided regarding a New York City family’s household composition.</p>
-<p>The guidelines governing eligibility criteria for the 31 benefits programs are maintained and updated on a regular basis by NYC Opportunity in partnership with the benefit program’s administering agency. NYC Opportunity makes the effort to produce an update every quarter, but does not guarantee this. We’ll communicate information about eligibility criteria changes by email to developer accounts. You can also sign up for updates here.These guidelines are interpreted and implemented in the eligibility engine which runs on the business rules management system <a href="http://drools.org/">Drools</a>.</p>
-<p>Members of the public can obtain the human-readable eligibility guidelines in the form of the <a href="eligibility-guidelines">NYC Benefits Eligibility Master Rules Document</a>. NYC Opportunity is making the API available to developers who agree to the provisions of this access agreement and comply with its requirements.</p>
-<p>Credentials will be issued to developers who agree to the terms and conditions of this agreement by submission of the registration form.  This will enable the developer to access the sandbox NYC Benefits Eligibility API. When the developer is ready, they can request access to the Production API key.</p>
-<h2 id="terms-of-this-agreement">Terms of this Agreement</h2>
-<p>You agree to the following:</p>
+		<p>This Terms of Service, the NYC.gov Terms of Use, and the NYC.gov Privacy Policy (collectively the “Terms”) govern your use of the NYC Benefits Screening API. Please read this information carefully. By signing up for, completing the registration process, or using the NYC Benefits Screening API, you represent that you have read, understand, and agree to these Terms. </p>
+<h2 id="about-the-nyc-benefits-screening-api">About the NYC Benefits Screening API</h2>
+<p>The Mayor’s Office for Economic Opportunity (NYC Opportunity) provides access to the NYC Benefits Screening API, which is the rules engine that governs ACCESS NYC’s Screening Screener made available through an application programming interface. The NYC Benefits Screening API returns results of potential benefit screening at the household level for 31 different City, state, and federal benefits programs, based on household data that you provide. <strong>These results do not guarantee eligibility for such benefit programs.</strong> The results of potential programs that the API returns may be dependent on the quality, accuracy, and completeness of the information you provide regarding a New York City family’s household composition.  The NYC Benefits Screening API and associated benefits and programs and eligibility guidelines are maintained with the intent of serving New York City residents.</p>
+<h2 id="updates-to-the-nyc-benefits-screening-api">Updates to the NYC Benefits Screening API</h2>
+<p>The guidelines governing eligibility criteria for the 31 benefits programs are maintained and updated on a regular basis by NYC Opportunity, in partnership with each benefit program’s administering agency. These guidelines are interpreted and implemented in the eligibility engine, which runs on the business rules management system Drools. NYC Opportunity makes reasonable efforts to produce an update every quarter, but such updates are not guaranteed. We will communicate information about eligibility criteria changes by email to the address you provide when signing up for a developer account. You can also sign up for updates here. </p>
+<h2 id="how-to-access-the-nyc-benefits-screening-api">How to Access the NYC Benefits Screening API</h2>
+<p>NYC Opportunity makes the NYC Benefits Screening API available to users who agree to the provisions of these Terms and comply with its requirements. You can obtain credentials to access the NYC Benefits Screening API by completing the registration form, found <a href="http://eepurl.com/gfLTuH">here</a>. Developers with such credentials will be able to access the sandbox, NYC Benefits Screening API. When the developer is ready, access can be requested to the Production API key. Members of the public can obtain the human-readable eligibility guidelines in the form of <a href="resources/NYC_Benefits_Eligibility_Screening_Chart_1.3.0.pdf">The NYC Benefits Screening Master Rules Document</a>.</p>
+<h2 id="your-use-of-the-nyc-benefits-screening-api">Your Use of the NYC Benefits Screening API</h2>
 <ol>
-<li><p>You will not state or imply in any manner that your application or use of this API is endorsed by the City of New York, NYC Opportunity, or any related governmental agency. This includes the use of logos, symbols, or other intellectual property.</p>
+<li><p>Provided that you comply with these Terms, the City grants you a limited, revocable, non-exclusive, non-transferrable, license to use the NYC Benefits Screening API, which may not be sub-licensed, including for purposes of developing an application. You acknowledge that, other than the license to use the NYC Benefits Screening API, there are no implied licenses granted in these Terms. We reserve all rights not expressly granted by these Terms. </p>
 </li>
-<li><p>You will not state or imply that eligibility for any program is guaranteed. To enroll in a benefit, an applicant must apply through the administering agency, who will determine final eligibility upon submission of an application for a program. You may however, state that you are utilizing an API from NYC Opportunity and, through your own server, are sending household composition data information to it, and receiving results of potential eligibility based on provided information. These results do not prohibit anyone from applying for any benefits or programs on behalf of a household.</p>
+<li><p>You must not state or imply in any manner that your use of the NYC Benefits Screening API or your application utilizing the API is endorsed by the City of New York, NYC Opportunity, or any related governmental agency. You must not use any trademarks, trade names, service marks, or logos of the City or NYC Opportunity without prior written permission of the City.  </p>
 </li>
-<li><p>The API and associated benefits programs and  eligibility guidelines are maintained with the intent of serving New York City residents.</p>
+<li><p>You must not state or imply that submitting information through the API constitutes an application for any benefit or program, or that any results from the NYC Benefits Screening API for any benefit or program guarantees eligibility for any benefit program. To enroll in a benefit or program, an applicant must apply through the administering agency, in accordance with all applicable laws, regulations, and policies. Final eligibility is determined following submission of an application and requisite supporting documentation for a benefit or program. You may however, state that you are utilizing an API from NYC Opportunity, sending household composition data information to it through your own server, and receiving results of potential eligibility based on provided information. Any potential eligibility results from use of the NYC Benefits Screening API do not prohibit anyone from applying for any benefits or programs on behalf of a household.</p>
 </li>
-<li><p>You will not use the API or make it available in any manner that is inaccurate, misleading, false, or unlawful.</p>
+<li><p>You must not use the API or make it available in any manner that is inaccurate, misleading, false, or unlawful.</p>
 </li>
-<li><p>You will not modify or delete any of the data. You may, however, create an application that uses some but not all of the data (i.e. an application that focuses on potential eligibility for specific benefits programs).</p>
+<li><p>You must not modify the results returned from the NYC Benefits Screening API (i.e., if a program is returned as potentially eligible, you will not communicate that it has been returned as ineligible). You may, however, create an application that uses some but not all of the data (i.e., an application that focuses on potential eligibility for only certain benefits and programs).</p>
 </li>
 <li><p>You agree to submit household composition data in the prescribed format.</p>
 </li>
-<li><p>The household composition data shared with the API will not contain identifiable information such as First or Last Names, specific Birth Dates, or Street Addresses.</p>
-</li>
-<li><p>The household composition data shared with the API can be shared with City agencies to improve access to benefits and programs. To find out more about how the City might use the data you share with the NYC Benefits Eligibility API, visit the NYC.gov <a href="https://www1.nyc.gov/home/terms-of-use.page">Terms of Use</a>, and <a href="https://www1.nyc.gov/home/privacy-policy.page">Privacy Policy</a>.</p>
-</li>
-<li><p>You accept the data and the data returned from the API “as is” and without any NYC Opportunity representation that the data is(are) merchantable, suitable or fit for a particular purpose, compatible, available, reliable, non-infringing, secure, or virus free.</p>
+<li><p>You must not include any personally identifiable information, such as but not limited to First or Last Names, specific Birth Dates, or Street Addresses, in the household composition data shared with the NYC Benefits Screening API. NYC Opportunity recommends and requests that, as appropriate, you include a privacy policy in the development of your application.</p>
 </li>
 <li><p>You agree to conduct application or API testing in the sandbox.</p>
 </li>
-<li><p>You will not intentionally subject the API to malicious process or code; will take safeguards to monitor your own applications for malicious/suspicious activity and immediately terminate processes that may be affecting the API.</p>
+<li><p>You must not intentionally subject the NYC Benefits Screening API to a malicious process or code; you must take safeguards to monitor your own applications for malicious/suspicious activity and immediately terminate processes that may be adversely affecting the NYC Benefits Screening API.</p>
 </li>
-<li><p>You will not attempt to make calls to the API in a manner that exceeds a reasonable request volume or that circumvents our limits on API usage.</p>
+<li><p>You may not share your API Key with any third party. You must keep your API Key and all log-in information secure, and must use the API Key as your sole means of accessing the API. Your API Key may be revoked at any time by the City.</p>
+</li>
+<li><p>You must not attempt to make calls to the NYC Benefits Screening API in a manner that exceeds a reasonable request volume or that circumvents established limits on API usage.</p>
 </li>
 <li><p>Your access to and receipt of the API is entirely at your own risk. You are solely responsible for the development and use of your application, including but not limited to determining and providing within and as part of the development of your application for its design, functionality, and security features.</p>
 </li>
-<li><p>It is your responsibility to comply with all applicable laws including any laws dealing with the ability of a person with a disability to access and use your application. Even if such laws do not apply, NYC Opportunity recommends and requests that insofar as applicable and relevant, you include such accessibility and use in the development of your application.</p>
+<li><p>You agree that the NYC Benefits Screening API, and all other design, information, text, graphics, images, pages, interfaces, links, software, and other items and materials contained in or displayed on this website and NYC.gov, and the selection and arrangements thereof, are the property of the City of New York. All rights are reserved.</p>
 </li>
-<li><p>NYC Opportunity reserves the right at any time for any reason or no reason and without notice, to you to:</p>
-<ul>
-<li>Terminate the availability of the API in any of its forms (sandbox, production, etc.)</li>
-<li>Terminate your access to the API because you have violated this agreement.</li>
-<li>Change any or all of the provisions of this access agreement, including a change which would require you to change your application or result in you not being eligible to continue to access the API.</li>
-</ul>
+<li><p>You agree not to use the API in any manner or for any purpose that infringes, misappropriates, or otherwise violates any intellectual property right or other right of any person, or that violates any applicable law.</p>
+</li>
+<li><p>It is your responsibility to comply with all applicable laws in relation to your use of the NYC Benefits Screening API, including any laws relating to the ability of a person with a disability to access and use your application. Even if such laws do not apply, NYC Opportunity recommends and requests that insofar as applicable and relevant, you include such accessibility and use in the development of your application.</p>
+</li>
+<li><p>You agree to indemnify, defend, and hold harmless the City and its officers, directors, employees, and agents from and against any losses, damages, liabilities, claims, actions, judgments, settlements, costs, including attorneys’ fees, arising from or in connection to your: (a) your use or misuse of the NYC Benefits Screening API, (b) your breach of these Terms, and (c) your applications developed using the NYC Benefits Screening API, including any end user’s use of such applications.</p>
 </li>
 </ol>
-<p>NYC Opportunity will endeavor to inform you in advance of any of the above actions but has no obligation to do so.</p>
+<h2 id="termination-and-modification">Termination and Modification</h2>
+<p>NYC Opportunity reserves the right at any time for any reason or no reason and without notice, to:</p>
+<ol>
+<li><p>Terminate the availability of the NYC Benefits Screening API in any of its forms (sandbox, production, etc.)</p>
+</li>
+<li><p>Terminate your access to the NYC Benefits Screening API because you have violated these Terms.</p>
+</li>
+<li><p>Modify any or all of the provisions of these Terms, including a change which would require you to change your application or result in you not being eligible to continue to access the NYC Benefits Screening API.
+NYC Opportunity will endeavor to inform you in advance of any of the above actions but has no obligation to do so.</p>
+</li>
+</ol>
+<h2 id="information-you-share-with-the-nyc-benefits-screening-api">Information You Share with the NYC Benefits Screening API</h2>
+<p>The household composition data shared with the API may be shared with City agencies to improve access for individuals and members of their households to benefits and programs. To find out more about how the City might use the data you share with the NYC Benefits Screening API, visit the NYC.gov <a href="https://www1.nyc.gov/home/terms-of-use.page">Terms of Use</a>, and <a href="https://www1.nyc.gov/home/privacy-policy.page">NYC.gov Privacy Policy</a>.</p>
+<h2 id="disclaimers">Disclaimers</h2>
+<p>THE NYC BENEFITS SCREENING API AND ALL MATERIALS CONTAINED ON IT ARE DISTRIBUTED AND TRANSMITTED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF TITLE OR IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE WITH RESPECT TO THE QUALITY, CONTENT, ACCURACY, COMPLETENESS, CURRENCY, FREEDOM FROM INTERRUPTION, FREEDOM FROM COMPUTER VIRUS, FREEDOM FROM ERRORS OR OMISSIONS, NON-INFRINGEMENT OF CONTENT PLACED ON NYC.GOV (WHETHER BY THE CITY OR A THIRD PARTY) INCLUDING ANY OF THE DESIGN, INFORMATION, TEXT, GRAPHICS, IMAGES, PAGES, INTERFACES, LINKS, SOFTWARE, OR OTHER MATERIALS AND ITEMS CONTAINED IN OR DISPLAYED ON THE NYC BENEFITS SCREENING API.</p>
+<p>THE CITY IS NOT RESPONSIBLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES (REGARDLESS OF WHETHER THEY WERE FORESEEABLE) THAT MAY ARISE FROM THE USE OF, OR THE INABILITY TO USE, NYC BENEFITS SCREENING API.</p>
+<p>ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF NYC BENEFITS SCREENING API IS DONE AT YOUR OWN DISCRETION AND RISK. YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR OTHER DEVICE OR LOSS OF DATA THAT RESULTS FROM THE DOWNLOAD OF ANY SUCH MATERIAL.</p>
 	</div>
         </div>
       </section>
