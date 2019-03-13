@@ -10,7 +10,7 @@ The guidelines governing eligibility criteria for the 31 benefits programs are m
 
 ## How to Access the NYC Benefits Screening API
 
-NYC Opportunity makes the NYC Benefits Screening API available to users who agree to the provisions of these Terms and comply with its requirements. You can obtain credentials to access the NYC Benefits Screening API by completing the registration form, found [here](http://eepurl.com/gfLTuH). Developers with such credentials will be able to access the sandbox, NYC Benefits Screening API. When the developer is ready, access can be requested to the Production API key. Members of the public can obtain the human-readable eligibility guidelines in the form of [The NYC Benefits Screening Master Rules Document](resources/NYC_Benefits_Eligibility_Screening_Chart_1.3.0.pdf).
+NYC Opportunity makes the NYC Benefits Screening API available to users who agree to the provisions of these Terms and comply with its requirements. You can obtain credentials to access the NYC Benefits Screening API by completing the registration form, found <a href="http://eepurl.com/gfLTuH" target="blank">here</a>. Developers with such credentials will be able to access the sandbox, NYC Benefits Screening API. When the developer is ready, access can be requested to the Production API key. Members of the public can obtain the human-readable eligibility guidelines in the form of [The NYC Benefits Screening Master Rules Document](resources/NYC_Benefits_Eligibility_Screening_Chart_1.3.0.pdf).
 
 ## Your Use of the NYC Benefits Screening API
 
@@ -59,7 +59,7 @@ NYC Opportunity will endeavor to inform you in advance of any of the above actio
 
 ## Information You Share with the NYC Benefits Screening API
 
-The household composition data shared with the API may be shared with City agencies to improve access for individuals and members of their households to benefits and programs. To find out more about how the City might use the data you share with the NYC Benefits Screening API, visit the NYC.gov [Terms of Use](https://www1.nyc.gov/home/terms-of-use.page), and [NYC.gov Privacy Policy](https://www1.nyc.gov/home/privacy-policy.page).
+The household composition data shared with the API may be shared with City agencies to improve access for individuals and members of their households to benefits and programs. To find out more about how the City might use the data you share with the NYC Benefits Screening API, visit the NYC.gov <a href="https://www1.nyc.gov/home/terms-of-use.page" target="_blank">Terms of Use</a>, and <a href="https://www1.nyc.gov/home/privacy-policy.page" target="_blank">NYC.gov Privacy Policy</a>.
 
 ## Disclaimers
 

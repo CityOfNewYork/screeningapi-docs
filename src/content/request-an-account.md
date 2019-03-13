@@ -7,16 +7,20 @@ Once you have credentials you will then use them with the [Authentication Endpoi
 <a href="http://eepurl.com/gfLTuH" target="_blank" class="btn color-primary-button text-secondary-white-30t">Request an Account</a>
 
 ## Summary
-* By requesting an account, you agree to the [terms of service](terms-of-service).
-Usernames cannot be changed.
 
-* Account requests are reviewed and it may 1-2 business days to be provisioned.
+* <a href="http://eepurl.com/gfLTuH" target="_blank">Request an account on this page</a> with your email address. 
+
+* By requesting an account, you agree to the [terms of service](terms-of-service).
+
+* Usernames cannot be changed.
+
+* Account requests are reviewed and it may take 1-2 business days to be provisioned.
 
 * Your temporary password will expire after 30 days.
 
 * You will need to set your developer and production passwords.
-Keep your username and temporary password to set your password.
 
+* Keep your username and temporary password to set your password.
 * Contact us through [Support](mailto:screeningapi@nycopportunity.nyc.gov) if you need to update your account information.
 
 ## Next
