@@ -2,14 +2,14 @@
   "name": "eligibilityapi-docs",
   "version": "0.0.1",
   "title": "NYC Benefits Screening API",
-  "description": "Documentation for the NYC Benefits Screening API https://eligibilityapidocs.cityofnewyork.us/",
+  "description": "Documentation for the NYC Benefits Screening API https://screeningapidocs.cityofnewyork.us/",
   "author": "The Mayor's Office for Economic Opportunity",
   "license": "GPL-3.0",
   "main": "npm run dev",
-  "homepage": "https://github.com/CityOfNewYork/eligibilityapi-docs",
+  "homepage": "https://github.com/CityOfNewYork/screeningapi-docs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CityOfNewYork/eligibilityapi-docs.git"
+    "url": "git+https://github.com/CityOfNewYork/screeningapi-docs.git"
   },
   "scripts": {
     "build": "gulp build",
@@ -20,7 +20,7 @@
     "dev": "cross-env NODE_ENV=development gulp"
   },
   "bugs": {
-    "url": "https://github.com/CityOfNewYork/eligibilityapi-docs/issues"
+    "url": "https://github.com/CityOfNewYork/screeningapi-docs/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -53,13 +53,13 @@
     "path": "^0.12.7",
     "stylelint": "^9.9.0",
     "stylelint-config-standard": "^18.2.0",
-    "twig-markdown": "^0.2.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
     "access-nyc-patterns": "^0.1.8",
     "nyco-patterns": "^1.4.1",
+    "showdown": "^1.9.0",
     "tailwindcss": "^0.5.2"
   },
   "stylelint": {

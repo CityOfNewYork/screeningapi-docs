@@ -18,7 +18,6 @@ var browserSync = require('browser-sync').create(),
   svgmin = require('gulp-svgmin'),
   svgstore = require('gulp-svgstore'),
   twig = require('gulp-twig'),
-  twigMarkdown = require('twig-markdown'),
   gulpif = require('gulp-if'),
   autoprefixer = require('autoprefixer'),
   mqpacker = require('css-mqpacker'),
@@ -134,7 +133,7 @@ gulp.task('icons', function () {
 // VIEWS
 gulp.task('views', function () {
   return gulp.src('src/views/*.twig')
-    .pipe(twig({data: {package: PACKAGE}, extend: twigMarkdown}))
+    .pipe(twig({data: {package: PACKAGE}}))
     .pipe(gulp.dest(DIST))
     .pipe(gulpif((NODE_ENV !== 'development'),
       notify({message: 'Views task complete'})));

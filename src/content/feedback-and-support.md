@@ -1,1 +1,0 @@
-If you have questions or need support with the NYC Benefits Screening API, please send a message to [screeningapi@nycopportunity.nyc.gov](mailto:screeningapi@nycopportunity.nyc.gov). Our team will contact you as soon as possible.

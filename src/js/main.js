@@ -5,6 +5,8 @@ import Icons from 'nyco-patterns/dist/elements/icons/Icons.common'
 import Toggle from 'nyco-patterns/dist/utilities/toggle/Toggle.common'
 import Track from 'nyco-patterns/dist/utilities/track/Track.common'
 
+var cdn = 'https://cdn.jsdelivr.net/gh/CityOfNewYork/screeningapi-docs@content/';
+
 new Icons('svg/icons.svg');
 new Toggle();
 new Track();
@@ -47,4 +49,19 @@ $('[data-js="jsonToTable"]').each((index, el) => {
   table.append(tbody);
 
   $(el.dataset.jsJsonToTableTable).html(table);
+});
+
+/* Get the content markdown from CDN and append */
+let markdowns = $('body').find('[id^="markdown"]');
+markdowns.each(function(){
+  let target = $(this);
+  let file = $(this).attr('id').replace('markdown-', '');
+
+  $.get(cdn + file + '.md', function(data) {
+    var showdown  = require('showdown'),
+    converter = new showdown.Converter(),
+    html      = converter.makeHtml(data);
+
+    target.append(html);
+  }, 'text')
 });

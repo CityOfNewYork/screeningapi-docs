@@ -12,15 +12,7 @@
     <span class="checkbox__label font-bold"> This person is head of the household</span><br>
   </label>
 
-  <label class="checkbox deed hidden">
-    <input type="checkbox" name="livingOwnerOnDeed" person><span class="font-bold"> This person is on the deed</span><br>
-  </label>
-
-  <label class="checkbox lease hidden">
-    <input type="checkbox" name="livingRentalOnLease" person><span class="font-bold"> This person is on the lease</span><br>
-  </label>
-
-  <label class="font-bold">What is this person's relationship to the Head of Household?</label><br>
+  <label class="font-bold">What is this person's relationship to the Head of Household?
   <select name="headOfHouseholdRelation" class="select" person required>
     <option value="Self">Self</option>
     <option value="Child">Child</option>
@@ -39,6 +31,15 @@
     <option value="Unrelated">Unrelated</option>
     <option value="Other">Other</option>
   </select><br>
+  </label><br>
+
+  <label class="checkbox deed hidden">
+    <input type="checkbox" name="livingOwnerOnDeed" person><span class="font-bold"> This person is on the deed</span><br>
+  </label>
+
+  <label class="checkbox lease hidden">
+    <input type="checkbox" name="livingRentalOnLease" person><span class="font-bold"> This person is on the lease</span><br>
+  </label>
 
   <div class="checkbox">
   <label class="font-bold">Select all that apply</label><br>
