@@ -50,7 +50,7 @@
 
   <div class="o-header__secondary-version color-dark-background">
     <div>
-      <a class="btn flex items-center" href="https://github.com/CityOfNewYork/eligibilityapi-docs/tree/v0.0.1">
+      <a class="btn flex items-center" href="https://github.com/CityOfNewYork/screeningapi-docs/tree/v0.0.1">
         <svg aria-hidden="true" class="icon-github-mark icon-small mr-1">
           <use xlink:href="#icon-github-mark"></use>
         </svg>
@@ -117,7 +117,7 @@
     <article id="main-content" class="color-light-background py-2 px-4 screen-desktop:px-6">
             <section class="layout--content py-4">
         <div class="screen-desktop:pr-4 screen-desktop:pr-6">
-          <h1 class="mt-0 p-0">Build a Request</h1>            <p>Use the following form to generate a JSON object you can pass to the <code>/eligibilityPrograms</code> endpoint of the NYC Benefits Screening API.</p>
+          <h1 class="mt-0 p-0">Build a Request</h1>            <div id="markdown-request-builder"></div>
 
   <form class="screener-form">
     <div class="household-data">
@@ -178,15 +178,7 @@
     <span class="checkbox__label font-bold"> This person is head of the household</span><br>
   </label>
 
-  <label class="checkbox deed hidden">
-    <input type="checkbox" name="livingOwnerOnDeed" person><span class="font-bold"> This person is on the deed</span><br>
-  </label>
-
-  <label class="checkbox lease hidden">
-    <input type="checkbox" name="livingRentalOnLease" person><span class="font-bold"> This person is on the lease</span><br>
-  </label>
-
-  <label class="font-bold">What is this person's relationship to the Head of Household?</label><br>
+  <label class="font-bold">What is this person's relationship to the Head of Household?
   <select name="headOfHouseholdRelation" class="select" person required>
     <option value="Self">Self</option>
     <option value="Child">Child</option>
@@ -205,6 +197,15 @@
     <option value="Unrelated">Unrelated</option>
     <option value="Other">Other</option>
   </select><br>
+  </label><br>
+
+  <label class="checkbox deed hidden">
+    <input type="checkbox" name="livingOwnerOnDeed" person><span class="font-bold"> This person is on the deed</span><br>
+  </label>
+
+  <label class="checkbox lease hidden">
+    <input type="checkbox" name="livingRentalOnLease" person><span class="font-bold"> This person is on the lease</span><br>
+  </label>
 
   <div class="checkbox">
   <label class="font-bold">Select all that apply</label><br>
@@ -344,7 +345,7 @@
       </svg>
     </a>
 
-    <p>NYC Opportunity is the <a href="http://nyc.gov/opportunity">New York City Mayor&#39;s Office for Economic Opportunity</a>. We are committed to sharing open source software that we use in our products. Feel free to ask questions and share feedback. Follow @nycopportunity on <a href="https://twitter.com/nycopportunity">Twitter</a>, <a href="https://www.facebook.com/NYCOpportunity/">Facebook</a>, <a href="https://medium.com/@nycopportunity">Medium</a>, and <a href="https://github.com/orgs/CityOfNewYork/teams/nycopportunity">Github</a>.</p>
+    <div id="markdown-about-nyc-opportunity"></div>
 
     <small>© City of New York, 2019 All Rights Reserved.<br>NYC is a trademark and service mark of the City of New York.</small>
   </div>

@@ -50,7 +50,7 @@
 
   <div class="o-header__secondary-version color-dark-background">
     <div>
-      <a class="btn flex items-center" href="https://github.com/CityOfNewYork/eligibilityapi-docs/tree/v0.0.1">
+      <a class="btn flex items-center" href="https://github.com/CityOfNewYork/screeningapi-docs/tree/v0.0.1">
         <svg aria-hidden="true" class="icon-github-mark icon-small mr-1">
           <use xlink:href="#icon-github-mark"></use>
         </svg>
@@ -119,46 +119,7 @@
 	<div class="layout--content pt-4">
 		<div class="screen-desktop:pr-4 screen-desktop:pr-6">
 			<h1 class="mt-0 p-0">Making a Request</h1>			<div class="o-content">
-				<p>There are two steps to making a request which includes (1) getting a token and (2) making the request. Your token is required for all requests. Getting a token is described in <a href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>. The <code>Content-Type</code> header is also required and its value may vary. Refer to the <a href="endpoints">Endpoints</a> documentation for details. Below is an example of the format for requests. The values within double brackets (<code>{{ value }}</code>) are variables where you would provide your information:</p>
-<div class="code-block"><pre>
-curl -X POST \
-  'https://screeningapi.cityofnewyork.us/{{ endpoint }}' \
-  -H 'Content-Type: application/json' \
-  -H 'cache-control: no-cache' \
-  -H 'Authorization: {{ token }}' \
-  -d '{{ request body }}'</pre></div>
-
-<h1 id="headers">Headers</h1>
-<p>Here is a full list of headers required for each request.</p>
-<table>
-<thead>
-<tr>
-<th>Header</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code class="whitespace-no-wrap h5">Content-Type</code></td>
-<td>Set according to endpoint</td>
-</tr>
-<tr>
-<td><code class="whitespace-no-wrap h5">Authorization</code></td>
-<td>A valid token retrieved via the <code class='code'>authToken</code> endpoint.</td>
-</tr>
-</tbody></table>
-<h2 id="testing">Testing</h2>
-<p>Please note, there are two domains for sending requests, one for testing and one for production level applications. Please use the appropriate domain during testing and application development, as well as the production domain for production level applications.</p>
-<h2 id="request-body-household-composition-data-">Request Body (Household Composition Data)</h2>
-<p>The request for each endpoint should contain certain datum pertinent to the household of the client for which eligibility is being screened. We refer to this as <strong>Household Composition Data</strong>. The entire dataset is made up of two distinct types: <strong>Household</strong> and <strong>Person(s)</strong>. Each type has different attributes that must be filled out as completely as possible for the most accurate eligibility screening. There can only be one type of <strong>Household</strong> and there can be more than one <strong>Person</strong> associated with each household.</p>
-<div class="code-block"><pre>
-[
-  {{ Household }},
-  {{ Person (1) }},
-  {{ Person (2) }},
-  <em>… additional Persons …</em>
-]</pre></div>
-
-<p>Below is the schema for each type. For a detailed description of how to structure the data for each endpoint, please refer to the <a href="endpoints">endpoint documentation</a>. To generate a valid JSON payload (for the <code>/eligibilityPrograms</code> endpoint), you can use the <a href="request-builder">Request Builder</a>.</p>
+        <div id="markdown-making-a-request-1"></div>
 			</div>
 		</div>
 	</div>
@@ -796,53 +757,7 @@ curl -X POST \
 	<div class="layout--content mt-4 pb-4">
 		<div class="screen-desktop:pr-4 screen-desktop:pr-6">
 			<div class="o-content">
-				<h2 id="response-program-codes-">Response (Program Codes)</h2>
-<p>Successful responses will return a list of program names and codes of all of the programs and benefits the submitted household may be eligible for. These codes can be directly mapped to additional content hosted in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> which includes the description, how to apply, links to downloadable applications, etc. Below are a few examples of codes and their corresponding programs. For a description of how the response is structured for each endpoint, please refer to the <a href="endpoints">endpoint documentation</a>.</p>
-<table>
-<thead>
-<tr>
-<th>Program Code</th>
-<th>Program Name</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><b>S2R010</b></td>
-<td>Cash Assistance</td>
-</tr>
-<tr>
-<td><b>S2R001</b></td>
-<td>Child and Dependent Care Tax Credit</td>
-</tr>
-<tr>
-<td><b>S2R004</b></td>
-<td>Child Tax Credit</td>
-</tr>
-<tr>
-<td><b>S2R004</b></td>
-<td>Home Energy Assistance Program (HEAP)</td>
-</tr>
-<tr>
-<td>…</td>
-<td>…</td>
-</tr>
-</tbody></table>
-<p>See the full list on the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> page.</p>
-<h2 id="summary">Summary</h2>
-<ul>
-<li><p>Your token is required for making a request.</p>
-</li>
-<li><p>Use the testing domain for sample requests and development and the production domain for production level applications.</p>
-</li>
-<li><p>The request body should include Household Composition Data that includes the household and person datatypes with as many of the available
-parameters filled out possible for the most accurate eligibility evaluation.</p>
-</li>
-<li><p>The request response will contain a list of program names and codes.</p>
-</li>
-<li><p>Program codes can be mapped to additional content in the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a>.</p>
-</li>
-</ul>
-<h2 id="next">Next</h2>
-<p><a href="endpoints" title="Endpoints" class="btn color-secondary-button">Endpoints&nbsp;&nbsp;❯</a></p>
+        <div id="markdown-making-a-request-2"></div>
 			</div>
 		</div>
 	</div>
@@ -865,7 +780,7 @@ parameters filled out possible for the most accurate eligibility evaluation.</p>
       </svg>
     </a>
 
-    <p>NYC Opportunity is the <a href="http://nyc.gov/opportunity">New York City Mayor&#39;s Office for Economic Opportunity</a>. We are committed to sharing open source software that we use in our products. Feel free to ask questions and share feedback. Follow @nycopportunity on <a href="https://twitter.com/nycopportunity">Twitter</a>, <a href="https://www.facebook.com/NYCOpportunity/">Facebook</a>, <a href="https://medium.com/@nycopportunity">Medium</a>, and <a href="https://github.com/orgs/CityOfNewYork/teams/nycopportunity">Github</a>.</p>
+    <div id="markdown-about-nyc-opportunity"></div>
 
     <small>© City of New York, 2019 All Rights Reserved.<br>NYC is a trademark and service mark of the City of New York.</small>
   </div>
