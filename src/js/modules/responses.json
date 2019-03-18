@@ -25,5 +25,25 @@
   },
   {
     "SUCCESS": "Thank you! Your request will be reviewed with confirmation within 1-2 business days."
+  },
+  {
+    "General": {
+      "error": "Please resolve highlighted fields and the following errors and try again:",
+      "warning": "Resolving the following might render different screening results (optional):",
+    }
+  },
+  {
+    "Household": {
+      "err_members": "Household: There must be one head of household.",
+      "err_excess_members": "Household: The number of household members can not exceed 8 members."
+    }
+  },
+  {
+    "Person": {
+      "err_num_members": "Person: The number of persons does not match number of members entered.",
+      "err_num_persons": "Person: The number of persons cannot exceed 8 members",
+      "warning_on_lease": "Person: At least one person should be on the lease.",
+      "warning_on_deed": "Person: At least one person should be on the deed.",
+    }
   }
 ]

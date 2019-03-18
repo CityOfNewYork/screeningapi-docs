@@ -134,20 +134,19 @@
     <input type="number" name="cashOnHand" placeholder="0" min="0" household required>
   </div>
   
-
-  <label class="font-bold">What is the household's living situation?</label><br>
-  <select name="livingType" class="select" household required>
-    <option value="">Please make a selection</option>
-    <option value="livingRenting">Renting</option>
-    <option value="livingOwner">Owner</option>
-    <option value="livingStayingWithFriend">Staying with a friend</option>
-    <option value="livingHotel">Hotel</option>
-    <option value="livingShelter">Shelter</option>
-    <option value="livingPreferNotToSay">Prefer not to say</option>
+  <label class="font-bold">What is the household's living situation?
+    <select name="livingType" class="select" household required>
+      <option value="">Please make a selection</option>
+      <option value="livingRenting">Renting</option>
+      <option value="livingOwner">Owner</option>
+      <option value="livingStayingWithFriend">Staying with a friend</option>
+      <option value="livingHotel">Hotel</option>
+      <option value="livingShelter">Shelter</option>
+      <option value="livingPreferNotToSay">Prefer not to say</option>
   </select>
+  </label>
 
-  <br>
-  <div class="livingRentalType hidden">
+  <div class="livingRentalType block hidden">
     <label class="font-bold">Type of rental</label><br>
     <select name="livingRentalType" class="select" household>
       <option value="">Please make a selection</option>
@@ -166,66 +165,66 @@
   </div>
 </div>    <div class="person-data">
   <h2>Person</h2>
-  <p>Enter values into the fields below for one individual of the Household.</p>
+  <p>Enter values into the fields below for one individual of the Household to build the Person Composition.</p>
 
   <div class="input-number">
-    <label class="font-bold">What is this person's age?</label>
+    <label class="font-bold">Age</label>
     <input type="number" name="age" placeholder="35" person required>
   </div>
   
-  <label class="checkbox">
+  <label class="checkbox mt-2">
     <input type="checkbox" name="headOfHousehold" person>
-    <span class="checkbox__label font-bold"> This person is head of the household</span><br>
+    <span class="checkbox__label font-bold"> This person is head of the household</span>
   </label>
 
-  <label class="font-bold">What is this person's relationship to the Head of Household?
-  <select name="headOfHouseholdRelation" class="select" person required>
-    <option value="Self">Self</option>
-    <option value="Child">Child</option>
-    <option value="FosterChild">Foster Child</option>
-    <option value="StepChild">Step-child</option>
-    <option value="Grandchild">Grandchild</option>
-    <option value="Spouse">Spouse</option>
-    <option value="Parent">Parent</option>
-    <option value="FosterParent">Foster Parent</option>
-    <option value="StepParent">Step-parent</option>
-    <option value="Grandparent">Grandparent</option>
-    <option value="SisterBrother">Sister/Brother</option>
-    <option value="StepSisterStepBrother">Step-sister/Step-brother</option>
-    <option value="BoyfriendGirlfriend">Boyfriend/Girlfriend</option>
-    <option value="DomesticPartner">Domestic Partner</option>
-    <option value="Unrelated">Unrelated</option>
-    <option value="Other">Other</option>
-  </select><br>
-  </label><br>
-
-  <label class="checkbox deed hidden">
-    <input type="checkbox" name="livingOwnerOnDeed" person><span class="font-bold"> This person is on the deed</span><br>
+  <label class="font-bold block mt-2">Relationship to the head of household
+    <select name="headOfHouseholdRelation" class="select" person required>
+      <option value="Self">Please make a selection</option>
+      <option value="Child">Child</option>
+      <option value="FosterChild">Foster Child</option>
+      <option value="StepChild">Step-child</option>
+      <option value="Grandchild">Grandchild</option>
+      <option value="Spouse">Spouse</option>
+      <option value="Parent">Parent</option>
+      <option value="FosterParent">Foster Parent</option>
+      <option value="StepParent">Step-parent</option>
+      <option value="Grandparent">Grandparent</option>
+      <option value="SisterBrother">Sister/Brother</option>
+      <option value="StepSisterStepBrother">Step-sister/Step-brother</option>
+      <option value="BoyfriendGirlfriend">Boyfriend/Girlfriend</option>
+      <option value="DomesticPartner">Domestic Partner</option>
+      <option value="Unrelated">Unrelated</option>
+      <option value="Other">Other</option>
+    </select>
   </label>
 
-  <label class="checkbox lease hidden">
-    <input type="checkbox" name="livingRentalOnLease" person><span class="font-bold"> This person is on the lease</span><br>
+  <label class="checkbox deed block hidden">
+    <input type="checkbox" name="livingOwnerOnDeed" person><span class="font-bold"> On the deed</span>
   </label>
 
-  <div class="checkbox">
-  <label class="font-bold">Select all that apply</label><br>
-  <input type="checkbox" name="student" person><span> Student</span>
-  <input type="checkbox" name="studentFulltime" person><span> Student Full time</span><br>
-  <input type="checkbox" name="pregnant" person><span> Pregnant</span><br>
-  <input type="checkbox" name="unemployed" person><span> Unemployed</span>
-  <input type="checkbox" name="unemployedWorkedLast18Months" person><span> Unemployed last 18 months</span><br>
-  <input type="checkbox" name="blind" person><span> Blind</span><br>
-  <input type="checkbox" name="disabled" person><span> Disabled</span><br>
-  <input type="checkbox" name="veteran" person><span> Veteran</span><br>
+  <label class="checkbox lease block hidden">
+    <input type="checkbox" name="livingRentalOnLease" person><span class="font-bold"> On the lease</span>
+  </label>
+
+  <div class="checkbox block mt-2">
+    <label class="font-bold">Additional Information (select all that apply):</label><br>
+    <input type="checkbox" name="student" person><span> Student</span>
+    <input type="checkbox" name="studentFulltime" person><span> Student Full time</span><br>
+    <input type="checkbox" name="pregnant" person><span> Pregnant</span><br>
+    <input type="checkbox" name="unemployed" person><span> Unemployed</span>
+    <input type="checkbox" name="unemployedWorkedLast18Months" person><span> Unemployed last 18 months</span><br>
+    <input type="checkbox" name="blind" person><span> Blind</span><br>
+    <input type="checkbox" name="disabled" person><span> Disabled</span><br>
+    <input type="checkbox" name="veteran" person><span> Veteran</span><br>
   </div>
 
-  <div class="checkbox">
-    <label class="font-bold">Is this person receiving any of the below benefits</label><br>
+  <div class="checkbox block mt-2">
+    <label class="font-bold">Receiving benefits (select all that apply): </label><br>
     <input type="checkbox" name="benefitsMedicaid" person><span> Medicaid</span><br>
     <input type="checkbox" name="benefitsMedicaidDisability" person><span> Disability-related medicaid</span><br>
   </div>
 
-  <div class="incomes block">
+  <div class="incomes block mt-2 hidden">
     <div class="input-number">
       <label class="font-bold">Incomes</label><br>
       <input type="number" name="amount" placeholder="200" person-incomes required>
@@ -264,12 +263,13 @@
       <option value="yearly">Every year</option>
     </select>
   </div>
-  <div class="add-remove block">
-    <button class="btn remove-income">Remove income</button>
+
+  <div class="add-remove block mt-2">
+    <button class="btn remove-income hidden">Remove income</button>
     <button class="btn add-income">Add income</button>
   </div>
 
-  <div class="expenses block">
+  <div class="expenses block mt-2 hidden">
     <div class="input-number">
       <label class="font-bold">Expenses</label><br>
       <input type="number" name="amount" placeholder="50" person-expenses required>
@@ -299,8 +299,8 @@
     </select>
   </div>
   <div class="add-remove block">
-    <button class="btn remove-expense">Remove expense</button>
-    <button class="btn add-expense">Add expense</button>
+    <button class="btn remove-expense hidden">Remove expense</button>
+    <button class="btn add-expense mt-2">Add expense</button>
   </div>
 </div>
 
@@ -309,7 +309,7 @@
     <button class="btn color-secondary-button add-person">Add Person</button>
   </div>
 
-    <div class="block pt-2">
+    <div class="block pt-4">
       <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
     </div>
   </form>
@@ -319,11 +319,9 @@
     <button class="btn color-secondary-button copy-obj">Copy</button>
   </div>
 
+  <div class="block pt-2 error-msg hidden"></div>
 
-    <div class="block pt-2">
-      <p class="error-msg text-primary-red hidden">Please resolve the errors and try again.</p>
-
-    </div>
+  <div class="block pt-2 warning-msg text-secondary-orange hidden"></div>
 
         </div>
       </section>

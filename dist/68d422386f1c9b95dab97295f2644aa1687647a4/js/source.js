@@ -16401,7 +16401,9 @@ markdowns.each(function () {
   var file = $(this).attr('id').replace('markdown-', '');
   $.get(cdn + file + '.md', function (data) {
     var showdown = require('showdown'),
-        converter = new showdown.Converter(),
+        converter = new showdown.Converter({
+      tables: true
+    }),
         html = converter.makeHtml(data);
 
     target.append(html);
@@ -16416,13 +16418,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
+var _responses = _interopRequireDefault(require("./responses.json"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 /** 
  * Converts form to JSON
  */
 function _default() {
-  var personContainer = $('.person-data:first').clone();
   var incomesContainer = $('.incomes').clone();
   var expensesContainer = $('.expenses').clone();
+  $('.incomes').remove();
+  $('.expenses').remove();
+  var personContainer = $('.person-data:first').clone();
   /* Generate the entire JSON */
 
   $('.generate-json').on('click', function (event) {
@@ -16440,7 +16448,7 @@ function _default() {
     });
     var hasErrors = validateFields(formdata);
 
-    if (hasErrors) {
+    if (hasErrors["errors"] > 0) {
       $('.error-msg').removeClass('hidden');
     } else {
       $('.error-msg').addClass('hidden');
@@ -16449,6 +16457,12 @@ function _default() {
       $('.screener-json').find('pre').remove();
       $('.screener-json').prepend('<pre class="block"><code class="code">' + JSON.stringify(finalObj, undefined, 2) + '</code></pre>');
       $('.screener-json').removeClass('hidden');
+    }
+
+    if (hasErrors["warnings"] > 0) {
+      $('.warning-msg').removeClass('hidden');
+    } else {
+      $('.warning-msg').addClass('hidden');
     }
   });
   /* Go back to the form */
@@ -16464,6 +16478,7 @@ function _default() {
     if ($(this).val() == 'livingRenting') {
       $('.livingRentalType').removeClass('hidden');
       $('.lease').removeClass('hidden');
+      personContainer.find('.lease').removeClass('hidden');
     } else {
       $('.livingRentalType').addClass('hidden');
       $('.lease').addClass('hidden');
@@ -16471,24 +16486,45 @@ function _default() {
 
     if ($(this).val() == 'livingOwner') {
       $('.deed').removeClass('hidden');
+      personContainer.find('.deed').removeClass('hidden');
     } else {
       $('.deed').addClass('hidden');
     }
   });
-  /* Add additional persons*/
+  /* Head of household */
+
+  $(document).on('change', '[name=headOfHousehold]', function (event) {
+    event.preventDefault();
+
+    if ($(this).is(':checked')) {
+      $(this).parent().next().addClass('hidden');
+    } else {
+      $(this).parent().next().removeClass('hidden');
+    }
+  });
+  /* Add person */
 
   $(document).on('click', '.add-person', function (event) {
     event.preventDefault();
-    personContainer.clone().insertBefore($(this).parent());
+    $('.add-remove').find('.error').remove();
+
+    if ($('.person-data').length > 8) {
+      $(this).parent().append('<p class="error pt-2">' + _responses.default.find(function (x) {
+        return x["Person"];
+      })["Person"]["err_num_persons"] + '</p>');
+    } else {
+      personContainer.clone().insertBefore($(this).parent());
+    }
 
     if ($('.person-data').length > 1) {
       $('.remove-person').removeClass('hidden');
     }
   });
-  /* Remove person*/
+  /* Remove person */
 
   $(document).on('click', '.remove-person', function (event) {
     event.preventDefault();
+    $('.add-remove').find('.error').remove();
 
     if ($('.person-data').length > 1) {
       $('.person-data:last').remove();
@@ -16498,40 +16534,40 @@ function _default() {
       $(this).hide();
     }
   });
-  /* Add additional incomes*/
+  /* INCOMES */
 
   $(document).on('click', '.add-income', function (event) {
     event.preventDefault();
     incomesContainer.clone().insertBefore($(this).parent());
-
-    if ($('.incomes').length > 0) {
-      $('.remove-income').show();
-    }
+    $(this).closest('.person-data').find('.incomes:last').removeClass('hidden');
+    $(this).prev('.remove-income').removeClass('hidden');
   });
   $(document).on('click', '.remove-income', function (event) {
     event.preventDefault();
-    $('.incomes:last').remove();
+    $(this).closest('.person-data').find('.incomes:last').remove();
 
-    if ($('.incomes').length == 0) {
-      $('.remove-income').hide();
+    if ($(this).closest('.person-data').find('.incomes').length > 0) {
+      $(this).removeClass('hidden');
+    } else {
+      $(this).addClass('hidden');
     }
   });
-  /* Add additional expenses*/
+  /* EXPENSES */
 
   $(document).on('click', '.add-expense', function (event) {
     event.preventDefault();
     expensesContainer.clone().insertBefore($(this).parent());
-
-    if ($('.expenses').length > 0) {
-      $('.remove-expense').show();
-    }
+    $(this).closest('.person-data').find('.expenses:last').removeClass('hidden');
+    $(this).prev('.remove-expense').removeClass('hidden');
   });
   $(document).on('click', '.remove-expense', function (event) {
     event.preventDefault();
-    $('.expenses:last').remove();
+    $(this).closest('.person-data').find('.expenses:last').remove();
 
-    if ($('.expenses').length == 0) {
-      $('.remove-expense').hide();
+    if ($(this).closest('.person-data').find('.expenses').length > 0) {
+      $(this).removeClass('hidden');
+    } else {
+      $(this).addClass('hidden');
     }
   });
   /* Generates the household object */
@@ -16646,13 +16682,35 @@ function _default() {
   /* Validate the form */
 
   function validateFields(form) {
-    var field, fieldName, groupSeleted;
-    var errors = false;
-    var fieldsObj = form.serializeArray().reduce(function (obj, item) {
+    var field,
+        fieldName,
+        groupSeleted,
+        results = {
+      "errors": 0,
+      "warnings": 0
+    },
+        fieldsObj = form.serializeArray().reduce(function (obj, item) {
       return obj[item.name] = item.value, obj;
-    }, {});
-    var fields = form.find('[required]');
-    $('.error-msg').children().remove(); // check for empty fields
+    }, {}),
+        fields = form.find('[required]'),
+        errNode = $('.error-msg'),
+        warningNode = $('.warning-msg'),
+        hhMsgObj = _responses.default.find(function (x) {
+      return x["Household"];
+    })["Household"],
+        personMsgObj = _responses.default.find(function (x) {
+      return x["Person"];
+    })["Person"],
+        errMsgObj = _responses.default.find(function (x) {
+      return x["General"];
+    })["General"];
+
+    $('.error-msg').children().remove();
+    $('.warning-msg').children().remove();
+    $('.error-msg').addClass('error');
+    $('.error-msg').append('<p><strong>' + errMsgObj["error"] + '</strong></p>');
+    $('.warning-msg').append('<p><strong>' + errMsgObj["warning"] + '</strong></p>');
+    /* check for empty fields */
 
     fields.each(function () {
       fieldName = $(this).attr('name');
@@ -16662,34 +16720,62 @@ function _default() {
 
       if ($(this).val() === "" || !groupSeleted) {
         $(this).addClass('error');
-        errors = true;
+        results["errors"] += 1;
       } else {
         $(this).removeClass('error');
       }
 
       if ($(this).val() == 'livingRenting' && form.find('[name=livingRentalType]').val() == "") {
         form.find('[name=livingRentalType]').addClass('error');
-        errors = true;
+        results["errors"] += 1;
+      }
+    });
+    $('[name=headOfHouseholdRelation]').each(function () {
+      if ($(this).val() == "Self" && !$(this).closest('.person-data').find('[name=headOfHousehold]').is(':checked')) {
+        $(this).addClass('error');
+        results["errors"] += 1;
       }
     });
 
+    if (form.find('[name=livingType]').val() == "livingRenting" && !($('[name=livingRentalOnLease]:checked').length > 0)) {
+      warningNode.append('<p>' + personMsgObj["warning_on_lease"] + '</p>');
+      results["warnings"] += 1;
+    }
+
+    if (form.find('[name=livingType]').val() == "livingOwner" && !($('[name=livingRentalOnLease]:checked').length > 0)) {
+      warningNode.append('<p>' + personMsgObj["warning_on_deed"] + '</p>');
+      results["warnings"] += 1;
+    }
+
     if ($('[name=headOfHousehold]:checked').length > 1 || $('[name=headOfHousehold]:checked').length == 0) {
       $('[name=headOfHousehold]').next().addClass('error');
-      $('.error-msg').append('<p>Head of Household: Either none declared or too many declared.</p>');
-      errors = true;
+      errNode.append('<p>' + hhMsgObj["err_members"] + '</p>');
+      results["errors"] += 1;
+    }
+
+    if ($('[name=members]').val() > 8) {
+      $('[name=members]').addClass('error');
+      errNode.append('<p>' + hhMsgObj["err_members"] + '</p>');
+      results["errors"] += 1;
     }
 
     if ($('[name=members]').val() != $('.person-data').length) {
       $('[name=members]').addClass('error');
-      $('.error-msg').append('<p>Persons: The number of persons does not match number of members entered.</p>');
-      errors = true;
+      errNode.append('<p>' + personMsgObj["err_num_members"] + '</p>');
+      results["errors"] += 1;
     }
 
-    return errors;
+    if ($('.person-data').length > 8) {
+      $('[name=members]').addClass('error');
+      errNode.append('<p>' + personMsgObj["err_num_persons"] + '</p>');
+      results["errors"] += 1;
+    }
+
+    return results;
   }
 }
 
-},{}],12:[function(require,module,exports){
+},{"./responses.json":12}],12:[function(require,module,exports){
 module.exports=[
   {
     "EMAIL": "Please enter a valid email."
@@ -16717,6 +16803,26 @@ module.exports=[
   },
   {
     "SUCCESS": "Thank you! Your request will be reviewed with confirmation within 1-2 business days."
+  },
+  {
+    "General": {
+      "error": "Please resolve highlighted fields and the following errors and try again:",
+      "warning": "Resolving the following might render different screening results (optional):",
+    }
+  },
+  {
+    "Household": {
+      "err_members": "Household: There must be one head of household.",
+      "err_excess_members": "Household: The number of household members can not exceed 8 members."
+    }
+  },
+  {
+    "Person": {
+      "err_num_members": "Person: The number of persons does not match number of members entered.",
+      "err_num_persons": "Person: The number of persons cannot exceed 8 members",
+      "warning_on_lease": "Person: At least one person should be on the lease.",
+      "warning_on_deed": "Person: At least one person should be on the deed.",
+    }
   }
 ]
 },{}],13:[function(require,module,exports){
