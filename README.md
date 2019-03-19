@@ -13,7 +13,8 @@ This branch contains the markdown files that are rendered on the pages of the AP
 | household-composition-household-table.md | [Making a Request - Household](https://screeningapidocs.cityofnewyork.us/household-composition-household-table) |
 | household-composition-person-table.md | [Making a Request - Person](https://screeningapidocs.cityofnewyork.us/household-composition-person-table) |
 | making-a-request-2.md | [Making a Request 2](https://screeningapidocs.cityofnewyork.us/making-a-request-2) |
-| endpoints.md | [Endpoints](https://screeningapidocs.cityofnewyork.us/endpoints) |
+| endpoints-1.md | [Endpoints](https://screeningapidocs.cityofnewyork.us/endpoints) |
+| endpoints-2.md | [Endpoints](https://screeningapidocs.cityofnewyork.us/endpoints) |
 | sample-code-and-sdks.md | [Sample Code and SDKs](https://screeningapidocs.cityofnewyork.us/sample-code-and-sdks) |
 | request-builder.md | [Request Builder](https://screeningapidocs.cityofnewyork.us/request-builder) |
 | eligibility-guidelines.md | [Eligibility Guidelines](https://screeningapidocs.cityofnewyork.us/eligibility-guidelines) |
