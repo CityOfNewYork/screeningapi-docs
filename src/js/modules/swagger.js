@@ -29,6 +29,8 @@ export default function() {
     generateCurl(this);
   })
 
+  $('#swagger-editor').fadeIn(2500)
+
   function generateCurl(obj) {
     const domain = $('body').find('.servers :selected').text();
     const ep_id = $(obj).parents('.opblock-post:first').attr('id');

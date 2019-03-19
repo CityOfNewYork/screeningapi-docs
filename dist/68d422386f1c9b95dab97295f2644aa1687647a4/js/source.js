@@ -16406,7 +16406,7 @@ markdowns.each(function () {
     }),
         html = converter.makeHtml(data);
 
-    target.append(html);
+    target.append(html).hide().fadeIn(1000);
   }, 'text');
 });
 
@@ -16974,6 +16974,7 @@ function _default() {
   $('body').on('change', '[type^=file]', function (event) {
     generateCurl(this);
   });
+  $('#swagger-editor').fadeIn(2500);
 
   function generateCurl(obj) {
     var domain = $('body').find('.servers :selected').text();

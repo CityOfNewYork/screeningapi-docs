@@ -62,6 +62,9 @@ markdowns.each(function(){
     converter = new showdown.Converter({tables: true}),
     html      = converter.makeHtml(data);
 
-    target.append(html);
+    target.append(html)
+      .hide()
+      .fadeIn(1000)
+
   }, 'text')
 });
