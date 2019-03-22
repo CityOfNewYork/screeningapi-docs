@@ -2,7 +2,6 @@
 
 |Name|Description|Data Attribute|Type and/or Value|
 | ----- | ----- | ----- | ----- |
-|<b>Members</b>|Number of People in the household. Directly related to the number of Person types. Minimum is 1 and maximum value is 8. |<code class='font-bold text-h5'>members</code>|<b class='text-primary-blue'>Integer</b> <br><em class='whitespace-no-wrap text-secondary-grey'>Min: 1, Max: 8</em>|
 |<b>Cash On Hand</b> | How much does your whole household has right now in; cash on hand, checking or saving accounts, stocks, bonds or mutual funds.| <code class='font-bold text-h5'>cashOnHand</code> | <b class='text-primary-blue'>Number</b> greater than or equal to 0. <span class='whitespace-no-wrap'><em class='text-secondary-grey'>Example: 2000.00</em></span>|
 |<b>Renting</b> | Renting the current living situation.| <code class='font-bold text-h5'>livingRenting</code> |<b class='text-primary-blue'>Boolean</b>|
 |<b>Housing Rental Type </b>|The type of rental, if renting. |<code class='font-bold text-h5'>livingRentalType</code>|Blank <b class='text-primary-blue'>String</b><em class='text-secondary-grey'>(“”)</em> or one listed below.|
