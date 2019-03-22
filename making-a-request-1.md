@@ -27,10 +27,12 @@ The request for each endpoint should contain certain datum pertinent to the hous
 
 <div class="code-block"><pre>
 [
-  {{ Household }},
-  {{ Person (1) }},
-  {{ Person (2) }},
-  <em>… additional Persons …</em>
+  household: [{{ Household }}],
+  person: [
+    {{ Person (1) }},
+    {{ Person (2) }},
+    <em>… additional Persons …</em>
+  ]
 ]</pre></div>
 
 Below is the schema for each type. For a detailed description of how to structure the data for each endpoint, please refer to the [endpoint documentation](endpoints). To generate a valid JSON payload (for the `/eligibilityPrograms` endpoint), you can use the [Request Builder](request-builder).
