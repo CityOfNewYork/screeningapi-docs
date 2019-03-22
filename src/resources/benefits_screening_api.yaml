@@ -627,257 +627,241 @@ paths:
         content:
           application/json:
             schema:
-              required:
-                - commands
-              properties:
-                commands:
-                  type: array
-                  items:
-                    oneOf:
-                      - type: object
-                        properties:
-                          insert:
+              type: array
+              items:
+                type: object
+                required:
+                  - household
+                  - person
+                properties:
+                  household:
+                    type: array
+                    minItems: 1
+                    maxItems: 1
+                    items:
+                      type: object
+                      properties:
+                        caseId:
+                          type: string
+                          maxLength: 64
+                          description: >-
+                            Concatenation of alphanumeric fields,
+                            potentially separated by dashes,
+                            periods, or slashes, used by agencies to
+                            identify unique submissions
+                          example: caseId01
+                        cashOnHand:
+                          type: string
+                          maxLength: 10
+                          description: >-
+                            Numeric monetary(USD) value that the
+                            household has on hand. Supports numeric
+                            and a decimal. Characteristic will be
+                            min 1 and max 7 in length, and mantissa
+                            will be min 1 and max 2
+                          example: '50000.00'
+                        livingRentalType:
+                          type: string
+                          maxLength: 64
+                          description: >-
+                            Type of rental the user lives in.
+                            Supported types - NYCHA, MarketRate,
+                            RentControlled, RentRegulatedHotel,
+                            Section213, LimitedDividendDevelopment,
+                            MitchellLama, RedevelopmentCompany,
+                            HDFC, FamilyHome, Condo
+                          example: NYCHA
+                        livingRenting:
+                          example: true
+                          type: boolean
+                          description: House or apartment on rent
+                        livingOwner:
+                          example: false
+                          type: boolean
+                          description: >-
+                            Household member owns the home or
+                            apartment
+                        livingStayingWithFriend:
+                          example: false
+                          type: boolean
+                          description: Staying with a friend
+                        livingHotel:
+                          example: false
+                          type: boolean
+                          description: Staying in a hotel
+                        livingShelter:
+                          example: false
+                          type: boolean
+                          description: Staying in a shelter or homeless
+                        livingPreferNotToSay:
+                          example: false
+                          type: boolean
+                          description: Prefer not to say
+                  person:
+                    type: array
+                    minItems: 1
+                    maxItems: 8
+                    items:
+                      type: object
+                      required:
+                        - age
+                      properties:
+                        age:
+                          type: number
+                          minimum: 0
+                          maximum: 999
+                          description: >-
+                            Age of the user or household members.
+                            Supports numeric
+                          example: 20
+                        student:
+                          example: false
+                          type: boolean
+                          description: Student
+                        studentFulltime:
+                          example: false
+                          type: boolean
+                          description: Full time student
+                        pregnant:
+                          example: false
+                          type: boolean
+                          description: Pregnant
+                        unemployed:
+                          example: false
+                          type: boolean
+                          description: Unemployed
+                        unemployedWorkedLast18Months:
+                          example: false
+                          type: boolean
+                          description: Worked in last 18 months
+                        blind:
+                          example: false
+                          type: boolean
+                          description: Blind or visually impaired
+                        disabled:
+                          example: false
+                          type: boolean
+                          description: Disabilities
+                        veteran:
+                          example: true
+                          type: boolean
+                          description: >-
+                            Served in U.S. Armed Forces, National
+                            Guard or Reserves
+                        benefitsMedicaid:
+                          example: false
+                          type: boolean
+                          description: Medicaid
+                        benefitsMedicaidDisability:
+                          example: false
+                          type: boolean
+                          description: Disability related medicaid
+                        headOfHousehold:
+                          example: true
+                          type: boolean
+                          description: >-
+                            Head of the household. There should be
+                            one head of household in every
+                            submission.
+                        headOfHouseholdRelation:
+                          type: string
+                          maxLength: 32
+                          description: >-
+                            Person’s relationship to the head of the
+                            household. It is mandatory if a person
+                            is not head of household. Supported
+                            values - Child, FosterChild, StepChild,
+                            Grandchild, Spouse, Parent,
+                            FosterParent, StepParent, Grandparent,
+                            SisterBrother, StepSisterStepBrother,
+                            BoyfriendGirlfriend, DomesticPartner,
+                            Unrelated, Other
+                          example: ''
+                        livingOwnerOnDeed:
+                          example: false
+                          type: boolean
+                          description: Is the person the owner?
+                        livingRentalOnLease:
+                          example: true
+                          type: boolean
+                          description: Is the person on the lease?
+                        incomes:
+                          type: array
+                          items:
                             type: object
+                            required:
+                              - amount
+                              - frequency
+                              - type
                             properties:
-                              object:
-                                type: object
-                                properties:
-                                  accessnyc.request.Household:
-                                    type: object
-                                    required:
-                                      - members
-                                    properties:
-                                      caseId:
-                                        type: string
-                                        maxLength: 64
-                                        description: >-
-                                          Concatenation of alphanumeric fields,
-                                          potentially separated by dashes,
-                                          periods, or slashes, used by agencies to
-                                          identify unique submissions
-                                        example: caseId01
-                                      members:
-                                        type: number
-                                        minimum: 1
-                                        maximum: 8
-                                        description: Number of individuals in the household
-                                        example: 1
-                                      cashOnHand:
-                                        type: string
-                                        maxLength: 10
-                                        description: >-
-                                          Numeric monetary(USD) value that the
-                                          household has on hand. Supports numeric
-                                          and a decimal. Characteristic will be
-                                          min 1 and max 7 in length, and mantissa
-                                          will be min 1 and max 2
-                                        example: '50000.00'
-                                      livingRentalType:
-                                        type: string
-                                        maxLength: 64
-                                        description: >-
-                                          Type of rental the user lives in.
-                                          Supported types - NYCHA, MarketRate,
-                                          RentControlled, RentRegulatedHotel,
-                                          Section213, LimitedDividendDevelopment,
-                                          MitchellLama, RedevelopmentCompany,
-                                          HDFC, FamilyHome, Condo
-                                        example: NYCHA
-                                      livingRenting:
-                                        example: true
-                                        type: boolean
-                                        description: House or apartment on rent
-                                      livingOwner:
-                                        example: false
-                                        type: boolean
-                                        description: >-
-                                          Household member owns the home or
-                                          apartment
-                                      livingStayingWithFriend:
-                                        example: false
-                                        type: boolean
-                                        description: Staying with a friend
-                                      livingHotel:
-                                        example: false
-                                        type: boolean
-                                        description: Staying in a hotel
-                                      livingShelter:
-                                        example: false
-                                        type: boolean
-                                        description: Staying in a shelter or homeless
-                                      livingPreferNotToSay:
-                                        example: false
-                                        type: boolean
-                                        description: Prefer not to say
-                      - type: object
-                        properties:
-                          insert:
+                              amount:
+                                type: string
+                                maxLength: 9
+                                description: >-
+                                  Amount the user receives for the type of
+                                  income. Supports only numeric and a
+                                  decimal. Characteristic will be min 0
+                                  and max 6 in length. Mantissa will be
+                                  min 1 and max 2
+                                example: '200.00'
+                              frequency:
+                                type: string
+                                maxLength: 16
+                                description: >-
+                                  How often does the user receives the
+                                  income? Supported values - weekly,
+                                  biweekly, monthly, semimonthly, yearly
+                                example: monthly
+                              type:
+                                type: string
+                                maxLength: 32
+                                example: Veteran
+                                description: >-
+                                  Income source. Supported values - Wages,
+                                  SelfEmployment, Unemployment,
+                                  CashAssistance, ChildSupport,
+                                  DisabilityMedicaid, SSI, SSDependent,
+                                  SSDisability, SSSurvivor, SSRetirement,
+                                  NYSDisability, Veteran, Pension,
+                                  DeferredComp, WorkersComp, Alimony,
+                                  Boarder, Gifts, Rental, Investment
+                        expenses:
+                          type: array
+                          items:
                             type: object
+                            required:
+                              - amount
+                              - frequency
+                              - type
                             properties:
-                              object:
-                                type: object
-                                properties:
-                                  accessnyc.request.Person:
-                                    type: object
-                                    required:
-                                      - age
-                                    properties:
-                                      age:
-                                        type: number
-                                        minimum: 0
-                                        maximum: 999
-                                        description: >-
-                                          Age of the user or household members.
-                                          Supports numeric
-                                        example: 20
-                                      student:
-                                        example: false
-                                        type: boolean
-                                        description: Student
-                                      studentFulltime:
-                                        example: false
-                                        type: boolean
-                                        description: Full time student
-                                      pregnant:
-                                        example: false
-                                        type: boolean
-                                        description: Pregnant
-                                      unemployed:
-                                        example: false
-                                        type: boolean
-                                        description: Unemployed
-                                      unemployedWorkedLast18Months:
-                                        example: false
-                                        type: boolean
-                                        description: Worked in last 18 months
-                                      blind:
-                                        example: false
-                                        type: boolean
-                                        description: Blind or visually impaired
-                                      disabled:
-                                        example: false
-                                        type: boolean
-                                        description: Disabilities
-                                      veteran:
-                                        example: true
-                                        type: boolean
-                                        description: >-
-                                          Served in U.S. Armed Forces, National
-                                          Guard or Reserves
-                                      benefitsMedicaid:
-                                        example: false
-                                        type: boolean
-                                        description: Medicaid
-                                      benefitsMedicaidDisability:
-                                        example: false
-                                        type: boolean
-                                        description: Disability related medicaid
-                                      headOfHousehold:
-                                        example: true
-                                        type: boolean
-                                        description: >-
-                                          Head of the household. There should be
-                                          one head of household in every
-                                          submission.
-                                      headOfHouseholdRelation:
-                                        type: string
-                                        maxLength: 32
-                                        description: >-
-                                          Person’s relationship to the head of the
-                                          household. It is mandatory if a person
-                                          is not head of household. Supported
-                                          values - Child, FosterChild, StepChild,
-                                          Grandchild, Spouse, Parent,
-                                          FosterParent, StepParent, Grandparent,
-                                          SisterBrother, StepSisterStepBrother,
-                                          BoyfriendGirlfriend, DomesticPartner,
-                                          Unrelated, Other
-                                        example: ''
-                                      livingOwnerOnDeed:
-                                        example: false
-                                        type: boolean
-                                        description: Is the person the owner?
-                                      livingRentalOnLease:
-                                        example: true
-                                        type: boolean
-                                        description: Is the person on the lease?
-                                      incomes:
-                                        type: array
-                                        items:
-                                          type: object
-                                          required:
-                                            - amount
-                                            - frequency
-                                            - type
-                                          properties:
-                                            amount:
-                                              type: string
-                                              maxLength: 9
-                                              description: >-
-                                                Amount the user receives for the type of
-                                                income. Supports only numeric and a
-                                                decimal. Characteristic will be min 0
-                                                and max 6 in length. Mantissa will be
-                                                min 1 and max 2
-                                              example: '200.00'
-                                            frequency:
-                                              type: string
-                                              maxLength: 16
-                                              description: >-
-                                                How often does the user receives the
-                                                income? Supported values - weekly,
-                                                biweekly, monthly, semimonthly, yearly
-                                              example: monthly
-                                            type:
-                                              type: string
-                                              maxLength: 32
-                                              example: Veteran
-                                              description: >-
-                                                Income source. Supported values - Wages,
-                                                SelfEmployment, Unemployment,
-                                                CashAssistance, ChildSupport,
-                                                DisabilityMedicaid, SSI, SSDependent,
-                                                SSDisability, SSSurvivor, SSRetirement,
-                                                NYSDisability, Veteran, Pension,
-                                                DeferredComp, WorkersComp, Alimony,
-                                                Boarder, Gifts, Rental, Investment
-                                      expenses:
-                                        type: array
-                                        items:
-                                          type: object
-                                          required:
-                                            - amount
-                                            - frequency
-                                            - type
-                                          properties:
-                                            amount:
-                                              type: string
-                                              maxLength: 9
-                                              description: >-
-                                                Amount the user receives for the type of
-                                                income. Supports only numeric and a
-                                                decimal. Characteristic will be min 0
-                                                and max 6 in length. Mantissa will be
-                                                min 1 and max 2
-                                              example: '50'
-                                            frequency:
-                                              type: string
-                                              maxLength: 16
-                                              description: >-
-                                                How often does the user have the
-                                                expense? Supported values - weekly,
-                                                biweekly, monthly, semimonthly, yearly
-                                              example: weekly
-                                            type:
-                                              type: string
-                                              maxLength: 32
-                                              description: >-
-                                                Type of expense. Supported values -
-                                                ChildCare, ChildSupport, DependentCare,
-                                                Rent, Medical, Heating, Cooling,
-                                                Mortgage, Utilities, Telephone,
-                                                InsurancePremiums
-                                              example: Medical
+                              amount:
+                                type: string
+                                maxLength: 9
+                                description: >-
+                                  Amount the user receives for the type of
+                                  income. Supports only numeric and a
+                                  decimal. Characteristic will be min 0
+                                  and max 6 in length. Mantissa will be
+                                  min 1 and max 2
+                                example: '50'
+                              frequency:
+                                type: string
+                                maxLength: 16
+                                description: >-
+                                  How often does the user have the
+                                  expense? Supported values - weekly,
+                                  biweekly, monthly, semimonthly, yearly
+                                example: weekly
+                              type:
+                                type: string
+                                maxLength: 32
+                                description: >-
+                                  Type of expense. Supported values -
+                                  ChildCare, ChildSupport, DependentCare,
+                                  Rent, Medical, Heating, Cooling,
+                                  Mortgage, Utilities, Telephone,
+                                  InsurancePremiums
+                                example: Medical
       responses:
         '200':
           description: Success Response
@@ -931,7 +915,7 @@ paths:
                             elementPath:
                               type: string
                               example: >-
-                                commands.0.insert.object.accessnyc.request.Household.cashOnHand
+                                0.person.0.headOfHousehold
         '404':
           description: Not Found
           content:

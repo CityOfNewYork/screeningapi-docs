@@ -15,16 +15,17 @@ export default function() {
     var formdata=$('.screener-form');
     
     var finalObj = {
-      "commands" : []
+      household: [],
+      person: []
     };
     
     var householdObj = generateHouseholdObj(formdata);
-    finalObj['commands'].push(householdObj);
+    finalObj['household'].push(householdObj);
 
     var personObj = {}
     $('.person-data').each(function(pi) {
       personObj = generatePersonObj(formdata, pi);
-      finalObj['commands'].push(personObj);
+      finalObj['person'].push(personObj);
     })
 
     var hasErrors = validateFields(formdata);
@@ -121,53 +122,36 @@ export default function() {
 
   /* Generates the household object */ 
   function generateHouseholdObj(form){
-    var hh = {
-      "insert" : {
-        "object": {}
-      }
-    };
-
-    hh['insert']['object']['accessnyc.request.Household'] = form.find('[household]').serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{});
-
+    var hh = form.find('[household]').serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{});
     var livingType = form.find('[name=livingType]').children();
-
     livingType.each(function(){
       if ($(this).val() != ""){
         if($(this).val() == livingType.parent().val()){
-          hh['insert']['object']['accessnyc.request.Household'][$(this).val()]="true";
+          hh[$(this).val()]="true";
         } else {
-          hh['insert']['object']['accessnyc.request.Household'][$(this).val()]="false";
+          hh[$(this).val()]="false";
         }
       }
     })
-    delete hh['insert']['object']['accessnyc.request.Household']['livingType'];
-
+    delete hh['livingType'];
     return hh;
   }
 
   /* Generates the person object */ 
   function generatePersonObj(form, pindex) {
     var personForm = form.find('.person-data').eq(pindex);
-
-    var person = {
-      "insert" : {
-        "object": {}
-      }
-    };
-
-    person['insert']['object']['accessnyc.request.Person'] = personForm.find('[person]').serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{});
-
+    var person = personForm.find('[person]').serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{});
     var personType = personForm.find('[type=checkbox]').filter('[person]');
     personType.each(function(){
       if ($(this).is(':checked')){
-        person['insert']['object']['accessnyc.request.Person'][$(this).attr('name')]="true";
+        person[$(this).attr('name')]="true";
       }else {
-        person['insert']['object']['accessnyc.request.Person'][$(this).attr('name')]="false";
+        person[$(this).attr('name')]="false";
       }      
     })
 
     if(personForm.find('[name=headOfHouseholdRelation]').val() == 'Self'){
-      person['insert']['object']['accessnyc.request.Person']['headOfHouseholdRelation']="";
+      person['headOfHouseholdRelation']="";
     }
 
 
@@ -191,7 +175,7 @@ export default function() {
     }
 
     if(incomesArr.length > 0){
-      person['insert']['object']['accessnyc.request.Person']['incomes'] = incomesArr;
+      person['incomes'] = incomesArr;
     }
 
     /* Expenses */
@@ -214,7 +198,7 @@ export default function() {
     }
 
     if(expensesArr.length > 0) {
-      person['insert']['object']['accessnyc.request.Person']['expenses'] = expensesArr;
+      person['expenses'] = expensesArr;
     }
 
     return person;
@@ -235,12 +219,19 @@ export default function() {
 
   /* Validate the form */
   function validateFields(form) {
-    var field, fieldName, groupSeleted;
+    var fieldName, groupSeleted;
     var errors = false;
     var fieldsObj = form.serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{})
     var fields = form.find('[required]');
 
     $('.error-msg').children().remove();
+
+    // check for two few or two many people
+    var numPeople = $('.person-data').length
+    if ((numPeople < 1) || (numPeople > 8)) {
+      $('.error-msg').append('<p>Number of people: You must specify at least 1 and no more than 8 people.</p>')
+      errors = true
+    }
 
     // check for empty fields
     fields.each(function(){
@@ -265,17 +256,9 @@ export default function() {
 
     });
 
-    if($('[name=headOfHousehold]:checked').length > 1 ||
-      $('[name=headOfHousehold]:checked').length == 0
-    ){
+    if(($('[name=headOfHousehold]:checked').length > 1) || ($('[name=headOfHousehold]:checked').length == 0)){
       $('[name=headOfHousehold]').next().addClass('error')
       $('.error-msg').append('<p>Head of Household: Either none declared or too many declared.</p>')
-      errors = true;
-    }
-
-    if ($('[name=members]').val() != $('.person-data').length){
-      $('[name=members]').addClass('error')
-      $('.error-msg').append('<p>Persons: The number of persons does not match number of members entered.</p>')
       errors = true;
     }
 
