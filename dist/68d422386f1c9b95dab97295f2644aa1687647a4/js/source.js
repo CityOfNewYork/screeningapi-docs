@@ -16570,12 +16570,7 @@ function _default() {
         person[$(this).attr('name')] = "false";
       }
     });
-
-    if (personForm.find('[name=headOfHouseholdRelation]').val() == 'Self') {
-      person['headOfHouseholdRelation'] = "";
-    }
     /* Incomes */
-
 
     var formIncomes = personForm.find('[person-incomes]').serializeArray();
     var incomesArr = [];
@@ -16671,10 +16666,18 @@ function _default() {
         errors = true;
       }
     });
+    var numHeads = 0;
+    var householdMemberTypes = $('[name=householdMemberType]');
 
-    if ($('[name=headOfHousehold]:checked').length > 1 || $('[name=headOfHousehold]:checked').length == 0) {
+    for (var i = 0; i < householdMemberTypes.length; i++) {
+      if (householdMemberTypes[i].value == "HeadOfHousehold") {
+        numHeads += 1;
+      }
+    }
+
+    if (numHeads != 1) {
       $('[name=headOfHousehold]').next().addClass('error');
-      $('.error-msg').append('<p>Head of Household: Either none declared or too many declared.</p>');
+      $('.error-msg').append('<p>Head of Household: Exactly one person must be the head of household.</p>');
       errors = true;
     }
 
@@ -16852,6 +16855,9 @@ function _default() {
   $('body').on('click', '.try-out__btn', function (event) {
     generateCurl(this);
   });
+  $('body').on('keyup', '[placeholder^=interestedPrograms]', function (event) {
+    generateCurl(this);
+  });
   $('body').on('keyup', '[placeholder^=Authorization]', function (event) {
     generateCurl(this);
   });
@@ -16873,6 +16879,8 @@ function _default() {
     par_node.find('.curl').remove();
     par_node.find('.execute-wrapper').append(util.format('<p class="curl">Use the following command to make a request to the <strong>%s</strong> endpoint based on the data set above:</p>', ep));
     var authVal = par_node.find('[placeholder^=Authorization]').val();
+    var interestedProgramsVal = par_node.find('[placeholder^=interestedPrograms]').val();
+    var query = interestedProgramsVal ? util.format("?interestedPrograms=%s", interestedProgramsVal) : "";
 
     if (ep_id.includes('Authentication')) {
       var authenticationCurl = util.format('curl -X POST "%s%s" \
@@ -16881,19 +16889,19 @@ function _default() {
         -d \'%s\'', domain, ep, params);
       par_node.find('.execute-wrapper').append(util.format('<textarea readonly="" class="curl" style="white-space: normal;">%s</textarea>', authenticationCurl));
     } else if (ep_id.includes('eligibilityPrograms')) {
-      var eligibilityProgramsCurl = util.format('curl -X POST "%s%s" \
+      var eligibilityProgramsCurl = util.format('curl -X POST "%s%s%s" \
         -H "accept: application/json" \
         -H "Content-Type: application/json" \
         -H "Authorization: %s"\
-        -d \'%s\'', domain, ep, authVal, params);
+        -d \'%s\'', domain, ep, query, authVal, params);
       par_node.find('.execute-wrapper').append(util.format('<textarea readonly="" class="curl" style="white-space: normal;">%s</textarea>', eligibilityProgramsCurl));
     } else if (ep_id.includes('bulkSubmission')) {
       var inputPath = par_node.find('[type^=file]').val();
-      var bulkSubmissionCurl = util.format('curl -X POST "%s%s" \
+      var bulkSubmissionCurl = util.format('curl -X POST "%s%s%s" \
         -H "accept: multipart/form-data" \
         -H "Content-Type: multipart/form-data" \
         -H "Authorization: %s"\
-        -F "=@%s;type=text/csv"', domain, ep, authVal, inputPath);
+        -F "=@%s;type=text/csv"', domain, ep, query, authVal, inputPath);
       par_node.find('.execute-wrapper').append(util.format('<textarea readonly="" class="curl" style="white-space: normal;">%s</textarea>', bulkSubmissionCurl));
     }
   }

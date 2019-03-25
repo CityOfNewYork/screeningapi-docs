@@ -705,6 +705,7 @@ paths:
                       type: object
                       required:
                         - age
+                        - householdMemberType
                       properties:
                         age:
                           type: number
@@ -756,27 +757,20 @@ paths:
                           example: false
                           type: boolean
                           description: Disability related medicaid
-                        headOfHousehold:
-                          example: true
-                          type: boolean
-                          description: >-
-                            Head of the household. There should be
-                            one head of household in every
-                            submission.
-                        headOfHouseholdRelation:
+                        householdMemberType:
                           type: string
                           maxLength: 32
                           description: >-
-                            Person’s relationship to the head of the
-                            household. It is mandatory if a person
-                            is not head of household. Supported
-                            values - Child, FosterChild, StepChild,
+                            Person’s relationship to the householf. 
+                            It is a required field. 
+                            At least one person in every household must be a "HeadOfHousehold" type. 
+                            Supported values - HeadOfHousehold, Child, FosterChild, StepChild,
                             Grandchild, Spouse, Parent,
                             FosterParent, StepParent, Grandparent,
                             SisterBrother, StepSisterStepBrother,
                             BoyfriendGirlfriend, DomesticPartner,
                             Unrelated, Other
-                          example: ''
+                          example: 'HeadOfHousehold'
                         livingOwnerOnDeed:
                           example: false
                           type: boolean
@@ -809,9 +803,9 @@ paths:
                                 maxLength: 16
                                 description: >-
                                   How often does the user receives the
-                                  income? Supported values - weekly,
-                                  biweekly, monthly, semimonthly, yearly
-                                example: monthly
+                                  income? Supported values - Weekly,
+                                  Biweekly, Monthly, Semimonthly, Yearly
+                                example: Monthly
                               type:
                                 type: string
                                 maxLength: 32
@@ -849,9 +843,9 @@ paths:
                                 maxLength: 16
                                 description: >-
                                   How often does the user have the
-                                  expense? Supported values - weekly,
-                                  biweekly, monthly, semimonthly, yearly
-                                example: weekly
+                                  expense? Supported values - Weekly,
+                                  Biweekly, Monthly, Semimonthly, Yearly
+                                example: Weekly
                               type:
                                 type: string
                                 maxLength: 32

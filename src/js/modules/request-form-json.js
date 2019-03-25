@@ -150,11 +150,6 @@ export default function() {
       }      
     })
 
-    if(personForm.find('[name=headOfHouseholdRelation]').val() == 'Self'){
-      person['headOfHouseholdRelation']="";
-    }
-
-
     /* Incomes */
     var formIncomes = personForm.find('[person-incomes]').serializeArray();
     var incomesArr = [];
@@ -255,10 +250,18 @@ export default function() {
       }
 
     });
+    
+    var numHeads = 0
+    var householdMemberTypes = $('[name=householdMemberType]')
+    for (var i = 0; i < householdMemberTypes.length; i++) {
+      if (householdMemberTypes[i].value == "HeadOfHousehold") {
+        numHeads += 1
+      }
+    }
 
-    if(($('[name=headOfHousehold]:checked').length > 1) || ($('[name=headOfHousehold]:checked').length == 0)){
+    if (numHeads != 1) {
       $('[name=headOfHousehold]').next().addClass('error')
-      $('.error-msg').append('<p>Head of Household: Either none declared or too many declared.</p>')
+      $('.error-msg').append('<p>Head of Household: Exactly one person must be the head of household.</p>')
       errors = true;
     }
 
