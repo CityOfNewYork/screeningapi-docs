@@ -37,7 +37,7 @@ export default function() {
       $('.error').removeClass('error');
       $('.screener-form').hide();
       $('.screener-json').find('pre').remove();
-      $('.screener-json').prepend('<pre class="block"><code class="code">' + JSON.stringify(finalObj, undefined, 2) + '</code></pre>');
+      $('.screener-json').prepend('<pre class="block"><code class="code">' + JSON.stringify([finalObj], undefined, 2) + '</code></pre>');
       $('.screener-json').removeClass('hidden');
     }
   })

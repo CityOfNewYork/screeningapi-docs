@@ -16448,7 +16448,7 @@ function _default() {
       $('.error').removeClass('error');
       $('.screener-form').hide();
       $('.screener-json').find('pre').remove();
-      $('.screener-json').prepend('<pre class="block"><code class="code">' + JSON.stringify(finalObj, undefined, 2) + '</code></pre>');
+      $('.screener-json').prepend('<pre class="block"><code class="code">' + JSON.stringify([finalObj], undefined, 2) + '</code></pre>');
       $('.screener-json').removeClass('hidden');
     }
   });
@@ -16880,7 +16880,9 @@ function _default() {
     par_node.find('.execute-wrapper').append(util.format('<p class="curl">Use the following command to make a request to the <strong>%s</strong> endpoint based on the data set above:</p>', ep));
     var authVal = par_node.find('[placeholder^=Authorization]').val();
     var interestedProgramsVal = par_node.find('[placeholder^=interestedPrograms]').val();
+    console.log("interestedPrograms: ", interestedProgramsVal);
     var query = interestedProgramsVal ? util.format("?interestedPrograms=%s", interestedProgramsVal) : "";
+    console.log("query: ", query);
 
     if (ep_id.includes('Authentication')) {
       var authenticationCurl = util.format('curl -X POST "%s%s" \
