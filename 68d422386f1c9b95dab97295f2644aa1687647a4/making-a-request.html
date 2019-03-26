@@ -22,6 +22,7 @@
   </script>
 </head>
 
+
 <body>
   <header class="o-header screen-tablet:layout--sidebar">
   <div class="o-header__banner-main color-primary-button">
@@ -59,6 +60,7 @@
     </div>
   </div>
 </header>
+
   <main class="screen-tablet:layout--sidebar screen-tablet:flex items-stretch m-0 p-0 min-h-screen">
     <aside class="o-navigation color-mid-background">
   <div class="o-navigation__wrap color-mid-background hidden screen-tablet:flex">
@@ -84,7 +86,8 @@
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
   <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
   <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
-</nav>      </div>
+</nav>
+      </div>
     </div>
   </div>
 
@@ -110,15 +113,19 @@
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
   <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
   <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
-</nav>    </div>
+</nav>
+    </div>
   </div>
 </aside>
 
+
     <article id="main-content" class="color-light-background py-2 px-4 screen-desktop:px-6">
-      <section>
+      
+<section>
 	<div class="layout--content pt-4">
 		<div class="screen-desktop:pr-4 screen-desktop:pr-6">
-			<h1 class="mt-0 p-0">Making a Request</h1>			<div class="o-content">
+			<h1 class="mt-0 p-0">Making a Request</h1>
+			<div class="o-content">
         <div id="markdown-making-a-request-1"></div>
 			</div>
 		</div>
@@ -134,12 +141,6 @@
     &quot;description&quot;: &quot;Description&quot;,
     &quot;dataAttribute&quot;: &quot;Data Attribute&quot;,
     &quot;possibleValue&quot;: &quot;Type and/or Value&quot;
-  },
-  {
-    &quot;name&quot;: &quot;&lt;b&gt;Members&lt;/b&gt;&quot;,
-    &quot;description&quot;: &quot;Number of People in the household. Directly related to the number of Person types. Minimum is 1 and maximum value is 8.&quot;,
-    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;members&lt;/code&gt;&quot;,
-    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Integer&lt;/b&gt; &lt;br&gt;&lt;em class=&#039;whitespace-no-wrap text-secondary-grey&#039;&gt;Min: 1, Max: 8&lt;/em&gt;&quot;
   },
   {
     &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Cash on Hand&lt;/b&gt;&quot;,
@@ -337,16 +338,16 @@
     &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
   },
   {
-    &quot;name&quot;: &quot;&lt;b class=&#039;whitespace-no-wrap&#039;&gt;Head of the Household&lt;/b&gt;&quot;,
-    &quot;description&quot;: &quot;Whether the person is the head of household or not. Note, only one person can be the head of household.&quot;,
-    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;headOfHousehold&lt;/code&gt;&quot;,
-    &quot;possibleValue&quot;: &quot;&lt;b class=&#039;text-primary-blue&#039;&gt;Boolean&lt;/b&gt;&quot;
+    &quot;name&quot;: &quot;&lt;b&gt;Relation to the Household&lt;/b&gt;&quot;,
+    &quot;description&quot;: &quot;What is this person&#039;s relation to the household (see below).&quot;,
+    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;householdMemberType&lt;/code&gt;&quot;,
+    &quot;possibleValue&quot;: &quot;Blank &lt;b class=&#039;text-primary-blue&#039;&gt;String&lt;/b&gt;&lt;em class=&#039;text-secondary-grey&#039;&gt;(\&quot;\&quot;)&lt;/em&gt; or one listed below.&quot;
   },
   {
-    &quot;name&quot;: &quot;&lt;b&gt;Relation to the Head of Household&lt;/b&gt;&quot;,
-    &quot;description&quot;: &quot;If person isn’t the head of household, what is their relation to the head of household (see below).&quot;,
-    &quot;dataAttribute&quot;: &quot;&lt;code class=&#039;font-bold text-h5&#039;&gt;headOfHouseholdRelation&lt;/code&gt;&quot;,
-    &quot;possibleValue&quot;: &quot;Blank &lt;b class=&#039;text-primary-blue&#039;&gt;String&lt;/b&gt;&lt;em class=&#039;text-secondary-grey&#039;&gt;(\&quot;\&quot;)&lt;/em&gt; or one listed below.&quot;
+    &quot;name&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;Head of Household&quot;,
+    &quot;dataAttribute&quot;: &quot;&quot;,
+    &quot;possibleValue&quot;: &quot;&lt;em class=&#039;text-secondary-grey&#039;&gt;HeadOfHousehold&lt;/em&gt;&quot;
   },
   {
     &quot;name&quot;: &quot;&quot;,
@@ -762,6 +763,7 @@
 		</div>
 	</div>
 </section>
+
     </article>
   </main>
 
@@ -785,8 +787,10 @@
     <small>© City of New York, 2019 All Rights Reserved.<br>NYC is a trademark and service mark of the City of New York.</small>
   </div>
 </footer>
+
   <script crossorigin='anonymous' src='https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Array.prototype.forEach,Element.prototype.matches,Element.prototype.remove,fetch,Promise'></script>
   <script src="js/source.js"></script>
   
+
 </body>
 </html>
