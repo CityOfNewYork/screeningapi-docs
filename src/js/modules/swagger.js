@@ -17,6 +17,10 @@ export default function() {
     generateCurl(this)
   })
 
+  $('body').on('keyup', '[placeholder^=interestedPrograms]', function(event){
+    generateCurl(this);
+  })
+
   $('body').on('keyup', '[placeholder^=Authorization]', function(event){
     generateCurl(this);
   })
@@ -42,6 +46,8 @@ export default function() {
     par_node.find('.execute-wrapper').append(util.format('<p class="curl">Use the following command to make a request to the <strong>%s</strong> endpoint based on the data set above:</p>', ep));
 
     const authVal = par_node.find('[placeholder^=Authorization]').val();
+    const interestedProgramsVal = par_node.find('[placeholder^=interestedPrograms]').val();
+    const query = interestedProgramsVal ? util.format("?interestedPrograms=%s", interestedProgramsVal) : ""
     if (ep_id.includes('Authentication')) {
       const authenticationCurl = util.format('curl -X POST "%s%s" \
         -H  "accept: application/json" \
@@ -49,19 +55,19 @@ export default function() {
         -d \'%s\'', domain, ep, params);
       par_node.find('.execute-wrapper').append(util.format('<textarea readonly="" class="curl" style="white-space: normal;">%s</textarea>', authenticationCurl));
     } else if (ep_id.includes('eligibilityPrograms')){
-      const eligibilityProgramsCurl = util.format('curl -X POST "%s%s" \
+      const eligibilityProgramsCurl = util.format('curl -X POST "%s%s%s" \
         -H "accept: application/json" \
         -H "Content-Type: application/json" \
         -H "Authorization: %s"\
-        -d \'%s\'', domain, ep, authVal, params);
+        -d \'%s\'', domain, ep, query, authVal, params);
       par_node.find('.execute-wrapper').append(util.format('<textarea readonly="" class="curl" style="white-space: normal;">%s</textarea>', eligibilityProgramsCurl));
     } else if (ep_id.includes('bulkSubmission')) {
       const inputPath = par_node.find('[type^=file]').val();
-      const bulkSubmissionCurl = util.format('curl -X POST "%s%s" \
+      const bulkSubmissionCurl = util.format('curl -X POST "%s%s%s" \
         -H "accept: multipart/form-data" \
         -H "Content-Type: multipart/form-data" \
         -H "Authorization: %s"\
-        -F "=@%s;type=text/csv"', domain, ep, authVal, inputPath);
+        -F "=@%s;type=text/csv"', domain, ep, query, authVal, inputPath);
       par_node.find('.execute-wrapper').append(util.format('<textarea readonly="" class="curl" style="white-space: normal;">%s</textarea>', bulkSubmissionCurl));
     }
   }

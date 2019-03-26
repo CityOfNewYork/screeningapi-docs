@@ -6,12 +6,6 @@
     "possibleValue": "Type and/or Value"
   },
   {
-    "name": "<b>Members</b>",
-    "description": "Number of People in the household. Directly related to the number of Person types. Minimum is 1 and maximum value is 8.",
-    "dataAttribute": "<code class='font-bold text-h5'>members</code>",
-    "possibleValue": "<b class='text-primary-blue'>Integer</b> <br><em class='whitespace-no-wrap text-secondary-grey'>Min: 1, Max: 8</em>"
-  },
-  {
     "name": "<b class='whitespace-no-wrap'>Cash on Hand</b>",
     "description": "How much does your whole household has right now in; cash on hand, checking or saving accounts, stocks, bonds or mutual funds.",
     "dataAttribute": "<code class='font-bold text-h5'>cashOnHand</code>",

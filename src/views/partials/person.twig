@@ -6,15 +6,10 @@
     <label class="font-bold">What is this person's age?</label>
     <input type="number" name="age" placeholder="35" person required>
   </div>
-  
-  <label class="checkbox">
-    <input type="checkbox" name="headOfHousehold" person>
-    <span class="checkbox__label font-bold"> This person is head of the household</span><br>
-  </label>
 
-  <label class="font-bold">What is this person's relationship to the Head of Household?
-  <select name="headOfHouseholdRelation" class="select" person required>
-    <option value="Self">Self</option>
+  <label class="font-bold">How is this person related to the household?
+  <select name="householdMemberType" class="select" person required>
+    <option value="HeadOfHousehold">Head of Household</option>
     <option value="Child">Child</option>
     <option value="FosterChild">Foster Child</option>
     <option value="StepChild">Step-child</option>
@@ -91,11 +86,11 @@
     </select><br>
     <select name="frequency" class="select" person-incomes required>
       <option value="">Please select income frequency</option>
-      <option value="weekly">Every week</option>
-      <option value="biweekly">Every 2 weeks</option>
-      <option value="monthly">Monthly</option>
-      <option value="semimonthly">Twice a month</option>
-      <option value="yearly">Every year</option>
+      <option value="Weekly">Every week</option>
+      <option value="Biweekly">Every 2 weeks</option>
+      <option value="Monthly">Monthly</option>
+      <option value="Semimonthly">Twice a month</option>
+      <option value="Yearly">Every year</option>
     </select>
   </div>
   <div class="add-remove block">
@@ -125,11 +120,11 @@
     </select><br>
     <select name="frequency" class="select" person-expenses required>
       <option value="">Please select expense frenquency</option>
-      <option value="weekly">Every week</option>
-      <option value="biweekly">Every 2 weeks</option>
-      <option value="monthly">Monthly</option>
-      <option value="semimonthly">Twice a month</option>
-      <option value="yearly">Every year</option>
+      <option value="Weekly">Every week</option>
+      <option value="Biweekly">Every 2 weeks</option>
+      <option value="Monthly">Monthly</option>
+      <option value="Semimonthly">Twice a month</option>
+      <option value="Yearly">Every year</option>
     </select>
   </div>
   <div class="add-remove block">

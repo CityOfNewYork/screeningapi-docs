@@ -72,16 +72,16 @@
     "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
   },
   {
-    "name": "<b class='whitespace-no-wrap'>Head of the Household</b>",
-    "description": "Whether the person is the head of household or not. Note, only one person can be the head of household.",
-    "dataAttribute": "<code class='font-bold text-h5'>headOfHousehold</code>",
-    "possibleValue": "<b class='text-primary-blue'>Boolean</b>"
+    "name": "<b>Relation to the Household</b>",
+    "description": "What is this person's relation to the household (see below).",
+    "dataAttribute": "<code class='font-bold text-h5'>householdMemberType</code>",
+    "possibleValue": "Blank <b class='text-primary-blue'>String</b><em class='text-secondary-grey'>(\"\")</em> or one listed below."
   },
   {
-    "name": "<b>Relation to the Head of Household</b>",
-    "description": "If person isn’t the head of household, what is their relation to the head of household (see below).",
-    "dataAttribute": "<code class='font-bold text-h5'>headOfHouseholdRelation</code>",
-    "possibleValue": "Blank <b class='text-primary-blue'>String</b><em class='text-secondary-grey'>(\"\")</em> or one listed below."
+    "name": "",
+    "description": "Head of Household",
+    "dataAttribute": "",
+    "possibleValue": "<em class='text-secondary-grey'>HeadOfHousehold</em>"
   },
   {
     "name": "",
