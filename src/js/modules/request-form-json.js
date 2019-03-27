@@ -2,11 +2,19 @@
  * Converts form to JSON
  */
 
+import responses from './responses.json';
+
 export default function() {
 
-  var personContainer = $('.person-data:first').clone();
+  $('.screener-form').fadeIn(2500)
+
   var incomesContainer = $('.incomes').clone();
   var expensesContainer = $('.expenses').clone();
+
+  $('.incomes').remove();
+  $('.expenses').remove();
+
+  var personContainer = $('.person-data:first').clone();
 
   /* Generate the entire JSON */
   $('.generate-json').on('click', function(event){
@@ -30,7 +38,7 @@ export default function() {
 
     var hasErrors = validateFields(formdata);
 
-    if (hasErrors) {
+    if (hasErrors["errors"] > 0 ) {
       $('.error-msg').removeClass('hidden');
     }else {
       $('.error-msg').addClass('hidden');
@@ -39,6 +47,11 @@ export default function() {
       $('.screener-json').find('pre').remove();
       $('.screener-json').prepend('<pre class="block"><code class="code">' + JSON.stringify([finalObj], undefined, 2) + '</code></pre>');
       $('.screener-json').removeClass('hidden');
+    }
+    if (hasErrors["warnings"] > 0 ) {
+      $('.warning-msg').removeClass('hidden');
+    }else {
+      $('.warning-msg').addClass('hidden');
     }
   })
 
@@ -54,30 +67,52 @@ export default function() {
     if($(this).val() == 'livingRenting'){
       $('.livingRentalType').removeClass('hidden');
       $('.lease').removeClass('hidden');
+      personContainer.find('.lease').removeClass('hidden');
     } else {
       $('.livingRentalType').addClass('hidden');
       $('.lease').addClass('hidden');
     }
     if($(this).val() == 'livingOwner'){
       $('.deed').removeClass('hidden');
+      personContainer.find('.deed').removeClass('hidden');
     } else {
       $('.deed').addClass('hidden');
     }
   })
 
-  /* Add additional persons*/
+  /* Head of household */
+  $(document).on('change','[name=headOfHousehold]', function(event) {
+    event.preventDefault();
+    if($(this).is(':checked')){
+      $(this).parent().next().addClass('hidden');
+    }else {
+      $(this).parent().next().removeClass('hidden');
+    }
+  })
+
+  /* Add person */
   $(document).on('click','.add-person', function(event) {
     event.preventDefault();
-    personContainer.clone().insertBefore($(this).parent());
+
+    $('.add-remove').find('.error').remove()
+
+    if ($('.person-data').length > 8) {
+      $(this).parent().append('<p class="error pt-2">'+responses.find(x => x["Person"])["Person"]["err_num_persons"]+'</p>')
+    }else {
+      personContainer.clone().insertBefore($(this).parent());
+    }
 
     if ($('.person-data').length > 1) {
       $('.remove-person').removeClass('hidden');
     }
   })
 
-  /* Remove person*/
+  /* Remove person */
   $(document).on('click','.remove-person', function(event) {
     event.preventDefault();
+
+    $('.add-remove').find('.error').remove()
+
     if ($('.person-data').length >1) {
       $('.person-data:last').remove();
     }
@@ -86,37 +121,39 @@ export default function() {
     }
   })
 
-  /* Add additional incomes*/
+  /* INCOMES */
   $(document).on('click','.add-income', function(event) {
     event.preventDefault();
     incomesContainer.clone().insertBefore($(this).parent())
-    if($('.incomes').length > 0){
-      $('.remove-income').show();
-    }
+    $(this).closest('.person-data').find('.incomes:last').removeClass('hidden')
+    $(this).prev('.remove-income').removeClass('hidden')
   })
 
   $(document).on('click','.remove-income', function(event) {
     event.preventDefault();
-    $('.incomes:last').remove();
-    if($('.incomes').length == 0){
-      $('.remove-income').hide();
+    $(this).closest('.person-data').find('.incomes:last').remove();
+    if($(this).closest('.person-data').find('.incomes').length > 0){
+      $(this).removeClass('hidden');
+    } else {
+      $(this).addClass('hidden');
     }
   })
 
-  /* Add additional expenses*/
+  /* EXPENSES */
   $(document).on('click','.add-expense', function(event) {
     event.preventDefault();
-    expensesContainer.clone().insertBefore($(this).parent());
-    if($('.expenses').length > 0){
-      $('.remove-expense').show();
-    }
+    expensesContainer.clone().insertBefore($(this).parent())
+    $(this).closest('.person-data').find('.expenses:last').removeClass('hidden')
+    $(this).prev('.remove-expense').removeClass('hidden')
   })
 
   $(document).on('click','.remove-expense', function(event) {
     event.preventDefault();
-    $('.expenses:last').remove();
-    if($('.expenses').length == 0){
-      $('.remove-expense').hide();
+    $(this).closest('.person-data').find('.expenses:last').remove();
+    if($(this).closest('.person-data').find('.expenses').length > 0){
+      $(this).removeClass('hidden');
+    } else {
+      $(this).addClass('hidden');
     }
   })
 
@@ -214,22 +251,26 @@ export default function() {
 
   /* Validate the form */
   function validateFields(form) {
-    var fieldName, groupSeleted;
-    var errors = false;
-    var fieldsObj = form.serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{})
-    var fields = form.find('[required]');
+    var field, fieldName, groupSeleted,
+    results = {"errors": 0, "warnings": 0},
+    fieldsObj = form.serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{}),
+    fields = form.find('[required]'),
+    errNode = $('.error-msg'),
+    warningNode = $('.warning-msg'),
+    hhMsgObj = responses.find(x => x["Household"])["Household"],
+    personMsgObj = responses.find(x => x["Person"])["Person"],
+    errMsgObj = responses.find(x => x["General"])["General"]
 
     $('.error-msg').children().remove();
+    $('.warning-msg').children().remove();    
 
-    // check for two few or two many people
-    var numPeople = $('.person-data').length
-    if ((numPeople < 1) || (numPeople > 8)) {
-      $('.error-msg').append('<p>Number of people: You must specify at least 1 and no more than 8 people.</p>')
-      errors = true
-    }
+    $('.error-msg').addClass('error')
+    $('.error-msg').append('<p><strong>' + errMsgObj["error"]  + '</strong></p>')
+    $('.warning-msg').append('<p><strong>' + errMsgObj["warning"] + '</strong></p>')
 
-    // check for empty fields
+    /* check for empty fields */
     fields.each(function(){
+      console.log('error')
       fieldName = $(this).attr('name');
       groupSeleted = Object.keys(fieldsObj).find(a =>a.includes(fieldName))? true : false;
 
@@ -237,7 +278,7 @@ export default function() {
         !groupSeleted
       ) {
         $(this).addClass('error');
-        errors = true;
+        results["errors"] += 1;
       } else {
         $(this).removeClass('error');
       }
@@ -245,11 +286,17 @@ export default function() {
       if( ($(this).val() == 'livingRenting') && 
         (form.find('[name=livingRentalType]').val() == "")
       ) {
-        form.find('[name=livingRentalType]').addClass('error')
-        errors = true;
+        warningNode.append('<p>' + hhMsgObj["warning_rental_type"] + '</p>')
+        results["warnings"] += 1;
       }
 
     });
+
+    var numPeople = $('.person-data').length;
+    if ((numPeople < 1) || (numPeople > 8)) {
+      $('.error-msg').append('<p>'+ personMsgObj["err_num_persons"] + '</p>')
+      results["errors"] += 1;
+    }
     
     var numHeads = 0
     var householdMemberTypes = $('[name=householdMemberType]')
@@ -262,9 +309,24 @@ export default function() {
     if (numHeads != 1) {
       $('[name=headOfHousehold]').next().addClass('error')
       $('.error-msg').append('<p>Head of Household: Exactly one person must be the head of household.</p>')
-      errors = true;
+      results["errors"] += 1;
     }
 
-    return errors;
+    if (form.find('[name=livingType]').val() == "livingRenting" &&
+      !($('[name=livingRentalOnLease]:checked').length > 0)
+    ){
+      warningNode.append('<p>' + personMsgObj["warning_on_lease"] + '</p>')
+      results["warnings"] += 1;
+    }
+
+    if (form.find('[name=livingType]').val() == "livingOwner" &&
+      !($('[name=livingRentalOnLease]:checked').length > 0)
+    ){
+      warningNode.append('<p>' + personMsgObj["warning_on_deed"] + '</p>')
+      results["warnings"] += 1;
+    }
+
+
+    return results;
   }
 }
