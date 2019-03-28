@@ -16519,7 +16519,10 @@ function _default() {
     }
 
     if ($('.person-data').length > 1) {
+      console.log('more than 1');
       $('.remove-person').removeClass('hidden');
+    } else {
+      console.log('less than 1');
     }
   });
   /* Remove person */
@@ -16533,7 +16536,7 @@ function _default() {
     }
 
     if ($('.person-data').length == 1) {
-      $(this).hide();
+      $('.remove-person').addClass('hidden');
     }
   });
   /* INCOMES */

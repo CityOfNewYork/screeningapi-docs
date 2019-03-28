@@ -103,7 +103,10 @@ export default function() {
     }
 
     if ($('.person-data').length > 1) {
+      console.log('more than 1')
       $('.remove-person').removeClass('hidden');
+    }else {
+      console.log('less than 1')
     }
   })
 
@@ -117,7 +120,7 @@ export default function() {
       $('.person-data:last').remove();
     }
     if ($('.person-data').length == 1) {
-      $(this).hide();
+      $('.remove-person').addClass('hidden');
     }
   })
 
