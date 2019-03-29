@@ -1,9 +1,9 @@
 <div class="person-data">
   <h2>Person</h2>
-  <p>Enter values into the fields below for one individual of the Household.</p>
+  <p>Enter values into the fields below for one individual of the Household to build the Person Composition.</p>
 
   <div class="input-number">
-    <label class="font-bold">What is this person's age?</label>
+    <label class="font-bold">Age</label>
     <input type="number" name="age" placeholder="35" person required>
   </div>
 
@@ -28,33 +28,33 @@
   </select><br>
   </label><br>
 
-  <label class="checkbox deed hidden">
-    <input type="checkbox" name="livingOwnerOnDeed" person><span class="font-bold"> This person is on the deed</span><br>
+  <label class="checkbox deed block hidden">
+    <input type="checkbox" name="livingOwnerOnDeed" person><span class="font-bold"> On the deed</span>
   </label>
 
-  <label class="checkbox lease hidden">
-    <input type="checkbox" name="livingRentalOnLease" person><span class="font-bold"> This person is on the lease</span><br>
+  <label class="checkbox lease block hidden">
+    <input type="checkbox" name="livingRentalOnLease" person><span class="font-bold"> On the lease</span>
   </label>
 
-  <div class="checkbox">
-  <label class="font-bold">Select all that apply</label><br>
-  <input type="checkbox" name="student" person><span> Student</span>
-  <input type="checkbox" name="studentFulltime" person><span> Student Full time</span><br>
-  <input type="checkbox" name="pregnant" person><span> Pregnant</span><br>
-  <input type="checkbox" name="unemployed" person><span> Unemployed</span>
-  <input type="checkbox" name="unemployedWorkedLast18Months" person><span> Unemployed last 18 months</span><br>
-  <input type="checkbox" name="blind" person><span> Blind</span><br>
-  <input type="checkbox" name="disabled" person><span> Disabled</span><br>
-  <input type="checkbox" name="veteran" person><span> Veteran</span><br>
+  <div class="checkbox block mt-2">
+    <label class="font-bold">Additional Information (select all that apply):</label><br>
+    <input type="checkbox" name="student" person><span> Student</span>
+    <input type="checkbox" name="studentFulltime" person><span> Student Full time</span><br>
+    <input type="checkbox" name="pregnant" person><span> Pregnant</span><br>
+    <input type="checkbox" name="unemployed" person><span> Unemployed</span>
+    <input type="checkbox" name="unemployedWorkedLast18Months" person><span> Unemployed last 18 months</span><br>
+    <input type="checkbox" name="blind" person><span> Blind</span><br>
+    <input type="checkbox" name="disabled" person><span> Disabled</span><br>
+    <input type="checkbox" name="veteran" person><span> Veteran</span><br>
   </div>
 
-  <div class="checkbox">
-    <label class="font-bold">Is this person receiving any of the below benefits</label><br>
+  <div class="checkbox block mt-2">
+    <label class="font-bold">Receiving benefits (select all that apply): </label><br>
     <input type="checkbox" name="benefitsMedicaid" person><span> Medicaid</span><br>
     <input type="checkbox" name="benefitsMedicaidDisability" person><span> Disability-related medicaid</span><br>
   </div>
 
-  <div class="incomes block">
+  <div class="incomes block mt-2 hidden">
     <div class="input-number">
       <label class="font-bold">Incomes</label><br>
       <input type="number" name="amount" placeholder="200" person-incomes required>
@@ -93,12 +93,13 @@
       <option value="Yearly">Every year</option>
     </select>
   </div>
-  <div class="add-remove block">
-    <button class="btn remove-income">Remove income</button>
+
+  <div class="add-remove block mt-2">
+    <button class="btn remove-income hidden">Remove income</button>
     <button class="btn add-income">Add income</button>
   </div>
 
-  <div class="expenses block">
+  <div class="expenses block mt-2 hidden">
     <div class="input-number">
       <label class="font-bold">Expenses</label><br>
       <input type="number" name="amount" placeholder="50" person-expenses required>
@@ -128,8 +129,8 @@
     </select>
   </div>
   <div class="add-remove block">
-    <button class="btn remove-expense">Remove expense</button>
-    <button class="btn add-expense">Add expense</button>
+    <button class="btn remove-expense hidden">Remove expense</button>
+    <button class="btn add-expense mt-2">Add expense</button>
   </div>
 </div>
 

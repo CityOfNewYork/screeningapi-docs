@@ -59,9 +59,12 @@ markdowns.each(function(){
 
   $.get(cdn + file + '.md', function(data) {
     var showdown  = require('showdown'),
-    converter = new showdown.Converter(),
+    converter = new showdown.Converter({tables: true}),
     html      = converter.makeHtml(data);
 
-    target.append(html);
+    target.append(html)
+      .hide()
+      .fadeIn(1000)
+
   }, 'text')
 });

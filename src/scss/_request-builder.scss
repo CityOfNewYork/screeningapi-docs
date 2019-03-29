@@ -1,6 +1,6 @@
 /* Temporary styling - will be replaced by nyco-patterns inputs and selects elements */
 .screener-form {
-  display: inline-block;
+  display: none;
   position: relative;
 
   .input-number {
@@ -23,8 +23,8 @@
     width: 400px;
   }
 
-  .checkbox {
-    display: block;
-    padding: 12px 0;
-  }
+  // .checkbox {
+  //   display: block;
+  //   padding: 12px 0;
+  // }
 }
