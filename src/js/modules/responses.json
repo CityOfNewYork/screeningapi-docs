@@ -41,6 +41,7 @@
   {
     "Person": {
       "err_num_persons": "Person: The number of persons cannot exceed 8 members",
+      "err_hoh": "Person: Exactly one person must be the head of household.",
       "warning_on_lease": "Person: At least one person should be on the lease.",
       "warning_on_deed": "Person: At least one person should be on the deed.",
     }

@@ -2,12 +2,13 @@
   <h2>Household</h2>
   <p>Enter values into the fields below for the Household Level data for the Household Composition.</p>
 
-  <div class="input-number">
-    <label class="font-bold">What is the household's cash on hand?</label><br>
+  <div class="input m-2">
+    <label class="font-bold">Cash on hand:</label>
     <input type="number" name="cashOnHand" placeholder="0" min="0" household required>
   </div>
   
-  <label class="font-bold">What is the household's living situation?
+  <div class="m-2">
+    <label class="font-bold">Living Situation:</label>
     <select name="livingType" class="select" household required>
       <option value="">Please make a selection</option>
       <option value="livingRenting">Renting</option>
@@ -16,11 +17,11 @@
       <option value="livingHotel">Hotel</option>
       <option value="livingShelter">Shelter</option>
       <option value="livingPreferNotToSay">Prefer not to say</option>
-  </select>
-  </label>
+    </select>
+  </div>
 
-  <div class="livingRentalType block hidden">
-    <label class="font-bold">Type of rental</label><br>
+  <div class="livingRentalType block m-2 hidden">
+    <label class="font-bold">Type of rental:</label>
     <select name="livingRentalType" class="select" household>
       <option value="">Please make a selection</option>
       <option value="NYCHA">NYCHA Housing</option>

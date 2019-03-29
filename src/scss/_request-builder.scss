@@ -3,28 +3,8 @@
   display: none;
   position: relative;
 
-  .input-number {
+  label {
     display: block;
-    position: relative;
-
-    input {
-      margin: 12px 0;
-      padding: 12px;
-      height: 40px;
-      font-size: 14px;
-    }
+    margin-bottom: 12px;
   }
-
-  .select {
-    margin: 12px 0;
-    padding: 12px;
-    font-size: 14px;
-    height: 40px;
-    width: 400px;
-  }
-
-  // .checkbox {
-  //   display: block;
-  //   padding: 12px 0;
-  // }
 }

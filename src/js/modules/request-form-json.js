@@ -80,16 +80,6 @@ export default function() {
     }
   })
 
-  /* Head of household */
-  $(document).on('change','[name=headOfHousehold]', function(event) {
-    event.preventDefault();
-    if($(this).is(':checked')){
-      $(this).parent().next().addClass('hidden');
-    }else {
-      $(this).parent().next().removeClass('hidden');
-    }
-  })
-
   /* Add person */
   $(document).on('click','.add-person', function(event) {
     event.preventDefault();
@@ -103,10 +93,7 @@ export default function() {
     }
 
     if ($('.person-data').length > 1) {
-      console.log('more than 1')
       $('.remove-person').removeClass('hidden');
-    }else {
-      console.log('less than 1')
     }
   })
 
@@ -273,17 +260,16 @@ export default function() {
 
     /* check for empty fields */
     fields.each(function(){
-      console.log('error')
       fieldName = $(this).attr('name');
       groupSeleted = Object.keys(fieldsObj).find(a =>a.includes(fieldName))? true : false;
 
       if( $(this).val() === "" ||
         !groupSeleted
       ) {
-        $(this).addClass('error');
+        $(this).parent().addClass('error');
         results["errors"] += 1;
       } else {
-        $(this).removeClass('error');
+        $(this).parent().removeClass('error');
       }
 
       if( ($(this).val() == 'livingRenting') && 
@@ -310,8 +296,8 @@ export default function() {
     }
 
     if (numHeads != 1) {
-      $('[name=headOfHousehold]').next().addClass('error')
-      $('.error-msg').append('<p>Head of Household: Exactly one person must be the head of household.</p>')
+      $('[name=householdMemberType]').parent().addClass('error')
+      $('.error-msg').append('<p>'+ personMsgObj["err_hoh"] +'</p>')
       results["errors"] += 1;
     }
 
