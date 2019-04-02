@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+  <link rel="shortcut icon" href="images/favicon/favicon.ico">
+
+  <title>NYC Benefits Screening API</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135011272-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-135011272-1');
+  </script>
+</head>
+
+<body>
+  <header class="overflow-hidden color-dark-background py-2">
+    <div class="layout--wrap mx-auto px-6 flex justify-between items-center">
+      <h1 class="m-0 flex">
+        <span class="hidden">The Mayor's Office for Economic Opportunity</span>
+        <svg aria-hidden="true" class="icon-logo-nyco" style="width:96px;height:52px;">
+          <use xlink:href="#icon-logo-nyco"></use>
+        </svg>
+      </h1>
+
+      <button data-js="toggle" aria-pressed="false" aria-expanded="false" aria-controls="navigation" class="cursor-pointer underline font-bold">Menu</button>
+    </div>
+  </header>
+
+  <aside id="navigation" class="color-mid-background hidden hidden:overflowFadeInUp animated">
+    <div class="p-4 animated">
+      <div class="layout--wrap screen-tablet:layout--two-columns-gutter justify-center mx-auto">
+        <div>
+          <nav>
+  <a class="block p-3 text-h4 no-underline hover:bg-secondary-pink-50t" href="overview">Overview</a>
+
+  <span class="block p-3 text-h4 font-normal border-b text-primary-navy border-primary-navy">Guide</span>
+  <a class="block p-3 text-h4 no-underline hover:bg-secondary-pink-50t" href="getting-started">Getting Started</a>
+  <a class="block p-3 text-h4 no-underline hover:bg-secondary-pink-50t" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
+  <a class="block p-3 text-h4 no-underline hover:bg-secondary-pink-50t" href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a>
+  <a class="block p-3 text-h4 no-underline hover:bg-secondary-pink-50t" href="making-a-request">Making a Request</a>
+  <a class="block p-3 text-h4 no-underline hover:bg-secondary-pink-50t" href="endpoints">Endpoints</a>
+  <a class="block p-3 text-h4 no-underline hover:bg-secondary-pink-50t" href="sample-data-and-code">Sample Data and Code</a>
+
+  <span class="block p-3 text-h4 font-normal border-b text-primary-navy border-primary-navy">Reference</span>
+  <a class="block p-3 text-h4 no-underline hover:bg-secondary-pink-50t" href="request-builder">Request Builder</a>
+  <a class="block p-3 text-h4 no-underline hover:bg-secondary-pink-50t" href="eligibility-guidelines">Eligibility Guidelines</a>
+  <a class="block p-3 text-h4 no-underline hover:bg-secondary-pink-50t" href="feedback-and-support">Feedback and Support</a>
+  <a class="block p-3 text-h4 no-underline hover:bg-secondary-pink-50t" href="terms-of-service">Terms of Service</a>
+</nav>        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+      <section class="color-dark-background py-6">
+    <div class="layout--wrap mx-auto px-4 pb-6">
+      <div>
+        <div class="flex items-center justify-between" aria-hidden="true">
+                                  <div class="my-1 icon-7 animated fadeInUp">&nbsp;</div>
+                                              <svg class="my-1 icon-7 animated fadeInUp icon-cash-expenses" style="animation-delay: 1s">
+              <use xlink:href="#icon-cash-expenses"></use>
+            </svg>
+                                              <div class="my-1 icon-7 animated fadeInUp">&nbsp;</div>
+                                              <svg class="my-1 icon-7 animated fadeInUp icon-child-care" style="animation-delay: 1.1161231740339044s">
+              <use xlink:href="#icon-child-care"></use>
+            </svg>
+                                              <div class="my-1 icon-7 animated fadeInUp">&nbsp;</div>
+                              </div>
+
+        <div class="flex items-center justify-between" aria-hidden="true">
+                                  <svg class="my-1 icon-7 animated fadeInUp icon-family-services" style="animation-delay: 1.174618943088019s">
+              <use xlink:href="#icon-family-services"></use>
+            </svg>
+                                              <div class="my-1 icon-7 animated fadeInUp">&nbsp;</div>
+                                              <svg class="my-1 icon-7 animated fadeInUp icon-work" style="animation-delay: 1.214814044039067s">
+              <use xlink:href="#icon-work"></use>
+            </svg>
+                                              <div class="my-1 icon-7 animated fadeInUp">&nbsp;</div>
+                                              <svg class="my-1 icon-7 animated fadeInUp icon-city-id-card" style="animation-delay: 1.2457309396155174s">
+              <use xlink:href="#icon-city-id-card"></use>
+            </svg>
+                              </div>
+
+        <div style="max-width: 40rem" class="mx-auto pt-4 pb-2 animated fadeInUp">
+          <h1 class="screen-mobile:text-jumbo font-normal mt-0">NYC Benefits Screening API</h1>
+          <p>
+            Create modern web applications that evaluate household data against eligibility rules for 31 different City, State, and Federal benefits programs (including SNAP, Cash Assistance, WIC, HEAP, and more).
+          <p>
+          <div class="text-center pt-2">
+            <a class="btn text-h4 font-normal p-2 px-3 color-secondary-button" href="overview">Get Started</a>
+          </div>
+        </div>
+
+        <div class="hidden screen-mobile:flex items-center justify-between" aria-hidden="true">
+                                  <div class="my-1 icon-7 animated fadeInUp">&nbsp;</div>
+                                              <svg class="my-1 icon-7 animated fadeInUp icon-enrichment" style="animation-delay: 1.2923922207808318s">
+              <use xlink:href="#icon-enrichment"></use>
+            </svg>
+                                              <div class="my-1 icon-7 animated fadeInUp">&nbsp;</div>
+                                              <svg class="my-1 icon-7 animated fadeInUp icon-food" style="animation-delay: 1.31101942303975s">
+              <use xlink:href="#icon-food"></use>
+            </svg>
+                                              <div class="my-1 icon-7 animated fadeInUp">&nbsp;</div>
+                              </div>
+
+        <div class="hidden screen-mobile:flex items-center justify-between" aria-hidden="true">
+                                  <svg class="my-1 icon-7 animated fadeInUp icon-health" style="animation-delay: 1.3275316748885193s">
+              <use xlink:href="#icon-health"></use>
+            </svg>
+                                              <div class="my-1 icon-7 animated fadeInUp">&nbsp;</div>
+                                              <svg class="my-1 icon-7 animated fadeInUp icon-housing" style="animation-delay: 1.3423796509621049s">
+              <use xlink:href="#icon-housing"></use>
+            </svg>
+                                              <div class="my-1 icon-7 animated fadeInUp">&nbsp;</div>
+                                              <svg class="my-1 icon-7 animated fadeInUp icon-special-needs" style="animation-delay: 1.3558821066938467s">
+              <use xlink:href="#icon-special-needs"></use>
+            </svg>
+                              </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="color-mid-background pt-6">
+    <div class="layout--wrap mx-auto px-6 pt-6">
+      <div class="text-center">
+        <h2 class="mt-0">Read the Documentation</h2>
+      </div>
+
+      <div class="screen-mobile:layout--three-columns-gutter pb-6">
+                <article class="text-center mx-auto" style="max-width:18rem">
+          <a class="block bg-base-white hover:bg-secondary-pink-50t" href="overview">
+            <header class="py-4" aria-hidden="true">
+              <svg class="icon-logo-mark icon-8">
+                <use xlink:href="#icon-logo-mark"></use>
+              </svg>
+            </header>
+          </a>
+
+          <h3 class="h5 p-2 pb-4 m-0">
+            <a href="overview">Overview</a>
+          </h3>
+        </article>
+                <article class="text-center mx-auto" style="max-width:18rem">
+          <a class="block bg-base-white hover:bg-secondary-pink-50t" href="endpoints">
+            <header class="py-4" aria-hidden="true">
+              <svg class="icon-logo-swagger icon-8">
+                <use xlink:href="#icon-logo-swagger"></use>
+              </svg>
+            </header>
+          </a>
+
+          <h3 class="h5 p-2 pb-4 m-0">
+            <a href="endpoints">Endpoints</a>
+          </h3>
+        </article>
+                <article class="text-center mx-auto" style="max-width:18rem">
+          <a class="block bg-base-white hover:bg-secondary-pink-50t" href="sample-data-and-code">
+            <header class="py-4" aria-hidden="true">
+              <svg class="icon-logo-github icon-8">
+                <use xlink:href="#icon-logo-github"></use>
+              </svg>
+            </header>
+          </a>
+
+          <h3 class="h5 p-2 pb-4 m-0">
+            <a href="sample-data-and-code">Sample Data and Code</a>
+          </h3>
+        </article>
+              </div>
+    </div>
+  </section>
+
+  <section class="color-mid-background text-center pb-6">
+    <div class="layout--wrap mx-auto px-4 pb-6">
+      <a class="btn text-h4 font-normal p-2 px-3 color-primary-button" href="overview">Get Started</a>
+    </div>
+  </section>
+  </main>
+
+  <footer class="o-footer color-dark-background screen-tablet:layout--three-columns-gutter">
+  <nav>
+    <a class="o-footer__nav-link" href="overview">Overview</a>
+    <a class="o-footer__nav-link" href="getting-started">Getting Started</a>
+    <a class="o-footer__nav-link" href="feedback-and-support">Feedback and Support</a>
+    <a class="o-footer__nav-link" href="terms-of-service">Terms of Service</a>
+  </nav>
+
+  <div class="o-footer__info">
+    <a href="http://nyc.gov/opportunity" title="The Mayor's Office for Economic Opportunity">
+      <svg aria-hidden="true" class="icon-logo-secondary o-footer__logo text-base-white">
+        <use xlink:href="#icon-logo-secondary"></use>
+      </svg>
+    </a>
+
+    <div id="markdown-about-nyc-opportunity"></div>
+
+    <small>© City of New York, 2019 All Rights Reserved.<br>NYC is a trademark and service mark of the City of New York.</small>
+  </div>
+</footer>
+  <script crossorigin='anonymous' src='https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Array.prototype.forEach,Element.prototype.matches,Element.prototype.remove,fetch,Promise'></script>
+  <script src="js/source.js"></script>
+  
+</body>
+</html>
