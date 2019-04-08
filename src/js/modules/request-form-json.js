@@ -1,12 +1,11 @@
-/** 
+/**
  * Converts form to JSON
  */
 
 import responses from './responses.json';
 
 export default function() {
-
-  $('.screener-form').fadeIn(2500)
+  $('.screener-form').fadeIn(500)
 
   var incomesContainer = $('.incomes').clone();
   var expensesContainer = $('.expenses').clone();
@@ -21,12 +20,12 @@ export default function() {
     event.preventDefault();
 
     var formdata=$('.screener-form');
-    
+
     var finalObj = {
       household: [],
       person: []
     };
-    
+
     var householdObj = generateHouseholdObj(formdata);
     finalObj['household'].push(householdObj);
 
@@ -147,7 +146,7 @@ export default function() {
     }
   })
 
-  /* Generates the household object */ 
+  /* Generates the household object */
   function generateHouseholdObj(form){
     var hh = form.find('[household]').serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{});
     var livingType = form.find('[name=livingType]').children();
@@ -164,7 +163,7 @@ export default function() {
     return hh;
   }
 
-  /* Generates the person object */ 
+  /* Generates the person object */
   function generatePersonObj(form, pindex) {
     var personForm = form.find('.person-data').eq(pindex);
     var person = personForm.find('[person]').serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{});
@@ -174,7 +173,7 @@ export default function() {
         person[$(this).attr('name')]="true";
       }else {
         person[$(this).attr('name')]="false";
-      }      
+      }
     })
 
     /* Incomes */
@@ -185,7 +184,7 @@ export default function() {
     var index = 0;
     var subset;
 
-    for (var i = 0; i < numIncomes; i++) { 
+    for (var i = 0; i < numIncomes; i++) {
       incomesObj = {};
       subset = formIncomes.slice(index, index+3);
       subset.forEach(function(key){
@@ -207,7 +206,7 @@ export default function() {
     var numExpenses = formExpenses.length / 3;
     index = 0;
 
-    for (var i = 0; i < numExpenses; i++) { 
+    for (var i = 0; i < numExpenses; i++) {
       expensesObj = {};
       subset = formExpenses.slice(index, index+3);
       subset.forEach(function(key){
@@ -252,7 +251,7 @@ export default function() {
     errMsgObj = responses.find(x => x["General"])["General"]
 
     $('.error-msg').children().remove();
-    $('.warning-msg').children().remove();    
+    $('.warning-msg').children().remove();
 
     $('.error-msg').addClass('error')
     $('.error-msg').append('<p><strong>' + errMsgObj["error"]  + '</strong></p>')
@@ -272,7 +271,7 @@ export default function() {
         $(this).parent().removeClass('error');
       }
 
-      if( ($(this).val() == 'livingRenting') && 
+      if( ($(this).val() == 'livingRenting') &&
         (form.find('[name=livingRentalType]').val() == "")
       ) {
         warningNode.append('<p>' + hhMsgObj["warning_rental_type"] + '</p>')
@@ -286,7 +285,7 @@ export default function() {
       $('.error-msg').append('<p>'+ personMsgObj["err_num_persons"] + '</p>')
       results["errors"] += 1;
     }
-    
+
     var numHeads = 0
     var householdMemberTypes = $('[name=householdMemberType]')
     for (var i = 0; i < householdMemberTypes.length; i++) {

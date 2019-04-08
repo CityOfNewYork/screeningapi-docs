@@ -122,15 +122,16 @@
   <form class="screener-form">
     <div class="household-data">
   <h2>Household</h2>
+
   <p>Enter values into the fields below for the Household Level data for the Household Composition.</p>
 
-  <div class="input m-2">
-    <label class="font-bold">Cash on hand:</label>
+  <div class="input my-4">
+    <label class="font-bold">Cash on hand <span class="text-primary-red">*</span></label>
     <input type="number" name="cashOnHand" placeholder="0" min="0" household required>
   </div>
-  
-  <div class="m-2">
-    <label class="font-bold">Living Situation:</label>
+
+  <div class="my-4">
+    <label class="font-bold">Living Situation <span class="text-primary-red">*</span></label>
     <select name="livingType" class="select" household required>
       <option value="">Please make a selection</option>
       <option value="livingRenting">Renting</option>
@@ -142,7 +143,7 @@
     </select>
   </div>
 
-  <div class="livingRentalType block m-2 hidden">
+  <div class="livingRentalType block my-4 hidden">
     <label class="font-bold">Type of rental:</label>
     <select name="livingRentalType" class="select" household>
       <option value="">Please make a selection</option>
@@ -161,15 +162,16 @@
   </div>
 </div>    <div class="person-data">
   <h2>Person</h2>
+
   <p>Enter values into the fields below for one individual of the Household to build the Person Composition.</p>
 
-  <div class="input m-2">
-    <label class="font-bold">Age:</label>
+  <div class="input my-4">
+    <label class="font-bold">Age <span class="text-primary-red">*</span></label>
     <input type="number" name="age" placeholder="35" person required>
   </div>
 
-  <div class="m-2">
-    <label class="font-bold">Relation to head of household:</label>
+  <div class="my-4">
+    <label class="font-bold">Relation to head of household</label>
     <select name="householdMemberType" class="select" person required>
       <option value="HeadOfHousehold">Head of Household</option>
       <option value="Child">Child</option>
@@ -190,22 +192,22 @@
     </select>
   </div>
 
-  <div class="m-2">
+  <div class="my-4">
     <label class="checkbox deed block hidden">
       <input type="checkbox" name="livingOwnerOnDeed" person>
       <span class="checkbox__label font-bold"> On the deed</span>
     </label>
   </div>
 
-  <div class="m-2">
+  <div class="my-4">
     <label class="checkbox lease block hidden">
       <input type="checkbox" name="livingRentalOnLease" person>
       <span class="checkbox__label font-bold"> On the lease</span>
     </label>
   </div>
 
-  <div class="block m-2">
-    <p class="font-bold">Select all that apply:</p>
+  <div class="block my-4">
+    <p class="font-bold">Select all that apply</p>
     <label class="checkbox">
       <input type="checkbox" name="student" person>
       <span class="checkbox__label"> Student</span>
@@ -235,8 +237,8 @@
     </label>
   </div>
 
-  <div class="block m-2">
-    <p class="font-bold">Receiving benefits (select all that apply):</p>
+  <div class="block my-4">
+    <p class="font-bold">Receiving benefits (select all that apply)</p>
     <label class="checkbox">
       <input type="checkbox" name="benefitsMedicaid" person>
       <span class="checkbox__label"> Medicaid</span>
@@ -247,15 +249,15 @@
     </label>
   </div>
 
-  <div class="incomes block m-2 hidden">
-    <p class="font-bold">Incomes</p>
-    <div class="input m-2">
-      <label class="font-bold">Amount:</label>
+  <p class="font-bold">Incomes</p>
+  <div class="incomes block hidden">
+    <div class="input my-2">
+      <label class="font-bold">Amount <span class="text-primary-red">*</span></label>
       <input type="number" name="amount" placeholder="200" person-incomes required>
     </div>
-    
-    <div class="m-2">
-      <label class="font-bold">Type:</label>
+
+    <div class="my-2">
+      <label class="font-bold">Type <span class="text-primary-red">*</span></label>
       <select name="type" class="select" person-incomes required>
         <option value="">Please select income type</option>
         <option value="Wages">Wages, salaries, tips</option>
@@ -282,8 +284,8 @@
       </select>
     </div>
 
-    <div class="m-2">
-      <label class="font-bold">Frequency:</label>
+    <div class="my-2">
+      <label class="font-bold">Frequency <span class="text-primary-red">*</span></label>
       <select name="frequency" class="select" person-incomes required>
         <option value="">Please select income frequency</option>
         <option value="Weekly">Every week</option>
@@ -295,20 +297,20 @@
     </div>
   </div>
 
-  <div class="add-remove block m-2">
+  <div class="add-remove block my-4">
     <button class="btn remove-income hidden">Remove income</button>
     <button class="btn add-income">Add income</button>
   </div>
 
-  <div class="expenses block m-2 hidden">
-    <p class="font-bold">Expenses</p>
-    <div class="input m-2">
-      <label class="font-bold">Amount:</label>
+  <p class="font-bold">Expenses</p>
+  <div class="expenses block hidden">
+    <div class="input my-2">
+      <label class="font-bold">Amount <span class="text-primary-red">*</span></label>
       <input type="number" name="amount" placeholder="50" person-expenses required>
     </div>
-    
-    <div class="m-2">
-      <label class="font-bold">Type:</label>
+
+    <div class="my-2">
+      <label class="font-bold">Type <span class="text-primary-red">*</span></label>
       <select name="type" class="select" person-expenses required>
         <option value="">Please select expense type</option>
         <option value="ChildCare">Child Care</option>
@@ -325,8 +327,8 @@
       </select>
     </div>
 
-    <div class="m-2">
-      <label class="font-bold">Frequency:</label>
+    <div class="my-2">
+      <label class="font-bold">Frequency <span class="text-primary-red">*</span></label>
       <select name="frequency" class="select" person-expenses required>
         <option value="">Please select expense frenquency</option>
         <option value="Weekly">Every week</option>
@@ -338,7 +340,7 @@
     </div>
   </div>
 
-  <div class="add-remove block m-2">
+  <div class="add-remove block my-4">
     <button class="btn remove-expense hidden">Remove expense</button>
     <button class="btn add-expense">Add expense</button>
   </div>
@@ -346,7 +348,7 @@
 
   <div class="add-remove block pt-2">
     <button class="btn remove-person hidden">Remove Person</button>
-    <button class="btn color-secondary-button add-person">Add Person</button>
+    <button class="btn color-secondary-button add-person">Add Another Person</button>
   </div>
 
     <div class="block pt-4">

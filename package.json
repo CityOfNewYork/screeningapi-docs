@@ -17,7 +17,8 @@
     "publish": "npm run build && node app/publish.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "gulp",
-    "dev": "cross-env NODE_ENV=development gulp"
+    "dev": "cross-env NODE_ENV=development gulp",
+    "purge": "curl -X POST https://purge.jsdelivr.net/gh/CityOfNewYork/screeningapi-docs@content"
   },
   "bugs": {
     "url": "https://github.com/CityOfNewYork/screeningapi-docs/issues"
@@ -58,7 +59,7 @@
   },
   "dependencies": {
     "access-nyc-patterns": "^0.1.8",
-    "nyco-patterns": "^1.6.0",
+    "nyco-patterns": "^1.6.1",
     "showdown": "^1.9.0",
     "tailwindcss": "^0.5.2"
   },

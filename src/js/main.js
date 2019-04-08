@@ -5,7 +5,7 @@ import Icons from 'nyco-patterns/dist/elements/icons/Icons.common'
 import Toggle from 'nyco-patterns/dist/utilities/toggle/Toggle.common'
 import Track from 'nyco-patterns/dist/utilities/track/Track.common'
 
-var cdn = 'https://cdn.jsdelivr.net/gh/CityOfNewYork/screeningapi-docs@content/';
+var cdn = 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/content/';
 
 new Icons('svg/icons.svg');
 new Toggle();
@@ -23,37 +23,10 @@ if ((window.location.pathname.indexOf('request-builder') >= 0)) {
   requestFormJSON();
 }
 
-/* Tables */
-$('[data-js="jsonToTable"]').each((index, el) => {
-  let json = $(el.dataset.jsJsonToTableJson);
-  let data = JSON.parse(json.text());
-  let table = $('<table />');
-  let thead = $('<thead />');
-  let tbody = $('<tbody />');
-
-  for (var i = 0; i < data.length; i++) {
-    let row = $('<tr />');
-    let keys = Object.keys(data[i]);
-    let twrap = (i === 0) ? thead : tbody;
-
-    $(keys).each((index, key) => {
-      let tcell = (i === 0) ? $('<th />') : $('<td />');
-      tcell.html(data[i][key]);
-      row.append(tcell);
-    });
-
-    twrap.append(row);
-  }
-
-  table.append(thead);
-  table.append(tbody);
-
-  $(el.dataset.jsJsonToTableTable).html(table);
-});
-
 /* Get the content markdown from CDN and append */
 let markdowns = $('body').find('[id^="markdown"]');
-markdowns.each(function(){
+
+markdowns.each(function() {
   let target = $(this);
   let file = $(this).attr('id').replace('markdown-', '');
 
@@ -64,7 +37,7 @@ markdowns.each(function(){
 
     target.append(html)
       .hide()
-      .fadeIn(1000)
+      .fadeIn(250)
 
   }, 'text')
 });

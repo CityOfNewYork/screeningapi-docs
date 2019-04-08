@@ -2,7 +2,7 @@
   display: block;
 
   .code-block {
-    margin-bottom: 1.25em;
+    margin-bottom: map-get($variables, 'grid') * 2;
   }
 
   p code {
@@ -10,6 +10,6 @@
   }
 
   table {
-    @include table();
+    @include tables();
   }
 }
