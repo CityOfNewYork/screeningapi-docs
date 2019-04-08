@@ -12,10 +12,12 @@ curl -X POST \
 
 Here is a full list of headers required for each request.
 
-| Header | Value |
-|--------|-------|
-| <code class="whitespace-no-wrap h5">Content-Type</code>  | Set according to endpoint |
-| <code class="whitespace-no-wrap h5">Authorization</code> | A valid token retrieved via the <code class='code'>authToken</code> endpoint. |
+<div class="table">
+  | Header | Value |
+  |--------|-------|
+  | <code class="whitespace-no-wrap h5">Content-Type</code>  | Set according to endpoint |
+  | <code class="whitespace-no-wrap h5">Authorization</code> | A valid token retrieved via the <code class='code'>authToken</code> endpoint. |
+</div>
 
 ## Testing
 
@@ -25,7 +27,7 @@ Please note, there are two domains for sending requests, one for testing and one
 
 The request for each endpoint should contain certain datum pertinent to the household of the client for which eligibility is being screened. We refer to this as **Household Composition Data**. The entire dataset is made up of two distinct types: **Household** and **Person(s)**. Each type has different attributes that must be filled out as completely as possible for the most accurate eligibility screening. There can only be one **Household** and there can be more than one, but no more than eight, **Person(s)** associated with each household.
 
-<div class="code-block"><pre>
+<div class="code-block mb-2"><pre>
 [{
   household: [{{ Household }}],
   person: [
