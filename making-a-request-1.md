@@ -12,12 +12,11 @@ curl -X POST \
 
 Here is a full list of headers required for each request.
 
-<div class="table">
-  | Header | Value |
-  |--------|-------|
-  | <code class="whitespace-no-wrap h5">Content-Type</code>  | Set according to endpoint |
-  | <code class="whitespace-no-wrap h5">Authorization</code> | A valid token retrieved via the <code class='code'>authToken</code> endpoint. |
-</div>
+
+| Header | Value |
+|--------|-------|
+| <code class="whitespace-no-wrap h5">Content-Type</code>  | Set according to endpoint |
+| <code class="whitespace-no-wrap h5">Authorization</code> | A valid token retrieved via the <code class='code'>authToken</code> endpoint. |
 
 ## Testing
 
