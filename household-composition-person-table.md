@@ -32,7 +32,7 @@
 ||Related in some other way||<em class='text-secondary-grey'>Other</em>|
 |<b class='whitespace-no-wrap'>Owner or on deed</b>|If the household owns the home, is the person the owner or on the deed.|<code class='font-bold text-h5'>livingOwnerOnDeed</code>|<b class='text-primary-blue'>Boolean</b>|
 |<b class='whitespace-no-wrap'>Renting and on the Rental Lease</b>|If the household rental is renting, whether the person on the lease or not.|<code class='font-bold text-h5'>livingRentalOnLease</code>|<b class='text-primary-blue'>Boolean</b>|
-|<b class='whitespace-no-wrap'>Income</b>|A collection of one or more income objects.|<code class='font-bold text-h5'>incomes</code>|<b class='text-primary-blue'>Array</b> of <b class='text-primary-blue'>Objects</b><div class='code-block small'><pre>[<br>  {<br>    \"amount\": \"200.00\",<br>    \"type\": \"Veteran\",<br>    \"frequency\": \"Monthly\"<br>  },<br>  … additional Incomes…<br>]</pre></div>|
+|<b class='whitespace-no-wrap'>Income</b>|A collection of one or more income objects.|<code class='font-bold text-h5'>incomes</code>|<b class='text-primary-blue'>Array</b> of <b class='text-primary-blue'>Objects</b><div class='code-block small'><pre>[<br>  {<br>    "amount": "200.00",<br>    "type": "Veteran",<br>    "frequency": "Monthly"<br>  },<br>  … additional Incomes…<br>]</pre></div>|
 ||**Income amount.** The dollar amount of the income.|<code class='font-bold text-h5'>amount</code>|<b class='text-primary-blue'>Number</b> greater than or equal to 0. <span class='whitespace-no-wrap'><em class='text-secondary-grey'>Example: 200.00</em></span>|
 ||**Income type.** The type of the income (see below).|<code class='font-bold text-h5'>type</code>|Blank <b class='text-primary-blue'>String</b><em class='text-secondary-grey'>("")</em> or one listed below.|
 ||Wages, salaries, tips.||<em class='text-secondary-grey'>Wages</em>|
@@ -62,7 +62,7 @@
 ||Monthly||<em class='text-secondary-grey'>Monthly</em>|
 ||Twice a month.||<em class='text-secondary-grey'>Semimonthly</em>|
 ||Every year.||<em class='text-secondary-grey'>Yearly</em>||
-|<b class='whitespace-no-wrap'>Expenses</b>| A collection of one or more expense objects. |<code class='font-bold text-h5'>expenses</code>|<b class='text-primary-blue'>Array</b> of <b class='text-primary-blue'>Objects</b> <div class='code-block small'><pre>[<br>  {<br>    \"amount\": \"50.00\",<br>    \"type\": \"Medical\",<br>    \"frequency\": \"Weekly\"<br>  },<br>  … additional Expenses…<br>]</pre></div>|
+|<b class='whitespace-no-wrap'>Expenses</b>| A collection of one or more expense objects. |<code class='font-bold text-h5'>expenses</code>|<b class='text-primary-blue'>Array</b> of <b class='text-primary-blue'>Objects</b> <div class='code-block small'><pre>[<br>  {<br>    "amount": "50.00",<br>    "type": "Medical",<br>    "frequency": "Weekly"<br>  },<br>  … additional Expenses…<br>]</pre></div>|
 ||**Expense amount.** The dollar amount of the expense.|<code class='font-bold text-h5'>amount</code>|Value greater than or equal to 0.|<b class='text-primary-blue'>Number</b> greater than or equal to 0. <span class='whitespace-no-wrap'><em class='text-secondary-grey'>Example: 2000.00</em></span>|
 ||**Expense type.** The type of the expense (see below).|<code class='font-bold text-h5'>type</code>|Blank <b class='text-primary-blue'>String</b><em class='text-secondary-grey'>("")</em> or one listed below.|
 ||Child care.||<em class='text-secondary-grey'>ChildCare</em>|
