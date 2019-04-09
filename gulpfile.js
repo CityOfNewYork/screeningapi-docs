@@ -24,7 +24,7 @@ var browserSync = require('browser-sync').create(),
   cssnano = require('cssnano');
 
 const NODE_ENV = process.env.NODE_ENV;
-const DIST_PROD = 'dist/68d422386f1c9b95dab97295f2644aa1687647a4/';
+const DIST_PROD = 'dist/';
 const DIST = (NODE_ENV === 'development') ? 'dev/' : DIST_PROD;
 const SOURCE = 'src/';
 const PACKAGE = require('./package.json');
