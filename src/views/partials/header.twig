@@ -25,12 +25,14 @@
 
   <div class="o-header__secondary-version color-dark-background">
     <div>
-      <a class="btn flex items-center" href="{{ package.homepage }}/tree/v{{ package.version }}">
-        <svg aria-hidden="true" class="icon-github-mark icon-small mr-1">
-          <use xlink:href="#icon-github-mark"></use>
-        </svg>
-        {{ package.version }}
-      </a>
+      <span class="btn flex items-center cursor-auto">
+      {# <a class="btn flex items-center" href="{{ package.homepage }}/tree/v{{ package.version }}"> #}
+      {# <svg aria-hidden="true" class="icon-github-mark icon-small mr-1">
+        <use xlink:href="#icon-github-mark"></use>
+      </svg> #}
+        v{{ package.version }}
+      {# </a> #}
+      </span>
     </div>
   </div>
 </header>
