@@ -22,3 +22,8 @@ This branch contains the markdown files that are rendered on the pages of the AP
 | terms-of-service.md | [Terms of Service](https://screeningapidocs.cityofnewyork.us/terms-of-service) |
 | about-nyc-opportunity.md | [Footer](https://screeningapidocs.cityofnewyork.us) |
 
+## Purge
+
+If you don't see a changes reflected, please purge the cache for that file:
+
+* [NYC Benefits Screening Chart](https://cdn.jsdelivr.net/gh/CityOfNewYork/screeningapi-docs@content/NYC_Benefits_Screening_Chart.pdf)
