@@ -12,9 +12,9 @@ It’s important for developers and end-users impacted by use of the API to unde
 
 ## Documentation
 
-* [NYC Benefits Screening Guide 1.4.0 (March, 2019)](NYC_Benefits_Screening_Guide_1.4.0.pdf) - This guide summarizes the eligibility criteria that is interpreted and implemented in the NYC Benefits Screening API.
+* [NYC Benefits Screening Guide 1.4.0 (March, 2019)](https://github.com/CityOfNewYork/screeningapi-docs/raw/content/NYC_Benefits_Screening_Guide_1.4.0.pdf) - This guide summarizes the eligibility criteria that is interpreted and implemented in the NYC Benefits Screening API.
 
-* <a href='NYC_Benefits_Screening_Chart.pdf' data-js='track' data-track-key='Benefits Screening Chart' data-track-data='[{"event":"benefits-screening-chart"}]' target='_blank' rel="nofollow noopener">NYC Benefits Screening Chart (April, 2019)</a> - This chart summarizes how individual request parameters map to the potential eligibility response for benefits programs.
+* <a href='https://github.com/CityOfNewYork/screeningapi-docs/raw/content/NYC_Benefits_Screening_Chart.pdf' data-js='track' data-track-key='Benefits Screening Chart' data-track-data='[{"event":"benefits-screening-chart"}]' target='_blank' rel="nofollow noopener">NYC Benefits Screening Chart (April, 2019)</a> - This chart summarizes how individual request parameters map to the potential eligibility response for benefits programs.
 
 ## Next
 
