@@ -6,7 +6,7 @@ The Mayor’s Office for Economic Opportunity (NYC Opportunity) provides access 
 
 ## Updates to the NYC Benefits Screening API
 
-The guidelines governing eligibility criteria for the 31 benefits programs are maintained and updated on a regular basis by NYC Opportunity, in partnership with each benefit program’s administering agency. These guidelines are interpreted and implemented in the eligibility engine, which runs on the business rules management system Drools. NYC Opportunity makes reasonable efforts to produce an update every quarter, but such updates are not guaranteed. We will communicate information about eligibility criteria changes by email to the address you provide when signing up for a developer account. You can also sign up for updates here. 
+The guidelines governing eligibility criteria for the 31 benefits programs are maintained and updated on a regular basis by NYC Opportunity, in partnership with each benefit program’s administering agency. These guidelines are interpreted and implemented in the eligibility engine, which runs on the business rules management system Drools. NYC Opportunity makes reasonable efforts to produce an update every quarter, but such updates are not guaranteed. We will communicate information about eligibility criteria changes by email to the address you provide when signing up for a developer account. You can also [sign up for news-only updates on the same form](http://eepurl.com/gfLTuH).
 
 ## How to Access the NYC Benefits Screening API
 
