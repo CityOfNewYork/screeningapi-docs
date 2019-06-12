@@ -1,5 +1,6 @@
 import requestForm from './modules/submission.js'
 import swagger from './modules/swagger.js'
+import bulkSubmission from './modules/bulk-submission.js'
 import requestFormJSON from './modules/request-form-json.js'
 import Icons from 'nyco-patterns/dist/elements/icons/Icons.common'
 import Toggle from 'nyco-patterns/dist/utilities/toggle/Toggle.common'
@@ -12,7 +13,6 @@ new Toggle();
 new Track();
 
 window.$ = window.jQuery = require('jquery');
-
 if ((window.location.pathname.indexOf('endpoints') >= 0)) {
   swagger();
 }
@@ -21,6 +21,9 @@ if ((window.location.pathname.indexOf('form') >= 0)) {
 }
 if ((window.location.pathname.indexOf('request-builder') >= 0)) {
   requestFormJSON();
+}
+if ((window.location.pathname.indexOf('bulk-submission') >= 0)) {
+  bulkSubmission();
 }
 
 /* Get the content markdown from CDN and append */
