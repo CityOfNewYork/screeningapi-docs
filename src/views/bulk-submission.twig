@@ -1,72 +1,86 @@
 {% extends "layouts/default.twig" %}
 
-{% set title = 'Bulk Request Submission' %}
+{% set title = 'Bulk Submission Form' %}
 {% set page_title = title %}
 
-{% block container %}
+{% block content %}
+<p>The usage of this page requires an account. You can <a class="{{ classes.link }}" href="http://eepurl.com/gfLTuH" target="_blank">request an account here</a>. See <a href="getting-started">Getting Started</a> for more details.</p>
 
-<section>
-<div class="page-wrapper">
-        <div class="bg-color-white text-font-size-small">
-            <h1 class="type-h1 w-full text-font-size-larger text-color-blue-dark">Bulk Submission</h1>
-            <div id="errors" class="w-1/3" role="alert"></div>
-            <div>
-                <div style="display: none;" id="loader">Loading...</div>
+<form action="https://screeningapi.cityofnewyork.us/" method="post" novalidate="true" data-js="bulk-submission" class="border border-solid border-primary-blue-30t bg-secondary-white-70t p-4">
+  {# <div id="c_baseurl" class="mb-2">
+      <label class="font-bold" for="baseurl">Base URL<span class="text-primary-red">*</span></label>
+      <div>
+          <select id="baseurl" name="baseurl" class="select">
+              <option value="https://screeningapi.cityofnewyork.us/">
+                  Production
+              </option>
+              <option value="https://sandbox.screeningapi.cityofnewyork.us/">
+                  Sandbox
+              </option>
+          </select>
+      </div>
+  </div> #}
 
-                <div id="c_baseurl" class="my-2">
-                    <label class="font-bold" for="baseurl">Base URL<span style="color:red">*</span></label>
-                    <div>
-                        <select id="baseurl" name="baseurl" class="select">
-		                	<option value="https://screeningapi.cityofnewyork.us/">
-		                		https://screeningapi.cityofnewyork.us
-		                	</option>
-		                	<option value="https://sandbox.screeningapi.cityofnewyork.us/">
-		                		https://sandbox.screeningapi.cityofnewyork.us
-		                	</option>
-		                </select>
-                    </div>
-            	</div>
+  <div id="c_username" class="mb-2">
+    <label class="font-bold" for="username">Username <span class="text-primary-red">*</span></label>
 
-                <div id="c_username" class="my-2">
-                    <label class="font-bold" for="username">Username<span style="color:red">*</span></label>
-                    <div>
-                        <input type="text" id="username" placeholder="Enter Username" name="username" maxlength="255">
-                    </div>
-                </div>
-
-                <div id="c_password" class="my-2">
-                    <label class="font-bold" for="password">Password<span style="color:red">*</span></label>
-                    <div>
-                        <input type="password" id="password" placeholder="Password" name="password" maxlength="255">
-                    </div>
-                </div>
-
-                <div class="my-2">
-                    <label class="font-bold" for="newpassword">New Password</label>
-                    <div>
-                        <span>Users must set a new password of their Cognito user pools only while doing first time authentication. Second time onward, the newly set password must be provided in the Password field.</span>
-                        <input class="mt-1" type="password" id="newpassword" placeholder="New Password" name="newPassword" maxlength="255">
-                    </div>
-                </div>
-
-                <div class="my-2">
-                    <label class="font-bold" for="eligibility">Program Codes</label>
-                    <div>
-                        <span>To only check eligibility for certain programs, add the program codes you wish you check here, separated by a comma</span>
-                        <input class="w-full mt-1" id="eligibility" name="programs" maxlength="2048"></input>
-                    </div>
-                </div>
-
-                <div id="c_csvfile" class="my-2">
-                    <label class="font-bold" for="csv_upload">Upload File<span style="color:red">*</span></label>
-                    <div>
-                        <input id="csv_upload" type="file" name="csvFile" accept=".csv">
-                    </div>
-                </div>
-
-                <button id="bulkSubmissionSubmit" type="submit" name="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
+    <div>
+      <input type="text" id="username" placeholder="Enter Username" name="username" maxlength="255" required="true">
     </div>
-</section>
+  </div>
+
+  <div id="c_password" class="mb-2">
+    <label class="font-bold" for="password">Password <span class="text-primary-red">*</span></label>
+
+    <div>
+      <input type="password" id="password" placeholder="Password" name="password" maxlength="255" required="true">
+    </div>
+  </div>
+
+  {# <div class="mb-2">
+      <label class="font-bold" for="newpassword">New Password</label>
+      <div>
+          <span>Users must set a new password of their Cognito user pools only while doing first time authentication. Second time onward, the newly set password must be provided in the Password field.</span>
+          <input class="mt-1" type="password" id="newpassword" placeholder="New Password" name="newPassword" maxlength="255">
+      </div>
+  </div> #}
+
+  <div class="mb-2">
+    <label class="font-bold" for="programs">Interested Programs</label>
+
+    <div>
+      <p>To only check eligibility for certain programs, list the program codes here separated by commas. The full list can be seen on the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> page.</p>
+
+      <input class="w-full mt-1" id="programs" name="programs" maxlength="2048" placeholder="S2R010, S2R001, S2R004"></input>
+    </div>
+  </div>
+
+  <div id="c_csvfile" class="mb-2">
+    <label class="font-bold" for="csv-upload">Upload CSV <span class="text-primary-red">*</span></label>
+
+    <div>
+      <p>A sample CSV can be found on the <a href="sample-data-and-code">Sample Data and Code</a> page.</p>
+
+      <input id="csv-upload" type="file" name="csvUpload" accept=".csv" required="true" class="bg-base-white">
+    </div>
+  </div>
+
+  {# <div style="display: none;" id="loader">
+    <div class="flex items-center p-1">
+      {% include 'partials/spinner.twig' %} &nbsp; Loading...
+    </div>
+  </div> #}
+
+  <div class="flex items-center">
+    <button type="submit" name="submit" class="btn color-primary-button">Submit</button>
+
+    <div style="display: none;" id="loader">
+      <div class="flex items-center px-2 text-primary-blue">
+        {% include 'partials/spinner.twig' %} &nbsp;&nbsp; Loading...
+      </div>
+    </div>
+  </div>
+
+  <div id="errors" role="alert" class="p-3 mt-2 bg-primary-red-30t border border-primary-red" style="display: none"></div>
+</form>
 {% endblock %}
