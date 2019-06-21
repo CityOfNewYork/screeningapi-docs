@@ -113,7 +113,7 @@ gulp.task('icons', function () {
       'node_modules/access-nyc-patterns/src/svg/icon-food.svg',
       'node_modules/access-nyc-patterns/src/svg/icon-health.svg',
       'node_modules/access-nyc-patterns/src/svg/icon-housing.svg',
-      'node_modules/access-nyc-patterns/src/svg/icon-special-needs.svg'
+      'node_modules/access-nyc-patterns/src/svg/icon-people-with-disabilities.svg'
     ])
     .pipe(svgmin({
       plugins: [
