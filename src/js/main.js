@@ -1,3 +1,5 @@
+import './modules/polyfill-remove';
+
 import requestForm from './modules/submission.js'
 import swagger from './modules/swagger.js'
 import bulkSubmission from './modules/bulk-submission.js'

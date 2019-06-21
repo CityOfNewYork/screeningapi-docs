@@ -34,7 +34,8 @@ export default function() {
 
     document.getElementById('loader').style.display = 'block'
 
-    var req = new XMLHttpRequest();
+    var req = new XMLHttpRequest()
+
     req.open('POST', url, true);
 
     Object.keys(headersObject).forEach(function(key) {
@@ -67,12 +68,12 @@ export default function() {
   const bulkSubmissionHandler = (req) => {
     if (req.readyState === 4) {
       const status = req.status.toString()
-      if (status.startsWith('4') || status.startsWith('5')) {
+      if (status[0] === '4' || status[0] === '5') {
         displayErrors(req.responseText, true)
-      } else if (status.startsWith('2')) {
+      } else if (status[0] === '2') {
         const blob = new Blob([req.response], {type : 'text/csv'})
         if (typeof window.navigator.msSaveBlob !== 'undefined') {
-            window.navigator.msSaveBlob(blob, filename)
+          window.navigator.msSaveBlob(blob, filename)
         } else {
           const URL = window.URL || window.webkitURL
           const downloadUrl = URL.createObjectURL(blob)
@@ -104,7 +105,7 @@ export default function() {
       url = url + '?interestedPrograms=' + programs
     }
     var headersObject = {
-      Authorization : token,
+      'Authorization': token
     }
     var formData = new FormData();
     formData.append('file', csvFile);
@@ -114,12 +115,9 @@ export default function() {
   const authResponseHandler = (formValues) => (req) => {
     if (req.readyState === 4) {
       const status = req.status.toString()
-
-      if (status.startsWith('4') || status.startsWith('5')) {
+      if (status[0] === '4' || status[0] === '5') {
         displayErrors(req.responseText, false)
-      }
-
-      else if (status.startsWith('2')) {
+      } else if (status[0] === '2') {
         sendBulkSubmissionRequest(formValues,
           JSON.parse(req.responseText).token)
       }
