@@ -14,7 +14,8 @@ export default function() {
       if (status[0] === '4' || status[0] === '5') {
         displayErrors(req.responseText, true)
       } else if (status[0] === '2') {
-        displayInfo('Bulk submission successful')
+        displayInfo('Bulk submission successful. A CSV with program codes \
+          should be downloaded automatically.')
         const blob = new Blob([req.response], {type : 'text/csv'})
         if (typeof window.navigator.msSaveBlob !== 'undefined') {
           window.navigator.msSaveBlob(blob, filename)

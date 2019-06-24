@@ -16630,7 +16630,8 @@ function _default() {
       if (status[0] === '4' || status[0] === '5') {
         (0, _util.displayErrors)(req.responseText, true);
       } else if (status[0] === '2') {
-        (0, _util.displayInfo)('Bulk submission successful');
+        (0, _util.displayInfo)('Bulk submission successful. A CSV with program codes \
+          should be downloaded automatically.');
         var blob = new Blob([req.response], {
           type: 'text/csv'
         });
