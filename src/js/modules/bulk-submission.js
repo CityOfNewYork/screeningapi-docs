@@ -1,5 +1,5 @@
 import Forms from 'nyco-patterns-framework/dist/forms/forms.common';
-import { setErrors, displayErrors, sendPostRequest } from './utils';
+import { displayErrors, sendPostRequest } from './util';
 
 export default function() {
   const SELECTOR = '[data-js*="bulk-submission"]'
@@ -7,10 +7,6 @@ export default function() {
   const filename = 'response.csv'
 
   const Form = new Forms(document.querySelector(SELECTOR));
-
-  const toTitleCase = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
 
   const bulkSubmissionHandler = (req) => {
     if (req.readyState === 4) {

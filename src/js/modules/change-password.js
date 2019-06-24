@@ -1,5 +1,5 @@
 import Forms from 'nyco-patterns-framework/dist/forms/forms.common';
-import { setErrors, displayErrors, sendPostRequest } from './utils';
+import { displayErrors, displayInfo, sendPostRequest } from './util';
 
 export default function() {
   const SELECTOR = '[data-js*="change-password"]'
@@ -8,11 +8,12 @@ export default function() {
 
   const responseHandler = (req) => {
     if (req.readyState === 4) {
-      const status = req.status.toString()
+      const status = req.status.toString() 
       if (status[0] === '4' || status[0] === '5') {
         displayErrors(req.responseText, false)
-      } 
-      // should display a success message here?
+      } else if (status[0] === '2') {
+        displayInfo('Password updated')
+      }
     }
   }
 
@@ -20,7 +21,7 @@ export default function() {
     const baseurl = event.target.action;
     const username = document.getElementById('username').value
     const password = document.getElementById('password').value
-    const newPassword = document.getElementById('newPassword').value
+    const newPassword = document.getElementById('newpassword').value
 
     var url = baseurl + 'authToken'
     var headersObject = {

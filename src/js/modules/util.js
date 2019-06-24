@@ -1,12 +1,20 @@
 
-export const setErrors = (messageString, errorState) => {
-  var ele = document.getElementById('errors');
+const errorBoxId = 'errors'
+const infoBoxId = 'info'
+
+const toTitleCase = (string) => {
+  console.log('in title case')
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+const setTextBox = (messageString, displayState, boxId) => {
+  var ele = document.getElementById(boxId);
   ele.innerHTML = '<ul class="m-0 px-2">' +
     toTitleCase(messageString.trim()) + '</ul>';
 
-  ele.style.display = errorState;
+  ele.style.display = displayState;
 
-  if (errorState === 'none') {
+  if (displayState === 'none') {
     ele.removeAttribute('aria-live', 'polite')
     ele.classList.remove('animated')
     ele.classList.remove('fadeInUp')
@@ -18,7 +26,8 @@ export const setErrors = (messageString, errorState) => {
 }
 
 export const sendPostRequest = (url, headersObject, responseHandler, requestPayload) => {
-  setErrors('', 'none')
+  setTextBox('', 'none', errorBoxId)
+  setTextBox('', 'none', infoBoxId)
 
   document.getElementById('loader').style.display = 'block'
 
@@ -38,7 +47,11 @@ export const sendPostRequest = (url, headersObject, responseHandler, requestPayl
   req.send(requestPayload)
 }
 
-exportconst displayErrors = (responseText, showPath) => {
+const displayListText = (responseText, showPath, id) => {
+
+}
+
+export const displayErrors = (responseText, showPath) => {
   var errorJSON
   var errorsArray = []
   try {
@@ -50,5 +63,10 @@ exportconst displayErrors = (responseText, showPath) => {
       return '<li>' + toTitleCase(errorMsg) + '</li>'
     })
   } catch (err) {}
-  setErrors(errorsArray.join(''), 'block');
+  setTextBox(errorsArray.join(''), 'block', errorBoxId);
+}
+
+export const displayInfo = (infoText) => {
+  const infoHTML = '<li>' + infoText + '</li>'
+  setTextBox(infoHTML, 'block', infoBoxId);
 }

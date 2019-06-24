@@ -29,7 +29,7 @@ if ((window.location.pathname.indexOf('bulk-submission') >= 0)) {
   bulkSubmission();
 }
 if ((window.location.pathname.indexOf('change-password') >= 0)) {
-  chnagePassword();
+  changePassword();
 }
 
 /* Get the content markdown from CDN and append */

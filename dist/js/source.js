@@ -10390,18 +10390,227 @@ return jQuery;
 } );
 
 },{}],3:[function(require,module,exports){
+'use strict';
+
+/**
+ * Utilities for Form components
+ * @class
+ */
+
+var Forms = function Forms(form) {
+  if (form === void 0) form = false;
+  this.FORM = form;
+  return this;
+};
+/**
+ * Map toggled checkbox values to an input.
+ * @param{Object} event The parent click event.
+ * @return {Element}    The target element.
+ */
+
+
+Forms.prototype.joinValues = function joinValues(event) {
+  if (!event.target.matches('input[type="checkbox"]')) {
+    return;
+  }
+
+  if (!event.target.closest('[data-js-join-values]')) {
+    return;
+  }
+
+  var el = event.target.closest('[data-js-join-values]');
+  var target = document.querySelector(el.dataset.jsJoinValues);
+  target.value = Array.from(el.querySelectorAll('input[type="checkbox"]')).filter(function (e) {
+    return e.value && e.checked;
+  }).map(function (e) {
+    return e.value;
+  }).join(', ');
+  return target;
+};
+/**
+ * A simple form validation class that uses native form validation. It will
+ * add appropriate form feedback for each input that is invalid and native
+ * localized browser messaging.
+ *
+ * See https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation
+ * See https://caniuse.com/#feat=form-validation for support
+ *
+ * @param{Event}       event The form submission event
+ * @return {Class/Boolean}     The form class or false if invalid
+ */
+
+
+Forms.prototype.valid = function valid(event) {
+  var validity = event.target.checkValidity();
+  var elements = event.target.querySelectorAll(Forms.selectors.REQUIRED);
+
+  for (var i = 0; i < elements.length; i++) {
+    // Remove old messaging if it exists
+    var el = elements[i];
+    this.reset(el); // If this input valid, skip messaging
+
+    if (el.validity.valid) {
+      continue;
+    }
+
+    this.highlight(el);
+  }
+
+  return validity ? this : validity;
+};
+/**
+ * Adds focus and blur events to inputs with required attributes
+ * @param {object}formPassing a form is possible, otherwise it will use
+ *                        the form passed to the constructor.
+ * @return{class}       The form class
+ */
+
+
+Forms.prototype.watch = function watch(form) {
+  var this$1 = this;
+  if (form === void 0) form = false;
+  this.FORM = form ? form : this.FORM;
+  var elements = this.FORM.querySelectorAll(Forms.selectors.REQUIRED);
+  /** Watch Individual Inputs */
+
+  var loop = function loop(i) {
+    // Remove old messaging if it exists
+    var el = elements[i];
+    el.addEventListener('focus', function () {
+      this$1.reset(el);
+    });
+    el.addEventListener('blur', function () {
+      if (!el.validity.valid) {
+        this$1.highlight(el);
+      }
+    });
+  };
+
+  for (var i = 0; i < elements.length; i++) {
+    loop(i);
+  }
+  /** Submit Event */
+
+
+  this.FORM.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (this$1.valid(event) === false) {
+      return false;
+    }
+
+    this$1.submit(event);
+  });
+  return this;
+};
+/**
+ * Removes the validity message and classes from the message.
+ * @param {object}elThe input element
+ * @return{class}     The form class
+ */
+
+
+Forms.prototype.reset = function reset(el) {
+  var container = el.parentNode;
+  var message = container.querySelector('.' + Forms.classes.ERROR_MESSAGE); // Remove old messaging if it exists
+
+  container.classList.remove(Forms.classes.ERROR_CONTAINER);
+
+  if (message) {
+    message.remove();
+  }
+
+  return this;
+};
+/**
+ * Displays a validity message to the user. It will first use any localized
+ * string passed to the class for required fields missing input. If the
+ * input is filled in but doesn't match the required pattern, it will use
+ * a localized string set for the specific input type. If one isn't provided
+ * it will use the default browser provided message.
+ * @param {object}elThe invalid input element
+ * @return{class}     The form class
+ */
+
+
+Forms.prototype.highlight = function highlight(el) {
+  var container = el.parentNode;
+  var message = container.querySelector('.' + Forms.classes.ERROR_MESSAGE); // Create the new error message.
+
+  message = document.createElement(Forms.markup.ERROR_MESSAGE); // Get the error message from localized strings (if set).
+
+  if (el.validity.valueMissing && Forms.strings.VALID_REQUIRED) {
+    message.innerHTML = Forms.strings.VALID_REQUIRED;
+  } else if (!el.validity.valid && Forms.strings["VALID_" + el.type.toUpperCase() + "_INVALID"]) {
+    var stringKey = "VALID_" + el.type.toUpperCase() + "_INVALID";
+    message.innerHTML = Forms.strings[stringKey];
+  } else {
+    message.innerHTML = el.validationMessage;
+  } // Set aria attributes and css classes to the message
+
+
+  message.setAttribute(Forms.attrs.ERROR_MESSAGE[0], Forms.attrs.ERROR_MESSAGE[1]);
+  message.classList.add(Forms.classes.ERROR_MESSAGE); // Add the error class and error message to the dom.
+
+  container.classList.add(Forms.classes.ERROR_CONTAINER);
+  container.insertBefore(message, container.childNodes[0]);
+  return this;
+};
+/**
+ * A dictionairy of strings in the format.
+ * {
+ *   'VALID_REQUIRED': 'This is required',
+ *   'VALID_{{ TYPE }}_INVALID': 'Invalid'
+ * }
+ */
+
+
+Forms.strings = {};
+/** Placeholder for the submit function */
+
+Forms.submit = function () {};
+/** Classes for various containers */
+
+
+Forms.classes = {
+  'ERROR_MESSAGE': 'error-message',
+  // error class for the validity message
+  'ERROR_CONTAINER': 'error' // class for the validity message parent
+
+};
+/** HTML tags and markup for various elements */
+
+Forms.markup = {
+  'ERROR_MESSAGE': 'div'
+};
+/** DOM Selectors for various elements */
+
+Forms.selectors = {
+  'REQUIRED': '[required="true"]' // Selector for required input elements
+
+};
+/** Attributes for various elements */
+
+Forms.attrs = {
+  'ERROR_MESSAGE': ['aria-live', 'polite'] // Attribute for valid error message
+
+};
+
+module.exports = Forms;
+
+},{}],4:[function(require,module,exports){
 "use strict";var Utility=function(){return this};Utility.debug=function(){return"1"===Utility.getUrlParameter(Utility.PARAMS.DEBUG)},Utility.getUrlParameter=function(t,e){var n=e||window.location.search,i=t.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]"),r=new RegExp("[\\?&]"+i+"=([^&#]*)").exec(n);return null===r?"":decodeURIComponent(r[1].replace(/\+/g," "))},Utility.localize=function(t){var e=t||"",n=(window.LOCALIZED_STRINGS||[]).filter(function(e){return!(!e.hasOwnProperty("slug")||e.slug!==t)&&e});return n[0]&&n[0].hasOwnProperty("label")?n[0].label:e},Utility.PARAMS={DEBUG:"debug"},Utility.SELECTORS={parseMarkdown:'[data-js="markdown"]'};var Icons=function t(e){return e=e||t.path,fetch(e).then(function(t){if(t.ok)return t.text();Utility.debug()&&console.dir(t)}).catch(function(t){Utility.debug()&&console.dir(t)}).then(function(t){var e=document.createElement("div");e.innerHTML=t,e.setAttribute("aria-hidden",!0),e.setAttribute("style","display: none;"),document.body.appendChild(e)}),this};Icons.path="icons.svg",module.exports=Icons;
 
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";var Toggle=function e(t){var s=this,i=document.querySelector("body");return t=t||{},this._settings={selector:t.selector?t.selector:e.selector,namespace:t.namespace?t.namespace:e.namespace,inactiveClass:t.inactiveClass?t.inactiveClass:e.inactiveClass,activeClass:t.activeClass?t.activeClass:e.activeClass},i.addEventListener("click",function(e){e.target.matches(s._settings.selector)&&(e.preventDefault(),s._toggle(e))}),this};Toggle.prototype._toggle=function(e){var t=this,s=e.target,i=!1;if(i=s.getAttribute("href")?document.querySelector(s.getAttribute("href")):i,!(i=s.getAttribute("aria-controls")?document.querySelector("#"+s.getAttribute("aria-controls")):i))return this;if(this.elementToggle(s,i),s.dataset[this._settings.namespace+"Undo"]){var a=document.querySelector(s.dataset[this._settings.namespace+"Undo"]);a.addEventListener("click",function(e){e.preventDefault(),t.elementToggle(s,i),a.removeEventListener("click")})}return this},Toggle.prototype.elementToggle=function(e,t){""!==this._settings.activeClass&&(e.classList.toggle(this._settings.activeClass),t.classList.toggle(this._settings.activeClass)),""!==this._settings.inactiveClass&&t.classList.toggle(this._settings.inactiveClass);for(var s=0;s<Toggle.elAriaRoles.length;s++)e.getAttribute(Toggle.elAriaRoles[s])&&e.setAttribute(Toggle.elAriaRoles[s],!("true"===e.getAttribute(Toggle.elAriaRoles[s])));for(var i=0;i<Toggle.targetAriaRoles.length;i++)t.getAttribute(Toggle.targetAriaRoles[i])&&t.setAttribute(Toggle.targetAriaRoles[i],!("true"===t.getAttribute(Toggle.targetAriaRoles[i])));return e.getAttribute("href")&&t.classList.contains(this._settings.activeClass)&&(window.location.hash="",window.location.hash=e.getAttribute("href")),this},Toggle.selector='[data-js*="toggle"]',Toggle.namespace="toggle",Toggle.inactiveClass="hidden",Toggle.activeClass="active",Toggle.elAriaRoles=["aria-pressed","aria-expanded"],Toggle.targetAriaRoles=["aria-hidden"],module.exports=Toggle;
 
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";var Utility=function(){return this};Utility.debug=function(){return"1"===Utility.getUrlParameter(Utility.PARAMS.DEBUG)},Utility.getUrlParameter=function(t,e){var r=e||window.location.search,a=t.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]"),n=new RegExp("[\\?&]"+a+"=([^&#]*)").exec(r);return null===n?"":decodeURIComponent(n[1].replace(/\+/g," "))},Utility.localize=function(t){var e=t||"",r=(window.LOCALIZED_STRINGS||[]).filter(function(e){return!(!e.hasOwnProperty("slug")||e.slug!==t)&&e});return r[0]&&r[0].hasOwnProperty("label")?r[0].label:e},Utility.PARAMS={DEBUG:"debug"},Utility.SELECTORS={parseMarkdown:'[data-js="markdown"]'};var Track=function t(e){var r=this,a=document.querySelector("body");return e=e||{},this._settings={selector:e.selector?e.selector:t.selector},a.addEventListener("click",function(t){if(t.target.matches(r._settings.selector)){var e=t.target.dataset.trackKey,a=JSON.parse(t.target.dataset.trackData);r.click(e,a)}}),this};Track.prototype.click=function(t,e){var r=e.map(function(t){return t.hasOwnProperty(Track.key)&&(t[Track.key]=window.location.pathname+"/"+t[Track.key]),t}),a=this.webtrends(t,r),n=this.gtag(t,r);return Utility.debug()&&console.dir({Track:[a,n]}),r},Track.prototype.view=function(t,e,r){var a=this.webtrends(e,r),n=this.gtagView(t,e);Utility.debug()&&console.dir({Track:[a,n]})},Track.prototype.webtrends=function(t,e){var r=[{"WT.ti":t}];e[0]&&e[0].hasOwnProperty(Track.key)?r.push({"DCS.dcsuri":e[0][Track.key]}):Object.assign(r,e);var a={argsa:r.flatMap(function(t){return Object.keys(t).flatMap(function(e){return[e,t[e]]})})};return"undefined"!=typeof Webtrends&&Webtrends.multiTrack(a),["Webtrends",a]},Track.prototype.gtag=function(t,e){var r=e.find(function(t){return t.hasOwnProperty(Track.key)}),a={event_category:t};return"undefined"!=typeof gtag&&gtag(Track.key,r[Track.key],a),["gtag",Track.key,r[Track.key],a]},Track.prototype.gtagView=function(t,e){var r={app_name:t,screen_name:e};return"undefined"!=typeof gtag&&gtag("event","screen_view",r),["gtag",Track.key,"screen_view",r]},Track.selector='[data-js*="track"]',Track.key="event",module.exports=Track;
 
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -10587,7 +10796,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 ;/*! showdown v 1.9.0 - 10-11-2018 */
 (function(){
 /**
@@ -15732,14 +15941,14 @@ if (typeof define === 'function' && define.amd) {
 
 
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -16329,14 +16538,18 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":8,"_process":6,"inherits":1}],10:[function(require,module,exports){
+},{"./support/isBuffer":9,"_process":7,"inherits":1}],11:[function(require,module,exports){
 "use strict";
+
+require("./modules/polyfill-remove");
 
 var _submission = _interopRequireDefault(require("./modules/submission.js"));
 
 var _swagger = _interopRequireDefault(require("./modules/swagger.js"));
 
 var _bulkSubmission = _interopRequireDefault(require("./modules/bulk-submission.js"));
+
+var _changePassword = _interopRequireDefault(require("./modules/change-password.js"));
 
 var _requestFormJson = _interopRequireDefault(require("./modules/request-form-json.js"));
 
@@ -16365,6 +16578,14 @@ if (window.location.pathname.indexOf('form') >= 0) {
 if (window.location.pathname.indexOf('request-builder') >= 0) {
   (0, _requestFormJson.default)();
 }
+
+if (window.location.pathname.indexOf('bulk-submission') >= 0) {
+  (0, _bulkSubmission.default)();
+}
+
+if (window.location.pathname.indexOf('change-password') >= 0) {
+  (0, _changePassword.default)();
+}
 /* Get the content markdown from CDN and append */
 
 
@@ -16383,7 +16604,7 @@ markdowns.each(function () {
   }, 'text');
 });
 
-},{"./modules/bulk-submission.js":11,"./modules/request-form-json.js":12,"./modules/submission.js":14,"./modules/swagger.js":15,"jquery":2,"nyco-patterns/dist/elements/icons/Icons.common":3,"nyco-patterns/dist/utilities/toggle/Toggle.common":4,"nyco-patterns/dist/utilities/track/Track.common":5,"showdown":7}],11:[function(require,module,exports){
+},{"./modules/bulk-submission.js":12,"./modules/change-password.js":13,"./modules/polyfill-remove":14,"./modules/request-form-json.js":15,"./modules/submission.js":17,"./modules/swagger.js":18,"jquery":2,"nyco-patterns/dist/elements/icons/Icons.common":4,"nyco-patterns/dist/utilities/toggle/Toggle.common":5,"nyco-patterns/dist/utilities/track/Track.common":6,"showdown":8}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -16391,69 +16612,24 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+var _forms = _interopRequireDefault(require("nyco-patterns-framework/dist/forms/forms.common"));
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+var _util = require("./util");
 
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-var requiredFieldIds = ['c_baseurl', 'c_username', 'c_password', 'c_csvfile'];
-var filename = 'response.csv';
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _default() {
-  var toTitleCase = function toTitleCase(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
-
-  var setErrors = function setErrors(messageString, errorState) {
-    var ele = document.getElementById('errors');
-    ele.innerHTML = '<ul class="error">' + toTitleCase(messageString.trim()) + '</ul>';
-    ele.style.display = errorState;
-  };
-
-  var sendPostRequest = function sendPostRequest(url, headersObject, responseHandler, requestPayload) {
-    setErrors('', 'none');
-    document.getElementById('loader').style.display = 'block';
-    var req = new XMLHttpRequest();
-    req.open('POST', url, true);
-    Object.keys(headersObject).forEach(function (key) {
-      req.setRequestHeader(key, headersObject[key]);
-    });
-
-    req.onreadystatechange = function () {
-      document.getElementById('loader').style.display = 'none';
-      responseHandler(req);
-    };
-
-    req.send(requestPayload);
-  };
-
-  var displayErrors = function displayErrors(responseText, showPath) {
-    var errorJSON;
-    var errorsArray = [];
-
-    try {
-      errorJSON = JSON.parse(responseText).errors;
-      errorsArray = errorJSON.map(function (error) {
-        var elementPath = error.elementPath,
-            message = error.message;
-        var errorMsg = elementPath && showPath ? message + ' Element Path: ' + elementPath + '.' : message;
-        return '<li>' + toTitleCase(errorMsg) + '</li>';
-      });
-    } catch (err) {}
-
-    setErrors(errorsArray.join(''), 'block');
-  };
+  var SELECTOR = '[data-js*="bulk-submission"]';
+  var filename = 'response.csv';
+  var Form = new _forms.default(document.querySelector(SELECTOR));
 
   var bulkSubmissionHandler = function bulkSubmissionHandler(req) {
     if (req.readyState === 4) {
       var status = req.status.toString();
 
-      if (status.startsWith('4') || status.startsWith('5')) {
-        displayErrors(req.responseText, true);
-      } else if (status.startsWith('2')) {
+      if (status[0] === '4' || status[0] === '5') {
+        (0, _util.displayErrors)(req.responseText, true);
+      } else if (status[0] === '2') {
         var blob = new Blob([req.response], {
           type: 'text/csv'
         });
@@ -16496,11 +16672,11 @@ function _default() {
     }
 
     var headersObject = {
-      Authorization: token
+      'Authorization': token
     };
     var formData = new FormData();
-    formData.append("file", csvFile);
-    sendPostRequest(url, headersObject, bulkSubmissionHandler, formData);
+    formData.append('file', csvFile);
+    (0, _util.sendPostRequest)(url, headersObject, bulkSubmissionHandler, formData);
   };
 
   var authResponseHandler = function authResponseHandler(formValues) {
@@ -16508,51 +16684,29 @@ function _default() {
       if (req.readyState === 4) {
         var status = req.status.toString();
 
-        if (status.startsWith('4') || status.startsWith('5')) {
-          displayErrors(req.responseText, false);
-        } else if (status.startsWith('2')) {
+        if (status[0] === '4' || status[0] === '5') {
+          (0, _util.displayErrors)(req.responseText, false);
+        } else if (status[0] === '2') {
           sendBulkSubmissionRequest(formValues, JSON.parse(req.responseText).token);
         }
       }
     };
   };
 
-  document.getElementById('123test').addEventListener('click', function (e) {
-    console.log('in submit func');
-    e.preventDefault();
-    var formValues = {};
-    var formData = new FormData(e.target);
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
-
-    try {
-      for (var _iterator = formData.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var _step$value = _slicedToArray(_step.value, 2),
-            key = _step$value[0],
-            value = _step$value[1];
-
-        formValues[key] = value;
-      }
-    } catch (err) {
-      _didIteratorError = true;
-      _iteratorError = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion && _iterator.return != null) {
-          _iterator.return();
-        }
-      } finally {
-        if (_didIteratorError) {
-          throw _iteratorError;
-        }
-      }
-    }
-
-    var baseurl = formValues.baseurl,
-        username = formValues.username,
-        password = formValues.password,
-        newPassword = formValues.newPassword;
+  var submit = function submit(event) {
+    var baseurl = event.target.action;
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var programs = document.getElementById('programs').value;
+    var csvFileInput = document.getElementById('csv-upload');
+    var csvFile = csvFileInput.files && csvFileInput.files.length > 0 && csvFileInput.files[0];
+    var formValues = {
+      baseurl: baseurl,
+      username: username,
+      password: password,
+      csvFile: csvFile
+    };
+    if (programs !== '') formValues.programs = programs;
     var url = baseurl + 'authToken';
     var headersObject = {
       'Content-type': 'application/json',
@@ -16562,16 +16716,91 @@ function _default() {
       username: username,
       password: password
     };
+    (0, _util.sendPostRequest)(url, headersObject, authResponseHandler(formValues), JSON.stringify(authPayload));
+  }; // To test the form w/o the validation script, comment the next block out
+  // and uncomment the following block (document.querySelector...).
 
-    if (newPassword) {
-      authPayload.newPassword = newPassword;
-    }
 
-    sendPostRequest(url, headersObject, authResponseHandler(formValues), JSON.stringify(authPayload));
-  });
+  Form.watch();
+  Form.submit = submit; // document.querySelector(SELECTOR).addEventListener('submit', event => {
+  //   event.preventDefault();
+  //   submit(event);
+  // });
 }
 
-},{}],12:[function(require,module,exports){
+},{"./util":19,"nyco-patterns-framework/dist/forms/forms.common":3}],13:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+
+var _forms = _interopRequireDefault(require("nyco-patterns-framework/dist/forms/forms.common"));
+
+var _util = require("./util");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _default() {
+  var SELECTOR = '[data-js*="change-password"]';
+  var Form = new _forms.default(document.querySelector(SELECTOR));
+
+  var responseHandler = function responseHandler(req) {
+    if (req.readyState === 4) {
+      var status = req.status.toString();
+
+      if (status[0] === '4' || status[0] === '5') {
+        (0, _util.displayErrors)(req.responseText, false);
+      } else if (status[0] === '2') {
+        (0, _util.displayInfo)('Password updated');
+      }
+    }
+  };
+
+  var submit = function submit(event) {
+    var baseurl = event.target.action;
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var newPassword = document.getElementById('newpassword').value;
+    var url = baseurl + 'authToken';
+    var headersObject = {
+      'Content-type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    };
+    var authPayload = {
+      username: username,
+      password: password,
+      newPassword: newPassword
+    };
+    (0, _util.sendPostRequest)(url, headersObject, responseHandler, JSON.stringify(authPayload));
+  };
+
+  Form.watch();
+  Form.submit = submit;
+}
+
+},{"./util":19,"nyco-patterns-framework/dist/forms/forms.common":3}],14:[function(require,module,exports){
+"use strict";
+
+(function (arr) {
+  arr.forEach(function (item) {
+    if (item.hasOwnProperty('remove')) {
+      return;
+    }
+
+    Object.defineProperty(item, 'remove', {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function remove() {
+        if (this.parentNode !== null) this.parentNode.removeChild(this);
+      }
+    });
+  });
+})([Element.prototype, CharacterData.prototype, DocumentType.prototype]);
+
+},{}],15:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -16903,7 +17132,7 @@ function _default() {
   }
 }
 
-},{"./responses.json":13}],13:[function(require,module,exports){
+},{"./responses.json":16}],16:[function(require,module,exports){
 module.exports=[
   {
     "EMAIL": "Please enter a valid email."
@@ -16953,7 +17182,7 @@ module.exports=[
     }
   }
 ]
-},{}],14:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -17070,7 +17299,7 @@ function _default() {
   });
 }
 
-},{"./responses.json":13}],15:[function(require,module,exports){
+},{"./responses.json":16}],18:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -17146,4 +17375,83 @@ function _default() {
   }
 }
 
-},{"util":9}]},{},[10]);
+},{"util":10}],19:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.displayInfo = exports.displayErrors = exports.sendPostRequest = void 0;
+var errorBoxId = 'errors';
+var infoBoxId = 'info';
+
+var toTitleCase = function toTitleCase(string) {
+  console.log('in title case');
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var setTextBox = function setTextBox(messageString, displayState, boxId) {
+  var ele = document.getElementById(boxId);
+  ele.innerHTML = '<ul class="m-0 px-2">' + toTitleCase(messageString.trim()) + '</ul>';
+  ele.style.display = displayState;
+
+  if (displayState === 'none') {
+    ele.removeAttribute('aria-live', 'polite');
+    ele.classList.remove('animated');
+    ele.classList.remove('fadeInUp');
+  } else {
+    ele.setAttribute('aria-live', 'polite');
+    ele.classList.add('animated');
+    ele.classList.add('fadeInUp');
+  }
+};
+
+var sendPostRequest = function sendPostRequest(url, headersObject, responseHandler, requestPayload) {
+  setTextBox('', 'none', errorBoxId);
+  setTextBox('', 'none', infoBoxId);
+  document.getElementById('loader').style.display = 'block';
+  var req = new XMLHttpRequest();
+  req.open('POST', url, true);
+  Object.keys(headersObject).forEach(function (key) {
+    req.setRequestHeader(key, headersObject[key]);
+  });
+
+  req.onreadystatechange = function () {
+    document.getElementById('loader').style.display = 'none';
+    responseHandler(req);
+  };
+
+  req.send(requestPayload);
+};
+
+exports.sendPostRequest = sendPostRequest;
+
+var displayListText = function displayListText(responseText, showPath, id) {};
+
+var displayErrors = function displayErrors(responseText, showPath) {
+  var errorJSON;
+  var errorsArray = [];
+
+  try {
+    errorJSON = JSON.parse(responseText).errors;
+    errorsArray = errorJSON.map(function (error) {
+      var elementPath = error.elementPath,
+          message = error.message;
+      var errorMsg = elementPath && showPath ? message + ' Element Path: ' + elementPath + '.' : message;
+      return '<li>' + toTitleCase(errorMsg) + '</li>';
+    });
+  } catch (err) {}
+
+  setTextBox(errorsArray.join(''), 'block', errorBoxId);
+};
+
+exports.displayErrors = displayErrors;
+
+var displayInfo = function displayInfo(infoText) {
+  var infoHTML = '<li>' + infoText + '</li>';
+  setTextBox(infoHTML, 'block', infoBoxId);
+};
+
+exports.displayInfo = displayInfo;
+
+},{}]},{},[11]);
