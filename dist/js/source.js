@@ -16336,6 +16336,8 @@ var _submission = _interopRequireDefault(require("./modules/submission.js"));
 
 var _swagger = _interopRequireDefault(require("./modules/swagger.js"));
 
+var _bulkSubmission = _interopRequireDefault(require("./modules/bulk-submission.js"));
+
 var _requestFormJson = _interopRequireDefault(require("./modules/request-form-json.js"));
 
 var _Icons = _interopRequireDefault(require("nyco-patterns/dist/elements/icons/Icons.common"));
@@ -16381,7 +16383,195 @@ markdowns.each(function () {
   }, 'text');
 });
 
-},{"./modules/request-form-json.js":11,"./modules/submission.js":13,"./modules/swagger.js":14,"jquery":2,"nyco-patterns/dist/elements/icons/Icons.common":3,"nyco-patterns/dist/utilities/toggle/Toggle.common":4,"nyco-patterns/dist/utilities/track/Track.common":5,"showdown":7}],11:[function(require,module,exports){
+},{"./modules/bulk-submission.js":11,"./modules/request-form-json.js":12,"./modules/submission.js":14,"./modules/swagger.js":15,"jquery":2,"nyco-patterns/dist/elements/icons/Icons.common":3,"nyco-patterns/dist/utilities/toggle/Toggle.common":4,"nyco-patterns/dist/utilities/track/Track.common":5,"showdown":7}],11:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var requiredFieldIds = ['c_baseurl', 'c_username', 'c_password', 'c_csvfile'];
+var filename = 'response.csv';
+
+function _default() {
+  var toTitleCase = function toTitleCase(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  var setErrors = function setErrors(messageString, errorState) {
+    var ele = document.getElementById('errors');
+    ele.innerHTML = '<ul class="error">' + toTitleCase(messageString.trim()) + '</ul>';
+    ele.style.display = errorState;
+  };
+
+  var sendPostRequest = function sendPostRequest(url, headersObject, responseHandler, requestPayload) {
+    setErrors('', 'none');
+    document.getElementById('loader').style.display = 'block';
+    var req = new XMLHttpRequest();
+    req.open('POST', url, true);
+    Object.keys(headersObject).forEach(function (key) {
+      req.setRequestHeader(key, headersObject[key]);
+    });
+
+    req.onreadystatechange = function () {
+      document.getElementById('loader').style.display = 'none';
+      responseHandler(req);
+    };
+
+    req.send(requestPayload);
+  };
+
+  var displayErrors = function displayErrors(responseText, showPath) {
+    var errorJSON;
+    var errorsArray = [];
+
+    try {
+      errorJSON = JSON.parse(responseText).errors;
+      errorsArray = errorJSON.map(function (error) {
+        var elementPath = error.elementPath,
+            message = error.message;
+        var errorMsg = elementPath && showPath ? message + ' Element Path: ' + elementPath + '.' : message;
+        return '<li>' + toTitleCase(errorMsg) + '</li>';
+      });
+    } catch (err) {}
+
+    setErrors(errorsArray.join(''), 'block');
+  };
+
+  var bulkSubmissionHandler = function bulkSubmissionHandler(req) {
+    if (req.readyState === 4) {
+      var status = req.status.toString();
+
+      if (status.startsWith('4') || status.startsWith('5')) {
+        displayErrors(req.responseText, true);
+      } else if (status.startsWith('2')) {
+        var blob = new Blob([req.response], {
+          type: 'text/csv'
+        });
+
+        if (typeof window.navigator.msSaveBlob !== 'undefined') {
+          window.navigator.msSaveBlob(blob, filename);
+        } else {
+          var URL = window.URL || window.webkitURL;
+          var downloadUrl = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+
+          if (typeof a.download === 'undefined') {
+            window.location = downloadUrl;
+          } else {
+            a.href = downloadUrl;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+          }
+
+          setTimeout(function () {
+            URL.revokeObjectURL(downloadUrl);
+          }, 100); // cleanup
+        }
+      }
+    }
+  };
+
+  var sendBulkSubmissionRequest = function sendBulkSubmissionRequest(formValues, token) {
+    var baseurl = formValues.baseurl,
+        username = formValues.username,
+        csvFile = formValues.csvFile;
+    var url = baseurl + 'bulkSubmission/import';
+
+    if (formValues.programs) {
+      var programs = formValues.programs.split(',').map(function (p) {
+        return p.trim();
+      }).join(',');
+      url = url + '?interestedPrograms=' + programs;
+    }
+
+    var headersObject = {
+      Authorization: token
+    };
+    var formData = new FormData();
+    formData.append("file", csvFile);
+    sendPostRequest(url, headersObject, bulkSubmissionHandler, formData);
+  };
+
+  var authResponseHandler = function authResponseHandler(formValues) {
+    return function (req) {
+      if (req.readyState === 4) {
+        var status = req.status.toString();
+
+        if (status.startsWith('4') || status.startsWith('5')) {
+          displayErrors(req.responseText, false);
+        } else if (status.startsWith('2')) {
+          sendBulkSubmissionRequest(formValues, JSON.parse(req.responseText).token);
+        }
+      }
+    };
+  };
+
+  document.getElementById('123test').addEventListener('click', function (e) {
+    console.log('in submit func');
+    e.preventDefault();
+    var formValues = {};
+    var formData = new FormData(e.target);
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = formData.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var _step$value = _slicedToArray(_step.value, 2),
+            key = _step$value[0],
+            value = _step$value[1];
+
+        formValues[key] = value;
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return != null) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+
+    var baseurl = formValues.baseurl,
+        username = formValues.username,
+        password = formValues.password,
+        newPassword = formValues.newPassword;
+    var url = baseurl + 'authToken';
+    var headersObject = {
+      'Content-type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    };
+    var authPayload = {
+      username: username,
+      password: password
+    };
+
+    if (newPassword) {
+      authPayload.newPassword = newPassword;
+    }
+
+    sendPostRequest(url, headersObject, authResponseHandler(formValues), JSON.stringify(authPayload));
+  });
+}
+
+},{}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -16713,7 +16903,7 @@ function _default() {
   }
 }
 
-},{"./responses.json":12}],12:[function(require,module,exports){
+},{"./responses.json":13}],13:[function(require,module,exports){
 module.exports=[
   {
     "EMAIL": "Please enter a valid email."
@@ -16763,7 +16953,7 @@ module.exports=[
     }
   }
 ]
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -16880,7 +17070,7 @@ function _default() {
   });
 }
 
-},{"./responses.json":12}],14:[function(require,module,exports){
+},{"./responses.json":13}],15:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
