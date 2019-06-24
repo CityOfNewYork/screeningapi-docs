@@ -16652,7 +16652,7 @@ function _default() {
 
           setTimeout(function () {
             URL.revokeObjectURL(downloadUrl);
-          }, 100); // cleanup
+          }, 100);
         }
       }
     }
@@ -16717,15 +16717,10 @@ function _default() {
       password: password
     };
     (0, _util.sendPostRequest)(url, headersObject, authResponseHandler(formValues), JSON.stringify(authPayload));
-  }; // To test the form w/o the validation script, comment the next block out
-  // and uncomment the following block (document.querySelector...).
-
+  };
 
   Form.watch();
-  Form.submit = submit; // document.querySelector(SELECTOR).addEventListener('submit', event => {
-  //   event.preventDefault();
-  //   submit(event);
-  // });
+  Form.submit = submit;
 }
 
 },{"./util":19,"nyco-patterns-framework/dist/forms/forms.common":3}],13:[function(require,module,exports){
@@ -17386,23 +17381,25 @@ var errorBoxId = 'errors';
 var infoBoxId = 'info';
 
 var toTitleCase = function toTitleCase(string) {
-  console.log('in title case');
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
 var setTextBox = function setTextBox(messageString, displayState, boxId) {
   var ele = document.getElementById(boxId);
-  ele.innerHTML = '<ul class="m-0 px-2">' + toTitleCase(messageString.trim()) + '</ul>';
-  ele.style.display = displayState;
 
-  if (displayState === 'none') {
-    ele.removeAttribute('aria-live', 'polite');
-    ele.classList.remove('animated');
-    ele.classList.remove('fadeInUp');
-  } else {
-    ele.setAttribute('aria-live', 'polite');
-    ele.classList.add('animated');
-    ele.classList.add('fadeInUp');
+  if (ele) {
+    ele.innerHTML = '<ul class="m-0 px-2">' + toTitleCase(messageString.trim()) + '</ul>';
+    ele.style.display = displayState;
+
+    if (displayState === 'none') {
+      ele.removeAttribute('aria-live', 'polite');
+      ele.classList.remove('animated');
+      ele.classList.remove('fadeInUp');
+    } else {
+      ele.setAttribute('aria-live', 'polite');
+      ele.classList.add('animated');
+      ele.classList.add('fadeInUp');
+    }
   }
 };
 

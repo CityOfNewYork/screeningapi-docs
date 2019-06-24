@@ -7,19 +7,6 @@
 <p>The usage of this page requires an account. You can <a class="{{ classes.link }}" href="http://eepurl.com/gfLTuH" target="_blank">request an account here</a>. See <a href="getting-started">Getting Started</a> for more details.</p>
 
 <form action="https://screeningapi.cityofnewyork.us/" method="post" novalidate="true" data-js="bulk-submission" class="border border-solid border-primary-blue-30t bg-secondary-white-70t p-4">
-  {# <div id="c_baseurl" class="mb-2">
-      <label class="font-bold" for="baseurl">Base URL<span class="text-primary-red">*</span></label>
-      <div>
-          <select id="baseurl" name="baseurl" class="select">
-              <option value="https://screeningapi.cityofnewyork.us/">
-                  Production
-              </option>
-              <option value="https://sandbox.screeningapi.cityofnewyork.us/">
-                  Sandbox
-              </option>
-          </select>
-      </div>
-  </div> #}
 
   <div id="c_username" class="mb-2">
     <label class="font-bold" for="username">Username <span class="text-primary-red">*</span></label>
@@ -36,14 +23,6 @@
       <input type="password" id="password" placeholder="Password" name="password" maxlength="255" required="true">
     </div>
   </div>
-
-  {# <div class="mb-2">
-      <label class="font-bold" for="newpassword">New Password</label>
-      <div>
-          <span>Users must set a new password of their Cognito user pools only while doing first time authentication. Second time onward, the newly set password must be provided in the Password field.</span>
-          <input class="mt-1" type="password" id="newpassword" placeholder="New Password" name="newPassword" maxlength="255">
-      </div>
-  </div> #}
 
   <div class="mb-2">
     <label class="font-bold" for="programs">Interested Programs</label>
@@ -64,12 +43,6 @@
       <input id="csv-upload" type="file" name="csvUpload" accept=".csv" required="true" class="bg-base-white">
     </div>
   </div>
-
-  {# <div style="display: none;" id="loader">
-    <div class="flex items-center p-1">
-      {% include 'partials/spinner.twig' %} &nbsp; Loading...
-    </div>
-  </div> #}
 
   <div class="flex items-center">
     <button type="submit" name="submit" class="btn color-primary-button">Submit</button>

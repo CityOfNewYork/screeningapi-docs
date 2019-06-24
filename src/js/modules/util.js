@@ -3,25 +3,26 @@ const errorBoxId = 'errors'
 const infoBoxId = 'info'
 
 const toTitleCase = (string) => {
-  console.log('in title case')
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 const setTextBox = (messageString, displayState, boxId) => {
   var ele = document.getElementById(boxId);
-  ele.innerHTML = '<ul class="m-0 px-2">' +
-    toTitleCase(messageString.trim()) + '</ul>';
+  if (ele) {
+    ele.innerHTML = '<ul class="m-0 px-2">' +
+      toTitleCase(messageString.trim()) + '</ul>';
 
-  ele.style.display = displayState;
+    ele.style.display = displayState;
 
-  if (displayState === 'none') {
-    ele.removeAttribute('aria-live', 'polite')
-    ele.classList.remove('animated')
-    ele.classList.remove('fadeInUp')
-  } else {
-    ele.setAttribute('aria-live', 'polite')
-    ele.classList.add('animated')
-    ele.classList.add('fadeInUp')
+    if (displayState === 'none') {
+      ele.removeAttribute('aria-live', 'polite')
+      ele.classList.remove('animated')
+      ele.classList.remove('fadeInUp')
+    } else {
+      ele.setAttribute('aria-live', 'polite')
+      ele.classList.add('animated')
+      ele.classList.add('fadeInUp')
+    }
   }
 }
 

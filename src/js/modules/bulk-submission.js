@@ -34,7 +34,7 @@ export default function() {
 
           setTimeout(() => {
             URL.revokeObjectURL(downloadUrl)
-          }, 100) // cleanup
+          }, 100)
         }
       }
     }
@@ -99,13 +99,6 @@ export default function() {
       JSON.stringify(authPayload))
   };
 
-  // To test the form w/o the validation script, comment the next block out
-  // and uncomment the following block (document.querySelector...).
   Form.watch();
   Form.submit = submit;
-
-  // document.querySelector(SELECTOR).addEventListener('submit', event => {
-  //   event.preventDefault();
-  //   submit(event);
-  // });
 }
