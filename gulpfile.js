@@ -57,7 +57,7 @@ gulp.task('scripts:browserify', function() {
 
 
 // STYLES - LINTING
-gulp.task('lint-css', function(){
+gulp.task('lint-css', function() {
   return gulp.src([
     SOURCE + 'scss/**/*.scss'
   ])
@@ -70,7 +70,7 @@ gulp.task('lint-css', function(){
 });
 
 // STYLES
-gulp.task('styles', gulp.series('lint-css', function () {
+gulp.task('styles', gulp.series('lint-css', function() {
   return gulp.src(SOURCE + 'scss/*.scss')
     .pipe(sass({
       includePaths: [
@@ -99,7 +99,7 @@ gulp.task('resources', function() {
 });
 
 // ICONS
-gulp.task('icons', function () {
+gulp.task('icons', function() {
   return gulp.src([
       'src/svg/*.svg',
       'node_modules/nyco-patterns/src/svg/*.svg',
@@ -113,7 +113,7 @@ gulp.task('icons', function () {
       'node_modules/access-nyc-patterns/src/svg/icon-food.svg',
       'node_modules/access-nyc-patterns/src/svg/icon-health.svg',
       'node_modules/access-nyc-patterns/src/svg/icon-housing.svg',
-      'node_modules/access-nyc-patterns/src/svg/icon-special-needs.svg'
+      'node_modules/access-nyc-patterns/src/svg/icon-people-with-disabilities.svg'
     ])
     .pipe(svgmin({
       plugins: [
@@ -131,7 +131,7 @@ gulp.task('icons', function () {
 });
 
 // VIEWS
-gulp.task('views', function () {
+gulp.task('views', function() {
   return gulp.src('src/views/*.twig')
     .pipe(twig({data: {package: PACKAGE}}))
     .pipe(gulp.dest(DIST))
@@ -139,8 +139,16 @@ gulp.task('views', function () {
       notify({message: 'Views task complete'})));
 });
 
-// DEFAULT
-gulp.task('default', function(){
+// BUILD
+gulp.task('build', gulp.parallel(
+  'resources',
+  'icons',
+  'scripts',
+  'styles',
+  'views'
+));
+
+gulp.task('watch', function() {
   browserSync.init({
     server: {
       baseDir: DIST,
@@ -160,11 +168,5 @@ gulp.task('default', function(){
   gulp.watch(DIST + '/*').on('change', browserSync.reload);
 });
 
-// BUILD
-gulp.task('build', gulp.parallel(
-  'resources',
-  'icons',
-  'scripts',
-  'styles',
-  'views'
-));
+// DEFAULT
+gulp.task('default', gulp.parallel('build', 'watch'));

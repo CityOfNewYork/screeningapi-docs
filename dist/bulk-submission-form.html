@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
   <link rel="shortcut icon" href="images/favicon/favicon.ico">
 
-  <title>Sample Data and Code | NYC Benefits Screening API</title>
+  <title>Bulk Submission Form | NYC Benefits Screening API</title>
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -125,9 +125,61 @@
     <article id="main-content" class="color-light-background py-2 px-4 screen-desktop:px-6">
             <section class="layout--content py-4">
         <div class="screen-desktop:pr-4 screen-desktop:pr-6">
-          <h1 class="mt-0 p-0">Sample Data and Code</h1>          	<div class="o-content">
-    <div id="markdown-sample-code-and-sdks"></div>
-	</div>
+          <h1 class="mt-0 p-0">Bulk Submission Form</h1>          <p>The usage of this page requires an account. You can <a class="" href="http://eepurl.com/gfLTuH" target="_blank">request an account here</a>. See <a href="getting-started">Getting Started</a> for more details.</p>
+
+<form action="https://screeningapi.cityofnewyork.us/" method="post" novalidate="true" data-js="bulk-submission" class="border border-solid border-primary-blue-30t bg-secondary-white-70t p-4">
+
+  <div id="c_username" class="mb-2">
+    <label class="font-bold" for="username">Username <span class="text-primary-red">*</span></label>
+
+    <div>
+      <input type="text" id="username" placeholder="Enter Username" name="username" maxlength="255" required="true">
+    </div>
+  </div>
+
+  <div id="c_password" class="mb-2">
+    <label class="font-bold" for="password">Password <span class="text-primary-red">*</span></label>
+
+    <div>
+      <input type="password" id="password" placeholder="Password" name="password" maxlength="255" required="true">
+    </div>
+  </div>
+
+  <div class="mb-2">
+    <label class="font-bold" for="programs">Interested Programs</label>
+
+    <div>
+      <p>To only check eligibility for certain programs, list the comma separated program codes below. The full list of program codes can be accessed on the <a href="https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/2j8u-wtju">Benefits and Programs API</a> page.</p>
+
+      <input class="w-full mt-1" id="programs" name="programs" maxlength="2048" placeholder="S2R010, S2R001, S2R004"></input>
+    </div>
+  </div>
+
+  <div id="c_csvfile" class="mb-2">
+    <label class="font-bold" for="csv-upload">Upload CSV <span class="text-primary-red">*</span></label>
+
+    <div>
+      <p>A sample CSV can be found on the <a href="sample-data-and-code">Sample Data and Code</a> page.</p>
+
+      <input id="csv-upload" type="file" name="csvUpload" accept=".csv" required="true" class="bg-base-white">
+    </div>
+  </div>
+
+  <div class="flex items-center">
+    <button type="submit" name="submit" class="btn color-primary-button">Submit</button>
+
+    <div style="display: none;" id="loader">
+      <div class="flex items-center px-2 text-primary-blue">
+        <svg class="spinner icon-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <circle class="spinner__path" cx="12" cy="12" r="10" fill="none"></circle>
+</svg> &nbsp;&nbsp; Loading...
+      </div>
+    </div>
+  </div>
+
+  <div id="info" role="alert" class="p-3 mt-2 info border" style="display: none"></div>
+  <div id="errors" role="alert" class="p-3 mt-2 bg-primary-red-30t border border-primary-red" style="display: none"></div>
+</form>
         </div>
       </section>
           </article>

@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
   <link rel="shortcut icon" href="images/favicon/favicon.ico">
 
-  <title>Sample Data and Code | NYC Benefits Screening API</title>
+  <title>Bulk Request Submission | NYC Benefits Screening API</title>
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -67,8 +67,8 @@
     </div>
 
     <div class="o-navigation__nav">
-      
-      <nav>
+      <div class='o-navigation__stick' style='height: 642px'>
+        <nav>
   <a class="o-navigation__link" href="overview">Overview</a>
 
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Guide</span>
@@ -79,16 +79,13 @@
   <a class="o-navigation__link" href="endpoints">Endpoints</a>
   <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
 
-  <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Tools</span>
-  <a class="o-navigation__link" href="request-builder">Request Builder</a>
-  <a class="o-navigation__link" href="change-password-form">Change Password Form</a>
-  <a class="o-navigation__link" href="bulk-submission-form">Bulk Submission Form</a>
-
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
+  <a class="o-navigation__link" href="request-builder">Request Builder</a>
+  <a class="o-navigation__link" href="bulk-request">Bulk Submission</a>
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
   <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
   <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
-</nav>      
+</nav>      </div>
     </div>
   </div>
 
@@ -109,12 +106,9 @@
   <a class="o-navigation__link" href="endpoints">Endpoints</a>
   <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
 
-  <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Tools</span>
-  <a class="o-navigation__link" href="request-builder">Request Builder</a>
-  <a class="o-navigation__link" href="change-password-form">Change Password Form</a>
-  <a class="o-navigation__link" href="bulk-submission-form">Bulk Submission Form</a>
-
   <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
+  <a class="o-navigation__link" href="request-builder">Request Builder</a>
+  <a class="o-navigation__link" href="bulk-request">Bulk Submission</a>
   <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
   <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
   <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
@@ -123,14 +117,74 @@
 </aside>
 
     <article id="main-content" class="color-light-background py-2 px-4 screen-desktop:px-6">
-            <section class="layout--content py-4">
-        <div class="screen-desktop:pr-4 screen-desktop:pr-6">
-          <h1 class="mt-0 p-0">Sample Data and Code</h1>          	<div class="o-content">
-    <div id="markdown-sample-code-and-sdks"></div>
-	</div>
+      
+<section>
+<div class="page-wrapper">
+        
+
+        <div class="bg-color-white text-font-size-small">
+            <h1 class="type-h1 w-full text-font-size-larger text-color-blue-dark">Bulk Submission</h1>
+            <div id="errors" class="w-1/3" role="alert"></div>
+            <form id="bulkSubmissionForm">
+                <div style="display: none;" id="loader">Loading...</div>
+
+                <div id="c_baseurl" class="my-2">
+                    <label class="font-bold" for="baseurl">Base URL<span style="color:red">*</span></label>
+                    <div>
+                        <select id="baseurl" name="baseurl" class="select">
+		                	<option value="https://screeningapi.cityofnewyork.us/">
+		                		https://screeningapi.cityofnewyork.us
+		                	</option>
+		                	<option value="https://sandbox.screeningapi.cityofnewyork.us/">
+		                		https://sandbox.screeningapi.cityofnewyork.us
+		                	</option>
+		                </select>
+                    </div>
+            	</div>
+
+                <div id="c_username" class="my-2">
+                    <label class="font-bold" for="username">Username<span style="color:red">*</span></label>
+                    <div>
+                        <input type="text" id="username" placeholder="Enter Username" name="username" maxlength="255">
+                    </div>
+                </div>
+
+                <div id="c_password" class="my-2">
+                    <label class="font-bold" for="password">Password<span style="color:red">*</span></label>
+                    <div>
+                        <input type="password" id="password" placeholder="Password" name="password" maxlength="255">
+                    </div>
+                </div>
+
+                <div class="my-2">
+                    <label class="font-bold" for="newpassword">New Password</label>
+                    <div>
+                        <span>Users must set a new password of their Cognito user pools only while doing first time authentication. Second time onward, the newly set password must be provided in the Password field.</span>
+                        <input class="mt-1" type="password" id="newpassword" placeholder="New Password" name="newPassword" maxlength="255">
+                    </div>
+                </div>
+
+                <div class="my-2">
+                    <label class="font-bold" for="eligibility">Program Codes</label>
+                    <div>
+                        <span>To only check eligibility for certain programs, add the program codes you wish you check here, separated by a comma</span>
+                        <input class="w-full mt-1" id="eligibility" name="programs" maxlength="2048"></input>
+                    </div>
+                </div>
+
+                <div id="c_csvfile" class="my-2">
+                    <label class="font-bold" for="csv_upload">Upload File<span style="color:red">*</span></label>
+                    <div>
+                        <input id="csv_upload" type="file" name="csvFile" accept=".csv">
+                    </div>
+                </div>
+
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
-      </section>
-          </article>
+    </div>
+</section>
+    </article>
   </main>
 
   <footer class="o-footer color-dark-background screen-tablet:layout--three-columns-gutter">
