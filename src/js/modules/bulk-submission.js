@@ -1,5 +1,5 @@
 import Forms from 'nyco-patterns-framework/dist/forms/forms.common';
-import { displayErrors, sendPostRequest } from './util';
+import { displayErrors, displayInfo, sendPostRequest } from './util';
 
 export default function() {
   const SELECTOR = '[data-js*="bulk-submission"]'
@@ -14,6 +14,7 @@ export default function() {
       if (status[0] === '4' || status[0] === '5') {
         displayErrors(req.responseText, true)
       } else if (status[0] === '2') {
+        displayInfo('Bulk submission successful')
         const blob = new Blob([req.response], {type : 'text/csv'})
         if (typeof window.navigator.msSaveBlob !== 'undefined') {
           window.navigator.msSaveBlob(blob, filename)
