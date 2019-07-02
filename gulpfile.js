@@ -30,16 +30,6 @@ const SOURCE = 'src/';
 const PACKAGE = require('./package.json');
 
 // SCRIPTS
-gulp.task('scripts', function() {
-  return gulp.src([
-    DIST + 'js/source.js',
-  ])
-    .pipe(concat('source.js'))
-    .pipe(gulp.dest(DIST + 'js'))
-    .pipe(gulpif((NODE_ENV !== 'development'),
-      notify({message: 'Scripts task complete'})));
-});
-
 gulp.task('scripts:browserify', function() {
   return browserify({
     entries: [SOURCE + 'js/main.js'],
@@ -55,6 +45,15 @@ gulp.task('scripts:browserify', function() {
       notify({message: 'Scripts:browserify task complete'})));
 });
 
+gulp.task('scripts', gulp.series('scripts:browserify', function() {
+  return gulp.src([
+    DIST + 'js/source.js',
+  ])
+    .pipe(concat('source.js'))
+    .pipe(gulp.dest(DIST + 'js'))
+    .pipe(gulpif((NODE_ENV !== 'development'),
+      notify({message: 'Scripts task complete'})));
+}));
 
 // STYLES - LINTING
 gulp.task('lint-css', function() {

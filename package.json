@@ -5,7 +5,7 @@
   "description": "Documentation for the NYC Benefits Screening API https://screeningapidocs.cityofnewyork.us/",
   "author": "The Mayor's Office for Economic Opportunity",
   "license": "GPL-3.0",
-  "main": "npm run dev",
+  "main": "npm run start",
   "homepage": "https://github.com/CityOfNewYork/screeningapi-docs",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "serve": "node app/serve.js",
     "publish": "npm run build && node app/publish.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "gulp",
+    "start": "gulp",
     "dev": "cross-env NODE_ENV=development gulp",
     "purge": "curl -X POST https://purge.jsdelivr.net/gh/CityOfNewYork/screeningapi-docs@content"
   },
