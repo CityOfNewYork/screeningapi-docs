@@ -16,14 +16,15 @@ export default function() {
       }
     }
   }
+  
 
   const submit = (event) => {
-    const baseurl = event.target.action;
+    const domain = document.getElementById('domain').value
     const username = document.getElementById('username').value
     const password = document.getElementById('password').value
     const newPassword = document.getElementById('newpassword').value
 
-    var url = baseurl + 'authToken'
+    var url = domain + 'authToken'
     var headersObject = {
       'Content-type': 'application/json',
       'Access-Control-Allow-Origin': '*'
