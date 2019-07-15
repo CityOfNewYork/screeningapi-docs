@@ -16756,11 +16756,11 @@ function _default() {
   };
 
   var submit = function submit(event) {
-    var baseurl = event.target.action;
+    var domain = document.getElementById('domain').value;
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
     var newPassword = document.getElementById('newpassword').value;
-    var url = baseurl + 'authToken';
+    var url = domain + 'authToken';
     var headersObject = {
       'Content-type': 'application/json',
       'Access-Control-Allow-Origin': '*'
