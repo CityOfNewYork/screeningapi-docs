@@ -12,6 +12,7 @@ var browserSync = require('browser-sync').create(),
   postcss = require('gulp-postcss'),
   tailwindcss = require('tailwindcss'),
   rename = require('gulp-rename'),
+  replace = require('gulp-string-replace'),
   sass = require('gulp-sass'),
   source = require('vinyl-source-stream'),
   stylelint = require('gulp-stylelint'),
@@ -50,6 +51,7 @@ gulp.task('scripts', gulp.series('scripts:browserify', function() {
     DIST + 'js/source.js',
   ])
     .pipe(concat('source.js'))
+    .pipe(replace('process.env.NODE_ENV', `"${NODE_ENV}"`))
     .pipe(gulp.dest(DIST + 'js'))
     .pipe(gulpif((NODE_ENV !== 'development'),
       notify({message: 'Scripts task complete'})));
