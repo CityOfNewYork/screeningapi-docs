@@ -5,7 +5,7 @@ export default function(cdn) {
 
   window.editor = SwaggerEditorBundle({
     dom_id: '#swagger-editor',
-    url: cdn + 'benefits_screening_api.yaml'
+    url: cdn + 'endpoints.yml'
   });
 
   $('.SplitPane').css('position', 'relative');
