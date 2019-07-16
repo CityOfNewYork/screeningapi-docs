@@ -16539,6 +16539,7 @@ function hasOwnProperty(obj, prop) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./support/isBuffer":9,"_process":7,"inherits":1}],11:[function(require,module,exports){
+(function (process){
 "use strict";
 
 require("./modules/polyfill-remove");
@@ -16561,14 +16562,14 @@ var _Track = _interopRequireDefault(require("nyco-patterns/dist/utilities/track/
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var cdn = 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/content/';
+var cdn = "undefined" === 'production' ? 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/content/' : 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/env/development-content/';
 new _Icons.default('svg/icons.svg');
 new _Toggle.default();
 new _Track.default();
 window.$ = window.jQuery = require('jquery');
 
 if (window.location.pathname.indexOf('endpoints') >= 0) {
-  (0, _swagger.default)();
+  (0, _swagger.default)(cdn);
 }
 
 if (window.location.pathname.indexOf('form') >= 0) {
@@ -16604,7 +16605,8 @@ markdowns.each(function () {
   }, 'text');
 });
 
-},{"./modules/bulk-submission.js":12,"./modules/change-password.js":13,"./modules/polyfill-remove":14,"./modules/request-form-json.js":15,"./modules/submission.js":17,"./modules/swagger.js":18,"jquery":2,"nyco-patterns/dist/elements/icons/Icons.common":4,"nyco-patterns/dist/utilities/toggle/Toggle.common":5,"nyco-patterns/dist/utilities/track/Track.common":6,"showdown":8}],12:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"./modules/bulk-submission.js":12,"./modules/change-password.js":13,"./modules/polyfill-remove":14,"./modules/request-form-json.js":15,"./modules/submission.js":17,"./modules/swagger.js":18,"_process":7,"jquery":2,"nyco-patterns/dist/elements/icons/Icons.common":4,"nyco-patterns/dist/utilities/toggle/Toggle.common":5,"nyco-patterns/dist/utilities/track/Track.common":6,"showdown":8}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -17306,11 +17308,11 @@ exports.default = _default;
 
 var util = require('util');
 
-function _default() {
+function _default(cdn) {
   var controller = new AbortController();
   window.editor = SwaggerEditorBundle({
     dom_id: '#swagger-editor',
-    url: 'resources/benefits_screening_api.yaml'
+    url: cdn + 'endpoints.yml'
   });
   $('.SplitPane').css('position', 'relative');
   $('.Pane1').css('display', 'none');
