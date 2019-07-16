@@ -2,8 +2,6 @@ The Benefits Screening API requires users to have an account in order to authent
 
 After the account is created, two emails are sent to the address provided. One will contain your temporary sandbox credentials and the other will contain your temporary production credentials. You should use the sandbox credentials and domain when testing and developing with the API or in development, testing, or staging environments. The production domain should be used in public facing or production environments.
 
-Once you have credentials you will then use them with the [Authentication Endpoint](endpoints) to reset your developer and production passwords (separately). You are required to reset your temporary password to access the API. Keep in mind; after 30 days the temporary password will expire, you will need to set your developer and production passwords.
-
 Once you have credentials you will then change your temporary sandboxdeveloper and production passwords separately using the [change password form](change-password-form) (alternatively, you may also use the [authentication endpoint](endpoints) to do this). You are required to reset your temporary password to access the API. Keep in mind; after 30 days the temporary password will expire, you will need to set your developer and production passwords.
 
 <a href="http://eepurl.com/gfLTuH" target="_blank" class="btn color-primary-button text-secondary-white-30t">Request an Account</a>

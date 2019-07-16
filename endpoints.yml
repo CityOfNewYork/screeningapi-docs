@@ -21,9 +21,10 @@ paths:
       tags:
         - Authentication
       description: >
-        This endpoint is used to set your initial account password and retrieve an authentication token to make requests to the <b>Screening</b> endpoints.
-        See <a href="token-based-authentication">Token Based Authentication</a> for more details on setting your initial account password.
-        On successful response, the retrieved token must be provided in the request header of the <b>Screening</b> endpoints to make an authenticated request.
+        This endpoint is used to retrieve an authentication token to make requests to the <b>Screening</b> endpoints.
+        See <a href="token-based-authentication">Token Based Authentication</a> for more details. On successful
+        response, the retrieved token can be provided in the request header of the <b>Screening</b> endpoints to make
+        an authenticated request.
       requestBody:
         required: true
         content:
