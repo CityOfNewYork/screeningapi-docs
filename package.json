@@ -12,9 +12,9 @@
     "url": "git+https://github.com/CityOfNewYork/screeningapi-docs.git"
   },
   "scripts": {
-    "build": "gulp build",
+    "build": "cross-env NODE_ENV=production gulp build",
     "serve": "node app/serve.js",
-    "publish": "npm run build && node app/publish.js",
+    "publish": "cross-env NODE_ENV=production npm run build && node app/publish.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
     "dev": "cross-env NODE_ENV=development gulp",
