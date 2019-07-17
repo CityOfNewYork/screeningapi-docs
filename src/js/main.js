@@ -9,7 +9,9 @@ import Icons from 'nyco-patterns/dist/elements/icons/Icons.common'
 import Toggle from 'nyco-patterns/dist/utilities/toggle/Toggle.common'
 import Track from 'nyco-patterns/dist/utilities/track/Track.common'
 
-var cdn = 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/content/';
+var cdn = (process.env.NODE_ENV === 'production') ?
+  'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/content/' :
+  'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/env/development-content/';
 
 new Icons('svg/icons.svg');
 new Toggle();
@@ -17,7 +19,7 @@ new Track();
 
 window.$ = window.jQuery = require('jquery');
 if ((window.location.pathname.indexOf('endpoints') >= 0)) {
-  swagger();
+  swagger(cdn);
 }
 if ((window.location.pathname.indexOf('form') >= 0)) {
   requestForm();

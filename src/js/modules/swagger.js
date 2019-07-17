@@ -1,11 +1,11 @@
 const util = require('util')
 
-export default function() {
+export default function(cdn) {
   const controller = new AbortController()
 
   window.editor = SwaggerEditorBundle({
     dom_id: '#swagger-editor',
-    url: 'resources/benefits_screening_api.yaml'
+    url: cdn + 'endpoints.yml'
   });
 
   $('.SplitPane').css('position', 'relative');
@@ -41,7 +41,7 @@ export default function() {
     const ep = util.format("/%s", ep_id.substr(ep_id.indexOf("_") + 1).replace("_", "/"));
     const par_node = $(obj).parents('.opblock-body:first');
     const exampleBody = par_node.find('.body-param__example');
-    const textBody = exampleBody.length > 0 ? exampleBody.text() : par_node.find('.body-param__text').text() 
+    const textBody = exampleBody.length > 0 ? exampleBody.text() : par_node.find('.body-param__text').text()
     const params = textBody.replace(/\s/g,'');
 
     par_node.find('.curl').remove();
