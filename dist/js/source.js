@@ -16837,6 +16837,7 @@ function _default() {
       personObj = generatePersonObj(formdata, pi);
       finalObj['person'].push(personObj);
     });
+    finalObj['withholdPayload'] = String(formdata.find('[name=withholdPayload]').is(':checked'));
     var hasErrors = validateFields(formdata);
 
     if (hasErrors["errors"] > 0) {
