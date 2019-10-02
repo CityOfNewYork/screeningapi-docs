@@ -16562,7 +16562,7 @@ var _Track = _interopRequireDefault(require("nyco-patterns/dist/utilities/track/
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var cdn = "production" === 'production' ? 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/content/' : 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/env/development-content/';
+var cdn = process.env.NODE_ENV === 'production' ? 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/content/' : 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/env/development-content/';
 new _Icons.default('svg/icons.svg');
 new _Toggle.default();
 new _Track.default();

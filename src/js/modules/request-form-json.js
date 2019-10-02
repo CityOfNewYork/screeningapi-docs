@@ -35,6 +35,8 @@ export default function() {
       finalObj['person'].push(personObj);
     })
 
+    finalObj['withholdPayload'] = String(formdata.find('[name=withholdPayload]').is(':checked'));
+
     var hasErrors = validateFields(formdata);
 
     if (hasErrors["errors"] > 0 ) {
