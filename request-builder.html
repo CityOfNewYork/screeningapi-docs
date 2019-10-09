@@ -128,6 +128,8 @@
           <h1 class="mt-0 p-0">Build a Request</h1>            <div id="markdown-request-builder"></div>
 
   <form class="screener-form">
+    
+
     <div class="household-data">
   <h2>Household</h2>
 
@@ -358,6 +360,16 @@
     <button class="btn remove-person hidden">Remove Person</button>
     <button class="btn color-secondary-button add-person">Add Another Person</button>
   </div>
+    <div>
+      <h2>Data Retention</h2>
+      <div class="mt-4">
+        <label class="checkbox">
+          <input id="withholdPayloadCheckbox" type="checkbox" name="withholdPayload" dataRetention>
+          <span class="checkbox__label font-bold">Withhold Request Data?</span>
+        </label>
+      </div>
+    </div>
+    
 
     <div class="block pt-4">
       <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
