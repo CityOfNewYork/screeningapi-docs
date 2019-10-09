@@ -856,9 +856,6 @@ paths:
                                   Mortgage, Utilities, Telephone,
                                   InsurancePremiums
                                 example: Medical
-                  withholdPayload: 
-                    type: boolean
-                    example: false
       responses:
         '200':
           description: Success Response
