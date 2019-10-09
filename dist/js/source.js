@@ -1,4 +1,213 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+'use strict';
+
+/**
+ * Utilities for Form components
+ * @class
+ */
+
+var Forms = function Forms(form) {
+  if (form === void 0) form = false;
+  this.FORM = form;
+  return this;
+};
+/**
+ * Map toggled checkbox values to an input.
+ * @param{Object} event The parent click event.
+ * @return {Element}    The target element.
+ */
+
+
+Forms.prototype.joinValues = function joinValues(event) {
+  if (!event.target.matches('input[type="checkbox"]')) {
+    return;
+  }
+
+  if (!event.target.closest('[data-js-join-values]')) {
+    return;
+  }
+
+  var el = event.target.closest('[data-js-join-values]');
+  var target = document.querySelector(el.dataset.jsJoinValues);
+  target.value = Array.from(el.querySelectorAll('input[type="checkbox"]')).filter(function (e) {
+    return e.value && e.checked;
+  }).map(function (e) {
+    return e.value;
+  }).join(', ');
+  return target;
+};
+/**
+ * A simple form validation class that uses native form validation. It will
+ * add appropriate form feedback for each input that is invalid and native
+ * localized browser messaging.
+ *
+ * See https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation
+ * See https://caniuse.com/#feat=form-validation for support
+ *
+ * @param{Event}       event The form submission event
+ * @return {Class/Boolean}     The form class or false if invalid
+ */
+
+
+Forms.prototype.valid = function valid(event) {
+  var validity = event.target.checkValidity();
+  var elements = event.target.querySelectorAll(Forms.selectors.REQUIRED);
+
+  for (var i = 0; i < elements.length; i++) {
+    // Remove old messaging if it exists
+    var el = elements[i];
+    this.reset(el); // If this input valid, skip messaging
+
+    if (el.validity.valid) {
+      continue;
+    }
+
+    this.highlight(el);
+  }
+
+  return validity ? this : validity;
+};
+/**
+ * Adds focus and blur events to inputs with required attributes
+ * @param {object}formPassing a form is possible, otherwise it will use
+ *                        the form passed to the constructor.
+ * @return{class}       The form class
+ */
+
+
+Forms.prototype.watch = function watch(form) {
+  var this$1 = this;
+  if (form === void 0) form = false;
+  this.FORM = form ? form : this.FORM;
+  var elements = this.FORM.querySelectorAll(Forms.selectors.REQUIRED);
+  /** Watch Individual Inputs */
+
+  var loop = function loop(i) {
+    // Remove old messaging if it exists
+    var el = elements[i];
+    el.addEventListener('focus', function () {
+      this$1.reset(el);
+    });
+    el.addEventListener('blur', function () {
+      if (!el.validity.valid) {
+        this$1.highlight(el);
+      }
+    });
+  };
+
+  for (var i = 0; i < elements.length; i++) {
+    loop(i);
+  }
+  /** Submit Event */
+
+
+  this.FORM.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (this$1.valid(event) === false) {
+      return false;
+    }
+
+    this$1.submit(event);
+  });
+  return this;
+};
+/**
+ * Removes the validity message and classes from the message.
+ * @param {object}elThe input element
+ * @return{class}     The form class
+ */
+
+
+Forms.prototype.reset = function reset(el) {
+  var container = el.parentNode;
+  var message = container.querySelector('.' + Forms.classes.ERROR_MESSAGE); // Remove old messaging if it exists
+
+  container.classList.remove(Forms.classes.ERROR_CONTAINER);
+
+  if (message) {
+    message.remove();
+  }
+
+  return this;
+};
+/**
+ * Displays a validity message to the user. It will first use any localized
+ * string passed to the class for required fields missing input. If the
+ * input is filled in but doesn't match the required pattern, it will use
+ * a localized string set for the specific input type. If one isn't provided
+ * it will use the default browser provided message.
+ * @param {object}elThe invalid input element
+ * @return{class}     The form class
+ */
+
+
+Forms.prototype.highlight = function highlight(el) {
+  var container = el.parentNode;
+  var message = container.querySelector('.' + Forms.classes.ERROR_MESSAGE); // Create the new error message.
+
+  message = document.createElement(Forms.markup.ERROR_MESSAGE); // Get the error message from localized strings (if set).
+
+  if (el.validity.valueMissing && Forms.strings.VALID_REQUIRED) {
+    message.innerHTML = Forms.strings.VALID_REQUIRED;
+  } else if (!el.validity.valid && Forms.strings["VALID_" + el.type.toUpperCase() + "_INVALID"]) {
+    var stringKey = "VALID_" + el.type.toUpperCase() + "_INVALID";
+    message.innerHTML = Forms.strings[stringKey];
+  } else {
+    message.innerHTML = el.validationMessage;
+  } // Set aria attributes and css classes to the message
+
+
+  message.setAttribute(Forms.attrs.ERROR_MESSAGE[0], Forms.attrs.ERROR_MESSAGE[1]);
+  message.classList.add(Forms.classes.ERROR_MESSAGE); // Add the error class and error message to the dom.
+
+  container.classList.add(Forms.classes.ERROR_CONTAINER);
+  container.insertBefore(message, container.childNodes[0]);
+  return this;
+};
+/**
+ * A dictionairy of strings in the format.
+ * {
+ *   'VALID_REQUIRED': 'This is required',
+ *   'VALID_{{ TYPE }}_INVALID': 'Invalid'
+ * }
+ */
+
+
+Forms.strings = {};
+/** Placeholder for the submit function */
+
+Forms.submit = function () {};
+/** Classes for various containers */
+
+
+Forms.classes = {
+  'ERROR_MESSAGE': 'error-message',
+  // error class for the validity message
+  'ERROR_CONTAINER': 'error' // class for the validity message parent
+
+};
+/** HTML tags and markup for various elements */
+
+Forms.markup = {
+  'ERROR_MESSAGE': 'div'
+};
+/** DOM Selectors for various elements */
+
+Forms.selectors = {
+  'REQUIRED': '[required="true"]' // Selector for required input elements
+
+};
+/** Attributes for various elements */
+
+Forms.attrs = {
+  'ERROR_MESSAGE': ['aria-live', 'polite'] // Attribute for valid error message
+
+};
+
+module.exports = Forms;
+
+},{}],2:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -23,7 +232,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.3.1
  * https://jquery.com/
@@ -10389,215 +10598,6 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],3:[function(require,module,exports){
-'use strict';
-
-/**
- * Utilities for Form components
- * @class
- */
-
-var Forms = function Forms(form) {
-  if (form === void 0) form = false;
-  this.FORM = form;
-  return this;
-};
-/**
- * Map toggled checkbox values to an input.
- * @param{Object} event The parent click event.
- * @return {Element}    The target element.
- */
-
-
-Forms.prototype.joinValues = function joinValues(event) {
-  if (!event.target.matches('input[type="checkbox"]')) {
-    return;
-  }
-
-  if (!event.target.closest('[data-js-join-values]')) {
-    return;
-  }
-
-  var el = event.target.closest('[data-js-join-values]');
-  var target = document.querySelector(el.dataset.jsJoinValues);
-  target.value = Array.from(el.querySelectorAll('input[type="checkbox"]')).filter(function (e) {
-    return e.value && e.checked;
-  }).map(function (e) {
-    return e.value;
-  }).join(', ');
-  return target;
-};
-/**
- * A simple form validation class that uses native form validation. It will
- * add appropriate form feedback for each input that is invalid and native
- * localized browser messaging.
- *
- * See https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation
- * See https://caniuse.com/#feat=form-validation for support
- *
- * @param{Event}       event The form submission event
- * @return {Class/Boolean}     The form class or false if invalid
- */
-
-
-Forms.prototype.valid = function valid(event) {
-  var validity = event.target.checkValidity();
-  var elements = event.target.querySelectorAll(Forms.selectors.REQUIRED);
-
-  for (var i = 0; i < elements.length; i++) {
-    // Remove old messaging if it exists
-    var el = elements[i];
-    this.reset(el); // If this input valid, skip messaging
-
-    if (el.validity.valid) {
-      continue;
-    }
-
-    this.highlight(el);
-  }
-
-  return validity ? this : validity;
-};
-/**
- * Adds focus and blur events to inputs with required attributes
- * @param {object}formPassing a form is possible, otherwise it will use
- *                        the form passed to the constructor.
- * @return{class}       The form class
- */
-
-
-Forms.prototype.watch = function watch(form) {
-  var this$1 = this;
-  if (form === void 0) form = false;
-  this.FORM = form ? form : this.FORM;
-  var elements = this.FORM.querySelectorAll(Forms.selectors.REQUIRED);
-  /** Watch Individual Inputs */
-
-  var loop = function loop(i) {
-    // Remove old messaging if it exists
-    var el = elements[i];
-    el.addEventListener('focus', function () {
-      this$1.reset(el);
-    });
-    el.addEventListener('blur', function () {
-      if (!el.validity.valid) {
-        this$1.highlight(el);
-      }
-    });
-  };
-
-  for (var i = 0; i < elements.length; i++) {
-    loop(i);
-  }
-  /** Submit Event */
-
-
-  this.FORM.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    if (this$1.valid(event) === false) {
-      return false;
-    }
-
-    this$1.submit(event);
-  });
-  return this;
-};
-/**
- * Removes the validity message and classes from the message.
- * @param {object}elThe input element
- * @return{class}     The form class
- */
-
-
-Forms.prototype.reset = function reset(el) {
-  var container = el.parentNode;
-  var message = container.querySelector('.' + Forms.classes.ERROR_MESSAGE); // Remove old messaging if it exists
-
-  container.classList.remove(Forms.classes.ERROR_CONTAINER);
-
-  if (message) {
-    message.remove();
-  }
-
-  return this;
-};
-/**
- * Displays a validity message to the user. It will first use any localized
- * string passed to the class for required fields missing input. If the
- * input is filled in but doesn't match the required pattern, it will use
- * a localized string set for the specific input type. If one isn't provided
- * it will use the default browser provided message.
- * @param {object}elThe invalid input element
- * @return{class}     The form class
- */
-
-
-Forms.prototype.highlight = function highlight(el) {
-  var container = el.parentNode;
-  var message = container.querySelector('.' + Forms.classes.ERROR_MESSAGE); // Create the new error message.
-
-  message = document.createElement(Forms.markup.ERROR_MESSAGE); // Get the error message from localized strings (if set).
-
-  if (el.validity.valueMissing && Forms.strings.VALID_REQUIRED) {
-    message.innerHTML = Forms.strings.VALID_REQUIRED;
-  } else if (!el.validity.valid && Forms.strings["VALID_" + el.type.toUpperCase() + "_INVALID"]) {
-    var stringKey = "VALID_" + el.type.toUpperCase() + "_INVALID";
-    message.innerHTML = Forms.strings[stringKey];
-  } else {
-    message.innerHTML = el.validationMessage;
-  } // Set aria attributes and css classes to the message
-
-
-  message.setAttribute(Forms.attrs.ERROR_MESSAGE[0], Forms.attrs.ERROR_MESSAGE[1]);
-  message.classList.add(Forms.classes.ERROR_MESSAGE); // Add the error class and error message to the dom.
-
-  container.classList.add(Forms.classes.ERROR_CONTAINER);
-  container.insertBefore(message, container.childNodes[0]);
-  return this;
-};
-/**
- * A dictionairy of strings in the format.
- * {
- *   'VALID_REQUIRED': 'This is required',
- *   'VALID_{{ TYPE }}_INVALID': 'Invalid'
- * }
- */
-
-
-Forms.strings = {};
-/** Placeholder for the submit function */
-
-Forms.submit = function () {};
-/** Classes for various containers */
-
-
-Forms.classes = {
-  'ERROR_MESSAGE': 'error-message',
-  // error class for the validity message
-  'ERROR_CONTAINER': 'error' // class for the validity message parent
-
-};
-/** HTML tags and markup for various elements */
-
-Forms.markup = {
-  'ERROR_MESSAGE': 'div'
-};
-/** DOM Selectors for various elements */
-
-Forms.selectors = {
-  'REQUIRED': '[required="true"]' // Selector for required input elements
-
-};
-/** Attributes for various elements */
-
-Forms.attrs = {
-  'ERROR_MESSAGE': ['aria-live', 'polite'] // Attribute for valid error message
-
-};
-
-module.exports = Forms;
-
 },{}],4:[function(require,module,exports){
 "use strict";var Utility=function(){return this};Utility.debug=function(){return"1"===Utility.getUrlParameter(Utility.PARAMS.DEBUG)},Utility.getUrlParameter=function(t,e){var n=e||window.location.search,i=t.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]"),r=new RegExp("[\\?&]"+i+"=([^&#]*)").exec(n);return null===r?"":decodeURIComponent(r[1].replace(/\+/g," "))},Utility.localize=function(t){var e=t||"",n=(window.LOCALIZED_STRINGS||[]).filter(function(e){return!(!e.hasOwnProperty("slug")||e.slug!==t)&&e});return n[0]&&n[0].hasOwnProperty("label")?n[0].label:e},Utility.PARAMS={DEBUG:"debug"},Utility.SELECTORS={parseMarkdown:'[data-js="markdown"]'};var Icons=function t(e){return e=e||t.path,fetch(e).then(function(t){if(t.ok)return t.text();Utility.debug()&&console.dir(t)}).catch(function(t){Utility.debug()&&console.dir(t)}).then(function(t){var e=document.createElement("div");e.innerHTML=t,e.setAttribute("aria-hidden",!0),e.setAttribute("style","display: none;"),document.body.appendChild(e)}),this};Icons.path="icons.svg",module.exports=Icons;
 
@@ -16538,7 +16538,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":9,"_process":7,"inherits":1}],11:[function(require,module,exports){
+},{"./support/isBuffer":9,"_process":7,"inherits":2}],11:[function(require,module,exports){
 (function (process){
 "use strict";
 
@@ -16562,7 +16562,7 @@ var _Track = _interopRequireDefault(require("nyco-patterns/dist/utilities/track/
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var cdn = process.env.NODE_ENV === 'production' ? 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/content/' : 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/env/development-content/';
+var cdn = "undefined" === 'production' ? 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/content/' : 'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/env/development-content/';
 new _Icons.default('svg/icons.svg');
 new _Toggle.default();
 new _Track.default();
@@ -16606,7 +16606,7 @@ markdowns.each(function () {
 });
 
 }).call(this,require('_process'))
-},{"./modules/bulk-submission.js":12,"./modules/change-password.js":13,"./modules/polyfill-remove":14,"./modules/request-form-json.js":15,"./modules/submission.js":17,"./modules/swagger.js":18,"_process":7,"jquery":2,"nyco-patterns/dist/elements/icons/Icons.common":4,"nyco-patterns/dist/utilities/toggle/Toggle.common":5,"nyco-patterns/dist/utilities/track/Track.common":6,"showdown":8}],12:[function(require,module,exports){
+},{"./modules/bulk-submission.js":12,"./modules/change-password.js":13,"./modules/polyfill-remove":14,"./modules/request-form-json.js":15,"./modules/submission.js":17,"./modules/swagger.js":18,"_process":7,"jquery":3,"nyco-patterns/dist/elements/icons/Icons.common":4,"nyco-patterns/dist/utilities/toggle/Toggle.common":5,"nyco-patterns/dist/utilities/track/Track.common":6,"showdown":8}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -16614,7 +16614,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _forms = _interopRequireDefault(require("nyco-patterns-framework/dist/forms/forms.common"));
+var _forms = _interopRequireDefault(require("@nycopportunity/patterns-framework/dist/utilities/forms/forms.common"));
 
 var _util = require("./util");
 
@@ -16727,7 +16727,7 @@ function _default() {
   Form.submit = submit;
 }
 
-},{"./util":19,"nyco-patterns-framework/dist/forms/forms.common":3}],13:[function(require,module,exports){
+},{"./util":19,"@nycopportunity/patterns-framework/dist/utilities/forms/forms.common":1}],13:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -16735,7 +16735,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _forms = _interopRequireDefault(require("nyco-patterns-framework/dist/forms/forms.common"));
+var _forms = _interopRequireDefault(require("@nycopportunity/patterns-framework/dist/utilities/forms/forms.common"));
 
 var _util = require("./util");
 
@@ -16779,7 +16779,7 @@ function _default() {
   Form.submit = submit;
 }
 
-},{"./util":19,"nyco-patterns-framework/dist/forms/forms.common":3}],14:[function(require,module,exports){
+},{"./util":19,"@nycopportunity/patterns-framework/dist/utilities/forms/forms.common":1}],14:[function(require,module,exports){
 "use strict";
 
 (function (arr) {
