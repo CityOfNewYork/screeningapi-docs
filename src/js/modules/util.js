@@ -61,7 +61,7 @@ export const displayErrors = (responseText, showPath) => {
       const { elementPath, message } = error
       const errorMsg = elementPath && showPath ?
         message + ' Element Path: ' + elementPath + '.' : message
-      return '<li>' + toTitleCase(errorMsg) + '</li>'
+      return '<li>' + errorMsg + '</li>'
     })
   } catch (err) {}
   setTextBox(errorsArray.join(''), 'block', errorBoxId);
