@@ -17440,7 +17440,7 @@ var displayErrors = function displayErrors(responseText, showPath) {
       var elementPath = error.elementPath,
           message = error.message;
       var errorMsg = elementPath && showPath ? message + ' Element Path: ' + elementPath + '.' : message;
-      return '<li>' + toTitleCase(errorMsg) + '</li>';
+      return '<li>' + errorMsg + '</li>';
     });
   } catch (err) {}
 
