@@ -8,7 +8,7 @@ This branch contains the markdown and Swagger Editor YAML files that are rendere
 | ---------------------------------------- | -------- |
 | overview.md                              | [Overview](https://screeningapidocs.cityofnewyork.us/overview) |
 | getting-started.md                       | [Getting Started](https://screeningapidocs.cityofnewyork.us/getting-started) |
-| token-based-authentication.md            | [Token Based Authentication](https://screeningapidocs.cityofnewyork.us/set-password-and-token-based-authentication) |
+| token-based-authentication.md            | [Token Based Authentication](https://screeningapidocs.cityofnewyork.us/token-based-authentication) |
 | making-a-request-1.md                    | [Making a Request](https://screeningapidocs.cityofnewyork.us/making-a-request) |
 | household-composition-household-table.md | [Making a Request - Household](https://screeningapidocs.cityofnewyork.us/making-a-request#household) |
 | household-composition-person-table.md    | [Making a Request - Person](https://screeningapidocs.cityofnewyork.us/making-a-request#person) |

@@ -1,4 +1,4 @@
-There are two steps to making a request which includes (1) getting a token and (2) making the request using the token. Your token is required for all requests. Getting a token is described in [Set Password and Token Based Authentication](set-password-and-token-based-authentication). The `Content-Type` header is also required and its value may vary. Refer to the [Endpoints](endpoints) documentation for details. Below is an example of the format for requests. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
+There are two steps to making a request which includes (1) getting a token and (2) making the request using the token. Your token is required for all requests. Getting a token is described in [Token Based Authentication](token-based-authentication). The `Content-Type` header is also required and its value may vary. Refer to the [Endpoints](endpoints) documentation for details. Below is an example of the format for requests. The values within double brackets (`{{ value }}`) are variables where you would provide your information:
 
 <div class="code-block"><pre>
 curl -X POST \
