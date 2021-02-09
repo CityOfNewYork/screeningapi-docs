@@ -1,4 +1,4 @@
-{% extends "layouts/default.twig" %}
+{% extends "@src/twig/layouts/default.twig" %}
 
 {% set title = 'Bulk Submission Form' %}
 {% set page_title = title %}
@@ -51,7 +51,7 @@
 
     <div style="display: none;" id="loader">
       <div class="flex items-center px-2 text-primary-blue">
-        {% include 'partials/spinner.twig' %} &nbsp;&nbsp; Loading...
+        {% include '@src/twig/partials/spinner.twig' %} &nbsp;&nbsp; Loading...
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-{% extends "layouts/default.twig" %}
+{% include "@src/twig/layouts/default.twig" %}
 
 {% set title = 'Build a Request' %}
 {% set page_title = title %}
@@ -7,8 +7,8 @@
   <div id="markdown-request-builder"></div>
 
   <form class="screener-form">
-    {% include 'partials/household.twig' %}
-    {% include 'partials/person.twig' %}
+    {% include '@src/twig/partials/household.twig' %}
+    {% include '@src/twig/partials/person.twig' %}
 
     <div class="block pt-4">
       <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>

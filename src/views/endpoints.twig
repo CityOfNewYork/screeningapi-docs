@@ -1,4 +1,4 @@
-{% extends "layouts/default.twig" %}
+{% include "@src/twig/layouts/default.twig" %}
 
 {% set title = 'Endpoints' %}
 {% set page_title = title %}
@@ -16,7 +16,7 @@
 		</div>
 	</div>
 
-	{% include 'partials/swagger.twig' %}
+	{% include '@src/twig/partials/swagger.twig' %}
 
 	<div class="flex flex-col screen-desktop:flex-row flex-wrap pb-4">
 		<div class="mt-4 layout--content">
