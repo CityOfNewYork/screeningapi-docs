@@ -1,3 +1,5 @@
+import '../../node_modules/jquery/dist/jquery.js';
+import '../../node_modules/showdown/dist/showdown.js';
 import './modules/polyfill-remove';
 
 import requestForm from './modules/submission.js'
@@ -17,7 +19,6 @@ new Icons('svg/icons.svg');
 new Toggle();
 new Track();
 
-window.$ = window.jQuery = require('jquery');
 if ((window.location.pathname.indexOf('endpoints') >= 0))
   swagger(cdn);
 
@@ -41,7 +42,6 @@ markdowns.each(function() {
   let file = $(this).attr('id').replace('markdown-', '');
 
   $.get(cdn + file + '.md', function(data) {
-    var showdown  = require('showdown'),
     converter = new showdown.Converter({tables: true}),
     html      = converter.makeHtml(data);
 
