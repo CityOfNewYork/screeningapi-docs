@@ -1,4 +1,4 @@
-import Forms from 'nyco-patterns-framework/dist/forms/forms.common';
+import Forms from '@nycopportunity/pttrn-scripts/src/forms/forms';
 import { displayErrors, displayInfo, sendPostRequest } from './util';
 
 export default function() {
