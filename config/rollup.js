@@ -34,7 +34,7 @@ module.exports = [
   {
     input: './src/js/main.js',
     output: [{
-      file: './dist/js/main.js',
+      file: './dist/js/source.js',
       name: 'MAIN',
       sourcemap: (process.env.NODE_ENV === 'production') ? false : 'inline',
       format: 'iife',
