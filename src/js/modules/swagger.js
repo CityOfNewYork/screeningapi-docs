@@ -1,5 +1,3 @@
-const util = require('util')
-
 export default function(cdn) {
   const controller = new AbortController()
 
@@ -45,32 +43,32 @@ export default function(cdn) {
     const params = textBody.replace(/\s/g,'');
 
     par_node.find('.curl').remove();
-    par_node.find('.execute-wrapper').append(util.format('<p class="curl">Use the following command to make a request to the <strong>%s</strong> endpoint based on the data set above:</p>', ep));
+    par_node.find('.execute-wrapper').append(`<p class="curl">Use the following command to make a request to the <strong>${ep}</strong> endpoint based on the data set above:</p>`);
 
     const authVal = par_node.find('[placeholder^=Authorization]').val();
     const interestedProgramsVal = par_node.find('[placeholder^=interestedPrograms]').val();
-    const query = interestedProgramsVal ? util.format("?interestedPrograms=%s", interestedProgramsVal) : ""
+    const query = interestedProgramsVal ? `?interestedPrograms=${interestedProgramsVal}` : ""
     if (ep_id.includes('Authentication')) {
-      const authenticationCurl = util.format('curl -X POST "%s%s" \
+      const authenticationCurl = `curl -X POST "${domain}${ep}" \
         -H  "accept: application/json" \
         -H  "Content-Type: application/json" \
-        -d \'%s\'', domain, ep, params);
-      par_node.find('.execute-wrapper').append(util.format('<textarea readonly="" class="curl" style="white-space: normal;">%s</textarea>', authenticationCurl));
+        -d \'${params}\'`;
+      par_node.find('.execute-wrapper').append(`<textarea readonly="" class="curl" style="white-space: normal;">${authenticationCurl}</textarea>`);
     } else if (ep_id.includes('eligibilityPrograms')){
-      const eligibilityProgramsCurl = util.format('curl -X POST "%s%s%s" \
+      const eligibilityProgramsCurl = `curl -X POST "${domain}${ep}${query}" \
         -H "accept: application/json" \
         -H "Content-Type: application/json" \
-        -H "Authorization: %s"\
-        -d \'%s\'', domain, ep, query, authVal, params);
-      par_node.find('.execute-wrapper').append(util.format('<textarea readonly="" class="curl" style="white-space: normal;">%s</textarea>', eligibilityProgramsCurl));
+        -H "Authorization: ${authVal}"\
+        -d \'${params}\'`;
+      par_node.find('.execute-wrapper').append(`<textarea readonly="" class="curl" style="white-space: normal;">${eligibilityProgramsCurl}</textarea>`);
     } else if (ep_id.includes('bulkSubmission')) {
       const inputPath = par_node.find('[type^=file]').val();
-      const bulkSubmissionCurl = util.format('curl -X POST "%s%s%s" \
+      const bulkSubmissionCurl = `curl -X POST "${domain}${ep}${query}" \
         -H "accept: multipart/form-data" \
         -H "Content-Type: multipart/form-data" \
-        -H "Authorization: %s"\
-        -F "=@%s;type=text/csv"', domain, ep, query, authVal, inputPath);
-      par_node.find('.execute-wrapper').append(util.format('<textarea readonly="" class="curl" style="white-space: normal;">%s</textarea>', bulkSubmissionCurl));
+        -H "Authorization: ${authVal}"\
+        -F "=@${inputPath};type=text/csv"`;
+      par_node.find('.execute-wrapper').append(`<textarea readonly="" class="curl" style="white-space: normal;">${bulkSubmissionCurl}</textarea>`);
     }
   }
 }

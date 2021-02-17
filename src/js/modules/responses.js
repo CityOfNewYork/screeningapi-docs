@@ -1,4 +1,4 @@
-[
+export default [
   {
     "EMAIL": "Please enter a valid email."
   },
@@ -29,13 +29,13 @@
   {
     "General": {
       "error": "Please resolve highlighted fields.",
-      "warning": "Resolving the following might generate different screening results for this household (optional):",
+      "warning": "Resolving the following might generate different screening results for this household (optional):"
     }
   },
   {
     "Household": {
       "err_excess_members": "Household: The number of household members must be between 1 and 8 members.",
-      "warning_rental_type": "Household: There should be a rental type.",
+      "warning_rental_type": "Household: There should be a rental type."
     }
   },
   {
@@ -43,7 +43,7 @@
       "err_num_persons": "Person: The number of persons cannot exceed 8 members",
       "err_hoh": "Person: Exactly one person must be the head of household.",
       "warning_on_lease": "Person: At least one person should be on the lease.",
-      "warning_on_deed": "Person: At least one person should be on the deed.",
+      "warning_on_deed": "Person: At least one person should be on the deed."
     }
   }
 ]
