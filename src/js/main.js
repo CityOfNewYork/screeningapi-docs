@@ -40,8 +40,8 @@ markdowns.each(function() {
   let file = $(this).attr('id').replace('markdown-', '');
 
   $.get(cdn + file + '.md', function(data) {
-    converter = new showdown.Converter({tables: true}),
-    html      = converter.makeHtml(data);
+    let converter = new showdown.Converter({tables: true});
+    let html      = converter.makeHtml(data);
 
     target.append(html)
       .hide()
