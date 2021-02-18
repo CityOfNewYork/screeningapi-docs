@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
   <link rel="shortcut icon" href="images/favicon/favicon.ico">
-  <title>NYC Benefits Screening API</title>
+  <title>Build a Request | NYC Benefits Screening API</title>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -105,27 +105,280 @@
     <article id="main-content" class="color-light-background py-2 px-4 screen-desktop:px-6">
       <section class="layout--content py-4">
         <div class="screen-desktop:pr-4 screen-desktop:pr-6">
+          <h1 class="mt-0 p-0">Build a Request</h1>
+          <div id="markdown-request-builder"></div>
+          <form class="screener-form">
+            <div class="household-data">
+              <h2>Household</h2>
+              <p>Enter values into the fields below for the Household Level data for the Household Composition.</p>
+              <div class="input my-4">
+                <label class="font-bold">Cash on hand <span class="text-primary-red">*</span>
+                </label>
+                <input type="number" name="cashOnHand" placeholder="0" min="0" household required>
+              </div>
+              <div class="my-4">
+                <label class="font-bold">Living Situation <span class="text-primary-red">*</span>
+                </label>
+                <select name="livingType" class="select" household required>
+                  <option value="">Please make a selection</option>
+                  <option value="livingRenting">Renting</option>
+                  <option value="livingOwner">Owner</option>
+                  <option value="livingStayingWithFriend">Staying with a friend</option>
+                  <option value="livingHotel">Hotel</option>
+                  <option value="livingShelter">Shelter</option>
+                  <option value="livingPreferNotToSay">Prefer not to say</option>
+                </select>
+              </div>
+              <div class="livingRentalType block my-4 hidden">
+                <label class="font-bold">Type of rental:</label>
+                <select name="livingRentalType" class="select" household>
+                  <option value="">Please make a selection</option>
+                  <option value="NYCHA">NYCHA Housing</option>
+                  <option value="MarketRate">Non-Regulated or Market Rate apartment</option>
+                  <option value="RentControlled">Rent controlled or rent stabilized apartment</option>
+                  <option value="RentRegulatedHotel">Rent Regulated Hotel/Single Room</option>
+                  <option value="Section213">Section 213 apartments</option>
+                  <option value="LimitedDividendDevelopment">Limited Dividend development apartments</option>
+                  <option value="MitchellLama">Mitchell-Lama apartments</option>
+                  <option value="RedevelopmentCompany">Redevelopment Company apartments</option>
+                  <option value="HDFC">Housing Development Fund Company (HDFC) Cooperative</option>
+                  <option value="FamilyHome">Family Home</option>
+                  <option value="Condo">Condo</option>
+                </select>
+              </div>
+            </div>
+            <div class="person-data">
+              <h2>Person</h2>
+              <p>Enter values into the fields below for one individual of the Household to build the Person Composition.</p>
+              <div class="input my-4">
+                <label class="font-bold">Age <span class="text-primary-red">*</span>
+                </label>
+                <input type="number" name="age" placeholder="35" person required>
+              </div>
+              <div class="my-4">
+                <label class="font-bold">Relation to head of household</label>
+                <select name="householdMemberType" class="select" person required>
+                  <option value="HeadOfHousehold">Head of Household</option>
+                  <option value="Child">Child</option>
+                  <option value="FosterChild">Foster Child</option>
+                  <option value="StepChild">Step-child</option>
+                  <option value="Grandchild">Grandchild</option>
+                  <option value="Spouse">Spouse</option>
+                  <option value="Parent">Parent</option>
+                  <option value="FosterParent">Foster Parent</option>
+                  <option value="StepParent">Step-parent</option>
+                  <option value="Grandparent">Grandparent</option>
+                  <option value="SisterBrother">Sister/Brother</option>
+                  <option value="StepSisterStepBrother">Step-sister/Step-brother</option>
+                  <option value="BoyfriendGirlfriend">Boyfriend/Girlfriend</option>
+                  <option value="DomesticPartner">Domestic Partner</option>
+                  <option value="Unrelated">Unrelated</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="my-4">
+                <label class="checkbox deed block hidden">
+                  <input type="checkbox" name="livingOwnerOnDeed" person>
+                  <span class="checkbox__label font-bold"> On the deed</span>
+                </label>
+              </div>
+              <div class="my-4">
+                <label class="checkbox lease block hidden">
+                  <input type="checkbox" name="livingRentalOnLease" person>
+                  <span class="checkbox__label font-bold"> On the lease</span>
+                </label>
+              </div>
+              <div class="block my-4">
+                <p class="font-bold">Select all that apply</p>
+                <label class="checkbox">
+                  <input type="checkbox" name="student" person>
+                  <span class="checkbox__label"> Student</span>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="studentFulltime" person>
+                  <span class="checkbox__label"> Student Full time</span>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="pregnant" person>
+                  <span class="checkbox__label"> Pregnant</span>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="unemployed" person>
+                  <span class="checkbox__label"> Unemployed</span>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="unemployedWorkedLast18Months" person>
+                  <span class="checkbox__label"> Unemployed last 18 months</span>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="blind" person>
+                  <span class="checkbox__label"> Blind</span>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="disabled" person>
+                  <span class="checkbox__label"> Disabled</span>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="veteran" person>
+                  <span class="checkbox__label"> Veteran</span>
+                </label>
+              </div>
+              <div class="block my-4">
+                <p class="font-bold">Receiving benefits (select all that apply)</p>
+                <label class="checkbox">
+                  <input type="checkbox" name="benefitsMedicaid" person>
+                  <span class="checkbox__label"> Medicaid</span>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="benefitsMedicaidDisability" person>
+                  <span class="checkbox__label"> Disability-related medicaid</span>
+                </label>
+              </div>
+              <p class="font-bold">Incomes</p>
+              <div class="incomes block hidden">
+                <div class="input my-2">
+                  <label class="font-bold">Amount <span class="text-primary-red">*</span>
+                  </label>
+                  <input type="number" name="amount" placeholder="200" person-incomes required>
+                </div>
+                <div class="my-2">
+                  <label class="font-bold">Type <span class="text-primary-red">*</span>
+                  </label>
+                  <select name="type" class="select" person-incomes required>
+                    <option value="">Please select income type</option>
+                    <option value="Wages">Wages, salaries, tips</option>
+                    <option value="SelfEmployment">Self-employment Income</option>
+                    <option value="Unemployment">Unemployment benefits</option>
+                    <option value="CashAssistance">Cash Assistance grant</option>
+                    <option value="ChildSupport">Child Support</option>
+                    <option value="DisabilityMedicaid">Disability-related Medicaid</option>
+                    <option value="SSI">Supplemental Security Income (SSI)</option>
+                    <option value="SSDependent">Social Security Dependent Benefits</option>
+                    <option value="SSDisability">Social Security Disability Benefits</option>
+                    <option value="SSSurvivor">Social Security Survivor\'s Benefits</option>
+                    <option value="SSRetirement">Social Security Retirement Benefits</option>
+                    <option value="NYSDisability">New York State Disability Benefits</option>
+                    <option value="Veteran">Veteran's Pension or Benefits</option>
+                    <option value="Pension">Government or Private Pension</option>
+                    <option value="DeferredComp">Withdrawals from Deferred Compensation (IRA, Keogh, etc.)</option>
+                    <option value="WorkersComp">Worker's Compensation</option>
+                    <option value="Alimony">Alimony (received)</option>
+                    <option value="Boarder">Boarder or lodger</option>
+                    <option value="Gifts">Gifts/contributions (received)</option>
+                    <option value="Rental">Rental income</option>
+                    <option value="Investment">Investment income (interest, dividends, and profit from selling stocks)</option>
+                  </select>
+                </div>
+                <div class="my-2">
+                  <label class="font-bold">Frequency <span class="text-primary-red">*</span>
+                  </label>
+                  <select name="frequency" class="select" person-incomes required>
+                    <option value="">Please select income frequency</option>
+                    <option value="Weekly">Every week</option>
+                    <option value="Biweekly">Every 2 weeks</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Semimonthly">Twice a month</option>
+                    <option value="Yearly">Every year</option>
+                  </select>
+                </div>
+              </div>
+              <div class="add-remove block my-4">
+                <button class="btn remove-income hidden">Remove income</button>
+                <button class="btn add-income">Add income</button>
+              </div>
+              <p class="font-bold">Expenses</p>
+              <div class="expenses block hidden">
+                <div class="input my-2">
+                  <label class="font-bold">Amount <span class="text-primary-red">*</span>
+                  </label>
+                  <input type="number" name="amount" placeholder="50" person-expenses required>
+                </div>
+                <div class="my-2">
+                  <label class="font-bold">Type <span class="text-primary-red">*</span>
+                  </label>
+                  <select name="type" class="select" person-expenses required>
+                    <option value="">Please select expense type</option>
+                    <option value="ChildCare">Child Care</option>
+                    <option value="ChildSupport">Child Support</option>
+                    <option value="DependentCare">Dependent Care</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Medical">Medical expense</option>
+                    <option value="Heating">Heating</option>
+                    <option value="Cooling">Cooling</option>
+                    <option value="Mortgage">Mortgage</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Telephone">Telephone</option>
+                    <option value="InsurancePremiums">Third Party Insurance Premiums</option>
+                  </select>
+                </div>
+                <div class="my-2">
+                  <label class="font-bold">Frequency <span class="text-primary-red">*</span>
+                  </label>
+                  <select name="frequency" class="select" person-expenses required>
+                    <option value="">Please select expense frenquency</option>
+                    <option value="Weekly">Every week</option>
+                    <option value="Biweekly">Every 2 weeks</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Semimonthly">Twice a month</option>
+                    <option value="Yearly">Every year</option>
+                  </select>
+                </div>
+              </div>
+              <div class="add-remove block my-4">
+                <button class="btn remove-expense hidden">Remove expense</button>
+                <button class="btn add-expense">Add expense</button>
+              </div>
+            </div>
+            <div class="add-remove block pt-2">
+              <button class="btn remove-person hidden">Remove Person</button>
+              <button class="btn color-secondary-button add-person">Add Another Person</button>
+            </div>
+            <div class="block pt-4">
+              <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
+            </div>
+          </form>
+          <div class="screener-json hidden">
+            <div class="block pt-4">
+              <button type="submit" class="btn color-primary-button generate-form">Edit Values</button>
+              <button class="btn color-secondary-button copy-obj">Copy</button>
+            </div>
+          </div>
+          <div class="block pt-2 error-msg hidden"></div>
+          <div class="block pt-2 warning-msg text-secondary-orange hidden"></div>
         </div>
       </section>
     </article>
   </main>
-  <footer class="o-footer color-dark-background screen-tablet:layout--three-columns-gutter">
-    <nav>
-      <a class="o-footer__nav-link" href="overview">Overview</a>
-      <a class="o-footer__nav-link" href="getting-started">Getting Started</a>
-      <a class="o-footer__nav-link" href="feedback-and-support">Feedback and Support</a>
-      <a class="o-footer__nav-link" href="terms-of-service">Terms of Service</a>
-    </nav>
-    <div class="o-footer__info">
-      <a href="http://nyc.gov/opportunity" title="The Mayor's Office for Economic Opportunity">
-        <svg aria-hidden="true" class="icon-logo-secondary o-footer__logo text-base-white">
-          <use xlink:href="#icon-logo-secondary"></use>
-        </svg>
-      </a>
-      <div id="markdown-about-nyc-opportunity"></div>
-      <small>© City of New York, 2021 All Rights Reserved.
-        <br>NYC is a trademark and service mark of the City of New York.
-      </small>
+  <footer class="o-footer color-dark-background border-navy-70t">
+    <div class="layout-wrap mx-auto">
+      <div class="o-footer__divider border-navy-70t desktop:flex desktop:layout-sidebar mb-4">
+        <div class="pb-4">
+          <a class="block" href="http://nyc.gov/opportunity" title="NYC Opportunity&lt;products@nycopportunity.nyc.gov&gt;">
+            <svg aria-hidden="true" class="o-footer__logo">
+              <use xlink:href="#icon-logo-secondary"></use>
+            </svg>
+            <span class="sr-only">The Mayor's Office for Economic Opportunity</span>
+          </a>
+        </div>
+        <div class="pb-4 desktop:pl-4 desktop:flex justify-end items-center">
+          <nav class="o-footer__inline-nav">
+            <a href="overview">Overview</a>
+            <a href="getting-started">Getting Started</a>
+            <a href="feedback-and-support">Feedback and Support</a>
+            <a href="terms-of-service">Terms of Service</a>
+          </nav>
+        </div>
+      </div>
+      <div class="desktop:grid desktop:grid-cols-2">
+        <div>
+          <p>NYC Opportunity is the <a href='http://nyc.gov/opportunity'>New York City Mayor's Office for Economic Opportunity</a>. We are committed to sharing open source software that we use in our products. Feel free to ask questions and share feedback. Follow @nycopportunity on&nbsp;<a href='https://twitter.com/nycopportunity' target='_blank' rel='nofollow noopener'>Twitter</a>,&nbsp;<a href='https://www.facebook.com/NYCOpportunity/' target='_blank' rel='nofollow noopener'>Facebook</a>,&nbsp;<a href='https://medium.com/@nycopportunity' target='_blank' rel='nofollow noopener'>Medium</a>, and&nbsp;<a href='' target='_blank' rel='nofollow noopener' title='Viewable by github.com/orgs/CityOfNewYork/ members.'>Github</a>.</p>
+        </div>
+        <div class="desktop:text-end">
+          <small>© City of New York, 2021 All Rights Reserved.
+            <br>NYC is a trademark and service mark of the City of New York.
+          </small>
+        </div>
+      </div>
     </div>
   </footer>
   <script crossorigin='anonymous' src='https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Array.prototype.forEach,Element.prototype.matches,Element.prototype.remove,fetch,Promise'></script>
@@ -133,242 +386,3 @@
 </body>
 
 </html>
-<div id="markdown-request-builder"></div>
-<form class="screener-form">
-  <div class="household-data">
-    <h2>Household</h2>
-    <p>Enter values into the fields below for the Household Level data for the Household Composition.</p>
-    <div class="input my-4">
-      <label class="font-bold">Cash on hand <span class="text-primary-red">*</span>
-      </label>
-      <input type="number" name="cashOnHand" placeholder="0" min="0" household required>
-    </div>
-    <div class="my-4">
-      <label class="font-bold">Living Situation <span class="text-primary-red">*</span>
-      </label>
-      <select name="livingType" class="select" household required>
-        <option value="">Please make a selection</option>
-        <option value="livingRenting">Renting</option>
-        <option value="livingOwner">Owner</option>
-        <option value="livingStayingWithFriend">Staying with a friend</option>
-        <option value="livingHotel">Hotel</option>
-        <option value="livingShelter">Shelter</option>
-        <option value="livingPreferNotToSay">Prefer not to say</option>
-      </select>
-    </div>
-    <div class="livingRentalType block my-4 hidden">
-      <label class="font-bold">Type of rental:</label>
-      <select name="livingRentalType" class="select" household>
-        <option value="">Please make a selection</option>
-        <option value="NYCHA">NYCHA Housing</option>
-        <option value="MarketRate">Non-Regulated or Market Rate apartment</option>
-        <option value="RentControlled">Rent controlled or rent stabilized apartment</option>
-        <option value="RentRegulatedHotel">Rent Regulated Hotel/Single Room</option>
-        <option value="Section213">Section 213 apartments</option>
-        <option value="LimitedDividendDevelopment">Limited Dividend development apartments</option>
-        <option value="MitchellLama">Mitchell-Lama apartments</option>
-        <option value="RedevelopmentCompany">Redevelopment Company apartments</option>
-        <option value="HDFC">Housing Development Fund Company (HDFC) Cooperative</option>
-        <option value="FamilyHome">Family Home</option>
-        <option value="Condo">Condo</option>
-      </select>
-    </div>
-  </div>
-  <div class="person-data">
-    <h2>Person</h2>
-    <p>Enter values into the fields below for one individual of the Household to build the Person Composition.</p>
-    <div class="input my-4">
-      <label class="font-bold">Age <span class="text-primary-red">*</span>
-      </label>
-      <input type="number" name="age" placeholder="35" person required>
-    </div>
-    <div class="my-4">
-      <label class="font-bold">Relation to head of household</label>
-      <select name="householdMemberType" class="select" person required>
-        <option value="HeadOfHousehold">Head of Household</option>
-        <option value="Child">Child</option>
-        <option value="FosterChild">Foster Child</option>
-        <option value="StepChild">Step-child</option>
-        <option value="Grandchild">Grandchild</option>
-        <option value="Spouse">Spouse</option>
-        <option value="Parent">Parent</option>
-        <option value="FosterParent">Foster Parent</option>
-        <option value="StepParent">Step-parent</option>
-        <option value="Grandparent">Grandparent</option>
-        <option value="SisterBrother">Sister/Brother</option>
-        <option value="StepSisterStepBrother">Step-sister/Step-brother</option>
-        <option value="BoyfriendGirlfriend">Boyfriend/Girlfriend</option>
-        <option value="DomesticPartner">Domestic Partner</option>
-        <option value="Unrelated">Unrelated</option>
-        <option value="Other">Other</option>
-      </select>
-    </div>
-    <div class="my-4">
-      <label class="checkbox deed block hidden">
-        <input type="checkbox" name="livingOwnerOnDeed" person>
-        <span class="checkbox__label font-bold"> On the deed</span>
-      </label>
-    </div>
-    <div class="my-4">
-      <label class="checkbox lease block hidden">
-        <input type="checkbox" name="livingRentalOnLease" person>
-        <span class="checkbox__label font-bold"> On the lease</span>
-      </label>
-    </div>
-    <div class="block my-4">
-      <p class="font-bold">Select all that apply</p>
-      <label class="checkbox">
-        <input type="checkbox" name="student" person>
-        <span class="checkbox__label"> Student</span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" name="studentFulltime" person>
-        <span class="checkbox__label"> Student Full time</span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" name="pregnant" person>
-        <span class="checkbox__label"> Pregnant</span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" name="unemployed" person>
-        <span class="checkbox__label"> Unemployed</span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" name="unemployedWorkedLast18Months" person>
-        <span class="checkbox__label"> Unemployed last 18 months</span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" name="blind" person>
-        <span class="checkbox__label"> Blind</span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" name="disabled" person>
-        <span class="checkbox__label"> Disabled</span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" name="veteran" person>
-        <span class="checkbox__label"> Veteran</span>
-      </label>
-    </div>
-    <div class="block my-4">
-      <p class="font-bold">Receiving benefits (select all that apply)</p>
-      <label class="checkbox">
-        <input type="checkbox" name="benefitsMedicaid" person>
-        <span class="checkbox__label"> Medicaid</span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" name="benefitsMedicaidDisability" person>
-        <span class="checkbox__label"> Disability-related medicaid</span>
-      </label>
-    </div>
-    <p class="font-bold">Incomes</p>
-    <div class="incomes block hidden">
-      <div class="input my-2">
-        <label class="font-bold">Amount <span class="text-primary-red">*</span>
-        </label>
-        <input type="number" name="amount" placeholder="200" person-incomes required>
-      </div>
-      <div class="my-2">
-        <label class="font-bold">Type <span class="text-primary-red">*</span>
-        </label>
-        <select name="type" class="select" person-incomes required>
-          <option value="">Please select income type</option>
-          <option value="Wages">Wages, salaries, tips</option>
-          <option value="SelfEmployment">Self-employment Income</option>
-          <option value="Unemployment">Unemployment benefits</option>
-          <option value="CashAssistance">Cash Assistance grant</option>
-          <option value="ChildSupport">Child Support</option>
-          <option value="DisabilityMedicaid">Disability-related Medicaid</option>
-          <option value="SSI">Supplemental Security Income (SSI)</option>
-          <option value="SSDependent">Social Security Dependent Benefits</option>
-          <option value="SSDisability">Social Security Disability Benefits</option>
-          <option value="SSSurvivor">Social Security Survivor\'s Benefits</option>
-          <option value="SSRetirement">Social Security Retirement Benefits</option>
-          <option value="NYSDisability">New York State Disability Benefits</option>
-          <option value="Veteran">Veteran's Pension or Benefits</option>
-          <option value="Pension">Government or Private Pension</option>
-          <option value="DeferredComp">Withdrawals from Deferred Compensation (IRA, Keogh, etc.)</option>
-          <option value="WorkersComp">Worker's Compensation</option>
-          <option value="Alimony">Alimony (received)</option>
-          <option value="Boarder">Boarder or lodger</option>
-          <option value="Gifts">Gifts/contributions (received)</option>
-          <option value="Rental">Rental income</option>
-          <option value="Investment">Investment income (interest, dividends, and profit from selling stocks)</option>
-        </select>
-      </div>
-      <div class="my-2">
-        <label class="font-bold">Frequency <span class="text-primary-red">*</span>
-        </label>
-        <select name="frequency" class="select" person-incomes required>
-          <option value="">Please select income frequency</option>
-          <option value="Weekly">Every week</option>
-          <option value="Biweekly">Every 2 weeks</option>
-          <option value="Monthly">Monthly</option>
-          <option value="Semimonthly">Twice a month</option>
-          <option value="Yearly">Every year</option>
-        </select>
-      </div>
-    </div>
-    <div class="add-remove block my-4">
-      <button class="btn remove-income hidden">Remove income</button>
-      <button class="btn add-income">Add income</button>
-    </div>
-    <p class="font-bold">Expenses</p>
-    <div class="expenses block hidden">
-      <div class="input my-2">
-        <label class="font-bold">Amount <span class="text-primary-red">*</span>
-        </label>
-        <input type="number" name="amount" placeholder="50" person-expenses required>
-      </div>
-      <div class="my-2">
-        <label class="font-bold">Type <span class="text-primary-red">*</span>
-        </label>
-        <select name="type" class="select" person-expenses required>
-          <option value="">Please select expense type</option>
-          <option value="ChildCare">Child Care</option>
-          <option value="ChildSupport">Child Support</option>
-          <option value="DependentCare">Dependent Care</option>
-          <option value="Rent">Rent</option>
-          <option value="Medical">Medical expense</option>
-          <option value="Heating">Heating</option>
-          <option value="Cooling">Cooling</option>
-          <option value="Mortgage">Mortgage</option>
-          <option value="Utilities">Utilities</option>
-          <option value="Telephone">Telephone</option>
-          <option value="InsurancePremiums">Third Party Insurance Premiums</option>
-        </select>
-      </div>
-      <div class="my-2">
-        <label class="font-bold">Frequency <span class="text-primary-red">*</span>
-        </label>
-        <select name="frequency" class="select" person-expenses required>
-          <option value="">Please select expense frenquency</option>
-          <option value="Weekly">Every week</option>
-          <option value="Biweekly">Every 2 weeks</option>
-          <option value="Monthly">Monthly</option>
-          <option value="Semimonthly">Twice a month</option>
-          <option value="Yearly">Every year</option>
-        </select>
-      </div>
-    </div>
-    <div class="add-remove block my-4">
-      <button class="btn remove-expense hidden">Remove expense</button>
-      <button class="btn add-expense">Add expense</button>
-    </div>
-  </div>
-  <div class="add-remove block pt-2">
-    <button class="btn remove-person hidden">Remove Person</button>
-    <button class="btn color-secondary-button add-person">Add Another Person</button>
-  </div>
-  <div class="block pt-4">
-    <button type="submit" class="btn color-primary-button generate-json">Generate JSON</button>
-  </div>
-</form>
-<div class="screener-json hidden">
-  <div class="block pt-4">
-    <button type="submit" class="btn color-primary-button generate-form">Edit Values</button>
-    <button class="btn color-secondary-button copy-obj">Copy</button>
-  </div>
-</div>
-<div class="block pt-2 error-msg hidden"></div>
-<div class="block pt-2 warning-msg text-secondary-orange hidden"></div>

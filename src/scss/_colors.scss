@@ -1,8 +1,8 @@
 // Get the color object from the global variable object
-$colors: map-get($variables, 'colors');
+$colors: map-get($tokens, 'colors');
 
 // Set some colors up for easy access within our stylesheet
-$primary-navy: map-get($colors, 'primary-navy');
-$primary-blue: map-get($colors, 'primary-blue');
-$secondary-white: map-get($colors, 'secondary-white');
-$secondary-grey: map-get($colors, 'secondary-grey');
+$navy: map-get($colors, navy);
+$blue: map-get($colors, blue);
+$white: map-get($colors, white);
+$grey: map-get($colors, grey);
