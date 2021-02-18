@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@nycopportunity/access-patterns": "^0.16.0",
-    "@nycopportunity/patterns": "^2.5.1",
+    "@nycopportunity/patterns": "^2.6.8",
     "@nycopportunity/pttrn-scripts": "^1.0.1",
     "jquery": "^3.5.1",
     "showdown": "^1.9.0"

@@ -5,10 +5,6 @@ import swagger from './modules/swagger.js';
 import bulkSubmission from './modules/bulk-submission.js';
 import changePassword from './modules/change-password.js';
 import requestFormJSON from './modules/request-form-json.js';
-<<<<<<< HEAD
-
-=======
->>>>>>> ee68aa6... Integrating jquery via a CDN
 import Icons from '@nycopportunity/pttrn-scripts/src/icons/icons';
 import Toggle from '@nycopportunity/pttrn-scripts/src/toggle/toggle';
 import Track from '@nycopportunity/pttrn-scripts/src/track/track';

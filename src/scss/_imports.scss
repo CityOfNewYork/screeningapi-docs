@@ -1,37 +1,20 @@
 @charset 'utf-8';
 
-// NYCO-PATTERNS
-@import 'nyco-patterns/src/elements/base/base';
-@import 'nyco-patterns/src/elements/code/code';
-@import 'nyco-patterns/src/elements/links/links';
-@import 'nyco-patterns/src/elements/layouts/layouts';
-@import 'nyco-patterns/src/elements/checkboxes/checkboxes';
-@import 'nyco-patterns/src/elements/inputs/inputs';
-@import 'nyco-patterns/src/elements/select/select';
+@import '@nycopportunity/patterns/dist/utilities/tailwindcss/_tailwindcss.scss';
 
-@import 'nyco-patterns/src/config/variables';
-@import 'nyco-patterns/src/elements/icons/icons';
-@import 'nyco-patterns/src/elements/tables/tables';
-@import 'nyco-patterns/src/elements/buttons/buttons';
+@import '@nycopportunity/patterns/src/scss/_assets.scss';
 
-@import 'nyco-patterns/src/objects/header/header';
-@import 'nyco-patterns/src/objects/footer/footer';
-@import 'nyco-patterns/src/objects/navigation/navigation';
+// if @font-face is used it needs to be first imported first.
+@import '@nycopportunity/patterns/src/elements/fonts/fonts';
+@import '@nycopportunity/patterns/src/scss/_objects.scss';
+@import '@nycopportunity/patterns/src/scss/_elements.scss';
+@import '@nycopportunity/patterns/src/scss/_utilities.scss';
+@import '@nycopportunity/patterns/src/scss/_components.scss';
 
-@import 'nyco-patterns/src/utilities/fonts/fonts';
-@import 'nyco-patterns/src/utilities/type/type';
-@import 'nyco-patterns/src/utilities/colors/colors';
-@import 'nyco-patterns/src/utilities/toggle/toggle';
-@import 'nyco-patterns/src/utilities/animate/animate';
-
-@import 'nyco-patterns-framework/src/spinner/spinner';
+@import '@nycopportunity/pttrn-scripts/src/spinner/_spinner.scss';
 
 @import 'colors';
 
 @import 'swagger';
 
 @import 'request-builder';
-
-@import 'o-content';
-
-@import 'nyco-patterns/dist/styles/_tailwind.scss';

@@ -2,12 +2,12 @@
   display: block;
 
   .code-block {
-    margin-bottom: map-get($variables, 'grid') * 2;
+    margin-bottom: map-get($tokens, 'grid') * 2;
   }
 
-  p code {
-    @include inline-code();
-  }
+  // p code {
+  //   @include inline-code();
+  // }
 
   table {
     @include tables();

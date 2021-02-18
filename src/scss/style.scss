@@ -1,8 +1,8 @@
 @import 'imports';
 
 .error {
-  @extend .text-primary-red;
-  @extend .border-primary-red;
+  @extend .text-red;
+  @extend .border-red;
 }
 
 .info {
