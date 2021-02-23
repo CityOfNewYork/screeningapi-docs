@@ -1,7 +1,5 @@
 @charset 'utf-8';
 
-@import '@nycopportunity/patterns/dist/utilities/tailwindcss/_tailwindcss.scss';
-
 @import '@nycopportunity/patterns/src/scss/_assets.scss';
 
 // if @font-face is used it needs to be first imported first.
@@ -18,3 +16,6 @@
 @import 'swagger';
 
 @import 'request-builder';
+
+@import '@nycopportunity/patterns/dist/utilities/tailwindcss/_tailwindcss.scss';
+

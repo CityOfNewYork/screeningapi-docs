@@ -25,13 +25,13 @@
 </head>
 
 <body>
-  <header class="o-header screen-tablet:layout--sidebar">
-    <div class="o-header__banner-main color-primary-button">
-      <button data-js="toggle" aria-pressed="false" aria-expanded="false" aria-controls="navigation" class="o-header__main-toggle cursor-pointer underline font-bold">Menu</button>
+  <header class="o-header tablet:layout-sidebar w-full">
+    <div class="o-header__banner-main color-primary-background">
+      <button data-js="toggle" aria-pressed="false" aria-expanded="false" aria-controls="navigation" class="o-header__main-toggle font-bold">Menu</button>
       <h1 class="o-header__main-title">
         <span class="hidden">The Mayor's Office for Economic Opportunity</span>
-        <svg aria-hidden="true" class="o-header__logo-main icon-logo-nyco">
-          <use xlink:href="#icon-logo-nyco"></use>
+        <svg aria-hidden="true" class="o-header__logo-main icon-logo-nyco-secondary">
+          <use xlink:href="#icon-logo-nyco-secondary"></use>
         </svg>
         <svg aria-hidden="true" class="o-header__logo-secondary icon-logo-nyco">
           <use xlink:href="#icon-logo-nyco"></use>
@@ -49,62 +49,69 @@
       </div>
     </div>
   </header>
-  <main class="screen-tablet:layout--sidebar screen-tablet:flex items-stretch m-0 p-0 min-h-screen">
-    <aside class="o-navigation color-mid-background">
-      <div class="o-navigation__wrap color-mid-background hidden screen-tablet:flex">
-        <div class="o-navigation__banner color-dark-background">
-          <h1 class="o-navigation__banner-title">NYC Benefits Screening API</h1>
-        </div>
-        <div class="o-navigation__nav">
-          <nav>
-            <a class="o-navigation__link" href="overview">Overview</a>
-            <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Guide</span>
-            <a class="o-navigation__link" href="getting-started">Getting Started</a>
-            <a class="o-navigation__link" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
-            <a class="o-navigation__link" href="token-based-authentication">Token Based Authentication</a>
-            <a class="o-navigation__link" href="making-a-request">Making a Request</a>
-            <a class="o-navigation__link" href="endpoints">Endpoints</a>
-            <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
-            <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Tools</span>
-            <a class="o-navigation__link" href="request-builder">Request Builder</a>
-            <a class="o-navigation__link" href="change-password-form">Change Password Form</a>
-            <a class="o-navigation__link" href="bulk-submission-form">Bulk Submission Form</a>
-            <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
-            <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
-            <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
-            <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
-          </nav>
+  <main class="tablet:layout-sidebar tablet:flex items-stretch m-0 p-0 min-h-screen">
+    <aside class="o-navigation bg-navy">
+      <div class="tablet:flex hidden w-full">
+        <div class="o-navigation__wrap color-mid-background">
+          <div class="o-navigation__nav">
+            <nav>
+              <nav>
+                <a class="o-navigation__link" href="overview">Overview</a>
+                <span class="o-navigation__link-header text-blue-70t border-blue-30t">Guide</span>
+                <a class="o-navigation__link" href="getting-started">Getting Started</a>
+                <a class="o-navigation__link" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
+                <a class="o-navigation__link" href="token-based-authentication">Token Based Authentication</a>
+                <a class="o-navigation__link" href="making-a-request">Making a Request</a>
+                <a class="o-navigation__link" href="endpoints">Endpoints</a>
+                <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
+                <span class="o-navigation__link-header text-blue-70t border-blue-30t">Tools</span>
+                <a class="o-navigation__link" href="request-builder">Request Builder</a>
+                <a class="o-navigation__link" href="change-password-form">Change Password Form</a>
+                <a class="o-navigation__link" href="bulk-submission-form">Bulk Submission Form</a>
+                <span class="o-navigation__link-header text-blue-70t border-blue-30t">Reference</span>
+                <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
+                <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
+                <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
+              </nav>
+            </nav>
+          </div>
         </div>
       </div>
-      <div id="navigation" class="o-navigation__wrap color-mid-background hidden hidden:overflowFadeInUp animated screen-tablet:hidden">
-        <div div class='o-navigation__banner color-dark-background'>
-          <h1 class='o-navigation__banner-title'>NYC Benefits Screening API</h1>
-        </div>
-        <div class='o-navigation__nav animated'>
-          <nav>
-            <a class="o-navigation__link" href="overview">Overview</a>
-            <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Guide</span>
-            <a class="o-navigation__link" href="getting-started">Getting Started</a>
-            <a class="o-navigation__link" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
-            <a class="o-navigation__link" href="token-based-authentication">Token Based Authentication</a>
-            <a class="o-navigation__link" href="making-a-request">Making a Request</a>
-            <a class="o-navigation__link" href="endpoints">Endpoints</a>
-            <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
-            <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Tools</span>
-            <a class="o-navigation__link" href="request-builder">Request Builder</a>
-            <a class="o-navigation__link" href="change-password-form">Change Password Form</a>
-            <a class="o-navigation__link" href="bulk-submission-form">Bulk Submission Form</a>
-            <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
-            <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
-            <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
-            <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
-          </nav>
+      <div class="tablet:hidden w-full">
+        <div class="o-navigation__wrap color-mid-background hidden hidden:overflowFadeInUp animated" id="js-navigation">
+          <div class="o-navigation__banner color-dark-background">
+            <h1 class="o-navigation__banner-title">Patterns</h1>
+          </div>
+          <div class="animated">
+            <div class="o-navigation__nav">
+              <nav>
+                <nav>
+                  <a class="o-navigation__link" href="overview">Overview</a>
+                  <span class="o-navigation__link-header text-blue-70t border-blue-30t">Guide</span>
+                  <a class="o-navigation__link" href="getting-started">Getting Started</a>
+                  <a class="o-navigation__link" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
+                  <a class="o-navigation__link" href="token-based-authentication">Token Based Authentication</a>
+                  <a class="o-navigation__link" href="making-a-request">Making a Request</a>
+                  <a class="o-navigation__link" href="endpoints">Endpoints</a>
+                  <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
+                  <span class="o-navigation__link-header text-blue-70t border-blue-30t">Tools</span>
+                  <a class="o-navigation__link" href="request-builder">Request Builder</a>
+                  <a class="o-navigation__link" href="change-password-form">Change Password Form</a>
+                  <a class="o-navigation__link" href="bulk-submission-form">Bulk Submission Form</a>
+                  <span class="o-navigation__link-header text-blue-70t border-blue-30t">Reference</span>
+                  <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
+                  <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
+                  <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
+                </nav>
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
     </aside>
-    <article id="main-content" class="color-light-background py-2 px-4 screen-desktop:px-6">
-      <section class="layout--content py-4">
-        <div class="screen-desktop:pr-4 screen-desktop:pr-6">
+    <article id="main-content" class="color-light-background py-2 px-4 desktop:px-6">
+      <section class="layout-content py-4">
+        <div class="desktop:pr-4 desktop:pr-6">
           <h1 class="mt-0 p-0">Token Based Authentication</h1>
           <div class="o-content">
             <div id="markdown-token-based-authentication"></div>

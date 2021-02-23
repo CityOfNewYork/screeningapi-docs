@@ -45,7 +45,7 @@
 
 {% block content %}
   <section class="color-dark-background py-6">
-    <div class="layout--wrap mx-auto px-4 pb-6">
+    <div class="layout-wrap mx-auto px-4 pb-6">
       <div>
         <div class="flex items-center justify-between" aria-hidden="true">
           {% for index, i in icons.set %}{% if index > -1 and index < 5 %}
@@ -72,16 +72,16 @@
         </div>
 
         <div style="max-width: 40rem" class="mx-auto pt-4 pb-2 animated fadeInUp">
-          <h1 class="screen-mobile:text-jumbo font-normal mt-0">{{ package.title }}</h1>
+          <h1 class="mobile:text-jumbo font-normal mt-0">{{ package.title }}</h1>
           <p>
             Create modern web applications that evaluate household data against eligibility rules for 31 different City, State, and Federal benefits programs (including SNAP, Cash Assistance, WIC, HEAP, and more).
           <p>
           <div class="text-center pt-2">
-            <a class="btn text-h4 font-normal p-2 px-3 color-secondary-button" href="overview">Get Started</a>
+            <a class="btn text-h4 font-normal p-2 px-3 btn-secondary" href="overview">Get Started</a>
           </div>
         </div>
 
-        <div class="hidden screen-mobile:flex items-center justify-between" aria-hidden="true">
+        <div class="hidden mobile:flex items-center justify-between" aria-hidden="true">
           {% for index, i in icons.set %}{% if index > 11 and index < 17 %}
             {% if i %}
             <svg class="{{ icons.class }} {{ i }}" style="animation-delay: {{ index ** 0.1 }}s">
@@ -93,7 +93,7 @@
           {% endif %}{% endfor %}
         </div>
 
-        <div class="hidden screen-mobile:flex items-center justify-between" aria-hidden="true">
+        <div class="hidden mobile:flex items-center justify-between" aria-hidden="true">
           {% for index, i in icons.set %}{% if index > 16 and index < 22 %}
             {% if i %}
             <svg class="{{ icons.class }} {{ i }}" style="animation-delay: {{ index ** 0.1 }}s">
@@ -109,12 +109,12 @@
   </section>
 
   <section class="color-mid-background pt-6">
-    <div class="layout--wrap mx-auto px-6 pt-6">
+    <div class="layout-wrap mx-auto px-6 pt-6">
       <div class="text-center">
-        <h2 class="mt-0">Read the Documentation</h2>
+        <h2 class="mt-0 mb-4">Read the Documentation</h2>
       </div>
 
-      <div class="screen-mobile:layout--three-columns-gutter pb-6">
+      <div class="desktop:grid grid-cols-3 pb-6">
         {% for c in card.content %}
         <article class="{{ card.wrap }}" style="max-width:18rem">
           <a class="{{ card.links }}" href="{{ c.link }}">
@@ -135,8 +135,8 @@
   </section>
 
   <section class="color-mid-background text-center pb-6">
-    <div class="layout--wrap mx-auto px-4 pb-6">
-      <a class="btn text-h4 font-normal p-2 px-3 color-primary-button" href="overview">Get Started</a>
+    <div class="layout-wrap mx-auto px-4 pb-6">
+      <a class="btn text-h4 font-normal p-2 px-3 btn-primary" href="overview">Get Started</a>
     </div>
   </section>
 {% endblock %}
