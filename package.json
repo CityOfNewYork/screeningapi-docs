@@ -12,12 +12,7 @@
     "url": "git+https://github.com/CityOfNewYork/screeningapi-docs.git"
   },
   "scripts": {
-    "build": "gulp build",
-    "serve": "node app/serve.js",
-    "publish": "npm run build && node app/publish.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=development PORT=7000 concurrently \"pttrn -w -np\" \"pttrn serve -w\" -p \"none\"",
-    "dev": "cross-env NODE_ENV=development gulp",
     "purge": "curl -X POST https://purge.jsdelivr.net/gh/CityOfNewYork/screeningapi-docs@content"
   },
   "bugs": {
