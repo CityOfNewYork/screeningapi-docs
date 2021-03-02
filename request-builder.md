@@ -1,3 +1,1 @@
-Use the following form to generate a JSON object you can pass to the `/eligibilityPrograms` endpoint of the NYC Benefits Screening API.
-
-**Note:** Please use Chrome and Firefox for the best results, IE is not supported at this time. 
+Use the following form to generate a JSON object you can pass to the `/eligibilityPrograms` endpoint of the NYC Benefits Screening API. **Note:** please use Chrome, Edge, or Safari for best results. Internet Explorer is not supported.
