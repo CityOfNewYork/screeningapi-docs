@@ -31,7 +31,7 @@ export default function(cdn) {
     generateCurl(this);
   })
 
-  $('#swagger-editor').fadeIn(2500)
+  // $('#swagger-editor').fadeIn(2500)
 
   function generateCurl(obj) {
     const domain = $('body').find('.servers :selected').text();

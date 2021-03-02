@@ -4,31 +4,26 @@
 {% set page_title = title %}
 
 {% block container %}
-<section>
-	<div class="layout-content pt-4">
-		<div class="desktop:pr-4 desktop:pr-6">
-			{% if title %}<h1 class="mt-0 p-0">{{ title }}</h1>{% endif %}
-			<div class="o-content">
-        <div id="markdown-making-a-request-1"></div>
-			</div>
-		</div>
-	</div>
+<article>
+  <section class="layout-content pb-4">
+    <div class="o-content mx-auto mb-8">
+      <div id="markdown-making-a-request-1"></div>
+    </div>
+  </section>
 
-	<div class="relative overflow-x-auto scrolling-touch">
+  <section class="relative overflow-x-auto scrolling-touch mb-8">
     <div id="markdown-household-composition-household-table" class="table"></div>
-  </div>
+  </section>
 
-  <div class="relative overflow-x-auto scrolling-touch">
+  <section class="relative overflow-x-auto scrolling-touch mb-8">
     <div id="markdown-household-composition-person-table" class="table"></div>
-	</div>
+  </section>
 
-	<div class="layout-content mt-4 pb-4">
-		<div class="desktop:pr-4 desktop:pr-6">
-			<div class="o-content">
-        <div id="markdown-making-a-request-2"></div>
-			</div>
-		</div>
-	</div>
-</section>
+  <section class="layout-content pb-4">
+    <div class="o-content mx-auto">
+      <div id="markdown-making-a-request-2"></div>
+    </div>
+  </section>
+</article>
 {% endblock %}
 

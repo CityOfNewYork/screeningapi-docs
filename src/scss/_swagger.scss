@@ -1,7 +1,11 @@
 /*Swagger styling*/
 
 #swagger-editor {
-  display: none;
+  // display: none;
+
+  .Resizer.vertical {
+    display: none;
+  }
 
   .swagger-ui {
     width: 100%;
@@ -73,7 +77,7 @@
 
     .opblock#{".opblock-post"},
     .opblock-summary-post {
-      background: rgba($grey, .1);
+      background: transparent;
       border-color: $blue;
 
       .opblock-summary-method {

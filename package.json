@@ -1,7 +1,7 @@
 {
-  "name": "eligibilityapi-docs",
+  "name": "@nycopportunity/screeningapi-docs",
   "version": "1.0.0",
-  "title": "NYC Benefits Screening API",
+  "title": "NYC Benefits Platform | Screening API",
   "description": "Documentation for the NYC Benefits Screening API https://screeningapidocs.cityofnewyork.us/",
   "author": "The Mayor's Office for Economic Opportunity",
   "license": "GPL-3.0",
@@ -16,7 +16,7 @@
     "serve": "node app/serve.js",
     "publish": "npm run build && node app/publish.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=development PORT=7000 concurrently \"pttrn -w\" \"pttrn serve -w\" -p \"none\"",
+    "start": "NODE_ENV=development PORT=7000 concurrently \"pttrn -w -np\" \"pttrn serve -w\" -p \"none\"",
     "dev": "cross-env NODE_ENV=development gulp",
     "purge": "curl -X POST https://purge.jsdelivr.net/gh/CityOfNewYork/screeningapi-docs@content"
   },
@@ -25,25 +25,15 @@
   },
   "devDependencies": {
     "@nycopportunity/pttrn": "^1.0.3",
-    "@nycopportunity/pttrn-plugin-twig": "^1.0.0",
+    "@nycopportunity/pttrn-plugin-feather": "^1.0.2",
+    "@nycopportunity/pttrn-plugin-twig": "^1.0.1",
     "twig": "^1.15.4"
   },
   "dependencies": {
-    "@nycopportunity/access-patterns": "^0.16.0",
-    "@nycopportunity/patterns": "^2.6.8",
+    "@nycopportunity/patterns": "^2.6.9",
     "@nycopportunity/pttrn-scripts": "^1.0.1",
+    "for-cerial": "^1.0.0",
     "jquery": "^3.5.1",
-    "showdown": "^1.9.0"
-  },
-  "stylelint": {
-    "extends": "stylelint-config-standard",
-    "rules": {
-      "comment-whitespace-inside": null,
-      "no-missing-end-of-source-newline": null,
-      "at-rule-empty-line-before": null,
-      "number-leading-zero": "never",
-      "selector-pseudo-element-colon-notation": null,
-      "at-rule-no-unknown": null
-    }
+    "showdown": "^1.9.1"
   }
 }

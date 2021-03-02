@@ -13,7 +13,12 @@ var cdn = (process.env.NODE_ENV === 'production') ?
   'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/content/' :
   'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/env/development-content/';
 
-new Icons('svg/icons.svg');
+// new Icons('svg/icons.svg');
+new Icons('https://cdn.jsdelivr.net/gh/cityofnewyork/nyco-patterns@v2.6.8/dist/svg/icons.svg');
+new Icons('https://cdn.jsdelivr.net/gh/cityofnewyork/access-nyc-patterns@v0.15.14/dist/svg/icons.svg');
+
+new Icons('svg/feather.svg');
+
 new Toggle();
 new Track();
 

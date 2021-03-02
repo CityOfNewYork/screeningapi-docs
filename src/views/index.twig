@@ -3,24 +3,24 @@
 {% set icons = {
   "set" : [
     false,
-    "icon-cash-expenses", false,
-    "icon-child-care", false,
-    "icon-family-services", false,
-    "icon-work", false,
-    "icon-city-id-card", false,
-    "icon-education", false,
-    "icon-enrichment", false,
-    "icon-food", false,
-    "icon-health", false,
-    "icon-housing", false,
-    "icon-people-with-disabilities", false
+    "icon-cash-expenses-v2", false,
+    "icon-child-care-v2", false,
+    "icon-family-services-v2", false,
+    "icon-work-v2", false,
+    "icon-city-id-card-v2", false,
+    "icon-education-v2", false,
+    "icon-enrichment-v2", false,
+    "icon-food-v2", false,
+    "icon-health-v2", false,
+    "icon-housing-v2", false,
+    "icon-people-with-disabilities-v2", false
   ],
-  "class": "my-1 icon-7 animated fadeInUp"
+  "class": "text-navy-70t my-2 icon-6 animated fadeInUp"
 } %}
 
 {% set card = {
-  "wrap": "text-center mx-auto",
-  "links": "block bg-base-white hover:bg-secondary-pink-50t",
+  "wrap": "text-center",
+  "links": "block bg-base-white hover:bg-pink-50t",
   "img": "py-4",
   "icon": "icon-8",
   "title": "h5 p-2 pb-4 m-0",
@@ -71,13 +71,37 @@
           {% endif %}{% endfor %}
         </div>
 
-        <div style="max-width: 40rem" class="mx-auto pt-4 pb-2 animated fadeInUp">
-          <h1 class="mobile:text-jumbo font-normal mt-0">{{ package.title }}</h1>
-          <p>
-            Create modern web applications that evaluate household data against eligibility rules for 31 different City, State, and Federal benefits programs (including SNAP, Cash Assistance, WIC, HEAP, and more).
-          <p>
-          <div class="text-center pt-2">
-            <a class="btn text-h4 font-normal p-2 px-3 btn-secondary" href="overview">Get Started</a>
+        <div class="py-4 mx-auto animated fadeInUp desktop:p-8">
+          <div class="justify-center items-center mb-6 desktop:flex desktop:px-4">
+            <div class="py-2 mobile:text-center desktop:text-start">
+              <h2 class="h1 font-default font-normal inline-block mb-3 desktop:m-0" style="line-height: 1em">
+                <span class="sr-only">{{ package.title }}</span>
+
+                <svg class="icon-logo-nyc mb-1" style="width: 258px; height: 84px" aria-hidden="true">
+                  <use xlink:href="#icon-logo-nyc"></use>
+                </svg>
+
+                <div aria-hidden="true">
+                  <b class="whitespace-nowrap block tablet:inline desktop:block">Benefits Platform</b>
+
+                  <span class="px-1 hidden tablet:inline desktop:hidden">|</span>
+
+                  <span class="whitespace-nowrap block tablet:inline desktop:block">Screening API</span>
+                </div>
+              </h2>
+            </div>
+
+            <div class="desktop:py-2 desktop:pis-7 desktop:mis-7 desktop:border-is border-blue">
+              <p class="text-h4 mb-2">Screen clients for <b>benefits at scale</b> or create <b>new benefits screening tools</b>. Send household composition data to eligibility rules for <b>35+</b> City, State, and Federal programs including SNAP, Cash Assistance, WIC, HEAP, and more.</b>
+
+              <p class="text-center desktop:text-start pt-2">
+                <a class="btn btn-primary btn-large inline-block" href="getting-started">Get started</a>
+
+                <br><br>
+
+                <span class="text-h6">or <a href="overview">read the overview to learn more</a>.</span>
+              </p>
+            </div>
           </div>
         </div>
 
@@ -108,15 +132,81 @@
     </div>
   </section>
 
-  <section class="color-mid-background pt-6">
-    <div class="layout-wrap mx-auto px-6 pt-6">
-      <div class="text-center">
-        <h2 class="mt-0 mb-4">Read the Documentation</h2>
+  <section class="color-light-background py-8">
+    <div class="layout-wrap mx-auto px-4 py-8">
+      <div class="mobile:grid mobile:grid-cols-2 mobile:gap-3">
+        <div class="mb-4">
+          <h2>Request</h2>
+<pre class="m-0" tabindex="0">[{
+  "household": [{
+    "cashOnHand": "50000",
+    "livingRentalType": "RentControlled",
+    "livingRenting": "true",
+    "livingOwner": "false",
+    "livingStayingWithFriend": "false",
+    "livingHotel": "false",
+    "livingShelter": "false",
+    "livingPreferNotToSay": "false"
+  }],
+  "person": [{
+    "age": "35",
+    "incomes": [
+      {
+        ...</pre>
+        </div>
+
+        <div class="mb-4">
+          <h2>Response</h2>
+<pre class="m-0" tabindex="0">{
+  "type": "SUCCESS",
+  "eligiblePrograms": [
+    {
+      "code": "S2R007",
+      "name": "Supplemental Nutrition Assistance Program"
+    },
+    {
+      "code": "S2R019",
+      "name": "Home Energy Assistance Program"
+    },
+    {
+      "code": "S2R013",
+      "name": "Section 8 / Housing Choice Voucher Program"
+    },
+    ...</pre>
+        </div>
       </div>
 
-      <div class="desktop:grid grid-cols-3 pb-6">
+      <div class="layout-content">
+        <div class="mx-auto">
+          {# <div class="text-center">
+            <h2 class="mt-0 mb-8">View the Documentation</h2>
+          </div> #}
+
+          {# <svg class="text-blue-dark mb-4 block mx-auto" style="width: 300px; height: 56px">
+            <use xlink:href="#icon-logo-full"></use>
+          </svg> #}
+
+          {# <img class="border-8" src="images/access.nyc.gov-eligibility.png" alt="The ACCESS NYC Eligibility Screener"> #}
+
+          <div class="text-h5">
+            <p>The Screening API allows you to utilize the rules engine that governs the <a href="https://access.nyc.gov/eligibility/" target="_blank">ACCESS NYC Eligibility Screener</a>. When household data is sent to the Screening API, it will return a response that contains program names and codes. These program codes can be used to cross-reference additional content from the <b>Benefits and Programs Dataset</b>. These are the same tools that <b>ACCESS NYC</b> and <b>Growing Up NYC</b> use to provide content and eligibility information for health and human services.</p>
+
+            <p class="text-center"><a class="btn btn-primary inline-block" href="overview">Read the overview to learn more</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="color-mid-background py-8">
+    <div class="layout-wrap mx-auto px-8 py-8">
+      <div class="text-center">
+        <h2 class="mt-0 mb-8">View the Documentation</h2>
+      </div>
+
+      {# <div class="desktop:grid grid-cols-3 gap-3 pb-8">
         {% for c in card.content %}
-        <article class="{{ card.wrap }}" style="max-width:18rem">
+        <article class="{{ card.wrap }}">
           <a class="{{ card.links }}" href="{{ c.link }}">
             <header class="{{ card.img }}" aria-hidden="true">
               <svg class="{{ c.icon }} {{ card.icon }}">
@@ -130,13 +220,24 @@
           </h3>
         </article>
         {% endfor %}
+      </div> #}
+      <div class="tablet:grid tablet:grid-cols-3 tablet:gap-3">
+        {% include "@src/twig/partials/nav.twig" with {
+          'tabindex': '0',
+          'classes': {
+            'nav': '',
+            'header': 'block p-2 mb-1 text-h4 font-normal border-b text-grey-70t',
+            'link': 'block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center',
+            'number': 'small font-normal mie-1'
+          }
+        } only %}
       </div>
     </div>
   </section>
 
-  <section class="color-mid-background text-center pb-6">
-    <div class="layout-wrap mx-auto px-4 pb-6">
-      <a class="btn text-h4 font-normal p-2 px-3 btn-primary" href="overview">Get Started</a>
+  {# <section class="color-mid-background text-center pb-8">
+    <div class="layout-wrap mx-auto px-4 pb-8">
+      <a class="btn btn-large btn-primary inline-block" href="overview">Get Started</a>
     </div>
-  </section>
+  </section> #}
 {% endblock %}

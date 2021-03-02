@@ -1,31 +1,32 @@
-<aside class="o-navigation bg-navy">
-  <div class="tablet:flex hidden w-full">
-    <div class="o-navigation__wrap color-mid-background">
-      <div class="o-navigation__nav">
-        <nav>
-          {% include "../partials/nav.twig" with { 'classes': {
-            'header': 'o-navigation__link-header text-blue-70t border-blue-30t',
-            'link': 'o-navigation__link'
-            } } only %}
-        </nav>
-      </div>
+<aside class="o-navigation color-mid-background">
+  {# Desktop Navigation #}
+  <div class="o-navigation__wrap hidden tablet:block">
+    <div class="o-navigation__nav">
+      {% include "../partials/nav.twig" with {
+        'classes': {
+          'nav': 'mb-2',
+          'header': 'o-navigation__link-header text-grey-70t px-1 mb-1',
+          'link': 'o-navigation__link no-underline px-1',
+          'number': 'small font-normal'
+        }
+      } only %}
     </div>
   </div>
-  <div class="tablet:hidden w-full">
-    <div class="o-navigation__wrap color-mid-background hidden hidden:overflowFadeInUp animated" id="js-navigation">
-      <div class="o-navigation__banner color-dark-background">
-        <h1 class="o-navigation__banner-title">Patterns</h1>
-      </div>
-      <div class="animated">
-        <div class="o-navigation__nav">
-          <nav>
-            {% include "../partials/nav.twig" with { 'classes': {
-              'header': 'o-navigation__link-header text-blue-70t border-blue-30t',
-              'link': 'o-navigation__link'
-              } } only %}
-          </nav>
-        </div>
-      </div>
+
+  {# Mobile Navigation Menu #}
+  <div class="o-navigation__wrap tablet:hidden hidden" id="aria-c-navigation" data-js="navigation" tabindex="-1">
+    <div class="o-navigation__nav">
+      {% include "../partials/nav.twig" with {
+        'tabindex': '-1',
+        'classes': {
+          'nav': 'mb-2',
+          'header': 'o-navigation__link-header text-grey-70t px-1 mb-1',
+          'link': 'o-navigation__link no-underline px-1',
+          'number': 'small font-normal'
+        }
+      } only %}
+
+      <button data-js="toggle" aria-expanded="false" aria-controls="aria-c-navigation" tabindex="-1" class="p-1 btn w-full mb-2">Close</button>
     </div>
   </div>
 </aside>
