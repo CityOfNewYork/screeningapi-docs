@@ -57,7 +57,7 @@
       <div class="o-navigation__wrap hidden tablet:block">
         <div class="o-navigation__nav">
           <nav class="mb-2">
-            <span class="o-navigation__link-header text-grey-70t px-1 mb-1">Guide</span>
+            <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Guide</span>
             <a class="o-navigation__link no-underline px-1" href="overview">Overview</a>
             <a class="o-navigation__link no-underline px-1" href="getting-started">
               <span class="small font-normal">01</span> Getting Started
@@ -82,13 +82,13 @@
             </a>
           </nav>
           <nav class="mb-2">
-            <span class="o-navigation__link-header text-grey-70t px-1 mb-1">Tools</span>
+            <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Tools</span>
             <a class="o-navigation__link no-underline px-1" href="request-builder">Request Builder</a>
             <a class="o-navigation__link no-underline px-1" href="change-password-form">Change Password Form</a>
             <a class="o-navigation__link no-underline px-1" href="bulk-submission-form">Bulk Submission Form</a>
           </nav>
           <nav class="mb-2">
-            <span class="o-navigation__link-header text-grey-70t px-1 mb-1">Reference</span>
+            <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Reference</span>
             <a class="o-navigation__link no-underline px-1" href="eligibility-guidelines">Eligibility Guidelines</a>
             <a class="o-navigation__link no-underline px-1" href="terms-of-service">Terms of Service</a>
           </nav>
@@ -97,7 +97,7 @@
       <div class="o-navigation__wrap tablet:hidden hidden" id="aria-c-navigation" data-js="navigation" tabindex="-1">
         <div class="o-navigation__nav">
           <nav class="mb-2">
-            <span class="o-navigation__link-header text-grey-70t px-1 mb-1">Guide</span>
+            <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Guide</span>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="overview">Overview</a>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="getting-started">
               <span class="small font-normal">01</span> Getting Started
@@ -122,13 +122,13 @@
             </a>
           </nav>
           <nav class="mb-2">
-            <span class="o-navigation__link-header text-grey-70t px-1 mb-1">Tools</span>
+            <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Tools</span>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="request-builder">Request Builder</a>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="change-password-form">Change Password Form</a>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="bulk-submission-form">Bulk Submission Form</a>
           </nav>
           <nav class="mb-2">
-            <span class="o-navigation__link-header text-grey-70t px-1 mb-1">Reference</span>
+            <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Reference</span>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="eligibility-guidelines">Eligibility Guidelines</a>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="terms-of-service">Terms of Service</a>
           </nav>
@@ -137,6 +137,19 @@
       </div>
     </aside>
     <main id="main-content" class="color-light-background py-4 tablet:py-8 px-4 desktop:px-6">
+      <div class="flex items-center border border-green bg-green-30t p-2 mb-4" role="alert">
+        <div class="pie-2">
+          <svg aria-hidden="true" class="icon-ui mie-1">
+            <use xlink:href="#feather-info"></use>
+          </svg>
+        </div>
+        <div>
+          <h2 class="h5">Draft Mode</h2>
+          <p>
+            <b>NODE_ENV</b> is set to <b>development</b>. Markdown content is pulling from the <a href="https://github.com/CityOfNewYork/screeningapi-docs/tree/content/draft" target="_blank">drafting content branch</a>. To view live content restart with the <b>npm run production</b> script.
+          </p>
+        </div>
+      </div>
       <header class="layout-content tablet:hidden">
         <h2 class="mb-4 mx-auto">Getting Started</h2>
       </header>
