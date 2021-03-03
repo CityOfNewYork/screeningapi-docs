@@ -23,7 +23,7 @@
       "source": "https://github.com/CityOfNewYork/screeningapi-docs/tree/"
     },
     "content": {
-      "development": "content/draft",
+      "development": "drafts",
       "production": "content"
     }
   },
