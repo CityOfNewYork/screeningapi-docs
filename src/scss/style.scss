@@ -1,16 +1,1 @@
 @import 'imports';
-
-.error {
-  @extend .text-red;
-  @extend .border-red;
-}
-
-.info {
-  border-color: #2f855a;
-  background-color: #f0fff4;
-}
-
-.o-header__banner-secondary {
-  display: flex;
-  visibility: visible;
-}
