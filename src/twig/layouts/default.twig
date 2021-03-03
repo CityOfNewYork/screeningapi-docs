@@ -9,6 +9,10 @@
     {% include "../partials/navigation.twig" %}
 
     <main id="main-content" class="color-light-background py-4 tablet:py-8 px-4 desktop:px-6">
+      {% if process.env.NODE_ENV == 'development' %}
+        {% include '@src/twig/partials/alert-draft-mode.twig' %}
+      {% endif %}
+
       <header class="layout-content tablet:hidden">
         <h2 class="mb-4 mx-auto">{{ title }}</h2>
       </header>

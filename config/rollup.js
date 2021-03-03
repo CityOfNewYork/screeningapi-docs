@@ -3,6 +3,7 @@
  */
 const nodeResolve = require('@rollup/plugin-node-resolve');
 const replace = require('@rollup/plugin-replace');          // Replace content while bundling.
+const pkg = require('../package.json');
 
 /**
  * Plugin configuration. Refer to the package for details on the available options.
@@ -11,9 +12,12 @@ const replace = require('@rollup/plugin-replace');          // Replace content w
  *
  * @type {Object}
  */
+// console.dir(pkg.cdn.base.raw);
 let plugins = [
   replace({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    'CDN_BASE': JSON.stringify(pkg.cdn.base.raw),
+    'CDN': JSON.stringify(pkg.cdn.content[process.env.NODE_ENV])
   }),
   nodeResolve.nodeResolve({
     browser: true,

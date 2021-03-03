@@ -12,8 +12,20 @@
     "url": "git+https://github.com/CityOfNewYork/screeningapi-docs.git"
   },
   "scripts": {
-    "start": "NODE_ENV=development PORT=7000 concurrently \"pttrn -w -np\" \"pttrn serve -w\" -p \"none\"",
+    "start": "NODE_ENV=development pttrn -np -nl -s && NODE_ENV=development PORT=7000 concurrently \"pttrn -w -np\" \"pttrn serve -w\" -p \"none\"",
+    "production": "NODE_ENV=production pttrn -np -nl -s && NODE_ENV=production PORT=7000 concurrently \"pttrn -w -np\" \"pttrn serve -w\" -p \"none\"",
+    "ghpages": "NODE_ENV=production pttrn && NODE_ENV=production pttrn publish",
     "purge": "curl -X POST https://purge.jsdelivr.net/gh/CityOfNewYork/screeningapi-docs@content"
+  },
+  "cdn": {
+    "base": {
+      "raw": "https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/",
+      "source": "https://github.com/CityOfNewYork/screeningapi-docs/tree/"
+    },
+    "content": {
+      "development": "content/draft",
+      "production": "content"
+    }
   },
   "bugs": {
     "url": "https://github.com/CityOfNewYork/screeningapi-docs/issues"
@@ -21,14 +33,10 @@
   "devDependencies": {
     "@nycopportunity/pttrn": "^1.0.3",
     "@nycopportunity/pttrn-plugin-feather": "^1.0.2",
-    "@nycopportunity/pttrn-plugin-twig": "^1.0.1",
-    "twig": "^1.15.4"
+    "@nycopportunity/pttrn-plugin-twig": "^1.0.1"
   },
   "dependencies": {
     "@nycopportunity/patterns": "^2.6.9",
-    "@nycopportunity/pttrn-scripts": "^1.0.1",
-    "for-cerial": "^1.0.0",
-    "jquery": "^3.5.1",
-    "showdown": "^1.9.1"
+    "@nycopportunity/pttrn-scripts": "^1.0.1"
   }
 }

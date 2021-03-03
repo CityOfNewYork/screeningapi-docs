@@ -1,0 +1,13 @@
+<div class="flex items-center border border-green bg-green-30t p-2 mb-4" role="alert">
+  <div class="pie-2">
+    <svg aria-hidden="true" class="icon-ui mie-1">
+      <use xlink:href="#feather-info"></use>
+    </svg>
+  </div>
+
+  <div>
+    <h2 class="h5">Draft Mode</h2>
+
+    <p><b>NODE_ENV</b> is set to <b>{{ process.env.NODE_ENV }}</b>. Markdown content is pulling from the <a href="{{ package.cdn.base.source ~ package.cdn.content.development }}" target="_blank">drafting content branch</a>. To view live content restart with the <b>npm run production</b> script.</p>
+  </div>
+</div>
