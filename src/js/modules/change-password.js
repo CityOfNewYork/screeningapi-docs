@@ -8,7 +8,7 @@ export default function() {
 
   const responseHandler = (req) => {
     if (req.readyState === 4) {
-      const status = req.status.toString() 
+      const status = req.status.toString()
       if (status[0] === '4' || status[0] === '5') {
         displayErrors(req.responseText, false)
       } else if (status[0] === '2') {
@@ -16,7 +16,7 @@ export default function() {
       }
     }
   }
-  
+
 
   const submit = (event) => {
     const domain = document.getElementById('domain').value
@@ -36,6 +36,9 @@ export default function() {
       JSON.stringify(authPayload))
   };
 
+  Form.selectors.ERROR_MESSAGE_PARENT = '[data-js*="question-container"]';
+
   Form.watch();
+
   Form.submit = submit;
 }

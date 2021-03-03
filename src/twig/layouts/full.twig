@@ -1,12 +1,15 @@
 {% include "../partials/head.twig" %}
 
 <body>
+  <a href="#main-content" class="sr-only">Skip to main content</a>
+
   <header class="overflow-hidden color-dark-background py-2">
-    <div class="layout--wrap mx-auto px-6 flex justify-between items-center">
-      <h1 class="m-0 flex">
-        <span class="hidden">{{ package.author }}</span>
-        <svg aria-hidden="true" class="icon-logo-nyco" style="width:96px;height:52px;">
-          <use xlink:href="#icon-logo-nyco"></use>
+    <div class="layout--wrap mx-auto px-4 flex justify-between items-center">
+      <h1 class="m-0 flex font-normal" style="font-size: 1em">
+        By <span class="hidden">{{ package.author }}</span>
+
+        <svg aria-hidden="true" class="icon-logo-nyco mis-1" style="width: 140px; height: 22px;">
+          <use xlink:href="#icon-logo-nyco-secondary"></use>
         </svg>
       </h1>
 
@@ -16,18 +19,23 @@
 
   <aside id="navigation" class="color-mid-background hidden hidden:overflowFadeInUp animated">
     <div class="p-4 animated">
-      <div class="layout--wrap screen-tablet:layout--two-columns-gutter justify-center mx-auto">
-        <div>
-          {% include "../partials/nav.twig" with { 'classes': {
-            'header': 'block p-3 text-h4 font-normal border-b text-primary-navy border-primary-navy',
-            'link': 'block p-3 text-h4 no-underline hover:bg-secondary-pink-50t'
-          } } only %}
+      <div class="layout-wrap screen-tablet:layout--two-columns-gutter justify-center mx-auto">
+        <div class="tablet:grid tablet:grid-cols-3 tablet:gap-3">
+          {% include "../partials/nav.twig" with {
+            'tabindex': '-1',
+            'classes': {
+              'nav': 'pb-2',
+              'header': 'block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t',
+              'link': 'block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center',
+              'number': 'small font-normal mie-1'
+            }
+          } only %}
         </div>
       </div>
     </div>
   </aside>
 
-  <main>
+  <main id="main-content">
     {% block content %}{% endblock %}
   </main>
 

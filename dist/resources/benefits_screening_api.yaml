@@ -21,8 +21,8 @@ paths:
       tags:
         - Authentication
       description: >
-        This endpoint is used to set your initial account password and retrieve an authentication token to make requests to the <b>Screening</b> endpoints. 
-        See <a href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a> for more details on setting your initial account password. 
+        This endpoint is used to set your initial account password and retrieve an authentication token to make requests to the <b>Screening</b> endpoints.
+        See <a href="set-password-and-token-based-authentication">Set Password and Token Based Authentication</a> for more details on setting your initial account password.
         On successful response, the retrieved token must be provided in the request header of the <b>Screening</b> endpoints to make an authenticated request.
       requestBody:
         required: true
@@ -608,8 +608,8 @@ paths:
           in: query
           required: false
           description: >
-            Pipe-separated list of program codes a user is interested in. 
-            If specified, the Screening API will only return programs included in this list. 
+            Pipe-separated list of program codes a user is interested in.
+            If specified, the Screening API will only return programs included in this list.
             Program codes should always be passed in upper case.
           schema:
             type: string
@@ -761,9 +761,9 @@ paths:
                           type: string
                           maxLength: 32
                           description: >-
-                            Person’s relationship to the householf. 
-                            It is a required field. 
-                            At least one person in every household must be a "HeadOfHousehold" type. 
+                            Person’s relationship to the householf.
+                            It is a required field.
+                            At least one person in every household must be a "HeadOfHousehold" type.
                             Supported values - HeadOfHousehold, Child, FosterChild, StepChild,
                             Grandchild, Spouse, Parent,
                             FosterParent, StepParent, Grandparent,
@@ -856,6 +856,9 @@ paths:
                                   Mortgage, Utilities, Telephone,
                                   InsurancePremiums
                                 example: Medical
+                  withholdPayload:
+                    type: boolean
+                    example: false
       responses:
         '200':
           description: Success Response
@@ -1075,7 +1078,7 @@ paths:
         - Eligibility
       description: >-
         This endpoint accepts a structured CSV of multiple household compositions allowing users to query for potential eligibility in bulk. The response will be a CSV containing the potentially eligible program names and codes.
-        See <a href="making-a-request">Making a Request</a> for more details on household composition data and the response codes. 
+        See <a href="making-a-request">Making a Request</a> for more details on household composition data and the response codes.
         Click <a href="resources/sample_bulk_submission_import.csv">here</a> to download a sample request CSV.
       security:
         - ApiKeyAuth: []
@@ -1084,8 +1087,8 @@ paths:
           name: interestedPrograms
           required: false
           description: >
-            Pipe-separated list of program codes a user is interested in. 
-            If specified, the Screening API will only return programs included in this list. 
+            Pipe-separated list of program codes a user is interested in.
+            If specified, the Screening API will only return programs included in this list.
             Program codes should always be passed in upper case.
           schema:
             type: string

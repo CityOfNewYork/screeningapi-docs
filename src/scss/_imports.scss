@@ -1,20 +1,19 @@
 @charset 'utf-8';
 
-@import '@nycopportunity/patterns/dist/utilities/tailwindcss/_tailwindcss.scss';
-
-@import '@nycopportunity/patterns/src/scss/_assets.scss';
+@import '@nycopportunity/patterns/src/scss/assets';
 
 // if @font-face is used it needs to be first imported first.
 @import '@nycopportunity/patterns/src/elements/fonts/fonts';
-@import '@nycopportunity/patterns/src/scss/_objects.scss';
-@import '@nycopportunity/patterns/src/scss/_elements.scss';
-@import '@nycopportunity/patterns/src/scss/_utilities.scss';
-@import '@nycopportunity/patterns/src/scss/_components.scss';
+@import '@nycopportunity/patterns/src/scss/objects';
+@import '@nycopportunity/patterns/src/scss/elements';
+@import '@nycopportunity/patterns/src/scss/utilities';
+@import '@nycopportunity/patterns/src/scss/components';
 
-@import '@nycopportunity/pttrn-scripts/src/spinner/_spinner.scss';
+@import '@nycopportunity/pttrn-scripts/src/spinner/spinner';
 
 @import 'colors';
-
+@import 'content';
 @import 'swagger';
 
-@import 'request-builder';
+@import '@nycopportunity/patterns/dist/utilities/tailwindcss/tailwindcss';
+

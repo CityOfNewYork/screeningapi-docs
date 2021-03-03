@@ -101,6 +101,9 @@ export default function() {
       JSON.stringify(authPayload))
   };
 
+  Form.selectors.ERROR_MESSAGE_PARENT = '[data-js*="question-container"]';
+
   Form.watch();
+
   Form.submit = submit;
 }

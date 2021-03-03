@@ -1,7 +1,7 @@
 {
-  "name": "eligibilityapi-docs",
+  "name": "@nycopportunity/screeningapi-docs",
   "version": "1.0.0",
-  "title": "NYC Benefits Screening API",
+  "title": "NYC Benefits Platform | Screening API",
   "description": "Documentation for the NYC Benefits Screening API https://screeningapidocs.cityofnewyork.us/",
   "author": "The Mayor's Office for Economic Opportunity",
   "license": "GPL-3.0",
@@ -12,38 +12,31 @@
     "url": "git+https://github.com/CityOfNewYork/screeningapi-docs.git"
   },
   "scripts": {
-    "build": "gulp build",
-    "serve": "node app/serve.js",
-    "publish": "npm run build && node app/publish.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=development PORT=7000 concurrently \"pttrn -w\" \"pttrn serve -w\" -p \"none\"",
-    "dev": "cross-env NODE_ENV=development gulp",
+    "start": "NODE_ENV=development pttrn -np -nl -s && NODE_ENV=development PORT=7000 concurrently \"pttrn -w\" \"pttrn serve -w\" -p \"none\"",
+    "production": "NODE_ENV=production pttrn -np -nl -s && NODE_ENV=production PORT=7000 concurrently \"pttrn -w\" \"pttrn serve -w\" -p \"none\"",
+    "ghpages": "NODE_ENV=production pttrn && NODE_ENV=production pttrn publish",
     "purge": "curl -X POST https://purge.jsdelivr.net/gh/CityOfNewYork/screeningapi-docs@content"
+  },
+  "cdn": {
+    "base": {
+      "raw": "https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/",
+      "source": "https://github.com/CityOfNewYork/screeningapi-docs/tree/"
+    },
+    "content": {
+      "development": "drafts",
+      "production": "content"
+    }
   },
   "bugs": {
     "url": "https://github.com/CityOfNewYork/screeningapi-docs/issues"
   },
   "devDependencies": {
     "@nycopportunity/pttrn": "^1.0.3",
-    "@nycopportunity/pttrn-plugin-twig": "^1.0.0",
-    "twig": "^1.15.4"
+    "@nycopportunity/pttrn-plugin-feather": "^1.0.2",
+    "@nycopportunity/pttrn-plugin-twig": "^1.0.1"
   },
   "dependencies": {
-    "@nycopportunity/access-patterns": "^0.16.0",
-    "@nycopportunity/patterns": "^2.6.8",
-    "@nycopportunity/pttrn-scripts": "^1.0.1",
-    "jquery": "^3.5.1",
-    "showdown": "^1.9.0"
-  },
-  "stylelint": {
-    "extends": "stylelint-config-standard",
-    "rules": {
-      "comment-whitespace-inside": null,
-      "no-missing-end-of-source-newline": null,
-      "at-rule-empty-line-before": null,
-      "number-leading-zero": "never",
-      "selector-pseudo-element-colon-notation": null,
-      "at-rule-no-unknown": null
-    }
+    "@nycopportunity/patterns": "^2.6.9",
+    "@nycopportunity/pttrn-scripts": "^1.0.1"
   }
 }

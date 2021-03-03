@@ -35,6 +35,8 @@ export default function() {
       finalObj['person'].push(personObj);
     })
 
+    finalObj['withholdPayload'] = String(formdata.find('[name=withholdPayload]').is(':checked'));
+
     var hasErrors = validateFields(formdata);
 
     if (hasErrors["errors"] > 0 ) {
@@ -265,7 +267,7 @@ export default function() {
       if( $(this).val() === "" ||
         !groupSeleted
       ) {
-        $(this).parent().addClass('error');
+        $(this).parent().parent().addClass('error');
         results["errors"] += 1;
       } else {
         $(this).parent().removeClass('error');

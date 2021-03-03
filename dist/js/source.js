@@ -196,7 +196,7 @@
       generateCurl(this);
     });
 
-    $('#swagger-editor').fadeIn(2500);
+    // $('#swagger-editor').fadeIn(2500)
 
     function generateCurl(obj) {
       const domain = $('body').find('.servers :selected').text();
@@ -529,7 +529,7 @@
         const { elementPath, message } = error;
         const errorMsg = elementPath && showPath ?
           message + ' Element Path: ' + elementPath + '.' : message;
-        return '<li>' + toTitleCase(errorMsg) + '</li>'
+        return '<li>' + errorMsg + '</li>'
       });
     } catch (err) {}
     setTextBox(errorsArray.join(''), 'block', errorBoxId);
@@ -640,7 +640,10 @@
         JSON.stringify(authPayload));
     };
 
+    Form.selectors.ERROR_MESSAGE_PARENT = '[data-js*="question-container"]';
+
     Form.watch();
+
     Form.submit = submit;
   }
 
@@ -651,7 +654,7 @@
 
     const responseHandler = (req) => {
       if (req.readyState === 4) {
-        const status = req.status.toString(); 
+        const status = req.status.toString();
         if (status[0] === '4' || status[0] === '5') {
           displayErrors(req.responseText, false);
         } else if (status[0] === '2') {
@@ -659,7 +662,7 @@
         }
       }
     };
-    
+
 
     const submit = (event) => {
       const domain = document.getElementById('domain').value;
@@ -679,7 +682,10 @@
         JSON.stringify(authPayload));
     };
 
+    Form.selectors.ERROR_MESSAGE_PARENT = '[data-js*="question-container"]';
+
     Form.watch();
+
     Form.submit = submit;
   }
 
@@ -717,6 +723,8 @@
         personObj = generatePersonObj(formdata, pi);
         finalObj['person'].push(personObj);
       });
+
+      finalObj['withholdPayload'] = String(formdata.find('[name=withholdPayload]').is(':checked'));
 
       var hasErrors = validateFields(formdata);
 
@@ -948,7 +956,7 @@
         if( $(this).val() === "" ||
           !groupSeleted
         ) {
-          $(this).parent().addClass('error');
+          $(this).parent().parent().addClass('error');
           results["errors"] += 1;
         } else {
           $(this).parent().removeClass('error');
@@ -1629,10 +1637,12 @@
     'gtag'
   ];
 
-  var cdn = 
-    'https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/content/' ;
+  const cdn = "https://raw.githubusercontent.com/CityOfNewYork/screeningapi-docs/" + "content" + '/';
 
-  new Icons('svg/icons.svg');
+  new Icons('svg/nyco-patterns.svg'); // https://cdn.jsdelivr.net/gh/cityofnewyork/nyco-patterns@v2.6.8/dist/svg/icons.svg
+  new Icons('svg/access-patterns.svg'); // https://cdn.jsdelivr.net/gh/cityofnewyork/access-nyc-patterns@v0.15.14/dist/svg/icons.svg
+  new Icons('svg/feather.svg');
+
   new Toggle();
   new Track();
 
@@ -1651,7 +1661,7 @@
   if ((window.location.pathname.indexOf('change-password') >= 0))
     changePassword();
 
-  /* Get the content markdown from CDN and append */
+  // Get the content markdown from "content" and append
   let markdowns = $('body').find('[id^="markdown"]');
 
   markdowns.each(function() {
@@ -1659,8 +1669,10 @@
     let file = $(this).attr('id').replace('markdown-', '');
 
     $.get(cdn + file + '.md', function(data) {
+      showdown.setFlavor('github');
+
       let converter = new showdown.Converter({tables: true});
-      let html      = converter.makeHtml(data);
+      let html = converter.makeHtml(data);
 
       target.append(html)
         .hide()

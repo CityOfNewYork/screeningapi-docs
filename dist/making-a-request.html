@@ -25,109 +25,141 @@
 </head>
 
 <body>
-  <header class="o-header screen-tablet:layout--sidebar">
-    <div class="o-header__banner-main color-primary-button">
-      <button data-js="toggle" aria-pressed="false" aria-expanded="false" aria-controls="navigation" class="o-header__main-toggle cursor-pointer underline font-bold">Menu</button>
-      <h1 class="o-header__main-title">
-        <span class="hidden">The Mayor's Office for Economic Opportunity</span>
-        <svg aria-hidden="true" class="o-header__logo-main icon-logo-nyco">
-          <use xlink:href="#icon-logo-nyco"></use>
-        </svg>
-        <svg aria-hidden="true" class="o-header__logo-secondary icon-logo-nyco">
-          <use xlink:href="#icon-logo-nyco"></use>
-        </svg>
+  <a href="#main-content" class="sr-only">Skip to main content</a>
+  <header class="o-header tablet:layout-sidebar w-full">
+    <div class="o-header__banner-main color-dark-background tablet:justify-start p-4 py-3 tablet:py-6">
+      <h1 class="o-header__main-title text-start text-default font-default font-normal m-0 tablet:text-h4" style="line-height: 1em">
+        <a class="block font-normal" href="index">
+          <span class="sr-only">NYC Benefits Platform | Screening API</span>
+          <svg class="icon-logo-nyc mb-1 hidden tablet:block" style="width: 144px; height: 47px" aria-hidden="true">
+            <use xlink:href="#icon-logo-nyc"></use>
+          </svg>
+          <svg class="icon-logo-nyc mb-1 tablet:hidden" style="width: 102px; height: 34px" aria-hidden="true">
+            <use xlink:href="#icon-logo-nyc"></use>
+          </svg>
+          <div aria-hidden="true">
+            <b class="whitespace-nowrap block desktop:block">Benefits Platform</b>
+            <span class="px-1 hidden">|</span>
+            <span class="whitespace-nowrap block desktop:block">Screening API</span>
+          </div>
+        </a>
       </h1>
-      <div aria-hidden="true" class="o-header__main-version">v1.0.0</div>
+      <a data-js="toggle" aria-expanded="false" href="#aria-c-navigation" class="tablet:hidden">Menu</a>
     </div>
-    <div class="o-header__banner-secondary color-dark-background">
-      <h1 class="o-header__secondary-title text-jumbo">NYC Benefits Screening API</h1>
-      <a href="#main-content">Skip to main content</a>
-    </div>
-    <div class="o-header__secondary-version color-dark-background">
-      <div>
-        <span class="btn flex items-center cursor-auto"> v1.0.0 </span>
+    <div class="o-header__banner-secondary layout-content color-primary-background hidden tablet:flex">
+      <div class="o-content mx-auto">
+        <h2 class="o-header__secondary-title tablet:text-jumbo">Making a Request</h2>
       </div>
     </div>
   </header>
-  <main class="screen-tablet:layout--sidebar screen-tablet:flex items-stretch m-0 p-0 min-h-screen">
+  <div class="tablet:layout-sidebar tablet:flex items-stretch m-0 p-0 min-h-screen">
     <aside class="o-navigation color-mid-background">
-      <div class="o-navigation__wrap color-mid-background hidden screen-tablet:flex">
-        <div class="o-navigation__banner color-dark-background">
-          <h1 class="o-navigation__banner-title">NYC Benefits Screening API</h1>
-        </div>
+      <div class="o-navigation__wrap hidden tablet:block">
         <div class="o-navigation__nav">
-          <nav>
-            <a class="o-navigation__link" href="overview">Overview</a>
-            <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Guide</span>
-            <a class="o-navigation__link" href="getting-started">Getting Started</a>
-            <a class="o-navigation__link" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
-            <a class="o-navigation__link" href="token-based-authentication">Token Based Authentication</a>
-            <a class="o-navigation__link" href="making-a-request">Making a Request</a>
-            <a class="o-navigation__link" href="endpoints">Endpoints</a>
-            <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
-            <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Tools</span>
-            <a class="o-navigation__link" href="request-builder">Request Builder</a>
-            <a class="o-navigation__link" href="change-password-form">Change Password Form</a>
-            <a class="o-navigation__link" href="bulk-submission-form">Bulk Submission Form</a>
-            <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
-            <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
-            <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
-            <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
+          <nav class="mb-2">
+            <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Guide</span>
+            <a class="o-navigation__link no-underline px-1" href="overview">Overview</a>
+            <a class="o-navigation__link no-underline px-1" href="getting-started">
+              <span class="small font-normal">01</span> Getting Started
+            </a>
+            <a class="o-navigation__link no-underline px-1" href="http://eepurl.com/gfLTuH" target="_blank">
+              <span class="small font-normal">02</span> Request an Account
+            </a>
+            <a class="o-navigation__link no-underline px-1" href="token-based-authentication">
+              <span class="small font-normal">03</span> Token Based Authentication
+            </a>
+            <a class="o-navigation__link no-underline px-1" href="making-a-request">
+              <span class="small font-normal">04</span> Making a Request
+            </a>
+            <a class="o-navigation__link no-underline px-1" href="endpoints">
+              <span class="small font-normal">05</span> Endpoints
+            </a>
+            <a class="o-navigation__link no-underline px-1" href="sample-data-and-code">
+              <span class="small font-normal">06</span> Sample Data and Code
+            </a>
+            <a class="o-navigation__link no-underline px-1" href="feedback-and-support">
+              <span class="small font-normal">07</span> Feedback and Support
+            </a>
+          </nav>
+          <nav class="mb-2">
+            <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Tools</span>
+            <a class="o-navigation__link no-underline px-1" href="request-builder">Request Builder</a>
+            <a class="o-navigation__link no-underline px-1" href="change-password-form">Change Password Form</a>
+            <a class="o-navigation__link no-underline px-1" href="bulk-submission-form">Bulk Submission Form</a>
+          </nav>
+          <nav class="mb-2">
+            <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Reference</span>
+            <a class="o-navigation__link no-underline px-1" href="eligibility-guidelines">Eligibility Guidelines</a>
+            <a class="o-navigation__link no-underline px-1" href="terms-of-service">Terms of Service</a>
           </nav>
         </div>
       </div>
-      <div id="navigation" class="o-navigation__wrap color-mid-background hidden hidden:overflowFadeInUp animated screen-tablet:hidden">
-        <div div class='o-navigation__banner color-dark-background'>
-          <h1 class='o-navigation__banner-title'>NYC Benefits Screening API</h1>
-        </div>
-        <div class='o-navigation__nav animated'>
-          <nav>
-            <a class="o-navigation__link" href="overview">Overview</a>
-            <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Guide</span>
-            <a class="o-navigation__link" href="getting-started">Getting Started</a>
-            <a class="o-navigation__link" href="http://eepurl.com/gfLTuH" target="_blank">Request an Account</a>
-            <a class="o-navigation__link" href="token-based-authentication">Token Based Authentication</a>
-            <a class="o-navigation__link" href="making-a-request">Making a Request</a>
-            <a class="o-navigation__link" href="endpoints">Endpoints</a>
-            <a class="o-navigation__link" href="sample-data-and-code">Sample Data and Code</a>
-            <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Tools</span>
-            <a class="o-navigation__link" href="request-builder">Request Builder</a>
-            <a class="o-navigation__link" href="change-password-form">Change Password Form</a>
-            <a class="o-navigation__link" href="bulk-submission-form">Bulk Submission Form</a>
-            <span class="o-navigation__link-header text-primary-blue-70t border-primary-blue-30t">Reference</span>
-            <a class="o-navigation__link" href="eligibility-guidelines">Eligibility Guidelines</a>
-            <a class="o-navigation__link" href="feedback-and-support">Feedback and Support</a>
-            <a class="o-navigation__link" href="terms-of-service">Terms of Service</a>
+      <div class="o-navigation__wrap tablet:hidden hidden" id="aria-c-navigation" data-js="navigation" tabindex="-1">
+        <div class="o-navigation__nav">
+          <nav class="mb-2">
+            <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Guide</span>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="overview">Overview</a>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="getting-started">
+              <span class="small font-normal">01</span> Getting Started
+            </a>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="http://eepurl.com/gfLTuH" target="_blank">
+              <span class="small font-normal">02</span> Request an Account
+            </a>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="token-based-authentication">
+              <span class="small font-normal">03</span> Token Based Authentication
+            </a>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="making-a-request">
+              <span class="small font-normal">04</span> Making a Request
+            </a>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="endpoints">
+              <span class="small font-normal">05</span> Endpoints
+            </a>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="sample-data-and-code">
+              <span class="small font-normal">06</span> Sample Data and Code
+            </a>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="feedback-and-support">
+              <span class="small font-normal">07</span> Feedback and Support
+            </a>
           </nav>
+          <nav class="mb-2">
+            <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Tools</span>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="request-builder">Request Builder</a>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="change-password-form">Change Password Form</a>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="bulk-submission-form">Bulk Submission Form</a>
+          </nav>
+          <nav class="mb-2">
+            <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Reference</span>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="eligibility-guidelines">Eligibility Guidelines</a>
+            <a class="o-navigation__link no-underline px-1" tabindex="-1" href="terms-of-service">Terms of Service</a>
+          </nav>
+          <button data-js="toggle" aria-expanded="false" aria-controls="aria-c-navigation" tabindex="-1" class="p-1 btn w-full mb-2">Close</button>
         </div>
       </div>
     </aside>
-    <article id="main-content" class="color-light-background py-2 px-4 screen-desktop:px-6">
-      <section>
-        <div class="layout--content pt-4">
-          <div class="screen-desktop:pr-4 screen-desktop:pr-6">
-            <h1 class="mt-0 p-0">Making a Request</h1>
-            <div class="o-content">
-              <div id="markdown-making-a-request-1"></div>
-            </div>
+    <main id="main-content" class="color-light-background py-4 tablet:py-8 px-4 desktop:px-6">
+      <header class="layout-content tablet:hidden">
+        <h2 class="mb-4 mx-auto">Making a Request</h2>
+      </header>
+      <article>
+        <section class="layout-content pb-4">
+          <div class="o-content mx-auto mb-8">
+            <div id="markdown-making-a-request-1"></div>
           </div>
-        </div>
-        <div class="relative overflow-x-auto scrolling-touch">
+        </section>
+        <section class="relative overflow-x-auto scrolling-touch mb-8">
           <div id="markdown-household-composition-household-table" class="table"></div>
-        </div>
-        <div class="relative overflow-x-auto scrolling-touch">
+        </section>
+        <section class="relative overflow-x-auto scrolling-touch mb-8">
           <div id="markdown-household-composition-person-table" class="table"></div>
-        </div>
-        <div class="layout--content mt-4 pb-4">
-          <div class="screen-desktop:pr-4 screen-desktop:pr-6">
-            <div class="o-content">
-              <div id="markdown-making-a-request-2"></div>
-            </div>
+        </section>
+        <section class="layout-content pb-4">
+          <div class="o-content mx-auto">
+            <div id="markdown-making-a-request-2"></div>
           </div>
-        </div>
-      </section>
-    </article>
-  </main>
+        </section>
+      </article>
+    </main>
+  </div>
   <footer class="o-footer color-dark-background border-navy-70t">
     <div class="layout-wrap mx-auto">
       <div class="o-footer__divider border-navy-70t desktop:flex desktop:layout-sidebar mb-4">
@@ -150,11 +182,13 @@
       </div>
       <div class="desktop:grid desktop:grid-cols-2">
         <div>
-          <p>NYC Opportunity is the <a href='http://nyc.gov/opportunity'>New York City Mayor's Office for Economic Opportunity</a>. We are committed to sharing open source software that we use in our products. Feel free to ask questions and share feedback. Follow @nycopportunity on&nbsp;<a href='https://twitter.com/nycopportunity' target='_blank' rel='nofollow noopener'>Twitter</a>,&nbsp;<a href='https://www.facebook.com/NYCOpportunity/' target='_blank' rel='nofollow noopener'>Facebook</a>,&nbsp;<a href='https://medium.com/@nycopportunity' target='_blank' rel='nofollow noopener'>Medium</a>, and&nbsp;<a href='' target='_blank' rel='nofollow noopener' title='Viewable by github.com/orgs/CityOfNewYork/ members.'>Github</a>.</p>
+          <p>
+            <a href="http://nyc.gov/opportunity">The Mayor's Office for Economic Opportunity</a> (NYC Opportunity) is committed to sharing open source software that we use in our products. Feel free to ask questions and share feedback. Follow @nycopportunity on <a href="https://twitter.com/nycopportunity">Twitter</a>, <a href="https://www.facebook.com/NYCOpportunity/">Facebook</a>, <a href="https://medium.com/@nycopportunity">Medium</a>, and <a href="https://github.com/NYCOpportunity/">Github</a>.
+          </p>
         </div>
         <div class="desktop:text-end">
-          <small>© City of New York, 2021 All Rights Reserved.
-            <br>NYC is a trademark and service mark of the City of New York.
+          <small> © City of New York, 2021 All Rights Reserved.
+            <br> NYC is a trademark and service mark of the City of New York.
           </small>
         </div>
       </div>
