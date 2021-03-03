@@ -7,7 +7,23 @@ Documentation site for NYC Benefits Screening API maintained by [NYC Opportunity
 
 ## Updating the Static Site Front-end
 
-Clone this repository and install dependencies by running the following command;
+### Git Flow Workflow
+
+Clone this repository and checkout the `env/development` branch.
+
+```console
+$ git clone https://github.com/CityOfNewYork/screeningapi-docs.git --branch env/development
+```
+
+Create a new feature branch based on `env/development`. For example; `feature/new-page` or `fix/a-new-bug`.
+
+```console
+$ git checkout https://github.com/CityOfNewYork/screeningapi-docs.git --branch env/development
+```
+
+### NPM Dependencies
+
+Install dependencies by running the following command;
 
 ```console
 $ npm i
@@ -27,9 +43,15 @@ $ npm run production
 
 This will set the `NODE_ENV` to `production` but run the same development server and asset watcher.
 
-### Patterns CLI
+#### Patterns CLI
 
 The site uses the [Patterns CLI](https://github.com/CityOfNewYork/patterns-cli), also maintained by [NYC Opportunity](https://github.com/NYCOpportunity), to build assets from the [**./src**](src) directory to the [**./dist**](dist) directory. All of [the commands from the CLI](https://github.com/CityOfNewYork/patterns-cli#commands) are available for compiling different asset types. It uses the [Patterns Twig Plugin](https://github.com/CityOfNewYork/patterns-plugin-twig) in place of the Slm Lang compiler for templating.
+
+### Migrate changes back to `main`
+
+After changes are made, create a pull request migrate changes from your feature branch back into `env/development`. When the changes are approved by another developer create a merge commit or **squash and merge** (preferably squash for feature branches). Create another pull request to migrate `env/development` to `main`.
+
+**Note about staging changes**: before migrating changes from `env/development` to `main` you *may* need to provide a way for the team to review the site changes for smoke testing. This can be done with a separate repository with GitHub Pages or in a sub directory of this repository's GitHub Pages branch.
 
 ### Publishing
 
