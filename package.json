@@ -12,9 +12,11 @@
     "url": "git+https://github.com/CityOfNewYork/screeningapi-docs.git"
   },
   "scripts": {
-    "start": "NODE_ENV=development pttrn -np -nl -s && NODE_ENV=development PORT=7000 concurrently \"pttrn -w\" \"pttrn serve -w\" -p \"none\"",
-    "production": "NODE_ENV=production pttrn -np -nl -s && NODE_ENV=production PORT=7000 concurrently \"pttrn -w\" \"pttrn serve -w\" -p \"none\"",
-    "ghpages": "NODE_ENV=production pttrn && NODE_ENV=production pttrn publish",
+    "drafts": "NODE_ENV=development pttrn -np -nl -s",
+    "published": "NODE_ENV=production pttrn -np -nl -s",
+    "start": "npm run drafts && NODE_ENV=development PORT=7000 concurrently \"pttrn -w\" \"pttrn serve -w\" -p \"none\"",
+    "production": "npm run published && NODE_ENV=production PORT=7000 concurrently \"pttrn -w\" \"pttrn serve -w\" -p \"none\"",
+    "ghpages": "npm run published && NODE_ENV=production pttrn publish",
     "purge": "curl -X POST https://purge.jsdelivr.net/gh/CityOfNewYork/screeningapi-docs@content"
   },
   "cdn": {
