@@ -4,5 +4,7 @@ node_modules/
 dev/**/*
 !dev/.gitkeep
 
+# Patterns CLI Extras
+dist/svgs.svg
 src/config/
 src/config/*
