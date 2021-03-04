@@ -1,0 +1,81 @@
+<div class="household-data mb-8 pb-2">
+  <h3 class="flex items-center">
+    <svg aria-hidden="true" class="icon-ui mie-1">
+      <use xlink:href="#feather-home"></use>
+    </svg>
+
+    Household Data
+  </h3>
+
+  <p>Enter values into the fields below for the <b>Household Composition Data</b>.</p>
+
+  <hr class="mb-4 border-b border-navy-50t">
+
+  <div class="c-question mb-4">
+    <label class="label" for="cash-on-hand">Cash on hand</label>
+
+    <p>How much cash household has right now in; cash on hand, checking or saving accounts, stocks, bonds, or mutual funds.</p>
+
+    <div class="c-question__container" data-js="question-container">
+      <div class="input input-currency-usd">
+        <input id="cash-on-hand" type="number" name="cashOnHand" placeholder="0" min="0" value="0" household>
+      </div>
+    </div>
+  </div>
+
+  <div class="c-question">
+    <label class="label" for="living-type">Living situation</label>
+
+    <p>Where the household is living right now; whether they own their home, is renting their home, lives in a shelter, etc.</p>
+
+    <div class="c-question__container" data-js="question-container">
+      <div class="select">
+        <select id="living-type" name="livingType" household>
+          <option value="livingPreferNotToSay">Prefer not to say</option>
+          <option disabled value="">–––</option>
+
+          <option value="livingRenting">Rents</option>
+          <option value="livingOwner">Owns</option>
+          <option value="livingStayingWithFriend">Lives with a friend</option>
+          <option value="livingHotel">Lives in a Hotel</option>
+          <option value="livingShelter">Lives in a Shelter</option>
+        </select>
+
+        <svg aria-hidden="true" class="select__graphic">
+          <use xlink:href="#select-nyco-chevrons"></use>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="c-question pt-4 hidden livingRentalType">
+    <label class="label" for="living-rental-type">Type of rental</label>
+
+    <p>Wether the household owns their home, rents their home, lives in a shelter, etc.</p>
+
+    <div class="c-question__container" data-js="question-container">
+      <div class="select">
+        <select id="living-rental-type" name="livingRentalType" class="select" household>
+          <option value="">Please make a selection</option>
+          <option disabled value="">–––</option>
+
+          <option value="NYCHA">NYC Housing Authority (NYCHA) housing</option>
+          <option value="MarketRate">Non-regulated or market rate apartment</option>
+          <option value="RentControlled">Rent controlled or rent stabilized apartment</option>
+          <option value="RentRegulatedHotel">Rent regulated hotel/single Room</option>
+          <option value="Section213">Section 213 apartments</option>
+          <option value="LimitedDividendDevelopment">Limited dividend development apartments</option>
+          <option value="MitchellLama">Mitchell-Lama apartments</option>
+          <option value="RedevelopmentCompany">Redevelopment company apartments</option>
+          <option value="HDFC">Housing Development Fund Company (HDFC) Cooperative</option>
+          <option value="FamilyHome">Family home</option>
+          <option value="Condo">Condo</option>
+        </select>
+
+        <svg aria-hidden="true" class="select__graphic">
+          <use xlink:href="#select-nyco-chevrons"></use>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

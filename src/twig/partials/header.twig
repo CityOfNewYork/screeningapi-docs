@@ -1,0 +1,33 @@
+<header class="o-header tablet:layout-sidebar w-full">
+  <div class="o-header__banner-main color-dark-background tablet:justify-start p-4 py-3 tablet:py-6">
+    <h1 class="o-header__main-title text-start text-default font-default font-normal m-0 tablet:text-h4" style="line-height: 1em">
+      <a class="block font-normal" href="index">
+        <span class="sr-only">{{ package.title }}</span>
+
+        <svg class="icon-logo-nyc mb-1 hidden tablet:block" style="width: 144px; height: 47px" aria-hidden="true">
+          <use xlink:href="#icon-logo-nyc"></use>
+        </svg>
+
+        <svg class="icon-logo-nyc mb-1 tablet:hidden" style="width: 102px; height: 34px" aria-hidden="true">
+          <use xlink:href="#icon-logo-nyc"></use>
+        </svg>
+
+        <div aria-hidden="true">
+          <b class="whitespace-nowrap block desktop:block">Benefits Platform</b>
+
+          <span class="px-1 hidden">|</span>
+
+          <span class="whitespace-nowrap block desktop:block">Screening API</span>
+        </div>
+      </a>
+    </h1>
+
+    <a data-js="toggle" aria-expanded="false" href="#aria-c-navigation" class="tablet:hidden">Menu</a>
+  </div>
+
+  <div class="o-header__banner-secondary layout-content color-primary-background hidden tablet:flex">
+    <div class="o-content mx-auto">
+      <h2 class="o-header__secondary-title tablet:text-jumbo">{{ title }}</h2>
+    </div>
+  </div>
+</header>

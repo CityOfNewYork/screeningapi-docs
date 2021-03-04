@@ -1,4 +1,4 @@
-import responses from './responses.json';
+import responses from './responses.js';
 
 export default function() {
   const errorMsg = 'Please enter your first name, last name, email and organization.';

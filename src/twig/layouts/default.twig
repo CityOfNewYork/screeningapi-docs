@@ -1,0 +1,37 @@
+{% include "../partials/head.twig" %}
+
+<body>
+  <a href="#main-content" class="sr-only">Skip to main content</a>
+
+  {% include "../partials/header.twig" %}
+
+  <div class="tablet:layout-sidebar tablet:flex items-stretch m-0 p-0 min-h-screen">
+    {% include "../partials/navigation.twig" %}
+
+    <main id="main-content" class="color-light-background py-4 tablet:py-8 px-4 desktop:px-6">
+      {% if process.env.NODE_ENV == 'development' %}
+        <div class="mb-4">
+          {% include '@src/twig/partials/alert-draft-mode.twig' %}
+        </div>
+      {% endif %}
+
+      <header class="layout-content tablet:hidden">
+        <h2 class="mb-4 mx-auto">{{ title }}</h2>
+      </header>
+
+      {% block container %}
+      <article class="layout-content pb-4">
+        {% block content %}{% endblock %}
+      </article>
+      {% endblock %}
+    </main>
+  </div>
+
+  {% include "../partials/footer.twig" %}
+
+  <script crossorigin='anonymous' src='https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Array.prototype.forEach,Element.prototype.matches,Element.prototype.remove,fetch,Promise'></script>
+  <script src="{{ global.entry.scripts }}"></script>
+  {% block scripts %}{% endblock %}
+
+</body>
+</html>

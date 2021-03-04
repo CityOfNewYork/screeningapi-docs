@@ -1,7 +1,11 @@
 /*Swagger styling*/
 
 #swagger-editor {
-  display: none;
+  // display: none;
+
+  .Resizer.vertical {
+    display: none;
+  }
 
   .swagger-ui {
     width: 100%;
@@ -73,21 +77,21 @@
 
     .opblock#{".opblock-post"},
     .opblock-summary-post {
-      background: rgba($secondary-grey, .1);
-      border-color: $primary-blue;
+      background: transparent;
+      border-color: $blue;
 
       .opblock-summary-method {
-        background-color: $primary-blue;
+        background-color: $blue;
       }
     }
 
     .opblock-options,
     .opblock-summary-options {
-      background-color: $secondary-white;
-      border-color: $primary-navy;
+      background-color: $white;
+      border-color: $navy;
 
       .opblock-summary-method {
-        background-color: $primary-navy;
+        background-color: $navy;
       }
     }
   }

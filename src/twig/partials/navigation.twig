@@ -1,0 +1,33 @@
+<aside class="o-navigation color-mid-background">
+  {# Desktop Navigation #}
+  <div class="o-navigation__wrap hidden tablet:block">
+    <div class="o-navigation__nav">
+      {% include "../partials/nav.twig" with {
+        'classes': {
+          'nav': 'mb-2',
+          'header': 'o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1',
+          'link': 'o-navigation__link no-underline px-1',
+          'number': 'small font-normal'
+        }
+      } only %}
+    </div>
+  </div>
+
+  {# Mobile Navigation Menu #}
+  <div class="o-navigation__wrap tablet:hidden hidden" id="aria-c-navigation" data-js="navigation" tabindex="-1">
+    <div class="o-navigation__nav">
+      {% include "../partials/nav.twig" with {
+        'tabindex': '-1',
+        'classes': {
+          'nav': 'mb-2',
+          'header': 'o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1',
+          'link': 'o-navigation__link no-underline px-1',
+          'number': 'small font-normal'
+        }
+      } only %}
+
+      <button data-js="toggle" aria-expanded="false" aria-controls="aria-c-navigation" tabindex="-1" class="p-1 btn w-full mb-2">Close</button>
+    </div>
+  </div>
+</aside>
+

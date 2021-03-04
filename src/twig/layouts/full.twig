@@ -1,0 +1,54 @@
+{% include "../partials/head.twig" %}
+
+<body>
+  <a href="#main-content" class="sr-only">Skip to main content</a>
+
+  <header class="overflow-hidden color-dark-background py-2">
+    <div class="layout--wrap mx-auto px-4 flex justify-between items-center">
+      <h1 class="m-0 flex font-normal" style="font-size: 1em">
+        By <span class="hidden">{{ package.author }}</span>
+
+        <svg aria-hidden="true" class="icon-logo-nyco mis-1" style="width: 140px; height: 22px;">
+          <use xlink:href="#icon-logo-nyco-secondary"></use>
+        </svg>
+      </h1>
+
+      <button data-js="toggle" aria-pressed="false" aria-expanded="false" aria-controls="navigation" class="cursor-pointer underline font-bold">Menu</button>
+    </div>
+
+    {% if process.env.NODE_ENV == 'development' %}
+      <div class="p-4 bg-navy">
+        {% include '@src/twig/partials/alert-draft-mode.twig' %}
+      </div>
+    {% endif %}
+  </header>
+
+  <aside id="navigation" class="color-mid-background hidden hidden:overflowFadeInUp animated">
+    <div class="p-4 animated">
+      <div class="layout-wrap screen-tablet:layout--two-columns-gutter justify-center mx-auto">
+        <div class="tablet:grid tablet:grid-cols-3 tablet:gap-3">
+          {% include "../partials/nav.twig" with {
+            'tabindex': '-1',
+            'classes': {
+              'nav': 'pb-2',
+              'header': 'block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t',
+              'link': 'block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center',
+              'number': 'small font-normal mie-1'
+            }
+          } only %}
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "../partials/footer.twig" %}
+
+  <script crossorigin='anonymous' src='https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Array.prototype.forEach,Element.prototype.matches,Element.prototype.remove,fetch,Promise'></script>
+  <script src="{{ global.entry.scripts }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

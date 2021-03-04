@@ -1,4 +1,4 @@
-import Forms from '@nycopportunity/patterns-framework/dist/utilities/forms/forms.common';
+import Forms from '@nycopportunity/pttrn-scripts/src/forms/forms';
 import { displayErrors, displayInfo, sendPostRequest } from './util';
 
 export default function() {
@@ -101,6 +101,9 @@ export default function() {
       JSON.stringify(authPayload))
   };
 
+  Form.selectors.ERROR_MESSAGE_PARENT = '[data-js*="question-container"]';
+
   Form.watch();
+
   Form.submit = submit;
 }

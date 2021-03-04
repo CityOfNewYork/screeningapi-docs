@@ -2,7 +2,7 @@
  * Converts form to JSON
  */
 
-import responses from './responses.json';
+import responses from './responses.js';
 
 export default function() {
   $('.screener-form').fadeIn(500)
@@ -88,7 +88,7 @@ export default function() {
     $('.add-remove').find('.error').remove()
 
     if ($('.person-data').length > 8) {
-      $(this).parent().append('<p class="error pt-2">'+responses.find(x => x["Person"])["Person"]["err_num_persons"]+'</p>')
+      $(this).parent().append('<p class="error pt-2">'+ responses.find(x => x["Person"])["Person"]["err_num_persons"]+'</p>')
     }else {
       personContainer.clone().insertBefore($(this).parent());
     }
@@ -267,7 +267,7 @@ export default function() {
       if( $(this).val() === "" ||
         !groupSeleted
       ) {
-        $(this).parent().addClass('error');
+        $(this).parent().parent().addClass('error');
         results["errors"] += 1;
       } else {
         $(this).parent().removeClass('error');

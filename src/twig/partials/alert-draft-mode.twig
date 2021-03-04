@@ -1,0 +1,20 @@
+<div class="flex items-center color-light-background border border-green bg-green-30t p-2" role="alert">
+  <div class="pie-2">
+    <svg aria-hidden="true" class="icon-ui mie-1">
+      <use xlink:href="#feather-info"></use>
+    </svg>
+  </div>
+
+  <div>
+    <h2 class="h5">Draft Mode</h2>
+
+    <div class="o-content">
+      <p>This site is being served from the <b>{{ package.cdn.content.development }}/</b> directory and Markdown content is pulling from the <a href="{{ package.cdn.base.source ~ package.cdn.content.development }}" target="_blank">{{ package.cdn.content.development }} content branch</a>.
+
+      <ul>
+        <li>For content managers; to view live content remove <b>{{ package.cdn.content.development }}/</b> from the url.</p></li>
+        <li>For developers; to view live content restart with the <b>npm run production</b> script.</p></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,10 @@
-{% extends "layouts/default.twig" %}
+{% extends "@src/twig/layouts/default.twig" %}
 
 {% set title = 'Overview' %}
+{% set page_title = 'Overview' %}
 
 {% block content %}
-  <div class="o-content">
-    <div id="markdown-overview"></div>
-  </div>
+<section class="o-content mx-auto">
+  <div id="markdown-overview"></div>
+</section>
 {% endblock %}

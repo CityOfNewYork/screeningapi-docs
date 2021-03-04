@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://screeningapidocs.cityofnewyork.us/images/favicon/favicon-32x32.png">
+  <link rel="shortcut icon" href="https://screeningapidocs.cityofnewyork.us/images/favicon/favicon.ico">
+  <title>NYC Benefits Platform | Screening API</title>
+  <meta property="og:title" content="NYC Benefits Platform | Screening API" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Screen clients for benefits at scale or create new benefits screening tools. Send household composition data to eligibility rules for 35+ City, State, and Federal programs including SNAP, Cash Assistance, WIC, HEAP, and more." />
+  <meta name="description" content="Screen clients for benefits at scale or create new benefits screening tools. Send household composition data to eligibility rules for 35+ City, State, and Federal programs including SNAP, Cash Assistance, WIC, HEAP, and more." />
+  <meta property="og:image" content="https://screeningapidocs.cityofnewyork.us/images/social.png" />
+  <meta property="og:image:alt" content="NYC Benefits Platform | Screening API by The Mayor's Office for Economic Opportunity" />
+  <meta name="twitter:image:alt" content="NYC Benefits Platform | Screening API by The Mayor's Office for Economic Opportunity" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href="css/style.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js" integrity="sha512-L03kznCrNOfVxOUovR6ESfCz9Gfny7gihUX/huVbQB9zjODtYpxaVtIaAkpetoiyV2eqWbvxMH9fiSv5enX7bw==" crossorigin="anonymous"></script>
+  <meta name="robots" content="noindex,nofollow">
+</head>
+
+<body>
+  <a href="#main-content" class="sr-only">Skip to main content</a>
+  <header class="overflow-hidden color-dark-background py-2">
+    <div class="layout--wrap mx-auto px-4 flex justify-between items-center">
+      <h1 class="m-0 flex font-normal" style="font-size: 1em"> By <span class="hidden">The Mayor's Office for Economic Opportunity</span>
+        <svg aria-hidden="true" class="icon-logo-nyco mis-1" style="width: 140px; height: 22px;">
+          <use xlink:href="#icon-logo-nyco-secondary"></use>
+        </svg>
+      </h1>
+      <button data-js="toggle" aria-pressed="false" aria-expanded="false" aria-controls="navigation" class="cursor-pointer underline font-bold">Menu</button>
+    </div>
+    <div class="p-4 bg-navy">
+      <div class="flex items-center color-light-background border border-green bg-green-30t p-2" role="alert">
+        <div class="pie-2">
+          <svg aria-hidden="true" class="icon-ui mie-1">
+            <use xlink:href="#feather-info"></use>
+          </svg>
+        </div>
+        <div>
+          <h2 class="h5">Draft Mode</h2>
+          <div class="o-content">
+            <p>This site is being served from the <b>drafts/</b> directory and Markdown content is pulling from the <a href="https://github.com/CityOfNewYork/screeningapi-docs/tree/drafts" target="_blank">drafts content branch</a>.
+            <ul>
+              <li>For content managers; to view live content remove <b>drafts/</b> from the url.</p>
+              </li>
+              <li>For developers; to view live content restart with the <b>npm run production</b> script.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside id="navigation" class="color-mid-background hidden hidden:overflowFadeInUp animated">
+    <div class="p-4 animated">
+      <div class="layout-wrap screen-tablet:layout--two-columns-gutter justify-center mx-auto">
+        <div class="tablet:grid tablet:grid-cols-3 tablet:gap-3">
+          <nav class="pb-2">
+            <span class="block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t">Guide</span>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="overview">Overview</a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="getting-started">
+              <span class="small font-normal mie-1">01</span> Getting Started
+            </a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="http://eepurl.com/gfLTuH" target="_blank">
+              <span class="small font-normal mie-1">02</span> Request an Account
+            </a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="token-based-authentication">
+              <span class="small font-normal mie-1">03</span> Token Based Authentication
+            </a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="making-a-request">
+              <span class="small font-normal mie-1">04</span> Making a Request
+            </a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="endpoints">
+              <span class="small font-normal mie-1">05</span> Endpoints
+            </a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="sample-data-and-code">
+              <span class="small font-normal mie-1">06</span> Sample Data and Code
+            </a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="feedback-and-support">
+              <span class="small font-normal mie-1">07</span> Feedback and Support
+            </a>
+          </nav>
+          <nav class="pb-2">
+            <span class="block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t">Tools</span>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="request-builder">Request Builder</a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="change-password-form">Change Password Form</a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="bulk-submission-form">Bulk Submission Form</a>
+          </nav>
+          <nav class="pb-2">
+            <span class="block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t">Reference</span>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="eligibility-guidelines">Eligibility Guidelines</a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="terms-of-service">Terms of Service</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main id="main-content">
+    <section class="color-dark-background py-6">
+      <div class="layout-wrap mx-auto px-4 pb-6">
+        <div>
+          <div class="flex items-center justify-between" aria-hidden="true">
+            <div class="text-navy-70t my-2 icon-6 animated fadeInUp">&nbsp;</div>
+            <svg class="text-navy-70t my-2 icon-6 animated fadeInUp icon-cash-expenses-v2" style="animation-delay: 1s">
+              <use xlink:href="#icon-cash-expenses-v2"></use>
+            </svg>
+            <div class="text-navy-70t my-2 icon-6 animated fadeInUp">&nbsp;</div>
+            <svg class="text-navy-70t my-2 icon-6 animated fadeInUp icon-child-care-v2" style="animation-delay: 1.1161231740339044s">
+              <use xlink:href="#icon-child-care-v2"></use>
+            </svg>
+            <div class="text-navy-70t my-2 icon-6 animated fadeInUp">&nbsp;</div>
+          </div>
+          <div class="flex items-center justify-between" aria-hidden="true">
+            <svg class="text-navy-70t my-2 icon-6 animated fadeInUp icon-family-services-v2" style="animation-delay: 1.174618943088019s">
+              <use xlink:href="#icon-family-services-v2"></use>
+            </svg>
+            <div class="text-navy-70t my-2 icon-6 animated fadeInUp">&nbsp;</div>
+            <svg class="text-navy-70t my-2 icon-6 animated fadeInUp icon-work-v2" style="animation-delay: 1.214814044039067s">
+              <use xlink:href="#icon-work-v2"></use>
+            </svg>
+            <div class="text-navy-70t my-2 icon-6 animated fadeInUp">&nbsp;</div>
+            <svg class="text-navy-70t my-2 icon-6 animated fadeInUp icon-city-id-card-v2" style="animation-delay: 1.2457309396155174s">
+              <use xlink:href="#icon-city-id-card-v2"></use>
+            </svg>
+          </div>
+          <div class="py-4 mx-auto animated fadeInUp desktop:p-8">
+            <div class="justify-center items-center mb-6 desktop:flex desktop:px-4">
+              <div class="py-2 mobile:text-center desktop:text-start">
+                <h2 class="h1 font-default font-normal inline-block mb-3 desktop:m-0" style="line-height: 1em">
+                  <span class="sr-only">NYC Benefits Platform | Screening API</span>
+                  <svg class="icon-logo-nyc mb-1" style="width: 258px; height: 84px" aria-hidden="true">
+                    <use xlink:href="#icon-logo-nyc"></use>
+                  </svg>
+                  <div aria-hidden="true">
+                    <b class="whitespace-nowrap block tablet:inline desktop:block">Benefits Platform</b>
+                    <span class="px-1 hidden tablet:inline desktop:hidden">|</span>
+                    <span class="whitespace-nowrap block tablet:inline desktop:block">Screening API</span>
+                  </div>
+                </h2>
+              </div>
+              <div class="desktop:py-2 desktop:pis-7 desktop:mis-7 desktop:border-is border-blue">
+                <p class="text-h4 mb-2">Screen clients for <b>benefits at scale</b> or create <b>new benefits screening tools</b>. Send household composition data to eligibility rules for <b>35+</b> City, State, and Federal programs including SNAP, Cash Assistance, WIC, HEAP, and more.</b>
+                <p class="text-center desktop:text-start pt-2">
+                  <a class="btn btn-primary btn-large inline-block" href="getting-started">Get started</a>
+                  <br>
+                  <br>
+                  <span class="text-h6">or <a href="overview">read the overview to learn more</a>.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="hidden mobile:flex items-center justify-between" aria-hidden="true">
+            <div class="text-navy-70t my-2 icon-6 animated fadeInUp">&nbsp;</div>
+            <svg class="text-navy-70t my-2 icon-6 animated fadeInUp icon-enrichment-v2" style="animation-delay: 1.2923922207808318s">
+              <use xlink:href="#icon-enrichment-v2"></use>
+            </svg>
+            <div class="text-navy-70t my-2 icon-6 animated fadeInUp">&nbsp;</div>
+            <svg class="text-navy-70t my-2 icon-6 animated fadeInUp icon-food-v2" style="animation-delay: 1.3110194230397498s">
+              <use xlink:href="#icon-food-v2"></use>
+            </svg>
+            <div class="text-navy-70t my-2 icon-6 animated fadeInUp">&nbsp;</div>
+          </div>
+          <div class="hidden mobile:flex items-center justify-between" aria-hidden="true">
+            <svg class="text-navy-70t my-2 icon-6 animated fadeInUp icon-health-v2" style="animation-delay: 1.3275316748885193s">
+              <use xlink:href="#icon-health-v2"></use>
+            </svg>
+            <div class="text-navy-70t my-2 icon-6 animated fadeInUp">&nbsp;</div>
+            <svg class="text-navy-70t my-2 icon-6 animated fadeInUp icon-housing-v2" style="animation-delay: 1.3423796509621049s">
+              <use xlink:href="#icon-housing-v2"></use>
+            </svg>
+            <div class="text-navy-70t my-2 icon-6 animated fadeInUp">&nbsp;</div>
+            <svg class="text-navy-70t my-2 icon-6 animated fadeInUp icon-people-with-disabilities-v2" style="animation-delay: 1.355882106693847s">
+              <use xlink:href="#icon-people-with-disabilities-v2"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="color-light-background py-8">
+      <div class="layout-wrap mx-auto px-4 py-8">
+        <div class="mobile:grid mobile:grid-cols-2 mobile:gap-3">
+          <div class="mb-4">
+            <h2>Request</h2>
+            <pre class="m-0" tabindex="0">[{
+  "household": [{
+    "cashOnHand": "50000",
+    "livingRentalType": "RentControlled",
+    "livingRenting": "true",
+    "livingOwner": "false",
+    "livingStayingWithFriend": "false",
+    "livingHotel": "false",
+    "livingShelter": "false",
+    "livingPreferNotToSay": "false"
+  }],
+  "person": [{
+    "age": "35",
+    "incomes": [
+      {
+        ...</pre>
+          </div>
+          <div class="mb-4">
+            <h2>Response</h2>
+            <pre class="m-0" tabindex="0">{
+  "type": "SUCCESS",
+  "eligiblePrograms": [
+    {
+      "code": "S2R007",
+      "name": "Supplemental Nutrition Assistance Program"
+    },
+    {
+      "code": "S2R019",
+      "name": "Home Energy Assistance Program"
+    },
+    {
+      "code": "S2R013",
+      "name": "Section 8 / Housing Choice Voucher Program"
+    },
+    ...</pre>
+          </div>
+        </div>
+        <div class="layout-content">
+          <div class="mx-auto">
+            <div class="text-h5">
+              <p>The Screening API allows you to utilize the rules engine that governs the <a href="https://access.nyc.gov/eligibility/" target="_blank">ACCESS NYC Eligibility Screener</a>. When household data is sent to the Screening API, it will return a response that contains program names and codes. These program codes can be used to cross-reference additional content from the <b>Benefits and Programs Dataset</b>. These are the same tools that <b>ACCESS NYC</b> and <b>Growing Up NYC</b> use to provide content and eligibility information for health and human services.</p>
+              <p class="text-center">
+                <a class="btn btn-primary inline-block" href="overview">Read the overview to learn more</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="color-mid-background py-8">
+      <div class="layout-wrap mx-auto px-8 py-8">
+        <div class="text-center">
+          <h2 class="mt-0 mb-8">View the Documentation</h2>
+        </div>
+        <div class="tablet:grid tablet:grid-cols-3 tablet:gap-3">
+          <nav class="">
+            <span class="block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t">Guide</span>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="overview">Overview</a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="getting-started">
+              <span class="small font-normal mie-1">01</span> Getting Started
+            </a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="http://eepurl.com/gfLTuH" target="_blank">
+              <span class="small font-normal mie-1">02</span> Request an Account
+            </a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="token-based-authentication">
+              <span class="small font-normal mie-1">03</span> Token Based Authentication
+            </a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="making-a-request">
+              <span class="small font-normal mie-1">04</span> Making a Request
+            </a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="endpoints">
+              <span class="small font-normal mie-1">05</span> Endpoints
+            </a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="sample-data-and-code">
+              <span class="small font-normal mie-1">06</span> Sample Data and Code
+            </a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="feedback-and-support">
+              <span class="small font-normal mie-1">07</span> Feedback and Support
+            </a>
+          </nav>
+          <nav class="">
+            <span class="block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t">Tools</span>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="request-builder">Request Builder</a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="change-password-form">Change Password Form</a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="bulk-submission-form">Bulk Submission Form</a>
+          </nav>
+          <nav class="">
+            <span class="block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t">Reference</span>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="eligibility-guidelines">Eligibility Guidelines</a>
+            <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="terms-of-service">Terms of Service</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="o-footer color-dark-background border-navy-70t">
+    <div class="layout-wrap mx-auto">
+      <div class="o-footer__divider border-navy-70t desktop:flex desktop:layout-sidebar mb-4">
+        <div class="pb-4">
+          <a class="block" href="http://nyc.gov/opportunity" title="NYC Opportunity&lt;products@nycopportunity.nyc.gov&gt;">
+            <svg aria-hidden="true" class="o-footer__logo">
+              <use xlink:href="#icon-logo-secondary"></use>
+            </svg>
+            <span class="sr-only">The Mayor's Office for Economic Opportunity</span>
+          </a>
+        </div>
+        <div class="pb-4 desktop:pl-4 desktop:flex justify-end items-center">
+          <nav class="o-footer__inline-nav">
+            <a href="overview">Overview</a>
+            <a href="getting-started">Getting Started</a>
+            <a href="feedback-and-support">Feedback and Support</a>
+            <a href="terms-of-service">Terms of Service</a>
+          </nav>
+        </div>
+      </div>
+      <div class="desktop:grid desktop:grid-cols-2">
+        <div>
+          <p>
+            <a href="http://nyc.gov/opportunity">The Mayor's Office for Economic Opportunity</a> (NYC Opportunity) is committed to sharing open source software that we use in our products. Feel free to ask questions and share feedback. Follow @nycopportunity on <a href="https://twitter.com/nycopportunity">Twitter</a>, <a href="https://www.facebook.com/NYCOpportunity/">Facebook</a>, <a href="https://medium.com/@nycopportunity">Medium</a>, and <a href="https://github.com/NYCOpportunity/">Github</a>.
+          </p>
+        </div>
+        <div class="desktop:text-end">
+          <small> © City of New York, 2021 All Rights Reserved.
+            <br> NYC is a trademark and service mark of the City of New York.
+          </small>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script crossorigin='anonymous' src='https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Array.prototype.forEach,Element.prototype.matches,Element.prototype.remove,fetch,Promise'></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
