@@ -5,23 +5,21 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-  <link rel="shortcut icon" href="images/favicon/favicon.ico">
-  <title>Token Based Authentication | NYC Benefits Screening API</title>
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://screeningapidocs.cityofnewyork.us/images/favicon/favicon-32x32.png">
+  <link rel="shortcut icon" href="https://screeningapidocs.cityofnewyork.us/images/favicon/favicon.ico">
+  <title>Token Based Authentication | NYC Benefits Platform | Screening API</title>
+  <meta property="og:title" content="Token Based Authentication | NYC Benefits Platform | Screening API" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Screen clients for benefits at scale or create new benefits screening tools. Send household composition data to eligibility rules for 35+ City, State, and Federal programs including SNAP, Cash Assistance, WIC, HEAP, and more." />
+  <meta name="description" content="Screen clients for benefits at scale or create new benefits screening tools. Send household composition data to eligibility rules for 35+ City, State, and Federal programs including SNAP, Cash Assistance, WIC, HEAP, and more." />
+  <meta property="og:image" content="https://screeningapidocs.cityofnewyork.us/images/social.png" />
+  <meta property="og:image:alt" content="NYC Benefits Platform | Screening API by The Mayor's Office for Economic Opportunity" />
+  <meta name="twitter:image:alt" content="NYC Benefits Platform | Screening API by The Mayor's Office for Economic Opportunity" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link href="css/style.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js" integrity="sha512-L03kznCrNOfVxOUovR6ESfCz9Gfny7gihUX/huVbQB9zjODtYpxaVtIaAkpetoiyV2eqWbvxMH9fiSv5enX7bw==" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135011272-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-135011272-1');
-  </script>
+  <meta name="robots" content="noindex,nofollow">
 </head>
 
 <body>
@@ -137,17 +135,25 @@
       </div>
     </aside>
     <main id="main-content" class="color-light-background py-4 tablet:py-8 px-4 desktop:px-6">
-      <div class="flex items-center border border-green bg-green-30t p-2 mb-4" role="alert">
-        <div class="pie-2">
-          <svg aria-hidden="true" class="icon-ui mie-1">
-            <use xlink:href="#feather-info"></use>
-          </svg>
-        </div>
-        <div>
-          <h2 class="h5">Draft Mode</h2>
-          <p>
-            <b>NODE_ENV</b> is set to <b>development</b>. Markdown content is pulling from the <a href="https://github.com/CityOfNewYork/screeningapi-docs/tree/drafts" target="_blank">drafting content branch</a>. To view live content restart with the <b>npm run production</b> script.
-          </p>
+      <div class="mb-4">
+        <div class="flex items-center color-light-background border border-green bg-green-30t p-2" role="alert">
+          <div class="pie-2">
+            <svg aria-hidden="true" class="icon-ui mie-1">
+              <use xlink:href="#feather-info"></use>
+            </svg>
+          </div>
+          <div>
+            <h2 class="h5">Draft Mode</h2>
+            <div class="o-content">
+              <p>This site is being served from the <b>drafts/</b> directory and Markdown content is pulling from the <a href="https://github.com/CityOfNewYork/screeningapi-docs/tree/drafts" target="_blank">drafts content branch</a>.
+              <ul>
+                <li>For content managers; to view live content remove <b>drafts/</b> from the url.</p>
+                </li>
+                <li>For developers; to view live content restart with the <b>npm run production</b> script.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
       <header class="layout-content tablet:hidden">
@@ -195,7 +201,7 @@
     </div>
   </footer>
   <script crossorigin='anonymous' src='https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Array.prototype.forEach,Element.prototype.matches,Element.prototype.remove,fetch,Promise'></script>
-  <script src="js/source.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
