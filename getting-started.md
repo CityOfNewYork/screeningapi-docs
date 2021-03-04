@@ -26,4 +26,4 @@ Once you have credentials you will then change your temporary sandboxdeveloper a
 
 ## Next
 
-<a href="token-based-authentication" title="Token Based Authentication" class="btn color-secondary-button">Token Based Authentication&nbsp;&nbsp;❯</a>
+<a href="token-based-authentication" title="Token Based Authentication" class="btn">Token Based Authentication <svg aria-hidden="true" class="icon-ui mis-1"><use xlink:href="#feather-arrow-right"></use></svg></a>

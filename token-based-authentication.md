@@ -45,4 +45,4 @@ curl -X POST \
 
 ## Next
 
-<a href="making-a-request" title="Making a Request" class="btn color-secondary-button">Making a Request&nbsp;&nbsp;❯</a>
+<a href="making-a-request" title="Making a Request" class="btn">Making a Request <svg aria-hidden="true" class="icon-ui mis-1"><use xlink:href="#feather-arrow-right"></use></svg></a>
