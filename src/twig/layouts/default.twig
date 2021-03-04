@@ -10,7 +10,9 @@
 
     <main id="main-content" class="color-light-background py-4 tablet:py-8 px-4 desktop:px-6">
       {% if process.env.NODE_ENV == 'development' %}
-        {% include '@src/twig/partials/alert-draft-mode.twig' %}
+        <div class="mb-4">
+          {% include '@src/twig/partials/alert-draft-mode.twig' %}
+        </div>
       {% endif %}
 
       <header class="layout-content tablet:hidden">
@@ -28,7 +30,7 @@
   {% include "../partials/footer.twig" %}
 
   <script crossorigin='anonymous' src='https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Array.prototype.forEach,Element.prototype.matches,Element.prototype.remove,fetch,Promise'></script>
-  <script src="js/source.js"></script>
+  <script src="{{ global.entry.scripts }}"></script>
   {% block scripts %}{% endblock %}
 
 </body>

@@ -15,6 +15,12 @@
 
       <button data-js="toggle" aria-pressed="false" aria-expanded="false" aria-controls="navigation" class="cursor-pointer underline font-bold">Menu</button>
     </div>
+
+    {% if process.env.NODE_ENV == 'development' %}
+      <div class="p-4 bg-navy">
+        {% include '@src/twig/partials/alert-draft-mode.twig' %}
+      </div>
+    {% endif %}
   </header>
 
   <aside id="navigation" class="color-mid-background hidden hidden:overflowFadeInUp animated">
@@ -42,8 +48,7 @@
   {% include "../partials/footer.twig" %}
 
   <script crossorigin='anonymous' src='https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Array.prototype.forEach,Element.prototype.matches,Element.prototype.remove,fetch,Promise'></script>
-  <script src="js/source.js"></script>
+  <script src="{{ global.entry.scripts }}"></script>
   {% block scripts %}{% endblock %}
-
 </body>
 </html>

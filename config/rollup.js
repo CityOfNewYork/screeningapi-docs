@@ -2,7 +2,9 @@
  * Dependencies
  */
 const nodeResolve = require('@rollup/plugin-node-resolve');
-const replace = require('@rollup/plugin-replace');          // Replace content while bundling.
+const replace = require('@rollup/plugin-replace');
+const path = require('path');
+const global = require('./global');
 const pkg = require('../package.json');
 
 /**
@@ -12,7 +14,6 @@ const pkg = require('../package.json');
  *
  * @type {Object}
  */
-// console.dir(pkg.cdn.base.raw);
 let plugins = [
   replace({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -36,10 +37,10 @@ let plugins = [
  */
 module.exports = [
   {
-    input: './src/js/main.js',
+    input: path.join(global.base, global.src, global.entry.scripts),
     output: [{
-      file: './dist/js/source.js',
-      name: 'MAIN',
+      file: path.join(global.base, global.dist, global.entry.scripts),
+      name: global.entry.name,
       sourcemap: (process.env.NODE_ENV === 'production') ? false : 'inline',
       format: 'iife',
       strict: true
