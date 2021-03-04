@@ -5,10 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-  <link rel="shortcut icon" href="images/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ package.homepage }}/images/favicon/favicon-32x32.png">
+  <link rel="shortcut icon" href="{{ package.homepage }}/images/favicon/favicon.ico">
 
-  <title>{% if page_title %}{{ page_title }} | {% endif %} NYC Benefits Screening API</title>
+  <title>{% if page_title %}{{ page_title }} | {% endif %}{{ package.title }}</title>
+  <meta property="og:title" content="{% if page_title %}{{ page_title }} | {% endif %}{{ package.title }}"/>
+  <meta property="og:type" content="website"/>
+
+  <meta property="og:description" content="{% if page_description %}{% else %}{{ package.description }}{% endif %}"/>
+  <meta name="description" content="{% if page_description %}{% else %}{{ package.description }}{% endif %}"/>
+
+  <meta property="og:image" content="{{ package.homepage }}/images/social.png"/>
+  <meta property="og:image:alt" content="{{ package.title }} by {{ package.author }}"/>
+  <meta name="twitter:image:alt" content="{{ package.title }} by {{ package.author }}"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
   <link href="{{ global.entry.styles|replace({'scss': 'css'}) }}" rel="stylesheet">
 

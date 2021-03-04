@@ -2,7 +2,7 @@
   "name": "@nycopportunity/screeningapi-docs",
   "version": "1.0.0",
   "title": "NYC Benefits Platform | Screening API",
-  "description": "Documentation for the NYC Benefits Screening API https://screeningapidocs.cityofnewyork.us/",
+  "description": "Screen clients for benefits at scale or create new benefits screening tools. Send household composition data to eligibility rules for 35+ City, State, and Federal programs including SNAP, Cash Assistance, WIC, HEAP, and more.",
   "author": "The Mayor's Office for Economic Opportunity",
   "license": "GPL-3.0",
   "private": true,
