@@ -114,7 +114,7 @@
 
       <p>Select all of the following that apply.</p>
 
-      <div class="c-question__container grid grid-cols-2 gap-2" data-js="question-container">
+      <div class="c-question__container grid tablet:grid-cols-2 gap-2" data-js="question-container">
         <label class="option mb-0">
           <input name="student" type="checkbox" person />
 
@@ -218,7 +218,7 @@
 
       <p>Select all of the following that apply.</p>
 
-      <div class="c-question__container grid grid-cols-2 gap-2" data-js="question-container">
+      <div class="c-question__container grid tablet:grid-cols-2 gap-2" data-js="question-container">
         <label class="option mb-0">
           <input name="benefitsMedicaid" type="checkbox" person />
 
@@ -331,8 +331,8 @@
       </div>
     </div>
 
-    <div class="add-remove flex justify-between my-4 pb-4 border-b border-grey-20t">
-      <button class="remove-income text-small hidden mie-2 text-red">
+    <div class="add-remove grid grid-cols-1 gap-2 mobile:flex justify-between my-4 pb-4 border-b border-grey-20t">
+      <button class="remove-income text-small hidden mie-2 text-red justify-center">
         <svg aria-hidden="true" class="icon-ui mie-1">
           <use xlink:href="#feather-trash-2"></use>
         </svg>
@@ -345,7 +345,7 @@
           <use xlink:href="#feather-plus-square"></use>
         </svg>&nbsp;
 
-        Add an income
+        Add an Income
       </button>
     </div>
 
@@ -423,8 +423,8 @@
       </div>
     </div>
 
-    <div class="add-remove flex justify-between my-4 pb-4 border-b border-grey-20t">
-      <button class="remove-expense text-small hidden mie-2 text-red">
+    <div class="add-remove grid grid-cols-1 gap-2 mobile:flex justify-between my-4 pb-4 border-b border-grey-20t">
+      <button class="remove-expense text-small hidden mie-2 text-red justify-center">
         <svg aria-hidden="true" class="icon-ui mie-1">
           <use xlink:href="#feather-trash-2"></use>
         </svg>
@@ -437,18 +437,18 @@
           <use xlink:href="#feather-plus-square"></use>
         </svg>&nbsp;
 
-        Add an expense
+        Add an Expense
       </button>
     </div>
   </div>
 
-  <div class="add-remove flex justify-between">
-    <button class="remove-person hidden mie-2 text-red">
+  <div class="add-remove grid grid-cols-1 gap-2 mobile:flex justify-between">
+    <button class="remove-person text-small hidden mie-2 text-red justify-center">
       <svg aria-hidden="true" class="icon-ui mie-1">
         <use xlink:href="#feather-trash-2"></use>
       </svg>
 
-      Remove Person
+      Remove this person
     </button>
 
     <button class="btn btn-small color-primary-button add-person">

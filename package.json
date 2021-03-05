@@ -40,7 +40,7 @@
     "@nycopportunity/pttrn-plugin-twig": "^1.0.2"
   },
   "dependencies": {
-    "@nycopportunity/patterns": "^2.6.9",
+    "@nycopportunity/patterns": "^2.6.10",
     "@nycopportunity/pttrn-scripts": "^1.0.1"
   }
 }
