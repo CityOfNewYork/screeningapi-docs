@@ -1,10 +1,12 @@
-Here is a list of existing repositories to help get started with the API.
+Here is a list of sample data and code to help get started with the API.
 
-* [Postman Collections](resources/NYC_Benefits_Screening_API_Postman_Collection.zip) - Testing suite for `eligibilityPrograms` and `bulkSubmission` endpoints.
+* [Postman Collections](resources/NYC_Benefits_Screening_API_Postman_Collection.zip) - Testing suite for `eligibilityPrograms` and `bulkSubmission/import` endpoints.
 
-* [Benefits Screening API Sample Application](https://github.com/CityOfNewYork/screeningapi-sample-app) - A single page form (JavaScript) that interacts with the `bulkSubmission` submission endpoint.
+* [Bulk Submission Sample Application](https://github.com/CityOfNewYork/screeningapi-sample-app) - A single page form (JavaScript) that interacts with the `bulkSubmissiom/import` submission endpoint.
 
-* [Benefits Screening API Sample Data CSV](https://github.com/CityOfNewYork/screeningapi-docs/blob/main/dist/resources/sample_bulk_submission_import.csv) - CSV file with sample data for use with the `bulkSubmission` endpoint.
+* [Bulk Submission Sample Data CSV](https://github.com/CityOfNewYork/screeningapi-docs/blob/main/dist/resources/sample_bulk_submission_import.csv) - CSV file with sample data for use with the `bulkSubmission/import` endpoint.
+
+* [Documentation Source](https://github.com/CityOfNewYork/screeningapi-docs) - The source code for this documentation. Including code for the [Request Builder](request-builder), [Change Password Form](change-password), and [Bulk Submission Form](bulk-submission-form).
 
 Contact us through [Support](mailto:screeningapi@nycopportunity.nyc.gov) if you need additional help or have interest in sharing and listing SDKs or sample applications for this project.
 
