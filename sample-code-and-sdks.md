@@ -1,6 +1,6 @@
 Here is a list of sample data and code to help get started with the API.
 
-* [Postman Collections](resources/NYC_Benefits_Screening_API_Postman_Collection.zip) - Testing suite for `eligibilityPrograms` and `bulkSubmission/import` endpoints.
+* [Postman Collections](https://github.com/CityOfNewYork/screeningapi-postman-collection) - Testing suite for `eligibilityPrograms` and `bulkSubmission/import` endpoints.
 
 * [Bulk Submission Sample Application](https://github.com/CityOfNewYork/screeningapi-sample-app) - A single page form (JavaScript) that interacts with the `bulkSubmissiom/import` submission endpoint.
 
