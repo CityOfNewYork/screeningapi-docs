@@ -1,10 +1,18 @@
-export default function(cdn) {
-  const controller = new AbortController()
+// import * as SwaggerUI from 'swagger-ui';
 
-  window.editor = SwaggerEditorBundle({
+export default function(cdn) {
+  // const controller = new AbortController()\
+  // const SwaggerUI = require('swagger-ui');
+
+  SwaggerUIBundle({
     dom_id: '#swagger-editor',
     url: cdn + 'endpoints.yml'
   });
+
+  // window.editor = SwaggerEditorBundle({
+  //   dom_id: '#swagger-editor',
+  //   url: cdn + 'endpoints.yml'
+  // });
 
   $('.SplitPane').css('position', 'relative');
   $('.Pane1').css('display', 'none');
