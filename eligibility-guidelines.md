@@ -18,6 +18,8 @@ It’s important for developers and end-users impacted by use of the API to unde
 
 * <a href='https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/kvhd-5fmu' target='_blank' rel="nofollow noopener">NYC Benefits and Programs API</a> - Comprehensive information for public benefits and services available to New Yorkers, including: plain language descriptions, details, and application options.
 
+* <a href='https://docs.google.com/spreadsheets/d/1o5INY8wZwhu92oJt6R9CzhiI8I5HMK86qOXd_ceh5w0/edit' target='_blank' rel="nofollow noopener">Screening Questions and Answers</a> - Current full range of household composition data objects and how they map to question prompts.
+
 ## Next
 
 <a href="making-a-request" title="Making a Request" class="btn">Making a Request <svg aria-hidden="true" class="icon-ui mis-1"><use xlink:href="#feather-arrow-right"></use></svg></a>
