@@ -1,20 +1,18 @@
-/*Swagger styling*/
+/* Swagger styling */
 
 #swagger-editor {
   // display: none;
+  .scheme-container {
+    box-shadow: none
+  }
 
   .Resizer.vertical {
     display: none;
   }
 
   .swagger-ui {
-    width: 100%;
-    display: inline-block;
-
-    .wrapper {
-      max-width: initial;
-      padding-left: 0;
-      padding-right: 0;
+    .opblock-summary-control {
+      flex: 1
     }
 
     // enables scrolling for schema that gets cut off
@@ -36,14 +34,6 @@
     }
 
     .servers {
-      label {
-        margin-right: 0;
-      }
-
-      select {
-        width: 100%;
-      }
-
       h4 {
         display: none;
       }
@@ -55,11 +45,6 @@
       table {
         display: none;
       }
-    }
-
-    .curl {
-      text-align: left;
-      margin-bottom: 0;
     }
 
     .execute {
