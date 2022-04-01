@@ -63,7 +63,7 @@
     <aside class="o-navigation color-mid-background">
       <div class="o-navigation__wrap hidden tablet:block">
         <div class="o-navigation__nav">
-          <nav class="mb-2">
+          <nav class="mb-2" aria-label="Guide">
             <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Guide</span>
             <a class="o-navigation__link no-underline px-1" href="overview">Overview</a>
             <a class="o-navigation__link no-underline px-1" href="getting-started">
@@ -88,13 +88,13 @@
               <span class="small font-normal">07</span> Feedback and Support
             </a>
           </nav>
-          <nav class="mb-2">
+          <nav class="mb-2" aria-label="Tools">
             <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Tools</span>
             <a class="o-navigation__link no-underline px-1" href="request-builder">Request Builder</a>
             <a class="o-navigation__link no-underline px-1" href="change-password-form">Change Password Form</a>
             <a class="o-navigation__link no-underline px-1" href="bulk-submission-form">Bulk Submission Form</a>
           </nav>
-          <nav class="mb-2">
+          <nav class="mb-2" aria-label="Reference">
             <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Reference</span>
             <a class="o-navigation__link no-underline px-1" href="eligibility-guidelines">Eligibility Guidelines</a>
             <a class="o-navigation__link no-underline px-1" href="terms-of-service">Terms of Service</a>
@@ -103,7 +103,7 @@
       </div>
       <div class="o-navigation__wrap tablet:hidden hidden" id="aria-c-navigation" data-js="navigation" tabindex="-1">
         <div class="o-navigation__nav">
-          <nav class="mb-2">
+          <nav class="mb-2" aria-label="Guide">
             <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Guide</span>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="overview">Overview</a>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="getting-started">
@@ -128,13 +128,13 @@
               <span class="small font-normal">07</span> Feedback and Support
             </a>
           </nav>
-          <nav class="mb-2">
+          <nav class="mb-2" aria-label="Tools">
             <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Tools</span>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="request-builder">Request Builder</a>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="change-password-form">Change Password Form</a>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="bulk-submission-form">Bulk Submission Form</a>
           </nav>
-          <nav class="mb-2">
+          <nav class="mb-2" aria-label="Reference">
             <span class="o-navigation__link-header text-grey border-b border-grey-70t px-1 mb-1">Reference</span>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="eligibility-guidelines">Eligibility Guidelines</a>
             <a class="o-navigation__link no-underline px-1" tabindex="-1" href="terms-of-service">Terms of Service</a>
@@ -155,7 +155,8 @@
         </section>
         <section class="mb-8">
           <div id="swagger-editor" class="font-serif"></div>
-          <script src="https://editor.swagger.io/dist/swagger-editor-bundle.js"></script>
+          <link href="https://unpkg.com/swagger-ui-dist@3.48.0/swagger-ui.css" rel="stylesheet">
+          <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js" charset="UTF-8"></script>
         </section>
         <section class="layout-content pb-4">
           <div class="o-content mx-auto mb-8">

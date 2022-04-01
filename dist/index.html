@@ -47,7 +47,7 @@
     <div class="p-4 animated">
       <div class="layout-wrap screen-tablet:layout--two-columns-gutter justify-center mx-auto">
         <div class="tablet:grid tablet:grid-cols-3 tablet:gap-3">
-          <nav class="pb-2">
+          <nav class="pb-2" aria-label="Guide">
             <span class="block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t">Guide</span>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="overview">Overview</a>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="getting-started">
@@ -72,13 +72,13 @@
               <span class="small font-normal mie-1">07</span> Feedback and Support
             </a>
           </nav>
-          <nav class="pb-2">
+          <nav class="pb-2" aria-label="Tools">
             <span class="block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t">Tools</span>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="request-builder">Request Builder</a>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="change-password-form">Change Password Form</a>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="bulk-submission-form">Bulk Submission Form</a>
           </nav>
-          <nav class="pb-2">
+          <nav class="pb-2" aria-label="Reference">
             <span class="block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t">Reference</span>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="eligibility-guidelines">Eligibility Guidelines</a>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" tabindex="-1" href="terms-of-service">Terms of Service</a>
@@ -116,7 +116,7 @@
             </svg>
           </div>
           <div class="py-4 mx-auto animated fadeInUp desktop:p-8">
-            <div class="justify-center items-center mb-6 desktop:flex desktop:px-4">
+            <div class="justify-center items-center mb-4 desktop:flex desktop:px-4">
               <div class="py-2 mobile:text-center desktop:text-start">
                 <h2 class="h1 font-default font-normal inline-block mb-3 desktop:m-0" style="line-height: 1em">
                   <span class="sr-only">NYC Benefits Platform | Screening API</span>
@@ -138,6 +138,19 @@
                   <br>
                   <span class="text-h6">or <a href="overview">read the overview to learn more</a>.</span>
                 </p>
+              </div>
+            </div>
+            <div class="flex items-center border border-blue p-2" role="alert">
+              <div class="pie-2">
+                <svg aria-hidden="true" class="icon-ui mie-1">
+                  <use xlink:href="#feather-info"></use>
+                </svg>
+              </div>
+              <div>
+                <h3 class="h5">Update 12/2021</h2>
+                  <div class="o-content">
+                    <p>The NYC Benefits Screening API is currently unavailable due to maintenance. It's expected to be available again sometime in 2023.</p>
+                  </div>
               </div>
             </div>
           </div>
@@ -228,7 +241,7 @@
           <h2 class="mt-0 mb-8">View the Documentation</h2>
         </div>
         <div class="tablet:grid tablet:grid-cols-3 tablet:gap-3">
-          <nav class="">
+          <nav class="" aria-label="Guide">
             <span class="block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t">Guide</span>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="overview">Overview</a>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="getting-started">
@@ -253,13 +266,13 @@
               <span class="small font-normal mie-1">07</span> Feedback and Support
             </a>
           </nav>
-          <nav class="">
+          <nav class="" aria-label="Tools">
             <span class="block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t">Tools</span>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="request-builder">Request Builder</a>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="change-password-form">Change Password Form</a>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="bulk-submission-form">Bulk Submission Form</a>
           </nav>
-          <nav class="">
+          <nav class="" aria-label="Reference">
             <span class="block p-2 mb-1 text-h4 font-normal text-grey border-b border-grey-70t">Reference</span>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="eligibility-guidelines">Eligibility Guidelines</a>
             <a class="block p-2 text-h5 no-underline hover:bg-pink-50t flex items-center" href="terms-of-service">Terms of Service</a>
