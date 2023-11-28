@@ -942,9 +942,9 @@
       var fieldName, groupSeleted,
       results = {"errors": 0, "warnings": 0},
       fieldsObj = form.serializeArray().reduce((obj, item) => (obj[item.name] = item.value, obj) ,{}),
-      fields = form.find('[required]'),
-      errNode = $('.error-msg'),
-      warningNode = $('.warning-msg'),
+      fields = form.find('[required]');
+      $('.error-msg');
+      var warningNode = $('.warning-msg'),
       hhMsgObj = responses.find(x => x["Household"])["Household"],
       personMsgObj = responses.find(x => x["Person"])["Person"],
       errMsgObj = responses.find(x => x["General"])["General"];
@@ -1510,8 +1510,8 @@
           return el;
         });
 
-      let wt = this.webtrends(key, d);
-      let ga = this.gtag(key, d);
+      this.webtrends(key, d);
+      this.gtag(key, d);
       /* eslint-enable no-console */
 
       return d;
@@ -1525,8 +1525,8 @@
      * @param  {Collection}  data  The data to track
      */
     view(app, key, data) {
-      let wt = this.webtrends(key, data);
-      let ga = this.gtagView(app, key);
+      this.webtrends(key, data);
+      this.gtagView(app, key);
       /* eslint-enable no-console */
     };
 
@@ -1689,4 +1689,4 @@
     }, 'text');
   });
 
-}());
+})();
