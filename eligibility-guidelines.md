@@ -12,9 +12,9 @@ It’s important for developers and end-users impacted by use of the API to unde
 
 ## Documentation
 
-* <a href="https://github.com/CityOfNewYork/screeningapi-docs/blob/89321865eef9cf58c02805bc50720ce6ddf62dd5/NYC_Benefits_Screening_Guide_1.24.0.pdf" target="_blank">NYC Benefits Screening Guide 1.24.0 (Last Updated November 2023)</a> - This guide summarizes the eligibility criteria that is interpreted and implemented in the NYC Benefits Screening API.
+* <a href="https://github.com/CityOfNewYork/screeningapi-docs/blob/72309d0d0873bc75ac86a67bad38607a5ab8af3b/NYC_Benefits_Screening_Guide_1.25.0.pdf" target="_blank">NYC Benefits Screening Guide 1.25.0 (Last Updated November 2023)</a> - This guide summarizes the eligibility criteria that is interpreted and implemented in the NYC Benefits Screening API.
 
-* <a href='https://github.com/CityOfNewYork/screeningapi-docs/blob/fd576cac4b483638fb35b655e53006118d16f14d/NYC_Benefits_Screening_Chart_1.24.0.pdf' data-js='track' data-track-key='Benefits Screening Chart' data-track-data='[{"event":"benefits-screening-chart"}]' target='_blank' rel="nofollow noopener">NYC Benefits Screening Chart 1.24.0 (Last Updated November 2023)</a> - This chart summarizes how individual request parameters map to the potential eligibility response for benefits programs.
+* <a href='https://github.com/CityOfNewYork/screeningapi-docs/blob/72309d0d0873bc75ac86a67bad38607a5ab8af3b/NYC_Benefits_Screening_Chart_1.25.0.pdf' data-js='track' data-track-key='Benefits Screening Chart' data-track-data='[{"event":"benefits-screening-chart"}]' target='_blank' rel="nofollow noopener">NYC Benefits Screening Chart 1.25.0 (Last Updated November 2023)</a> - This chart summarizes how individual request parameters map to the potential eligibility response for benefits programs.
 
 * <a href='https://data.cityofnewyork.us/Social-Services/Benefits-and-Programs-API/kvhd-5fmu' target='_blank' rel="nofollow noopener">NYC Benefits and Programs Dataset</a> - Comprehensive information for public benefits and services available to New Yorkers, including: plain language descriptions, details, and application options.
 
