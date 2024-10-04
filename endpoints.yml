@@ -25,7 +25,7 @@ paths:
         See <a href="token-based-authentication">Token Based Authentication</a> for more details. On successful
         response, the retrieved token can be provided in the request header of the <b>Screening</b> endpoints to make
         an authenticated request.
-
+        <br>
         The endpoint can also be used to change one's password, by using the <code>newPassword</code> property in the request body. 
       requestBody:
         required: true
