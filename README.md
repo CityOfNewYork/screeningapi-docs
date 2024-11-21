@@ -1,6 +1,6 @@
 # NYC Benefits Screening API Documentation
 
-Documentation site source for the NYC Benefits Screening API maintained by [@nycopportunity](https://github.com/NYCOpportunity). Screen clients for **benefits at scale** or create **new benefits screening tools**. Send household composition data to eligibility rules for **35+** City, State, and Federal programs including SNAP, Cash Assistance, WIC, HEAP, and more. To learn more about the API view the public documentation at [screeningapidocs.cityofnewyork.us](https://screeningapidocs.cityofnewyork.us).
+Documentation site source for the NYC Benefits Screening API maintained by [@nycopportunity](https://github.com/NYCOpportunity). Screen clients for **benefits at scale** or create **new benefits screening tools**. Send household composition data to eligibility rules for **40+** City, State, and Federal programs including SNAP, Cash Assistance, WIC, HEAP, and more. To learn more about the API view the public documentation at [screeningapidocs.cityofnewyork.us](https://screeningapidocs.cityofnewyork.us).
 
 ## Readme Contents
 
