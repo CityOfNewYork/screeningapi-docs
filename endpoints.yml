@@ -793,12 +793,12 @@ paths:
                             properties:
                               amount:
                                 type: string
-                                maxLength: 9
+                                maxLength: 15
                                 description: >-
                                   Amount the user receives for the type of
                                   income. Supports only numeric and a
                                   decimal. Characteristic will be min 0
-                                  and max 6 in length. Mantissa will be
+                                  and max 12 in length. Mantissa will be
                                   min 1 and max 2
                                 example: '200.00'
                               frequency:
