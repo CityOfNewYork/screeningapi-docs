@@ -12,7 +12,7 @@ It’s important for developers and end-users impacted by use of the API to unde
 
 ## Documentation
 
-* <a href="https://github.com/CityOfNewYork/screeningapi-docs/blob/d7fa4a1a6f29ddb49a99b762af209637a12856a0/NYC_Benefits_Screening_Guide_1.47.0.pdf" target="_blank" data-track-key='Benefits Screening Guide' data-track-data='[{"event":"benefits-screening-guide"}]' target='_blank' rel="nofollow noopener">NYC Benefits Screening Guide 1.47.0 (Last Updated Sept 2026)</a> - This guide summarizes the eligibility criteria that is interpreted and implemented in the NYC Benefits Screening API.
+* <a href="https://github.com/CityOfNewYork/screeningapi-docs/blob/1e6916fa61b5e8dae79726badf3a5ea5f47dc18a/NYC_Benefits_Screening_Guide_1.47.0.pdf" target="_blank" data-track-key='Benefits Screening Guide' data-track-data='[{"event":"benefits-screening-guide"}]' target='_blank' rel="nofollow noopener">NYC Benefits Screening Guide 1.47.0 (Last Updated Sept 2026)</a> - This guide summarizes the eligibility criteria that is interpreted and implemented in the NYC Benefits Screening API.
 
 * <a href="https://github.com/CityOfNewYork/screeningapi-docs/blob/b2ca13f586f6ab9af1c8040d83f4daa59e58acee/NYC_Benefits_Screening_Chart_1.47.0%20-%20Screening%20Chart.pdf" data-js='track' data-track-key='Benefits Screening Chart' data-track-data='[{"event":"benefits-screening-chart"}]' target='_blank' rel="nofollow noopener">NYC Benefits Screening Chart 1.47.0 (Last Updated Sept 2026)</a> - This chart summarizes how individual request parameters map to the potential eligibility response for benefits programs.
 
